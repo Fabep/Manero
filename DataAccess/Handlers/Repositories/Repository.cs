@@ -34,10 +34,9 @@ namespace DataAccess.Handlers.Repositories
             }
         }
 
-        public async Task<Tuple<TEntity?, StatusMessage>> GetAsync(Expression<Func<TEntity, bool>> expression)
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
         {
-            Tuple<TEntity?, StatusMessage> retmsg;
-
+            TEntity entity;
             try
             {
                 var res = await _context.Set<TEntity>().FirstOrDefaultAsync(expression);
@@ -45,63 +44,63 @@ namespace DataAccess.Handlers.Repositories
 
                 if (res != null)
                 {
-                    retmsg = new Tuple<TEntity?, StatusMessage>(res, StatusMessage.Success);
-                    return retmsg;
+                    entity = res;
+                    return entity;
                 }
-                retmsg = new Tuple<TEntity?, StatusMessage>(null, StatusMessage.NotFound);
-                return retmsg;
+                entity = null!;
+                return entity;
             }
             catch
             {
-                retmsg = new Tuple<TEntity?, StatusMessage>(null, StatusMessage.Error);
-                return retmsg;
+                entity = null!;
+                return entity;
             }
         }
-        public async Task<Tuple<TEntity[]?, StatusMessage>> GetAllAsync(Expression<Func<TEntity, bool>> expression)
+        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression)
         {
-            Tuple<TEntity[]?, StatusMessage> retmsg;
+            IEnumerable<TEntity> entity;
 
             try
             {
-                var res = await _context.Set<TEntity>().Where(expression).ToArrayAsync();
+                var res = await _context.Set<TEntity>().Where(expression).ToListAsync();
 
                 if (res != null)
                 {
-                    retmsg = new Tuple<TEntity[]?, StatusMessage>(res, StatusMessage.Success);
-                    return retmsg;
+                    entity = res;
+                    return entity;
                 }
-                retmsg = new Tuple<TEntity[]?, StatusMessage>(null, StatusMessage.NotFound);
-                return retmsg;
+                entity = null!;
+                return entity;
             }
             catch
             {
-                retmsg = new Tuple<TEntity[]?, StatusMessage>(null, StatusMessage.Error);
-                return retmsg;
+                entity = null!;
+                return entity;
             }
         }
 
-        public async Task<Tuple<TEntity?, StatusMessage>> UpdateAsync(TEntity entity)
+        public async Task<TEntity?> UpdateAsync(TEntity entityToUpdate)
         {
-            Tuple<TEntity?, StatusMessage> retmsg;
+            TEntity entity;
 
             try
             {
-                var res = _context.Set<TEntity>().Update(entity);
+                var res = _context.Set<TEntity>().Update(entityToUpdate);
                 await _context.SaveChangesAsync();
 
 
                 if (res != null)
                 {
-                    retmsg = new Tuple<TEntity?, StatusMessage>(entity, StatusMessage.Success);
-                    return retmsg;
+                    entity = entityToUpdate;
+                    return entity;
                 }
-                retmsg = new Tuple<TEntity?, StatusMessage>(null, StatusMessage.Error);
-                return retmsg;
+                entity = null!;
+                return entity;
             }
             catch
             {
-                retmsg = new Tuple<TEntity?, StatusMessage>(null, StatusMessage.Error);
-                return retmsg;
+                entity = null!;
+                return entity;
             };
         }
         public async Task<StatusMessage> HardDeleteAsync(TEntity entity)
