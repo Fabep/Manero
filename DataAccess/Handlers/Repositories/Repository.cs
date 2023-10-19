@@ -103,7 +103,7 @@ namespace DataAccess.Handlers.Repositories
                 return entity;
             };
         }
-        public async Task<StatusMessage> HardDeleteAsync(TEntity entity)
+        public async Task<StatusMessage> DeleteAsync(TEntity entity)
         {
             try
             {
