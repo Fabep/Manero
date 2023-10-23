@@ -1,10 +1,23 @@
 ﻿@page
+
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section class="featured">
+	<div class="container">
+		<h1>Featured Products</h1>
+		<div class="product-container">
+			@foreach (var product in Model.Products.Take(4))
+			{
+				<partial name="_DeviceTilePartial" model="product" />
+			}
+
+		</div>
+	</div>
+</section>
+
+
+

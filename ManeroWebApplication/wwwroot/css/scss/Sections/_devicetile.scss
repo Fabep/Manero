@@ -6,6 +6,7 @@
     flex-direction: column;
     font-size: 16px;
     margin: 10px;
+   
 
     .product-image {
         margin-bottom: 10px;
@@ -26,19 +27,22 @@
             align-items: flex-end;
             right: 13px;
             top: -202px;
+
             a {
                 font-size: 20px;
                 text-decoration: none;
                 margin: 5px;
                 color: #DBE3F5;
             }
+
             .heart {
-                &:hover{
-                    color:red;
+                &:hover {
+                    color: red;
                 }
             }
+
             .buy {
-                &:hover{
+                &:hover {
                     color: cornflowerblue;
                 }
             }
@@ -63,4 +67,9 @@
     .product-price {
         margin-bottom: 5px;
     }
+}
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Två kolumner */
+    grid-gap: 20px; /* Avstånd mellan boxarna */
 }
