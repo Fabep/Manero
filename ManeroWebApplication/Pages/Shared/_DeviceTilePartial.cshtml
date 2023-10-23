@@ -1,0 +1,32 @@
+﻿@model DataAccess.Models.Product;
+
+<div class="product-tile">
+    <div class="product-image">
+        <img src="/Images/t-shirt.png" alt="@Model.ProductName"/>
+        <div class="product-buttons">
+            <a href="" class="fa-regular fa-heart heart"></a>
+            <a href="" class="fa-solid fa-bag-shopping buy"></a>
+        </div>
+    </div>
+    <div class="product-rating">
+        <div>
+            @for (var i = 0; i < 5; i++)
+            {
+                if (Model.Rating > i)
+                {
+                    <i class="fa-solid fa-star"></i>
+                }
+                else
+                {
+                    <i class="fa-regular fa-star"></i>
+                }
+            }
+        </div>
+    </div>
+    <div class="product-name">
+        @Model.ProductName
+    </div>
+    <div class="product-price">
+        $@Model.ProductPrice
+    </div>
+</div>
