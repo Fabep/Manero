@@ -1,17 +1,26 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccess.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Contexts
+namespace DataAccess.Contexts;
+
+public class LocalContext : DbContext
 {
-    public class LocalContext : DbContext
+    public LocalContext() { }
+    public LocalContext(DbContextOptions<LocalContext> options) : base(options)
     {
-        public LocalContext(DbContextOptions<LocalContext> options) : base(options)
-        {
+        if (Database.EnsureCreated())
+            Database.Migrate();
+    }
+    public DbSet<ProductEntity> Products { get; set; }
 
-        }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer();
+
+
+    // Seedings values here when the database is created.
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<ProductEntity>().HasData(ProductSeeder.SeedProducts());
+
+        base.OnModelCreating(modelBuilder);
     }
 }
