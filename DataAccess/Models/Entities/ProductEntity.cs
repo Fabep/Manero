@@ -11,7 +11,7 @@ public class ProductEntity
     public string ProductDescription { get; set; } = null!;
     [Required]
     [Range(0, int.MaxValue)]
-    public decimal ProductPrice { get; set; }
+    public double ProductPrice { get; set; }
     public int? Rating { get; set; }
     public int? Quantity { get; set; }
 
