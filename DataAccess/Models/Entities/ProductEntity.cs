@@ -8,7 +8,6 @@ public class ProductEntity
     public Guid ProductId = Guid.NewGuid();
     [Required]
     public string ProductName { get; set; } = null!;
-    [Required]
     public string ProductDescription { get; set; } = null!;
     [Required]
     [Range(0, int.MaxValue)]
