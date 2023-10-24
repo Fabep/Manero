@@ -4,6 +4,7 @@ namespace DataAccess.Models;
 
 public class Product
 {
+    public Guid ProductId { get; set; } 
     public string ProductName { get; set; } = null!;
     [Required]
     public string ProductDescription { get; set; } = null!;

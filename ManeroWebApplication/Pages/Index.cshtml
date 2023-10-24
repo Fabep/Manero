@@ -6,6 +6,35 @@
 
 
 
+<section class="product-section">
+    <div class="container product-container">
+
+        <div class="product-container-header">
+            
+            <h1>Best Sellers</h1>
+           
+            <a asp-page="">
+                View All >
+            </a>
+
+        </div>
+
+        <div class="product-container-items">
+            @foreach (var product in Model.BestSellers.Take(4))
+            {
+                <partial name="_DeviceTilePartial" model="product" />
+            }
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
 <section class="featured">
 	<div class="container">
 		<div class="d-flex justify-content-between align-items-center">
@@ -22,6 +51,10 @@
 		</div>
 	</div>
 </section>
+
+
+
+
 
 
 
