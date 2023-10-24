@@ -35,20 +35,27 @@
 
 
 
-<section class="featured">
-	<div class="container">
-		<div class="d-flex justify-content-between align-items-center">
-			<h1>Featured Products</h1>
-			<a href="~/Products/FeaturedProducts" class="btn btn-primary">View all</a>
+<section class="product-section">
+	<div class="container product-container">
 
+		<div class="product-container-header">
+            
+			<h1>Best Seller</h1>
+
+			<a asp-page="/Products/FeaturedProducts">
+				View All >
+			</a>
 
 		</div>
-		<div class="product-container">
+
+		<div class="product-container-items">
 			@foreach (var product in Model.FeaturedProducts.Take(4))
 			{
 				<partial name="_ProductTilePartial" model="product" />
 			}
+
 		</div>
+
 	</div>
 </section>
 
