@@ -10,7 +10,9 @@
 	<div class="container">
 		<div class="d-flex justify-content-between align-items-center">
 			<h1>Featured Products</h1>
-			<a href="@Url.Page("AllProducts")" class="btn btn-primary">View all</a>
+			<a href="~/Product/FeaturedProducts" class="btn btn-primary">View all</a>
+
+
 		</div>
 		<div class="product-container">
 			@foreach (var product in Model.FeaturedProducts.Take(4))
