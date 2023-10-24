@@ -7,15 +7,24 @@
 
 
 <section class="product-section">
-    <div class="container">
-        <h1>Best Sellers</h1>
-        <div class="product-container">
+    <div class="container product-container">
+        
+        <div class="product-container-header">            
+            <h1>Best Sellers</h1>
+            <div>
+                View All >
+                <a asp-page="" />
+            </div>
+        </div>
+        
+        <div class="product-container-items">
             @foreach (var product in Model.BestSellers.Take(4))
             {
                 <partial name="_DeviceTilePartial" model="product" />
             }
 
         </div>
+
     </div>
 </section>
 
