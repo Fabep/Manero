@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Repositories
 {
-    internal class Repository<TEntity, TContext> where TEntity : class where TContext : DbContext
+    public abstract class Repository<TEntity, TContext> where TEntity : class where TContext : DbContext
     {
         private readonly TContext _context;
         public Repository(TContext context)
