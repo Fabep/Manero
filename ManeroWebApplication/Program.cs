@@ -1,4 +1,5 @@
 using DataAccess.Contexts;
+using DataAccess.Handlers.Repositories;
 using DataAccess.Models.Entities;
 using ManeroWebApplication.Data;
 using Microsoft.AspNetCore.Identity;
@@ -20,7 +21,7 @@ namespace ManeroWebApplication
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(connectionString));
-
+            builder.Services.AddScoped<ProductRepository>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
