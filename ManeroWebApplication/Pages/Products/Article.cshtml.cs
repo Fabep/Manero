@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ManeroWebApplication.Pages.Products
 {
-    public class ProductModel : PageModel
+    public class ArticleModel : PageModel
     {
         public void OnGet()
         {

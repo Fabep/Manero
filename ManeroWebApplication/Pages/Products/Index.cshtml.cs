@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ManeroWebApplication.Pages.Product;
+namespace ManeroWebApplication.Pages.Products;
 
 public class IndexModel : PageModel
 {
