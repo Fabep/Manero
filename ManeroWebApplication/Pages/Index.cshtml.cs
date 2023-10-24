@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ManeroWebApplication.Pages
 {
-    public class IndexModel : PageModel
-    {
-        private readonly ProductRepository _productRepository;
+	public class IndexModel : PageModel
+	{
+		private readonly ProductRepository _productRepository;
 
-        public IndexModel( ProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
+		public IndexModel(ProductRepository productRepository)
+		{
+			_productRepository = productRepository;
+		}
 
         public List<Product> BestSellers { get; set; }
         public List<DataAccess.Models.Product> FeaturedProducts { get; set; }
