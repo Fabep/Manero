@@ -1,4 +1,5 @@
-﻿
+﻿﻿
+
 
 .product-section {
     border: 5px dashed red;
@@ -35,6 +36,7 @@
         .product-container {
             h1 {
             }
+
             .product-container-items {
                 grid-template-columns: 1fr 1fr 1fr 1fr;               
             }

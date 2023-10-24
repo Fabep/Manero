@@ -31,3 +31,31 @@
 </section>
 
 
+
+
+
+
+<section class="featured">
+	<div class="container">
+		<div class="d-flex justify-content-between align-items-center">
+			<h1>Featured Products</h1>
+			<a href="~/Product/FeaturedProducts" class="btn btn-primary">View all</a>
+
+
+		</div>
+		<div class="product-container">
+			@foreach (var product in Model.FeaturedProducts.Take(4))
+			{
+				<partial name="_ProductTilePartial" model="product" />
+			}
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
