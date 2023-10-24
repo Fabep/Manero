@@ -51,3 +51,8 @@
 .product-tile .product-price {
   margin-bottom: 5px;
 }
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Två kolumner */
+    grid-gap: 20px; /* Avstånd mellan boxarna */
+}
