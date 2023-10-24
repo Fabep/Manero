@@ -52,10 +52,10 @@
   margin-bottom: 5px;
 }
 
-.best-sellers {
+.product-section {
   border: 5px dashed red;
 }
-.best-sellers .container product-container {
+.product-section .container .product-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

@@ -16,7 +16,7 @@ namespace ManeroWebApplication.Pages
             _productRepository = productRepository;
         }
 
-        public List<Product> BestSellers { get; set; }
+        public List<Product> BestSellers { get; set; } 
 
         public async Task OnGet()
         {

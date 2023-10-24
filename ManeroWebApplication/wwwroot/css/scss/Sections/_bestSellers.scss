@@ -1,9 +1,9 @@
-﻿.best-sellers {
+﻿.product-section {
     border: 5px dashed red;
     .container {
         h1 {
         }
-        product-container{
+        .product-container{
             display: grid;
             grid-template-columns: 1fr 1fr;
             
