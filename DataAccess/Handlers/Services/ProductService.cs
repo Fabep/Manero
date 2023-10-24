@@ -10,20 +10,7 @@ namespace DataAccess.Handlers.Services
 {
     public class ProductService
     {
-        public static Product ConvertProductEntityToProduct(this ProductEntity p)
-        {
-            var product = new Product()
-            {
-                ProductId = p.ProductId,
-                ProductName = p.ProductName,
-                ProductDescription = p.ProductDescription,
-                ProductPrice = p.ProductPrice,
-                Rating = p.Rating ?? 0,
-                Quantity = p.Quantity ?? 0
-
-            };
-            return product;
-        }
+    
 
 
     }

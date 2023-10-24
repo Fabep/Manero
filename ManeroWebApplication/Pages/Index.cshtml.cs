@@ -1,4 +1,5 @@
 ﻿using DataAccess.Contexts;
+using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services;
 using DataAccess.Models;
@@ -23,7 +24,7 @@ namespace ManeroWebApplication.Pages
         {
            var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
             BestSellers = productList
-             .Select(p => ProductService.ConvertProductEntityToProduct(p))
+             .Select(p => DataConverter.ConvertProductEntityToProduct(p))
              .ToList();
 
             //BestSellers = productList
