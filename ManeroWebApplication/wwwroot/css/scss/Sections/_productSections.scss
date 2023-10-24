@@ -4,9 +4,14 @@
     border: 5px dashed red;
 
     .product-container {
-        h1 {
-        }
-
+        .product-container-header{
+            display: flex;
+            justify-content:space-between;
+            h1{}
+            a{
+                border: 2px dotted blue;
+            }
+        } 
         .product-container-items {
             border: 3px dashed green;
             display: grid;
