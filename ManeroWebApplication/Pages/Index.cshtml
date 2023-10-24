@@ -8,15 +8,17 @@
 
 <section class="product-section">
     <div class="container product-container">
-        
-        <div class="product-container-header">            
+
+        <div class="product-container-header">
+            
             <h1>Best Sellers</h1>
-            <div>
+           
+            <a asp-page="">
                 View All >
-                <a asp-page="" />
-            </div>
+            </a>
+
         </div>
-        
+
         <div class="product-container-items">
             @foreach (var product in Model.BestSellers.Take(4))
             {

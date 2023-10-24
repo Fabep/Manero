@@ -4,14 +4,20 @@
     border: 5px dashed red;
 
     .product-container {
-        .product-container-header{
+        .product-container-header {
             display: flex;
-            justify-content:space-between;
-            h1{}
-            a{
-                border: 2px dotted blue;
+            justify-content: space-between;
+            align-items: baseline;
+
+            h1 {
             }
-        } 
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+
         .product-container-items {
             border: 3px dashed green;
             display: grid;
