@@ -51,3 +51,11 @@
 .product-tile .product-price {
   margin-bottom: 5px;
 }
+
+.best-sellers {
+  border: 5px dashed red;
+}
+.best-sellers .container product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
