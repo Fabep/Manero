@@ -8,7 +8,7 @@ public class IndexModel : PageModel
     {
         
     }
-    public void OnGet(DataAccess.Models.Product p)
+    public void OnGet(Guid p)
     {
 
     }
