@@ -1,69 +1,65 @@
-﻿    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - ManeroWebApplication</title>
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ManeroWebApplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
-        <link rel="stylesheet" href="~/ManeroWebApplication.styles.css" asp-append-version="true" />
-    </head>
-    <body>
-        <header>
-            <nav class="container">
-                <div class="nav-content">
-                    <div class="nav-box navbar navbar-light">
-                        <a class="navbar-brand" asp-area="" asp-page="/Index"></a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="nav-box logo">
-                        MANERO
-                    </div>
-                    <div class="nav-box shop-cart">
-                        <a href="checkout.html" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping"></i></a>
-                    </div>
+    <link rel="stylesheet" href="~/ManeroWebApplication.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="nav-content">
+                <div class="nav-box navbar navbar-light">
+                    <button class="openbtn" onclick="openNav()"><span class="navbar-toggler-icon"></span></button>
                 </div>
-            </nav>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                    </li>
-                </ul>
+                <div class="nav-box logo">
+                    <a asp-area="" asp-page="/Index">MANERO</a>
+                </div>
+                <div class="nav-box shop-cart">
+                    <a href="checkout.html" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+        <div id="navSidebar" class="sidebar">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                </li>
                 <div class="d-sm-inline-flex">
                     <partial name="_LoginPartial" />
                 </div>
-            </div>
-            
-
-        </header>
-
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+            </ul>
         </div>
+    </header>
 
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2023 - ManeroWebApplication - <a asp-area="" asp-page="/Privacy">Privacy</a>
-            </div>
-        </footer>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - ManeroWebApplication - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
 
-        @await RenderSectionAsync("Scripts", required: false)
-    </body>
-    </html>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
