@@ -1,6 +1,6 @@
 ﻿header {
-
-
+    box-shadow: 0 0 1px 1px rgb(0, 0, 0);
+  
     nav {
 
         .container {
@@ -17,7 +17,22 @@
                 text-align: center;
             }
 
-            .toggle-bar{
+            .logo {
+                font-size: 17px;
+                font-weight: 500;
+            }
+
+            .shop-cart {
+                font-size: 17px;
+
+                a {
+                    .shop-icon {
+                        color: black;
+                    }
+                }
+            }
+
+            .toggle-bar {
             }
         }
     }
