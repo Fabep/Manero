@@ -16,7 +16,7 @@ namespace ManeroWebApplication.Pages
 			_productRepository = productRepository;
 		}
 
-        public List<Product> BestSellers { get; set; }
+        public List<DataAccess.Models.Product> BestSellers { get; set; }
         public List<DataAccess.Models.Product> FeaturedProducts { get; set; }
 
         public async Task OnGet()
@@ -27,7 +27,7 @@ namespace ManeroWebApplication.Pages
             var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
 
             BestSellers = productList
-                .Select(p => new Product
+                .Select(p => new DataAccess.Models.Product
                 {
                     ProductName = p.ProductName,
                     ProductDescription = p.ProductDescription,
