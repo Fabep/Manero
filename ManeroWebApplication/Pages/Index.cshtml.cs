@@ -25,6 +25,7 @@ namespace ManeroWebApplication.Pages
             BestSellers = productList
                 .Select(p => new Product
                 {
+                    ProductId = p.ProductId,
                     ProductName = p.ProductName,
                     ProductDescription = p.ProductDescription,
                     ProductPrice = p.ProductPrice,
