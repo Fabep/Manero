@@ -22,7 +22,7 @@
         <div class="product-container-items">
             @foreach (var product in Model.BestSellers.Take(4))
             {
-                <partial name="_DeviceTilePartial" model="product" />
+                <partial name="_ProductTilePartial" model="product" />
             }
 
         </div>
