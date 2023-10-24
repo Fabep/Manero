@@ -24,12 +24,9 @@ namespace ManeroWebApplication.Pages
 
         public async Task OnGet()
         {
-            _productRepository.GetAllAsync(x => x.ProductPrice < 900);
+           var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
 
-           // Expression<Func<ProductEntity, bool>> expression = p => p.ProductPrice < 1000;
-
-            BestSellers = await _context.Products
-                .Where(expression)
+            BestSellers = productList
                 .Select(p => new Product
                 {
                     ProductName = p.ProductName,
