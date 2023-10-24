@@ -16,7 +16,7 @@ namespace ManeroWebApplication.Pages
             _productRepository = productRepository;
         }
 
-        public List<Product> BestSellers { get; set; }
+        public List<Product> BestSellers { get; set; } 
 
         public async Task OnGet()
         {
@@ -25,6 +25,7 @@ namespace ManeroWebApplication.Pages
             BestSellers = productList
                 .Select(p => new Product
                 {
+                    ProductId = p.ProductId,
                     ProductName = p.ProductName,
                     ProductDescription = p.ProductDescription,
                     ProductPrice = p.ProductPrice,
