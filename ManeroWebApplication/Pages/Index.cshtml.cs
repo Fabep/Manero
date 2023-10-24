@@ -9,14 +9,10 @@ namespace ManeroWebApplication.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-        private readonly LocalContext _context; // Använd din faktiska kontextklass
         private readonly ProductRepository _productRepository;
 
-        public IndexModel(ILogger<IndexModel> logger, LocalContext context, ProductRepository productRepository)
+        public IndexModel( ProductRepository productRepository)
         {
-            _logger = logger;
-            _context = context;
             _productRepository = productRepository;
         }
 
@@ -35,7 +31,7 @@ namespace ManeroWebApplication.Pages
                     Rating = p.Rating ?? 0,
                     Quantity = p.Quantity ?? 0
                 })
-                .ToListAsync();
+                .ToList();
         }
     }
 }
