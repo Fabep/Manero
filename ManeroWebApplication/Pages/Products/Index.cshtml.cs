@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ManeroWebApplication.Pages.Product;
+namespace ManeroWebApplication.Pages.Products;
 
 public class IndexModel : PageModel
 {
@@ -8,7 +8,7 @@ public class IndexModel : PageModel
     {
         
     }
-    public void OnGet(DataAccess.Models.Product p)
+    public void OnGet(Guid p)
     {
 
     }

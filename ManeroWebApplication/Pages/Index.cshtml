@@ -6,17 +6,63 @@
 
 
 
-<section class="featured">
-    <div class="container">
-        <h1>Best Sellers</h1>
-        <div class="product-container">
-            @foreach (var product in Model.BestSellers.Take(3))
+<section class="product-section">
+    <div class="container product-container">
+
+        <div class="product-container-header">
+            
+            <h1>Best Sellers</h1>
+           
+            <a asp-page="/Products">
+                View All >
+            </a>
+
+        </div>
+
+        <div class="product-container-items">
+            @foreach (var product in Model.BestSellers.Take(4))
             {
-                <partial name="_DeviceTilePartial" model="product" />
+                <partial name="_ProductTilePartial" model="product" />
             }
 
         </div>
+
     </div>
 </section>
+
+
+
+
+
+
+<section class="product-section">
+	<div class="container product-container">
+
+		<div class="product-container-header">
+            
+			<h1>Featured Products</h1>
+
+			<a asp-page="/Products/FeaturedProducts">
+				View All >
+			</a>
+
+		</div>
+
+		<div class="product-container-items">
+			@foreach (var product in Model.FeaturedProducts.Take(4))
+			{
+				<partial name="_ProductTilePartial" model="product" />
+			}
+
+		</div>
+
+	</div>
+</section>
+
+
+
+
+
+
 
 

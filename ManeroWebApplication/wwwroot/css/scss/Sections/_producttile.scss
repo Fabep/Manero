@@ -1,52 +1,60 @@
-﻿.product-tile {
+﻿
+.product-tile {
     max-height: fit-content;
     max-width: fit-content;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     font-size: 16px;
     margin: 10px;
 
     .product-image {
         margin-bottom: 10px;
-        height: 200px;
-        width: 200px;
+        height: 140px;
+        width: 140px;
         align-self: center;
 
-        img {
+        a {
             width: inherit;
             height: inherit;
-            object-fit: fill;
+            img {
+                width: inherit;
+                height: inherit;
+                object-fit: fill;
+            }
+        }
+        &:hover {
+             .product-buttons {
+                display: flex;
+            }
         }
 
         .product-buttons {
             position: relative;
+            z-index: 5;
             display: none;
             flex-direction: column;
             align-items: flex-end;
             right: 13px;
-            top: -202px;
-            a {
+            bottom: 150px;
+
+            i {
                 font-size: 20px;
                 text-decoration: none;
                 margin: 5px;
                 color: #DBE3F5;
             }
+
             .heart {
-                &:hover{
-                    color:red;
+                &:hover {
+                    color: red;
                 }
             }
+
             .buy {
-                &:hover{
+                &:hover {
                     color: cornflowerblue;
                 }
-            }
-        }
-
-        &:hover {
-            .product-buttons {
-                display: flex;
             }
         }
     }
