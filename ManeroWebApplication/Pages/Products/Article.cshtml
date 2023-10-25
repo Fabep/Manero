@@ -4,7 +4,7 @@
 }
 
 @* Container *@
-<div class="product-page-container"> 
+<section class="product-page-container"> 
     @* Images *@
     <div class="product-image">
         <img src="~/Images/t-shirt.png"/>
@@ -13,7 +13,7 @@
 
     @* Product Name *@
     <div class="product-name">
-        <h3>@Model.Product.ProductName</h3>
+        <h3 class="m-0"><b>@Model.Product.ProductName</b></h3>
         <i class="fa-regular fa-heart heart"></i>
     </div>
     @* Stars *@
@@ -33,39 +33,48 @@
 
     @* Price *@
     <div class="product-price">
-        <h4>$@Model.Product.ProductPrice</h4>
+        <h4 class="m-0">$@Model.Product.ProductPrice</h4>
         <div class="product-amount">
             <button class="amount-button">-</button>
-            <div class="current-amount">0</div>
+            <div id="current-amount">0</div>
             <button class="amount-button">+</button>
         </div>
     </div>
 
     @* Sizes *@
     <div class="product-size">
-        <h5 class="product-text-title">Size</h5>
+        <h5 class="product-text-part">Size</h5>
+        <div class="horizontal-button-container">
+            <button class="size-button">S</button>
+            <button class="size-button">M</button>
+        </div>
     </div>
 
     @* Colors *@
     <div class="product-color">
-        <h5 class="product-text-title">Color</h5>
+        <h5 class="product-text-part m-0">Color</h5>
+        <button class="color-button"></button>
     </div>
 
     @* Description *@
     <div class="product-description">
-        <h5 class="product-text-title">Description</h5>
+        <h5 class="product-text-part">Description</h5>
         <p>@Model.Product.ProductDescription</p>
     </div>
 
     @* Add to cart *@
-    <button class="add-to-cart">
+    <button class="add-to-cart-button">
         Add To Cart
     </button>
 
     @* Reviews *@
     <div class="product-reviews">
-        <h4>Reviews</h4>
-        <div></div>
-        <div></div>
+        <div class="review-top">
+            <h4>Reviews (@Model.ReviewCount)</h4>
+            <a asp-page="/Products/Article/Reviews" class="view-reviews-button">View all ></a>
+        </div>
+        <div class="review-box">
+            <img class="picture" src="" alt="Profile picture"/>
+        </div>
     </div>
-</div>
+</section>
