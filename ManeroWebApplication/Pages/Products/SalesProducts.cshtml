@@ -1,0 +1,49 @@
+﻿@page
+@model ManeroWebApplication.Pages.Products.SalesProductsModel
+@{
+}
+<section class="featured">
+	<div class="container">
+		<div class="d-flex justify-content-between align-items-center">
+			<h1>All Products With 50% Discount!</h1>
+
+		</div>
+		<div class="product-container-sales">
+			@foreach (var product in Model.FeaturedProducts)
+			{
+				<div class="product-tile">
+					<div class="product-image">
+						<a asp-page="/Product/Index" asp-route-q="@Model">
+							<img src="/Images/t-shirt.png" alt="@product.ProductName"/>
+						</a>
+						<div class="product-buttons">
+							<i class="fa-regular fa-heart heart"></i>
+							<i class="fa-solid fa-bag-shopping buy"></i>
+						</div>
+					</div>
+					<div class="product-rating">
+						<div>
+							@for (var i = 0; i < 5; i++)
+							{
+								if (@product.Rating > i)
+								{
+									<i class="fa-solid fa-star"></i>
+								}
+								else
+								{
+									<i class="fa-regular fa-star"></i>
+								}
+							}
+						</div>
+					</div>
+					<div class="product-name">
+						@product.ProductName;
+					</div>
+					<div class="product-price-sales">
+						$@product.ProductPrice
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</section>
