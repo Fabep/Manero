@@ -4,20 +4,35 @@
     }
 
     .main-categories-nav {
-        margin-top:4vh;
-        width:100%;
-        display:flex;
+        margin-top: 4vh;
+        width: 100%;
+        display: flex;
         justify-content: space-between;
 
         .main-categories-nav-box {
-    
             width: 80px;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             .main-categories-nav-box-btn {
-                align-self:center;
+                width: 100%;
+                padding: 9px 0px 9px;
+                background-color: transparent;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #666;
+                    color: white;
+                }
+            }
+
+
+            .active {
+                background-color: #666;
+                color: white;
             }
         }
     }

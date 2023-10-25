@@ -191,5 +191,18 @@ header #main {
   align-items: center;
 }
 .categories .main-categories-nav .main-categories-nav-box .main-categories-nav-box-btn {
-  align-self: center;
+  width: 100%;
+  padding: 9px 0px 9px;
+  background-color: transparent;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.categories .main-categories-nav .main-categories-nav-box .main-categories-nav-box-btn:hover {
+  background-color: #666;
+  color: white;
+}
+.categories .main-categories-nav .main-categories-nav-box .active {
+  background-color: #666;
+  color: white;
 }
