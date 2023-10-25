@@ -1,9 +1,24 @@
-﻿.categories{
+﻿.categories {
 
-    .main-categories-nav{
-
+    .container {
     }
 
+    .main-categories-nav {
+        margin-top:4vh;
+        width:100%;
+        display:flex;
+        justify-content: space-between;
 
-
+        .main-categories-nav-box {
+    
+            width: 80px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            
+            .main-categories-nav-box-btn {
+                align-self:center;
+            }
+        }
+    }
 }

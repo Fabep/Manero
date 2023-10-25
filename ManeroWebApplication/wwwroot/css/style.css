@@ -178,3 +178,18 @@ header #main {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+.categories .main-categories-nav {
+  margin-top: 4vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.categories .main-categories-nav .main-categories-nav-box {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.categories .main-categories-nav .main-categories-nav-box .main-categories-nav-box-btn {
+  align-self: center;
+}
