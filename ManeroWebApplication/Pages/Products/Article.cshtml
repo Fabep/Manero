@@ -35,9 +35,9 @@
     <div class="product-price">
         <h4 class="m-0">$@Model.Product.ProductPrice</h4>
         <div class="product-amount">
-            <button class="amount-button">-</button>
-            <div id="current-amount">0</div>
-            <button class="amount-button">+</button>
+            <button class="amount-button" onclick="remove()">-</button>
+            <div id="current-amount">@Model.CurrentAmount</div>
+            <button class="amount-button" onclick="add()">+</button>
         </div>
     </div>
 

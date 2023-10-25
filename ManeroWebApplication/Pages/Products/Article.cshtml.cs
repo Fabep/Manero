@@ -15,6 +15,8 @@ namespace ManeroWebApplication.Pages.Products
         }
         public Product Product { get; set; } = null!;
         public int ReviewCount { get; set; } = 0;
+        [BindProperty]
+        public int CurrentAmount { get; set; } = 0; 
         public async Task OnGetAsync(Guid id)
         {
             Product = DataConverter.ConvertProductEntityToProduct(
