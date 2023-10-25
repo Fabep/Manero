@@ -2,3 +2,70 @@
 @model ManeroWebApplication.Pages.Products.ArticleModel
 @{
 }
+
+@* Container *@
+<div class="product-page-container"> 
+    @* Images *@
+    <div class="product-image">
+        <img src="~/Images/t-shirt.png"/>
+    </div>
+    <div class="image-slide-buttons"></div>
+
+    @* Product Name *@
+    <div class="product-name">
+        <h3>@Model.Product.ProductName</h3>
+        <i class="fa-regular fa-heart heart"></i>
+    </div>
+    @* Stars *@
+    <div class="product-star-rating">
+        @for (var i = 0; i < 5; i++)
+        {
+            if (Model.Product.Rating > i)
+            {
+                <i class="fa-solid fa-star"></i>
+            }
+            else
+            {
+                <i class="fa-regular fa-star"></i>
+            }
+        }
+    </div>
+
+    @* Price *@
+    <div class="product-price">
+        <h4>$@Model.Product.ProductPrice</h4>
+        <div class="product-amount">
+            <button class="amount-button">-</button>
+            <div class="current-amount">0</div>
+            <button class="amount-button">+</button>
+        </div>
+    </div>
+
+    @* Sizes *@
+    <div class="product-size">
+        <h5 class="product-text-title">Size</h5>
+    </div>
+
+    @* Colors *@
+    <div class="product-color">
+        <h5 class="product-text-title">Color</h5>
+    </div>
+
+    @* Description *@
+    <div class="product-description">
+        <h5 class="product-text-title">Description</h5>
+        <p>@Model.Product.ProductDescription</p>
+    </div>
+
+    @* Add to cart *@
+    <button class="add-to-cart">
+        Add To Cart
+    </button>
+
+    @* Reviews *@
+    <div class="product-reviews">
+        <h4>Reviews</h4>
+        <div></div>
+        <div></div>
+    </div>
+</div>
