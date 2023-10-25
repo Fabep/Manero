@@ -1,7 +1,9 @@
 ﻿header {
     box-shadow: 0 0 3px 1px rgb(192, 192, 192);
-    position: relative;
-    z-index: 998;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 
     nav {
 
@@ -44,7 +46,8 @@
             }
 
             .shop-cart {
-                font-size: 17px;
+                position:relative;
+                font-size: 22px;
 
                 a {
                     .shop-icon {
