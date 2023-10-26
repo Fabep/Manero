@@ -177,6 +177,11 @@ header #main {
   align-self: center;
 }
 
+@media (min-width: 1120px) {
+  .product-section .product-container .product-container-items {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
 .offer-section {
   background-color: #ff9900;
   color: #fff;
@@ -196,16 +201,6 @@ header #main {
   text-align: center;
 }
 
-h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
 .btn-sales {
   background-color: #fff;
   color: #ff9900;
@@ -222,11 +217,5 @@ p {
 .product-container-sales {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px; /* Anpassa avståndet mellan produkterna efter behov */
-}
-
-@media (min-width: 1120px) {
-  .product-section .product-container .product-container-items {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+  gap: 20px;
 }
