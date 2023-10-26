@@ -155,18 +155,6 @@ header #main {
   color: red;
 }
 
-* {
-  box-sizing: border-box !important;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-.categories {
-  height: 100%;
-}
 .categories .main-categories-nav {
   margin-top: 4vh;
   width: 100%;
@@ -196,24 +184,28 @@ html, body {
   color: white;
 }
 .categories .grid-container {
+  margin-top: 20px;
+  padding: 0 !important;
   width: 100%;
   height: 100%;
   margin-top: 20px;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 0;
+  gap: 1px;
 }
 .categories .grid-container .grid-item {
+  display: flex;
   margin-left: 0;
   margin-right: 0;
-  height: 200px;
+  height: 180px;
   padding: 20px;
   text-align: center;
   font-size: 25px;
   color: #ffffff;
   font-weight: 600;
-  background-color: #8a9fc2;
+  background-color: #6d7987;
   position: relative;
 }
 .categories .grid-container .grid-item:nth-child(3) {
@@ -223,6 +215,9 @@ html, body {
   position: absolute;
   bottom: 10px;
   left: 10px;
+}
+.categories .grid-container .grid-item:hover {
+  background-color: #9aa7b8;
 }
 
 .product-section .product-container .product-container-header {
