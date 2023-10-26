@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroWebApplication", "Man
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsManero", "TestsManero\TestsManero.csproj", "{752C68B7-5D67-4F14-9873-41B6A2561940}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{752C68B7-5D67-4F14-9873-41B6A2561940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{752C68B7-5D67-4F14-9873-41B6A2561940}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{752C68B7-5D67-4F14-9873-41B6A2561940}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{752C68B7-5D67-4F14-9873-41B6A2561940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

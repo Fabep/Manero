@@ -19,6 +19,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1;
+  background-color: white;
 }
 header nav .nav-content {
   display: flex !important;
@@ -149,8 +150,11 @@ header #main {
 .product-tile .product-price {
   margin-bottom: 5px;
 }
+.product-tile .product-price-sales {
+  margin-bottom: 5px;
+  color: red;
+}
 
-/*@import 'Sections/_productSections.scss';*/
 .categories .main-categories-nav {
   margin-top: 4vh;
   width: 100%;
@@ -180,9 +184,6 @@ header #main {
   color: white;
 }
 
-.product-section {
-  border: 5px dashed red;
-}
 .product-section .product-container .product-container-header {
   display: flex;
   justify-content: space-between;
@@ -193,7 +194,6 @@ header #main {
   color: black;
 }
 .product-section .product-container .product-container-items {
-  border: 3px dashed green;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
@@ -206,4 +206,41 @@ header #main {
   .product-section .product-container .product-container-items {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
+.offer-section {
+  background-color: #ff9900;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.offer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.offer-text {
+  text-align: center;
+}
+
+.btn-sales {
+  background-color: #fff;
+  color: #ff9900;
+  padding: 10px 20px;
+  border: none;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.btn-sa:hover {
+  background-color: #ffcc00;
+}
+
+.product-container-sales {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }

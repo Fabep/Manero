@@ -17,14 +17,16 @@
         a {
             width: inherit;
             height: inherit;
+
             img {
                 width: inherit;
                 height: inherit;
                 object-fit: fill;
             }
         }
+
         &:hover {
-             .product-buttons {
+            .product-buttons {
                 display: flex;
             }
         }
@@ -70,5 +72,10 @@
 
     .product-price {
         margin-bottom: 5px;
+    }
+
+    .product-price-sales {
+        margin-bottom: 5px;
+        color: red
     }
 }
