@@ -27,9 +27,10 @@
         font-size: 2em;
 
         .heart {
-            font-size:20px;
+            font-size: 20px;
             align-self: center;
-            margin-right:10px;
+            margin-right: 10px;
+
             &:hover {
                 color: red;
             }
@@ -46,7 +47,8 @@
         flex-direction: row;
         justify-content: space-between;
         align-content: flex-start;
-        text-align:center;
+        text-align: center;
+
         .price {
         }
 
@@ -69,13 +71,13 @@
         }
     }
 
-    .product-size {
+    .product-buttons {
         display: flex;
         flex-direction: column;
 
         .size-button {
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
             background-color: transparent;
             text-align: center;
             border: none;
@@ -86,12 +88,25 @@
                 background-color: lightgray;
             }
         }
+
+        .color-button {
+            height: 40px;
+            width: 40px;
+            background-color: red;
+            border: none;
+            border-radius: 100px;
+
+            &:focus {
+                box-shadow: 0 0 0 5px lightgray;
+            }
+        }
     }
 
     .product-color {
         display: flex;
         gap: 20px;
-        text-align:center;
+        text-align: center;
+
         .color-button {
             height: 30px;
             width: 30px;
@@ -113,7 +128,7 @@
 
     .add-to-cart-button {
         background-color: black;
-        border:none;
+        border: none;
         border-radius: 50px;
         color: white;
         padding: 10px;
@@ -121,27 +136,27 @@
 
     .product-reviews {
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
         gap: 20px;
 
         .review-top {
-            display:flex;
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
-
             text-align: center;
-            .view-reviews-button{
-                margin-right: 10px; 
+
+            .view-reviews-button {
+                margin-right: 10px;
                 text-decoration: none;
-                color:black;
+                color: black;
             }
         }
+
         .review-box {
-            .picture{
-
+            .picture {
             }
-            .review-text {
 
+            .review-text {
             }
         }
     }
@@ -149,4 +164,5 @@
 .horizontal-button-container{
     display:flex;
     gap: 10px;
+    padding-bottom: 10px;
 }
