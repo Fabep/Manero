@@ -44,14 +44,14 @@ namespace ManeroWebApplication.Pages
             //    .ToList();
 
             FeaturedProducts = featuredProductList
-                .Select(p => new DataAccess.Models.Product
-                {
-                    ProductName = p.ProductName,
-                    ProductDescription = p.ProductDescription,
-                    ProductPrice = p.ProductPrice,
-                    Rating = p.Rating ?? 0,
-                    Quantity = p.Quantity ?? 0
-                })
+                .Select(p => DataConverter.ConvertProductEntityToProduct(p))
+                //{
+                //    ProductName = p.ProductName,
+                //    ProductDescription = p.ProductDescription,
+                //    ProductPrice = p.ProductPrice,
+                //    Rating = p.Rating ?? 0,
+                //    Quantity = p.Quantity ?? 0
+                //})
                 .ToList();
         }
     }
