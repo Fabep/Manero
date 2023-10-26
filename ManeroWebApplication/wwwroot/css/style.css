@@ -155,6 +155,18 @@ header #main {
   color: red;
 }
 
+* {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.categories {
+  height: 100%;
+}
 .categories .main-categories-nav {
   margin-top: 4vh;
   width: 100%;
@@ -182,6 +194,35 @@ header #main {
 .categories .main-categories-nav .main-categories-nav-box .active {
   background-color: #666;
   color: white;
+}
+.categories .grid-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+}
+.categories .grid-container .grid-item {
+  margin-left: 0;
+  margin-right: 0;
+  height: 200px;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #8a9fc2;
+  position: relative;
+}
+.categories .grid-container .grid-item:nth-child(3) {
+  grid-column: span 2;
+}
+.categories .grid-container .grid-item .text-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 .product-section .product-container .product-container-header {
