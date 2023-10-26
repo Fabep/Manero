@@ -7,18 +7,15 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models.Entities
 {
-    public class ProductCategoryEntity
-    {
-        public class ProductCategory
+   
+        public class ProductCategoryEntity
         {
             [Key]
             public int ProductCategoryID { get; set; }
             public string ProductCategoryName { get; set; }
 
-            public ICollection<MainCategory> MainCategories { get; set; }
+            public ICollection<MainCategoryEntity> MainCategories { get; set; }
         }
 
 
-
-    }
 }
