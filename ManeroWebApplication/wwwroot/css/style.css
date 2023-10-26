@@ -184,9 +184,6 @@ header #main {
   color: white;
 }
 
-.product-section {
-  border: 5px dashed red;
-}
 .product-section .product-container .product-container-header {
   display: flex;
   justify-content: space-between;
@@ -197,7 +194,6 @@ header #main {
   color: black;
 }
 .product-section .product-container .product-container-items {
-  border: 3px dashed green;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;

@@ -1,5 +1,4 @@
 ﻿.product-section {
-    border: 5px dashed red; 
 
 
     .product-container {
@@ -18,7 +17,6 @@
         }
 
         .product-container-items {
-            border: 3px dashed green;
             display: grid;
             grid-template-columns: 1fr 1fr;
             justify-content: center;
