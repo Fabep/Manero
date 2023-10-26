@@ -2,7 +2,7 @@ using DataAccess.Handlers.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ManeroWebApplication.Pages.Product
+namespace ManeroWebApplication.Pages.Products
 {
     public class FeaturedProductsModel : PageModel
     {
