@@ -37,11 +37,6 @@ public class LocalContext : DbContext
         });
         modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
 
-        modelBuilder.Entity<MainCategoryEntity>()
-            .HasMany<ProductCategoryEntity>()
-            .WithMany().LeftNavigation.ForeignKey.GetNavigation();
-
-
         base.OnModelCreating(modelBuilder);
     }
 }
