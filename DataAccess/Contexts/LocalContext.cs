@@ -11,7 +11,7 @@ public class LocalContext : DbContext
     }
     public LocalContext(DbContextOptions<LocalContext> options) : base(options)
     {
-        Database.Migrate();
+        //Database.Migrate();
     }
     public DbSet<ProductEntity> Products { get; set; }
 
