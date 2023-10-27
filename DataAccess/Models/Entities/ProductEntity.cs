@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccess.Models.Entities;
 
@@ -14,5 +15,8 @@ public class ProductEntity
     public double ProductPrice { get; set; }
     public int? Rating { get; set; }
     public int? Quantity { get; set; }
+
+    [Required]
+    public ProductCategoryEntity ProductCategory { get; set; }
 
 }

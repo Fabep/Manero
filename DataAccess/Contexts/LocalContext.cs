@@ -36,7 +36,12 @@ public class LocalContext : DbContext
             Rating = 5
         });
         modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
-        
+
+        modelBuilder.Entity<MainCategoryEntity>()
+            .HasMany<ProductCategoryEntity>()
+            .WithMany().LeftNavigation.ForeignKey.GetNavigation();
+
+
         base.OnModelCreating(modelBuilder);
     }
 }
