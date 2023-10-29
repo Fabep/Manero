@@ -16,7 +16,8 @@ public class ProductEntity
     public int? Rating { get; set; }
     public int? Quantity { get; set; }
 
-    [Required]
-    public ProductCategoryEntity ProductCategory { get; set; }
+    [ForeignKey("SubCategory")]
+    public int SubCategoryId { get; set; }
+    public SubCategoryEntity SubCategory { get; set; }
 
 }

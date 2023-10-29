@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models.Entities
 {
-    public class MainCategoryEntity
+    public class PrimaryCategoryEntity
     {
         [Key]
-        public int MainCategoryID { get; set; }
-        public string MainCategoryName { get; set; }
-        public virtual ICollection<ProductCategoryEntity> ProductCategories { get; set; }
+        public int PrimaryCategoryId { get; set; }
+        public string Name { get; set; } = null!;
     }
 }
