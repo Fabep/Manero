@@ -24,8 +24,9 @@ namespace ManeroWebApplication
 
             builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(connectionString));
             builder.Services.AddScoped<ProductRepository>();
+			builder.Services.AddScoped<SubCategoryRepository>();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+			builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddRazorPages();
 

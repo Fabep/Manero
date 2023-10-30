@@ -14,9 +14,8 @@ namespace DataAccess.Handlers.Services
 {
 	public class ProductService :IProductService
     {
-
-
 		private readonly ProductRepository _productRepository;
+		private readonly SubCategoryRepository _subCategoryRepository;
 
 		public ProductService(ProductRepository productRepository)
 		{
@@ -38,6 +37,7 @@ namespace DataAccess.Handlers.Services
 		}
 		public async Task<List<Product>> GetProductsFromSubCategory(string subProductCategory)
 		{
+			//var productList = _subCategoryRepository....
 			//var productList = _productRepository.GetAllAsync(x => x. ); // vill hämta de produkter som tillhör vald subkategori
 
 			//ProductsFromSubCategory = productList
