@@ -137,7 +137,7 @@ namespace DataAccess.Migrations
                     b.ToTable("ProductInventories");
                 });
 
-            modelBuilder.Entity("DataAccess.Models.Entities.SizesEntity", b =>
+            modelBuilder.Entity("DataAccess.Models.Entities.SizeEntity", b =>
                 {
                     b.Property<int>("SizeId")
                         .ValueGeneratedOnAdd()
@@ -222,7 +222,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.Models.Entities.SizesEntity", "Size")
+                    b.HasOne("DataAccess.Models.Entities.SizeEntity", "Size")
                         .WithMany()
                         .HasForeignKey("SizeId")
                         .OnDelete(DeleteBehavior.Cascade)

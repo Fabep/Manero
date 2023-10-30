@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models.Entities
 {
-    public class SizesEntity
+    public class SizeEntity
     {
         [Key]
         public int SizeId { get; set; }

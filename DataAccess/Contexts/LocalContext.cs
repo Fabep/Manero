@@ -20,7 +20,7 @@ public class LocalContext : DbContext
 
     public DbSet<ColorEntity> Colors { get; set; }
 
-    public DbSet<SizesEntity> Sizes { get; set; }
+    public DbSet<SizeEntity> Sizes { get; set; }
 
     public DbSet<ProductInventoryEntity> ProductInventories { get; set; }
 
@@ -40,7 +40,13 @@ public class LocalContext : DbContext
         modelBuilder.Entity<PrimaryCategoryEntity>().HasData(CategorySeeder.SeedPrimaryCategories());
 
         modelBuilder.Entity<SubCategoryEntity>().HasData(CategorySeeder.SeedSubCategories());
-        
+
+        modelBuilder.Entity<ColorEntity>().HasData(ProductSeeder.SeedColors());
+
+        modelBuilder.Entity<SizeEntity>().HasData(ProductSeeder.SeedSizes());
+
+        modelBuilder.Entity<ProductEntity>().HasData(ProductSeeder.SeedProducts());
+
         modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
 
         base.OnModelCreating(modelBuilder);
