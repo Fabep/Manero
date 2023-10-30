@@ -1,5 +1,7 @@
 using DataAccess.Contexts;
 using DataAccess.Handlers.Repositories;
+using DataAccess.Handlers.Services;
+using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models.Entities;
 using ManeroWebApplication.Data;
 using Microsoft.AspNetCore.Identity;
@@ -27,7 +29,10 @@ namespace ManeroWebApplication
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddRazorPages();
 
-            var app = builder.Build();
+            // Add services
+			builder.Services.AddTransient<IProductService, ProductService>();
+
+			var app = builder.Build();
 
             using (var scope = app.Services.CreateScope())
             {
