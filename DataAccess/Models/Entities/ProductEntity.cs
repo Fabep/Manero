@@ -16,8 +16,23 @@ public class ProductEntity
     public int? Rating { get; set; }
     public int? Quantity { get; set; }
 
-    [ForeignKey("SubCategory")]
     public int SubCategoryId { get; set; }
+    [Required]
     public SubCategoryEntity SubCategory { get; set; }
+
+    public int ColorId { get; set; }
+    public ColorEntity Color { get; set; }
+
+    public int SizeId { get; set; }
+    public SizesEntity Size { get; set; }
+
+    public int ProductInventoryId { get; set; }
+    public ProductInventoryEntity ProductInventory { get; set; }
+
+
+    //[ForeignKey("PrimaryCategory")]
+    //public int PrimaryCategoryId { get; set; }
+    //[Required]
+    //public PrimaryCategoryEntity PrimaryCategory { get; set; }
 
 }

@@ -21,6 +21,8 @@ namespace ManeroWebApplication.Pages
         public List<DataAccess.Models.Product> BestSellers { get; set; }
         public List<DataAccess.Models.Product> FeaturedProducts { get; set; }
 
+
+
         public async Task OnGet()
         {
 
@@ -31,6 +33,7 @@ namespace ManeroWebApplication.Pages
             BestSellers = productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
              .ToList();
+
 
             //BestSellers = productList
             //    .Select(p => new DataAccess.Models.Product

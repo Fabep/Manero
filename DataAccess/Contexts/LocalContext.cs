@@ -11,15 +11,18 @@ public class LocalContext : DbContext
     }
     public LocalContext(DbContextOptions<LocalContext> options) : base(options)
     {
-        //Database.Migrate();
     }
     public DbSet<ProductEntity> Products { get; set; }
 
-    public DbSet<PrimaryCategoryEntity> PrimaryCategory { get; set; }
+    public DbSet<PrimaryCategoryEntity> PrimaryCategories { get; set; }
 
-    public DbSet<SubCategoryEntity> SubCategory { get; set; }
+    public DbSet<SubCategoryEntity> SubCategories { get; set; }
 
-    public DbSet<PrimarySubCategoryEntity> PrimarySubCategory { get; set; }
+    public DbSet<ColorEntity> Colors { get; set; }
+
+    public DbSet<SizesEntity> Sizes { get; set; }
+
+    public DbSet<ProductInventoryEntity> ProductInventories { get; set; }
 
 
 
@@ -33,39 +36,11 @@ public class LocalContext : DbContext
     // Seedings values here when the database is created.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<PrimarySubCategoryEntity>()
-            .HasKey(x => new { x.PrimaryCategoryId, x.SubCategoryId });
 
-        modelBuilder.Entity<PrimaryCategoryEntity>().HasData(new PrimaryCategoryEntity
-        {
-            PrimaryCategoryId = 1, 
-            Name = "Women"
-        });
+        modelBuilder.Entity<PrimaryCategoryEntity>().HasData(CategorySeeder.SeedPrimaryCategories());
 
-        modelBuilder.Entity<SubCategoryEntity>().HasData(new SubCategoryEntity
-        {
-            SubCategoryId = 1, 
-            Name = "Dress"
-        });
-
-        modelBuilder.Entity<PrimarySubCategoryEntity>().HasData(new PrimarySubCategoryEntity
-        {
-            PrimaryCategoryId = 1, 
-            SubCategoryId = 1 
-        });
-
-        // Seed ProductEntity
-        modelBuilder.Entity<ProductEntity>().HasData(new ProductEntity
-        {
-            ProductId = Guid.NewGuid(), 
-            ProductName = "Fine dress",
-            ProductDescription = "Description",
-            ProductPrice = 1000,
-            Quantity = 1,
-            Rating = 5,
-            SubCategoryId = 1 
-        });
-
+        modelBuilder.Entity<SubCategoryEntity>().HasData(CategorySeeder.SeedSubCategories());
+        
         modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
 
         base.OnModelCreating(modelBuilder);

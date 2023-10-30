@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models.Entities
 {
-   
-        public class SubCategoryEntity
-        {
-            [Key]
-            public int SubCategoryId { get; set; }
-            public string SubCategoryName { get; set; } = null!;
+    public class ColorEntity
+    {
+        [Key]
+        public int ColorId { get; set; }
+        public string Color { get; set; }
 
     }
-
-
 }

@@ -12,13 +12,17 @@ internal class ProductSeeder
         var baseProducts = new List<ProductEntity>();
         for (int i = 0; i <= 20;  i++)
         {
+            var clothingName = ClothingNames[random.Next(0, 6)]; 
+
             ProductEntity entity = new ProductEntity()
             {
-                ProductName = $"{ClothingNames[random.Next(0, 6)]} {Color[random.Next(0, 6)]}",
+                ProductName = $" {clothingName} {Color[random.Next(0, 6)]}",
                 ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
                 ProductPrice = random.Next(50, 1000),
                 Quantity = random.Next(0, 100),
                 Rating = random.Next(0, 5),
+                SubCategoryId = CategorySeeder.GetSubCategoryId(clothingName),
+                //PrimaryCategoryId = CategorySeeder.GetPrimaryCategoryId(clothingName)
             };
             baseProducts.Add(entity);
         }
