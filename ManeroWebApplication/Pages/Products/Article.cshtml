@@ -44,20 +44,26 @@
     @* Sizes *@
     <div class="product-buttons">
         <h5 class="product-text-part">Size</h5>
-        <div class="horizontal-button-container">
-            <button class="size-button">S</button>
-            <button class="size-button">M</button>
+        <div class="horizontal-button-container" id="size-buttons">
+            @foreach(var size in Model.Sizes)
+            {
+                <button data-size="@size.SizeName" class="size-button">@size.SizeName</button>
+            }
         </div>
     </div>
 
     @* Colors *@
     <div class="product-buttons">
         <h5 class="product-text-part">Color</h5>
-        <div class="horizontal-button-container">
+        <div class="horizontal-button-container" id="color-buttons">
+            @foreach(var color in Model.Colors)
+            {
+                <button class="color-button" data-color="@color.ColorName" style="background-color:@color.ColorName"></button>
+            }
             <button class="color-button"></button>
         </div>
     </div>
-
+    
     @* Description *@
     <div class="product-description">
         <h5 class="product-text-part">Description</h5>
@@ -80,3 +86,20 @@
         </div>
     </div>
 </section>
+
+@section Scripts {
+    <script>
+        function colorPicked() {
+            fetch("/Products/Article?handler=ColorPick&n=@Model.Product.ProductName")
+                .then((response) => response.json())
+                .then((json) => {
+                    json.sizes.forEach(drawButtons)
+                })
+        }
+
+        function drawButtons() {
+            document.querySelector(`#size-buttons`).innerHTML =
+                `<button data-size="@size.SizeName" class="size-button">@size.SizeName</button>`
+        }
+    </script>
+}
