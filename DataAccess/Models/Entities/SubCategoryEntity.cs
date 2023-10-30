@@ -13,7 +13,8 @@ namespace DataAccess.Models.Entities
             [Key]
             public int SubCategoryId { get; set; }
             public string SubCategoryName { get; set; } = null!;
-
+            public int PrimaryCategoryId { get; set; }
+            public PrimaryCategoryEntity PrimaryCategory { get; set; }
     }
 
 

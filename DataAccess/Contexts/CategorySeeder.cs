@@ -12,7 +12,13 @@ namespace DataAccess.Contexts
         private static string[] PrimaryCategories = new string[] { "Men", "Women", "Unisex" };
 
         private static string[] SubCategories = new string[]
-            { "T-Shirts", "Pants", "Dresses", "Shoes", "Bags", "Suits", "Accessories" };
+        {
+            "T-Shirts Men", "T-Shirts Women", "T-Shirts Unisex",
+            "Pants Men", "Pants Women", "Pants Unisex","Dresses",
+            "Shoes Men", "Shoes Women", "Shoes Unisex",
+            "Bags Men", "Bags Women", "Bags Unisex","Suits",
+            "Accessories Men", "Accessories Women", "Accessories Unisex"
+        };
 
         private static readonly Random random = new Random();
 
@@ -74,27 +80,27 @@ namespace DataAccess.Contexts
             switch (clothingName.ToLower())
             {
                 case "t-shirt":
-                    return 1;
+                    return random.Next(1,4);
                 case "t-shirts":
-                    return 1;
+                    return random.Next(1, 4);
                 case "pants":
-                    return 2;
+                    return random.Next(4, 7);
                 case "dress":
-                    return 3;
-                case "dresses":
-                    return 3;
-                case "shoes":
-                    return 4;
-                case "bag":
-                    return 5;
-                case "bags":
-                    return 5;
-                case "suit":
-                    return 6;
-                case "suits":
-                    return 6;
-                case "accessories":
                     return 7;
+                case "dresses":
+                    return 7;
+                case "shoes":
+                    return random.Next(8, 11);
+                case "bag":
+                    return random.Next(11, 14);
+                case "bags":
+                    return random.Next(11, 14);
+                case "suit":
+                    return 14;
+                case "suits":
+                    return 14;
+                case "accessories":
+                    return random.Next(15, 18);
                 default:
                     return 0;
 

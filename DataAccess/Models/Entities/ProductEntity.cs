@@ -6,7 +6,7 @@ namespace DataAccess.Models.Entities;
 public class ProductEntity
 {
     [Key]
-    public Guid ProductId = Guid.NewGuid();
+    public Guid ProductId { get; set; } = Guid.NewGuid();
     [Required]
     public string ProductName { get; set; } = null!;
     public string ProductDescription { get; set; } = null!;
@@ -26,13 +26,6 @@ public class ProductEntity
     public int SizeId { get; set; }
     public SizeEntity Size { get; set; }
 
-    public int ProductInventoryId { get; set; }
     public ProductInventoryEntity ProductInventory { get; set; }
-
-
-    //[ForeignKey("PrimaryCategory")]
-    //public int PrimaryCategoryId { get; set; }
-    //[Required]
-    //public PrimaryCategoryEntity PrimaryCategory { get; set; }
 
 }

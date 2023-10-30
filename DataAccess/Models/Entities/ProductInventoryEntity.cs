@@ -10,8 +10,10 @@ namespace DataAccess.Models.Entities
     public class ProductInventoryEntity
     {
         [Key]
-        public int ProductInventoryId { get; set; }
+        public Guid ProductInventoryId { get; set; }
+        public ProductEntity Product { get; set; }
         public int Quantity {get; set; }
+        public DateTime LastInventory { get; set; }
 
     }
 }

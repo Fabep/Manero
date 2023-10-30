@@ -1,16 +1,23 @@
 ﻿using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace DataAccess.Contexts;
 
 public class LocalContext : DbContext
 {
-    public LocalContext() 
+    public LocalContext()
     {
-        Database.Migrate(); 
     }
     public LocalContext(DbContextOptions<LocalContext> options) : base(options)
     {
+
+        Database.EnsureCreated();
+        try
+        {
+            Database.Migrate();
+        }
+        catch { }
     }
     public DbSet<ProductEntity> Products { get; set; }
 
@@ -37,6 +44,14 @@ public class LocalContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
+        modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
+
+        modelBuilder.Entity<ProductEntity>()
+            .HasOne(p => p.ProductInventory)
+            .WithOne(i => i.Product)
+            .HasForeignKey<ProductInventoryEntity>();
+
+
         modelBuilder.Entity<PrimaryCategoryEntity>().HasData(CategorySeeder.SeedPrimaryCategories());
 
         modelBuilder.Entity<SubCategoryEntity>().HasData(CategorySeeder.SeedSubCategories());
@@ -47,7 +62,9 @@ public class LocalContext : DbContext
 
         modelBuilder.Entity<ProductEntity>().HasData(ProductSeeder.SeedProducts());
 
-        modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
+        modelBuilder.Entity<ProductInventoryEntity>().HasData(ProductSeeder.SeedProductInventory());
+
+
 
         base.OnModelCreating(modelBuilder);
     }
