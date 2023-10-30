@@ -127,6 +127,7 @@ header #main {
   align-items: flex-end;
   right: 13px;
   bottom: 150px;
+  width: fit-content;
 }
 .product-tile .product-image .product-buttons i {
   font-size: 20px;
