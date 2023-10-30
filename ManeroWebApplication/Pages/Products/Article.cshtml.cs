@@ -1,5 +1,7 @@
 using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
+using DataAccess.Handlers.Services;
+using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,19 +10,22 @@ namespace ManeroWebApplication.Pages.Products
 {
     public class ArticleModel : PageModel
     {
-        private readonly ProductRepository _productRepository;
-        public ArticleModel(ProductRepository productRepository)
+        private readonly IProductService _productService;
+        public ArticleModel(IProductService productService)
         {
-            _productRepository = productRepository;
+            _productService = productService;
         }
         public Product Product { get; set; } = null!;
         public int ReviewCount { get; set; } = 0;
         [BindProperty]
         public int CurrentAmount { get; set; } = 0; 
-        public async Task OnGetAsync(Guid id)
+
+        public Dictionary<string, string> Combinations { get; set; }
+        public async Task OnGetAsync(string n)
         {
-            Product = DataConverter.ConvertProductEntityToProduct(
-                await _productRepository.GetAsync(x => x.ProductId == id));
+            Combinations = await _productService.GetProductColorAndSizeCombinationsAsync(n);
+
+
         }
     }
 }

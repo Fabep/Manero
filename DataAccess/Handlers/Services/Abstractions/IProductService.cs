@@ -8,5 +8,6 @@ namespace DataAccess.Handlers.Services.Abstractions
 {
     public interface IProductService
     {
+        public Task<Dictionary<string, string>> GetProductColorAndSizeCombinationsAsync(string productName);
     }
 }
