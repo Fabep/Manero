@@ -11,13 +11,8 @@ public class LocalContext : DbContext
     }
     public LocalContext(DbContextOptions<LocalContext> options) : base(options)
     {
-
         Database.EnsureCreated();
-        try
-        {
-            Database.Migrate();
-        }
-        catch { }
+        //Database.Migrate();
     }
     public DbSet<ProductEntity> Products { get; set; }
 
@@ -49,8 +44,7 @@ public class LocalContext : DbContext
         modelBuilder.Entity<ProductEntity>()
             .HasOne(p => p.ProductInventory)
             .WithOne(i => i.Product)
-            .HasForeignKey<ProductInventoryEntity>();
-
+            .HasForeignKey<ProductEntity>(p => p.ProductId);
 
         modelBuilder.Entity<PrimaryCategoryEntity>().HasData(CategorySeeder.SeedPrimaryCategories());
 
@@ -59,7 +53,6 @@ public class LocalContext : DbContext
         modelBuilder.Entity<ColorEntity>().HasData(ProductSeeder.SeedColors());
 
         modelBuilder.Entity<SizeEntity>().HasData(ProductSeeder.SeedSizes());
-
         modelBuilder.Entity<ProductEntity>().HasData(ProductSeeder.SeedProducts());
 
         modelBuilder.Entity<ProductInventoryEntity>().HasData(ProductSeeder.SeedProductInventory());

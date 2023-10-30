@@ -21,11 +21,11 @@ public class ProductEntity
     public SubCategoryEntity SubCategory { get; set; }
 
     public int ColorId { get; set; }
-    public ColorEntity Color { get; set; }
+    public ColorEntity? Color { get; set; }
 
     public int SizeId { get; set; }
-    public SizeEntity Size { get; set; }
+    public SizeEntity? Size { get; set; }
 
-    public ProductInventoryEntity ProductInventory { get; set; }
+    public ProductInventoryEntity? ProductInventory { get; set; }
 
 }
