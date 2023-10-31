@@ -22,11 +22,6 @@ namespace ManeroWebApplication.Pages
         public List<DataAccess.Models.Product> BestSellers { get; set; }
         public List<DataAccess.Models.Product> FeaturedProducts { get; set; }
 
-        public int ProductCount { get; set; }
-
-
-
-
         public async Task OnGet()
         {
 

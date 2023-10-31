@@ -1,4 +1,5 @@
-﻿using DataAccess.Models.Entities;
+﻿using System.Diagnostics;
+using DataAccess.Models.Entities;
 
 namespace DataAccess.Contexts;
 
@@ -38,11 +39,11 @@ internal class ProductSeeder
             var description = Descriptions[random.Next(0, 15)];
             var subCategoryId = CategorySeeder.GetSubCategoryId(clothingName);
 
-            //for (int colorId = 1; colorId < 7; colorId++)
-            //{
+            for (int colorId = 1; colorId < 7; colorId++)
+            {
 
-            //    for (int sizeId = 1; sizeId < 7; sizeId++)
-            //    {
+                for (int sizeId = 1; sizeId < 7; sizeId++)
+                {
                     ProductEntity entity = new ProductEntity()
                     {
                         ProductName = $"{description} {clothingName}",
@@ -52,15 +53,15 @@ internal class ProductSeeder
                         Quantity = random.Next(0, 100),
                         Rating = random.Next(0, 5),
                         SubCategoryId = subCategoryId,
-                        ColorId = 1,
-                        SizeId = 1
+                        ColorId = colorId,
+                        SizeId = sizeId
 
                     };
 
                     ProductIds.Add(entity.ProductId);
                     baseProducts.Add(entity);
-            //    }
-            //}
+                }
+            }
         }
         return baseProducts;
     }
@@ -110,6 +111,7 @@ internal class ProductSeeder
             };
             productInventory.Add(entity);
         }
+        Debug.WriteLine(ProductIds.Count);
         return productInventory;
     }
 
