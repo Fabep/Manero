@@ -12,43 +12,43 @@
 
 </head>
 <body>
-<header>
-    <nav class="container">
-        <div class="nav-content">
-            <div class="nav-box navbar navbar-light">
-                <button class="openbtn" onclick="openNav()"><span class="navbar-toggler-icon"></span></button>
+    <header>
+        <nav class="container">
+            <div class="nav-content">
+                <div class="nav-box navbar navbar-light">
+                    <button class="openbtn" onclick="openNav()"><span class="navbar-toggler-icon"></span></button>
+                </div>
+                <div class="nav-box logo">
+                   @Html.ActionLink("MANERO", "Index", "Home")
+                </div>
+                <div class="nav-box shop-cart">
+                    <a href="checkout.html" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping"></i><span class="cart-badge">1</span></a>
+                </div>
             </div>
-            <div class="nav-box logo">
-                <a asp-area="" asp-page="/Index">MANERO</a>
-            </div>
-            <div class="nav-box shop-cart">
-                <a href="checkout.html" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping"></i><span class="cart-badge">1</span></a>
-            </div>
+        </nav>
+        <div id="navSidebar" class="sidebar">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Women</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Unisex</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Contact</a>
+                </li>
+                <div>
+                    <partial name="_LoginPartial" />
+                </div>
+            </ul>
         </div>
-    </nav>
-    <div id="navSidebar" class="sidebar">
-        <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Categories/Index">Men</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Categories/Index">Women</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Categories/Index">Unisex</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Categories/Index">Contact</a>
-            </li>
-            <div>
-                <partial name="_LoginPartial" />
-            </div>
-        </ul>
-    </div>
-</header>
+    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
