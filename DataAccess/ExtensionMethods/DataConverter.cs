@@ -19,8 +19,8 @@ namespace DataAccess.ExtensionMethods
 				ProductDescription = p.ProductDescription,
 				ProductPrice = p.ProductPrice,
 				Rating = p.Rating ?? 0,
-				Quantity = p.Quantity ?? 0
-
+				Quantity = p.Quantity ?? 0,
+				DiscountedPrice = p.DiscountedPrice ?? 0
 			};
 			return product;
 		}

@@ -426,6 +426,10 @@ header #main {
   padding-bottom: 10px;
 }
 
+.discount-price {
+  color: red;
+}
+
 .mobile-footer {
   display: none;
   background-color: #ffffff;

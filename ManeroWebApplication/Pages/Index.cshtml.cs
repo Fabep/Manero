@@ -27,7 +27,19 @@ namespace ManeroWebApplication.Pages
 		{
 			BestSellers = await _productService.GetBestSellersAsync();
 			FeaturedProducts = await _productService.GetFeaturedProductsAsync();
+			foreach (var product in BestSellers.Concat(FeaturedProducts))
+			{
+				if (product.Promotion != null)
+				{
+					product.DiscountedPrice = product.ProductPrice * (1 - product.Promotion.DiscountRate);
+				}
+				else
+				{
+					product.DiscountedPrice = product.ProductPrice; // No discount, so set it to the original price
+				}
+
+			}
 		}
 	}
+	}
 
-}
