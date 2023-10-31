@@ -15,5 +15,6 @@ namespace DataAccess.Models.Entities
         public int Quantity {get; set; }
         public DateTime LastInventory { get; set; }
 
+
     }
 }

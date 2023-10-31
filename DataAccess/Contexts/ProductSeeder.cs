@@ -27,6 +27,7 @@ internal class ProductSeeder
     };
 
     private static List<Guid> ProductIds = new List<Guid>();
+
     private static readonly Random random = new Random();
     internal static IEnumerable<ProductEntity> SeedProducts()
     {
@@ -37,11 +38,11 @@ internal class ProductSeeder
             var description = Descriptions[random.Next(0, 15)];
             var subCategoryId = CategorySeeder.GetSubCategoryId(clothingName);
 
-            for (int colorId = 1; colorId < 7; colorId++)
-            {
+            //for (int colorId = 1; colorId < 7; colorId++)
+            //{
 
-                for (int sizeId = 1; sizeId < 7; sizeId++)
-                {
+            //    for (int sizeId = 1; sizeId < 7; sizeId++)
+            //    {
                     ProductEntity entity = new ProductEntity()
                     {
                         ProductName = $"{description} {clothingName}",
@@ -51,15 +52,15 @@ internal class ProductSeeder
                         Quantity = random.Next(0, 100),
                         Rating = random.Next(0, 5),
                         SubCategoryId = subCategoryId,
-                        ColorId = colorId,
-                        SizeId = sizeId
+                        ColorId = 1,
+                        SizeId = 1
 
                     };
 
                     ProductIds.Add(entity.ProductId);
                     baseProducts.Add(entity);
-                }
-            }
+            //    }
+            //}
         }
         return baseProducts;
     }

@@ -53,6 +53,8 @@ public class LocalContext : DbContext
         modelBuilder.Entity<ColorEntity>().HasData(ProductSeeder.SeedColors());
 
         modelBuilder.Entity<SizeEntity>().HasData(ProductSeeder.SeedSizes());
+
+
         modelBuilder.Entity<ProductEntity>().HasData(ProductSeeder.SeedProducts());
 
         modelBuilder.Entity<ProductInventoryEntity>().HasData(ProductSeeder.SeedProductInventory());

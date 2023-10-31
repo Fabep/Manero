@@ -149,873 +149,873 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("6d210dc8-99dc-4e05-8ac3-5b624144b6c7"),
+                            ProductId = new Guid("871e3a4d-0f5f-4b02-85b3-398cf0bb118b"),
                             ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Classy Shoes",
-                            ProductPrice = 541.0,
-                            Quantity = 26,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 501.0,
+                            Quantity = 19,
                             Rating = 4,
                             SizeId = 1,
-                            SubCategoryId = 10
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("0e40d0fc-76f4-41e3-9743-6a3f05fdf7d5"),
+                            ProductId = new Guid("14f9a240-efe6-48a8-84c6-19c95406c8f6"),
                             ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Luxurious Shoes",
-                            ProductPrice = 162.0,
-                            Quantity = 56,
-                            Rating = 0,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 198.0,
+                            Quantity = 11,
+                            Rating = 2,
                             SizeId = 2,
-                            SubCategoryId = 10
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("72c32647-acd2-4989-8235-ad07144e6836"),
+                            ProductId = new Guid("53d83503-53e2-4cae-93f0-58a09095580e"),
                             ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Trendy Shoes",
-                            ProductPrice = 956.0,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 734.0,
                             Quantity = 5,
+                            Rating = 1,
+                            SizeId = 3,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d14cd5c2-0822-48f0-9a79-36311b31e499"),
+                            ColorId = 1,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 779.0,
+                            Quantity = 74,
+                            Rating = 4,
+                            SizeId = 4,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("3318bb19-a09e-4893-a8c6-64b2c66eb95d"),
+                            ColorId = 1,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 815.0,
+                            Quantity = 37,
+                            Rating = 4,
+                            SizeId = 5,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("748be502-b852-4c58-bf65-83d0db75814b"),
+                            ColorId = 1,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 133.0,
+                            Quantity = 22,
+                            Rating = 2,
+                            SizeId = 6,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("284bdf6b-3cd4-46b0-bd70-a655aca4f0dd"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 438.0,
+                            Quantity = 39,
+                            Rating = 1,
+                            SizeId = 1,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("990bf386-16bb-4fd7-b65b-f4c33a2d4060"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 517.0,
+                            Quantity = 0,
+                            Rating = 4,
+                            SizeId = 2,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("e70c75e7-73d4-4025-97cb-99a1e6e669f0"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 159.0,
+                            Quantity = 55,
                             Rating = 2,
                             SizeId = 3,
-                            SubCategoryId = 10
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("18b08464-6668-47ba-b218-d213be4eb956"),
-                            ColorId = 1,
+                            ProductId = new Guid("cfc06d1c-5e0a-468c-b0ca-63b96ce9fcbe"),
+                            ColorId = 2,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Modern Shoes",
-                            ProductPrice = 780.0,
-                            Quantity = 32,
-                            Rating = 1,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 111.0,
+                            Quantity = 55,
+                            Rating = 2,
                             SizeId = 4,
-                            SubCategoryId = 10
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("c6e6988b-7bbb-42a7-bf65-4d8f6425e1b3"),
-                            ColorId = 1,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Exquisite Shoes",
-                            ProductPrice = 81.0,
-                            Quantity = 35,
-                            Rating = 3,
-                            SizeId = 5,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("8ad5e1c0-0227-4887-9d24-f318a7bb9667"),
-                            ColorId = 1,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Warm Shoes",
-                            ProductPrice = 921.0,
-                            Quantity = 66,
-                            Rating = 0,
-                            SizeId = 6,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("e46756e9-0d78-4e75-87b1-48da03f43ba6"),
+                            ProductId = new Guid("240b8ca0-38d6-45e7-aaa0-abdf2372f0cd"),
                             ColorId = 2,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Fancy Shoes",
-                            ProductPrice = 90.0,
-                            Quantity = 43,
-                            Rating = 1,
-                            SizeId = 1,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("75335219-3be8-4264-9c9e-9ba20b939b3b"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Shoes",
-                            ProductPrice = 205.0,
-                            Quantity = 45,
-                            Rating = 4,
-                            SizeId = 2,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("865a58fe-3ae0-4d51-8953-7bf514ead7a6"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Comfortable Shoes",
-                            ProductPrice = 85.0,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 608.0,
                             Quantity = 68,
                             Rating = 0,
-                            SizeId = 3,
-                            SubCategoryId = 10
+                            SizeId = 5,
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("39751ddf-7f1b-4163-b1af-654719e23db3"),
+                            ProductId = new Guid("7155c257-ebaa-4009-bb73-022a3b3c78fe"),
                             ColorId = 2,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Shoes",
-                            ProductPrice = 606.0,
-                            Quantity = 44,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 671.0,
+                            Quantity = 8,
                             Rating = 4,
-                            SizeId = 4,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("8d295478-046e-4822-a648-a50b398a5f6e"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Exquisite Shoes",
-                            ProductPrice = 95.0,
-                            Quantity = 65,
-                            Rating = 3,
-                            SizeId = 5,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("0ad36428-2066-4009-8b96-7335f90b7fcf"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Modern Shoes",
-                            ProductPrice = 352.0,
-                            Quantity = 83,
-                            Rating = 2,
                             SizeId = 6,
-                            SubCategoryId = 10
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("16885203-0de3-4d02-b072-774fa2c5d376"),
+                            ProductId = new Guid("135591ba-8b87-46a2-ab16-e990d48662a5"),
                             ColorId = 3,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Modern Shoes",
-                            ProductPrice = 657.0,
-                            Quantity = 11,
-                            Rating = 0,
-                            SizeId = 1,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("020fefb6-905f-4cfc-affb-87438f76e3f2"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Cozy Shoes",
-                            ProductPrice = 974.0,
-                            Quantity = 5,
-                            Rating = 0,
-                            SizeId = 2,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("7a6953cb-d418-4b8e-9fd4-218ca0ddc278"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Shoes",
-                            ProductPrice = 754.0,
-                            Quantity = 99,
-                            Rating = 4,
-                            SizeId = 3,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("b0266221-616e-40d3-9e9a-250e804cc8ba"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Shoes",
-                            ProductPrice = 836.0,
-                            Quantity = 67,
-                            Rating = 0,
-                            SizeId = 4,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("2cf8bb56-9763-433b-b59a-a48acee916da"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Fancy Shoes",
-                            ProductPrice = 716.0,
-                            Quantity = 57,
-                            Rating = 1,
-                            SizeId = 5,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("79119774-1161-4092-b25e-5095412666ba"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Exquisite Shoes",
-                            ProductPrice = 282.0,
-                            Quantity = 4,
-                            Rating = 3,
-                            SizeId = 6,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("e8eb440e-640c-4b09-8d43-fb0553704242"),
-                            ColorId = 4,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Chic Shoes",
-                            ProductPrice = 325.0,
-                            Quantity = 50,
-                            Rating = 0,
-                            SizeId = 1,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("e7439069-4eff-4bd0-91ba-e0fb2d88fc77"),
-                            ColorId = 4,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Classy Shoes",
-                            ProductPrice = 391.0,
-                            Quantity = 80,
-                            Rating = 2,
-                            SizeId = 2,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("10898f93-24f4-43ae-ba47-1970f9406503"),
-                            ColorId = 4,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Classy Shoes",
-                            ProductPrice = 546.0,
-                            Quantity = 83,
-                            Rating = 2,
-                            SizeId = 3,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("1a1604c5-b259-4cce-af78-f6a6c8e21587"),
-                            ColorId = 4,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Comfortable Shoes",
-                            ProductPrice = 451.0,
-                            Quantity = 78,
-                            Rating = 1,
-                            SizeId = 4,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("72a72de0-bcd4-4b62-9863-fa1aa0a4db22"),
-                            ColorId = 4,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Stylish Shoes",
-                            ProductPrice = 858.0,
-                            Quantity = 72,
-                            Rating = 2,
-                            SizeId = 5,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("ebde4e15-1890-4cd7-8e43-dc7285d538e0"),
-                            ColorId = 4,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Modern Shoes",
-                            ProductPrice = 659.0,
-                            Quantity = 58,
-                            Rating = 0,
-                            SizeId = 6,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("a4d62af5-7309-4d3d-98c9-bcf0b9540ac9"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Luxurious Shoes",
-                            ProductPrice = 308.0,
-                            Quantity = 38,
-                            Rating = 3,
-                            SizeId = 1,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("ad0d641d-0655-4f37-9a81-610851c3a850"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Modern Shoes",
-                            ProductPrice = 918.0,
-                            Quantity = 15,
-                            Rating = 1,
-                            SizeId = 2,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("0681df8f-4764-441e-8d96-0381d104dc70"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Shoes",
-                            ProductPrice = 524.0,
-                            Quantity = 80,
-                            Rating = 1,
-                            SizeId = 3,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("f016b991-5566-44d8-94ec-bff357c41035"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Shoes",
-                            ProductPrice = 219.0,
-                            Quantity = 27,
-                            Rating = 3,
-                            SizeId = 4,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("d740058d-bc9f-48be-9dd4-9d3e51fd636c"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Shoes",
-                            ProductPrice = 794.0,
-                            Quantity = 24,
-                            Rating = 0,
-                            SizeId = 5,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("0a767fea-342d-459a-8c9e-73e3a0cc0a55"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Chic Shoes",
-                            ProductPrice = 828.0,
-                            Quantity = 83,
-                            Rating = 3,
-                            SizeId = 6,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("55992dbb-5629-4740-bb17-da7ca0185bf3"),
-                            ColorId = 6,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Shoes",
-                            ProductPrice = 636.0,
-                            Quantity = 27,
-                            Rating = 4,
-                            SizeId = 1,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("7808a5b8-b97a-4c7c-95e3-db40c8d6ce7b"),
-                            ColorId = 6,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Stylish Shoes",
-                            ProductPrice = 63.0,
-                            Quantity = 61,
-                            Rating = 3,
-                            SizeId = 2,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("5d155307-332f-4c2e-b031-439d2b701a90"),
-                            ColorId = 6,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Shoes",
-                            ProductPrice = 388.0,
-                            Quantity = 7,
-                            Rating = 2,
-                            SizeId = 3,
-                            SubCategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = new Guid("04080c21-8f98-4bfb-8038-cd257c9554fb"),
-                            ColorId = 6,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Comfortable Shoes",
+                            ProductName = "Modern Pants",
                             ProductPrice = 867.0,
-                            Quantity = 23,
+                            Quantity = 92,
                             Rating = 0,
-                            SizeId = 4,
-                            SubCategoryId = 10
+                            SizeId = 1,
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("38cecf99-f0fb-4ede-b8e3-6d7c5bbf0ca3"),
-                            ColorId = 6,
+                            ProductId = new Guid("c0cb838c-0ac9-409e-b0c8-42e7d52bbeff"),
+                            ColorId = 3,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Shoes",
-                            ProductPrice = 93.0,
-                            Quantity = 90,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 374.0,
+                            Quantity = 36,
+                            Rating = 3,
+                            SizeId = 2,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b8b81d55-713d-46fe-9a3c-37c5f3a4fb5b"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 922.0,
+                            Quantity = 23,
+                            Rating = 1,
+                            SizeId = 3,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("df053ed9-ce88-4568-8509-325c65d2cac4"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 287.0,
+                            Quantity = 24,
+                            Rating = 2,
+                            SizeId = 4,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ede1d3b3-4fc0-4892-be32-8d017e1a3bc2"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 134.0,
+                            Quantity = 53,
                             Rating = 0,
                             SizeId = 5,
-                            SubCategoryId = 10
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("1b87ccf3-91d1-4b82-a6cb-e176fe43f3c4"),
-                            ColorId = 6,
+                            ProductId = new Guid("3d21ae85-3a60-4e37-961a-cf667f2a0190"),
+                            ColorId = 3,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Fashionable Shoes",
-                            ProductPrice = 107.0,
-                            Quantity = 75,
-                            Rating = 1,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 741.0,
+                            Quantity = 11,
+                            Rating = 2,
                             SizeId = 6,
-                            SubCategoryId = 10
+                            SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("e3566da9-66b8-42c9-8043-1b229e130f84"),
-                            ColorId = 1,
+                            ProductId = new Guid("00879e44-df95-4681-ae18-a4dd7a1e7bf4"),
+                            ColorId = 4,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Trendy Pants",
-                            ProductPrice = 617.0,
-                            Quantity = 19,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 377.0,
+                            Quantity = 15,
                             Rating = 3,
                             SizeId = 1,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("3d060369-a0d2-4dfb-aa0f-901cb9a170fb"),
-                            ColorId = 1,
+                            ProductId = new Guid("f3479c2f-cc8e-4ed9-b0c4-b94d6d00fe52"),
+                            ColorId = 4,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Trendy Pants",
-                            ProductPrice = 80.0,
-                            Quantity = 58,
-                            Rating = 2,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 596.0,
+                            Quantity = 2,
+                            Rating = 3,
                             SizeId = 2,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("7ccd4cd5-3f12-4425-8427-c654cdb81466"),
-                            ColorId = 1,
+                            ProductId = new Guid("bba36a46-1215-4408-ab6b-4c332aefedb9"),
+                            ColorId = 4,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Pants",
-                            ProductPrice = 914.0,
-                            Quantity = 71,
-                            Rating = 2,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 202.0,
+                            Quantity = 96,
+                            Rating = 4,
                             SizeId = 3,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("13f7453b-fdf7-4b48-b38a-fdd1ecf37fd5"),
-                            ColorId = 1,
+                            ProductId = new Guid("ee1b5e89-9621-4c1c-9667-a6703f903534"),
+                            ColorId = 4,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Stylish Pants",
-                            ProductPrice = 648.0,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 492.0,
+                            Quantity = 78,
+                            Rating = 4,
+                            SizeId = 4,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("db2fa550-c93f-4081-90da-b7ae4aac0a4b"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 453.0,
+                            Quantity = 37,
+                            Rating = 1,
+                            SizeId = 5,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("8f03ae13-99a5-4688-aff4-04e3d92f2643"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 554.0,
                             Quantity = 49,
                             Rating = 3,
-                            SizeId = 4,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("674fee3b-aa91-49e0-ba51-31cc5fa77f2f"),
-                            ColorId = 1,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Pants",
-                            ProductPrice = 862.0,
-                            Quantity = 59,
-                            Rating = 0,
-                            SizeId = 5,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("f0a7ccb7-c4c9-4704-836d-cd4a179a1952"),
-                            ColorId = 1,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Cozy Pants",
-                            ProductPrice = 862.0,
-                            Quantity = 10,
-                            Rating = 1,
                             SizeId = 6,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("af0379a4-7470-47f2-9456-7526490becf1"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Fashionable Pants",
-                            ProductPrice = 574.0,
-                            Quantity = 10,
-                            Rating = 1,
-                            SizeId = 1,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("d43abd0f-f35b-45fc-848b-715d98265b0c"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Classy Pants",
-                            ProductPrice = 338.0,
-                            Quantity = 65,
-                            Rating = 3,
-                            SizeId = 2,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("c08a9d05-fd6f-4921-b563-978df2a5e3f9"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Sophisticated Pants",
-                            ProductPrice = 143.0,
-                            Quantity = 86,
-                            Rating = 2,
-                            SizeId = 3,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("889e6c38-2ac9-4ac8-8db4-c8910d72c31a"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Pants",
-                            ProductPrice = 897.0,
-                            Quantity = 46,
-                            Rating = 1,
-                            SizeId = 4,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("9ab9916a-623f-48c5-95ea-c34f8a87e019"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Stylish Pants",
-                            ProductPrice = 166.0,
-                            Quantity = 56,
-                            Rating = 0,
-                            SizeId = 5,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("429a9ccf-f92b-4544-81b5-ab738e6fdf9b"),
-                            ColorId = 2,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Chic Pants",
-                            ProductPrice = 294.0,
-                            Quantity = 29,
-                            Rating = 0,
-                            SizeId = 6,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("5f33128a-d3c8-48ba-9a91-8049660f59ab"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Cozy Pants",
-                            ProductPrice = 533.0,
-                            Quantity = 17,
-                            Rating = 1,
-                            SizeId = 1,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("b4bab4b0-ae01-4c59-9607-4c5376032249"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Exquisite Pants",
-                            ProductPrice = 198.0,
-                            Quantity = 96,
-                            Rating = 0,
-                            SizeId = 2,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("124e27e9-41a3-45d9-9f5a-48689f16062d"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Trendy Pants",
-                            ProductPrice = 163.0,
-                            Quantity = 72,
-                            Rating = 1,
-                            SizeId = 3,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("5f222c9b-633e-46d2-8c3f-dfcdccf6381a"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Fashionable Pants",
-                            ProductPrice = 677.0,
-                            Quantity = 75,
-                            Rating = 1,
-                            SizeId = 4,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("820b1d88-68b8-4cba-8616-2fb13dd8b16c"),
-                            ColorId = 3,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Pants",
-                            ProductPrice = 939.0,
-                            Quantity = 15,
-                            Rating = 4,
-                            SizeId = 5,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("1950e5af-9772-4ee9-b982-86a0f438fcc5"),
-                            ColorId = 3,
+                            ProductId = new Guid("89898340-89fe-4b89-a310-1a36fd1863cd"),
+                            ColorId = 5,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
                             ProductName = "Modern Pants",
-                            ProductPrice = 256.0,
-                            Quantity = 97,
-                            Rating = 4,
-                            SizeId = 6,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("a5392785-28f5-4a2e-b3df-cad28e7093ef"),
-                            ColorId = 4,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Fancy Pants",
-                            ProductPrice = 595.0,
+                            ProductPrice = 638.0,
                             Quantity = 82,
-                            Rating = 1,
+                            Rating = 2,
                             SizeId = 1,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("50814569-bee2-4183-b8a3-edba1ca9c0e0"),
-                            ColorId = 4,
+                            ProductId = new Guid("21c71088-76fe-40e0-ba66-bb78409aee6c"),
+                            ColorId = 5,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Stylish Pants",
-                            ProductPrice = 631.0,
-                            Quantity = 33,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 393.0,
+                            Quantity = 9,
                             Rating = 0,
                             SizeId = 2,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("f4191da6-4c7b-4982-a876-a63d198f5b2d"),
-                            ColorId = 4,
+                            ProductId = new Guid("e3f39c69-e929-4c2a-abf1-cef14fa8332f"),
+                            ColorId = 5,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Trendy Pants",
-                            ProductPrice = 774.0,
-                            Quantity = 29,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 91.0,
+                            Quantity = 97,
                             Rating = 1,
                             SizeId = 3,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("e831641c-b3e5-4dce-a4df-54d3abf5b414"),
-                            ColorId = 4,
+                            ProductId = new Guid("1e49e4a4-d60f-46f1-893d-641b9c7d4f83"),
+                            ColorId = 5,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Stylish Pants",
-                            ProductPrice = 527.0,
-                            Quantity = 18,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 632.0,
+                            Quantity = 56,
                             Rating = 1,
                             SizeId = 4,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("1f873004-65d2-43c5-8084-31078d22a587"),
-                            ColorId = 4,
+                            ProductId = new Guid("187e6500-161a-4d47-b6df-63e901fe2c2a"),
+                            ColorId = 5,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Pants",
-                            ProductPrice = 925.0,
-                            Quantity = 84,
-                            Rating = 0,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 373.0,
+                            Quantity = 26,
+                            Rating = 3,
                             SizeId = 5,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("797488b1-4494-427b-9aed-849fb14062fc"),
-                            ColorId = 4,
+                            ProductId = new Guid("a905d658-4525-4908-9b24-871752cee673"),
+                            ColorId = 5,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Chic Pants",
-                            ProductPrice = 881.0,
-                            Quantity = 56,
-                            Rating = 3,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 669.0,
+                            Quantity = 9,
+                            Rating = 4,
                             SizeId = 6,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("6cda3f11-82c4-4aaa-a1ca-f155a2a74716"),
-                            ColorId = 5,
+                            ProductId = new Guid("ac8c6b4b-a9d8-482d-9456-fdf8a772a0cc"),
+                            ColorId = 6,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Great Pants",
-                            ProductPrice = 799.0,
-                            Quantity = 6,
-                            Rating = 1,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 52.0,
+                            Quantity = 65,
+                            Rating = 2,
                             SizeId = 1,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("692d3744-9247-4057-98d6-3479ee2eda7c"),
-                            ColorId = 5,
+                            ProductId = new Guid("010ef2e4-f026-498e-9b30-200eff6dce45"),
+                            ColorId = 6,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
                             ProductName = "Modern Pants",
-                            ProductPrice = 809.0,
+                            ProductPrice = 896.0,
+                            Quantity = 69,
+                            Rating = 1,
+                            SizeId = 2,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a9ed6fd1-be1c-4cee-bb75-ad9b386dbbf1"),
+                            ColorId = 6,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 721.0,
+                            Quantity = 48,
+                            Rating = 4,
+                            SizeId = 3,
+                            SubCategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = new Guid("c7ff05cf-cd55-45a1-9340-d9c889b35fe8"),
+                            ColorId = 6,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Modern Pants",
+                            ProductPrice = 866.0,
                             Quantity = 7,
                             Rating = 2,
-                            SizeId = 2,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("0773be28-22d5-41e0-82f1-42d38b16c6e4"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Trendy Pants",
-                            ProductPrice = 205.0,
-                            Quantity = 8,
-                            Rating = 3,
-                            SizeId = 3,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("06e9db33-a016-4fc0-91cf-0adb29728ecd"),
-                            ColorId = 5,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Elegant Pants",
-                            ProductPrice = 548.0,
-                            Quantity = 92,
-                            Rating = 4,
                             SizeId = 4,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("65ad008f-0b82-4e02-9b71-8e9a45b27bd3"),
-                            ColorId = 5,
+                            ProductId = new Guid("227c44ef-aab6-4335-9e75-e7e0cdff8854"),
+                            ColorId = 6,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Luxurious Pants",
-                            ProductPrice = 402.0,
-                            Quantity = 33,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 731.0,
+                            Quantity = 72,
                             Rating = 3,
                             SizeId = 5,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("34818646-ea55-40db-86ee-711967971c0e"),
-                            ColorId = 5,
+                            ProductId = new Guid("e66a9090-a190-45a4-abe7-46f9b65fdbe4"),
+                            ColorId = 6,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Classy Pants",
-                            ProductPrice = 194.0,
-                            Quantity = 52,
-                            Rating = 1,
+                            ProductName = "Modern Pants",
+                            ProductPrice = 309.0,
+                            Quantity = 29,
+                            Rating = 0,
                             SizeId = 6,
                             SubCategoryId = 4
                         },
                         new
                         {
-                            ProductId = new Guid("c5a768eb-8de5-4618-8db8-c10e3854fa80"),
-                            ColorId = 6,
+                            ProductId = new Guid("5ea41d06-4292-46d7-aba2-5cc07f97060d"),
+                            ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Classy Pants",
-                            ProductPrice = 220.0,
-                            Quantity = 35,
-                            Rating = 3,
-                            SizeId = 1,
-                            SubCategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("f5cc27e8-fd3e-4791-8818-1fc163f49be8"),
-                            ColorId = 6,
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Classy Pants",
-                            ProductPrice = 342.0,
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 187.0,
                             Quantity = 21,
                             Rating = 3,
-                            SizeId = 2,
-                            SubCategoryId = 4
+                            SizeId = 1,
+                            SubCategoryId = 10
                         },
                         new
                         {
-                            ProductId = new Guid("0322cc1b-ef8c-41c6-a471-c6dd9f8a5df3"),
-                            ColorId = 6,
+                            ProductId = new Guid("08f5e044-0eac-4384-b9a3-2f3e55c7dbde"),
+                            ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Warm Pants",
-                            ProductPrice = 944.0,
-                            Quantity = 41,
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 353.0,
+                            Quantity = 52,
+                            Rating = 4,
+                            SizeId = 2,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("3fd46c49-945c-43ff-9d7c-12fb6869d7a3"),
+                            ColorId = 1,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 248.0,
+                            Quantity = 67,
                             Rating = 1,
                             SizeId = 3,
-                            SubCategoryId = 4
+                            SubCategoryId = 10
                         },
                         new
                         {
-                            ProductId = new Guid("2cc77b69-2a76-42ac-997a-d5532b8e3e23"),
-                            ColorId = 6,
+                            ProductId = new Guid("6dd4446b-e109-4500-9ef7-db9ebe21f180"),
+                            ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Sophisticated Pants",
-                            ProductPrice = 70.0,
-                            Quantity = 42,
-                            Rating = 0,
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 574.0,
+                            Quantity = 33,
+                            Rating = 1,
                             SizeId = 4,
-                            SubCategoryId = 4
+                            SubCategoryId = 10
                         },
                         new
                         {
-                            ProductId = new Guid("911d3acd-394e-4028-bac4-69b8ca5a434b"),
-                            ColorId = 6,
+                            ProductId = new Guid("267bad5b-742e-4fc8-ae5b-973d13c81d31"),
+                            ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Comfortable Pants",
-                            ProductPrice = 150.0,
-                            Quantity = 27,
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 98.0,
+                            Quantity = 69,
                             Rating = 2,
                             SizeId = 5,
-                            SubCategoryId = 4
+                            SubCategoryId = 10
                         },
                         new
                         {
-                            ProductId = new Guid("e4cde3fe-a4f2-427c-bf4c-57927ae0e629"),
+                            ProductId = new Guid("ae768add-a3b9-4344-b294-1e7c2a6fbbc3"),
+                            ColorId = 1,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 524.0,
+                            Quantity = 38,
+                            Rating = 3,
+                            SizeId = 6,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("fe76d9c7-7fd1-4c3a-b700-b5782c423b85"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 447.0,
+                            Quantity = 51,
+                            Rating = 3,
+                            SizeId = 1,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("69432b90-2132-48d8-a6be-2bf92c424ed2"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 825.0,
+                            Quantity = 71,
+                            Rating = 0,
+                            SizeId = 2,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b2b43400-acd5-456e-8e6d-f3af17475904"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 154.0,
+                            Quantity = 90,
+                            Rating = 4,
+                            SizeId = 3,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("6e739028-dec1-45ff-b564-027889ca4641"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 383.0,
+                            Quantity = 85,
+                            Rating = 0,
+                            SizeId = 4,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("7bceb641-91d8-48e8-9405-d215e1b954fd"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 845.0,
+                            Quantity = 32,
+                            Rating = 0,
+                            SizeId = 5,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a08393a3-ad26-476d-a213-d80e09659209"),
+                            ColorId = 2,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 302.0,
+                            Quantity = 28,
+                            Rating = 3,
+                            SizeId = 6,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("586fe006-6823-4bd9-a895-456d8ded6f5c"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 719.0,
+                            Quantity = 37,
+                            Rating = 4,
+                            SizeId = 1,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5894a5b0-4899-4859-adf4-3646102aa75c"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 919.0,
+                            Quantity = 61,
+                            Rating = 0,
+                            SizeId = 2,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("df03a63e-d5dd-4644-9ecd-f59189d91d08"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 710.0,
+                            Quantity = 24,
+                            Rating = 2,
+                            SizeId = 3,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("086d4b6b-310e-4dba-9f2c-1dcf5cf6de76"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 399.0,
+                            Quantity = 17,
+                            Rating = 3,
+                            SizeId = 4,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("920acaec-0d56-40de-8ce5-9519f7538476"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 987.0,
+                            Quantity = 73,
+                            Rating = 1,
+                            SizeId = 5,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("0f2ce3e6-93ef-418b-83d2-41e052c80854"),
+                            ColorId = 3,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 751.0,
+                            Quantity = 80,
+                            Rating = 1,
+                            SizeId = 6,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("82ca69a3-a40c-4d0d-8f25-a501f8ef2250"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 962.0,
+                            Quantity = 22,
+                            Rating = 4,
+                            SizeId = 1,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d2483c4f-5e0c-4925-a049-cb2008dc39f2"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 518.0,
+                            Quantity = 73,
+                            Rating = 2,
+                            SizeId = 2,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("3689ba96-73c5-43a1-abbf-c621e0feb5d7"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 333.0,
+                            Quantity = 58,
+                            Rating = 2,
+                            SizeId = 3,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5cdc9f25-b3eb-4590-b570-0f0e9513309a"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 213.0,
+                            Quantity = 87,
+                            Rating = 3,
+                            SizeId = 4,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("66ab8980-cd7d-47a0-b536-8a917ab04894"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 657.0,
+                            Quantity = 25,
+                            Rating = 4,
+                            SizeId = 5,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("494f8204-260b-4e64-bdba-fafd91c2c8b5"),
+                            ColorId = 4,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 692.0,
+                            Quantity = 32,
+                            Rating = 1,
+                            SizeId = 6,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a5c43137-c780-453f-b407-d052acc39121"),
+                            ColorId = 5,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 376.0,
+                            Quantity = 41,
+                            Rating = 1,
+                            SizeId = 1,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("8ad1ea37-f581-4c6d-897e-0f9c41fa05a7"),
+                            ColorId = 5,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 118.0,
+                            Quantity = 89,
+                            Rating = 1,
+                            SizeId = 2,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("239ddb4f-ca06-4b64-889f-4e31ce39ce8d"),
+                            ColorId = 5,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 922.0,
+                            Quantity = 54,
+                            Rating = 4,
+                            SizeId = 3,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4afecf81-86be-4020-b0c7-f85e7927671e"),
+                            ColorId = 5,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 660.0,
+                            Quantity = 0,
+                            Rating = 0,
+                            SizeId = 4,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d04c3fbc-d7d1-4d2b-a43c-a6d5692b2ace"),
+                            ColorId = 5,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 941.0,
+                            Quantity = 25,
+                            Rating = 2,
+                            SizeId = 5,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("520a650d-69cc-4891-bb01-2e9111541850"),
+                            ColorId = 5,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 385.0,
+                            Quantity = 90,
+                            Rating = 0,
+                            SizeId = 6,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("cffab235-eff2-4285-a50f-f2d68df6dca2"),
                             ColorId = 6,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Fancy Pants",
-                            ProductPrice = 235.0,
-                            Quantity = 45,
-                            Rating = 4,
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 673.0,
+                            Quantity = 86,
+                            Rating = 2,
+                            SizeId = 1,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("f474f65d-fb70-4b3c-bb3d-e1202346a0cd"),
+                            ColorId = 6,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 276.0,
+                            Quantity = 31,
+                            Rating = 3,
+                            SizeId = 2,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("96326fec-19dc-4628-85ce-fc04d828eb49"),
+                            ColorId = 6,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 491.0,
+                            Quantity = 81,
+                            Rating = 1,
+                            SizeId = 3,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("74f787d6-2c0b-4cfc-951f-9c8a8cc867d4"),
+                            ColorId = 6,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 715.0,
+                            Quantity = 4,
+                            Rating = 1,
+                            SizeId = 4,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("acf27a5f-429d-4425-a6fe-58fdef309fb5"),
+                            ColorId = 6,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 407.0,
+                            Quantity = 89,
+                            Rating = 3,
+                            SizeId = 5,
+                            SubCategoryId = 10
+                        },
+                        new
+                        {
+                            ProductId = new Guid("edd6915f-5d0b-4f27-a6ed-5d59da4f1e83"),
+                            ColorId = 6,
+                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
+                            ProductName = "Exquisite Shoes",
+                            ProductPrice = 245.0,
+                            Quantity = 51,
+                            Rating = 2,
                             SizeId = 6,
-                            SubCategoryId = 4
+                            SubCategoryId = 10
                         });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Entities.ProductInventoryEntity", b =>
                 {
-                    b.Property<Guid>("ProductInventoryId")
+                    b.Property<Guid>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -1025,874 +1025,874 @@ namespace DataAccess.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductInventoryId");
+                    b.HasKey("ProductId");
 
                     b.ToTable("ProductInventories");
 
                     b.HasData(
                         new
                         {
-                            ProductInventoryId = new Guid("0fae6de9-1517-4fed-a848-3615d297a4b7"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9501),
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("26238f59-a638-4908-94a5-fd9a71f7fa0e"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9572),
-                            Quantity = 80
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("a4496355-9292-46c8-ae7d-34b08d7dc19b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9574),
-                            Quantity = 33
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("160c1943-8ada-4d9b-9ef5-7039edf2c8e5"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9576),
-                            Quantity = 27
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("72b3d711-9539-457f-9a2c-b5051a93abdd"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9578),
-                            Quantity = 56
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("4efc575c-a34e-49b5-a24e-bdaff07a5c9a"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9580),
-                            Quantity = 86
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("73a8d1e7-63a5-4e7f-a0a7-406e4dc34a92"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9589),
-                            Quantity = 79
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("679f2643-4e09-4f6f-94a3-ae89d68bfcf6"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9590),
-                            Quantity = 57
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("810c5e01-93f9-4b75-a100-3dcfbeee4e85"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9598),
-                            Quantity = 45
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("ba64bac8-f697-46ea-bd42-abd89c7a17a0"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9600),
-                            Quantity = 57
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("d718c465-375e-4d49-9eac-a1d9f8f55736"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9610),
-                            Quantity = 30
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("faf57570-37e7-45fd-a70c-4232931deb1e"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9612),
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("2414b0a2-5ef8-4765-b8ac-29c59f3cd660"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9614),
-                            Quantity = 37
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("2720c86e-b3ce-442c-8c1c-c132d56a8e29"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9615),
-                            Quantity = 27
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("f49a213d-e4eb-40c0-b665-d3ef47571f75"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9617),
-                            Quantity = 51
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b289b1a4-2ff3-463e-b114-45d5724c111b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9641),
-                            Quantity = 94
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("03ee2b9e-206b-4284-83ba-83a4a9e112c6"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9643),
-                            Quantity = 58
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("393371f0-c2b8-4661-aa81-8bf423baaf0e"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9645),
-                            Quantity = 79
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("412f250b-3cfa-4616-9521-58f356f8ea28"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9646),
-                            Quantity = 92
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("712a0ec2-265e-4dec-9a66-77eb239a3474"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9648),
-                            Quantity = 55
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("2face619-52e5-4917-9346-a7574d8d1b0d"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9649),
-                            Quantity = 40
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b0ffc7ff-026c-45c3-8f01-852fb77a6d54"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9651),
-                            Quantity = 89
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("69206ef2-a902-4b01-84e3-e717def02374"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9652),
-                            Quantity = 22
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b26cf13f-7281-48e1-89f0-b42f261f76b3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9654),
-                            Quantity = 87
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("40adf2f9-4f22-4ea0-b04a-6cdf06026478"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9656),
-                            Quantity = 23
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("224aca8c-26f7-4ebb-804a-23eb106d6eb9"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9657),
-                            Quantity = 20
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("41343f00-ac70-4b4d-aa9e-48511a335c6c"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9659),
-                            Quantity = 35
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("47d9f4d9-c944-4304-a40b-b2cf22ae927d"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9665),
-                            Quantity = 40
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b7672e9d-597b-4f4a-9b27-066fb94d4833"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9666),
+                            ProductId = new Guid("9f598cb2-4e65-40e9-8bf1-2fd4e925a3d8"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1159),
                             Quantity = 77
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("e1617779-54dd-41d3-bf40-43042f97ede1"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9687),
-                            Quantity = 96
+                            ProductId = new Guid("da5c3b24-5c06-443f-976f-dbdc6735c004"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1214),
+                            Quantity = 32
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("3fee98ab-b0be-4471-a293-0e427dccae3d"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9724),
-                            Quantity = 98
+                            ProductId = new Guid("aa7e06d2-94c8-4db8-944a-e1e3ed5f2a33"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1216),
+                            Quantity = 32
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("5d611432-4d9d-4f58-a1c7-53b01963613b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9726),
-                            Quantity = 37
+                            ProductId = new Guid("cef3c84f-4ddd-4e82-9b80-fefd64bbbf1c"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1218),
+                            Quantity = 29
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("da82cf02-4793-487f-b9b4-5f15e3da46b8"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9728),
-                            Quantity = 80
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("ef6cfb3c-4ff2-4656-929e-d94a807c47d3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9754),
-                            Quantity = 54
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("fa5af86c-f51d-4439-b564-0d98ae18b1fa"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9756),
-                            Quantity = 86
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("fa4a115c-3cfd-46c7-995b-a77a7209c0db"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9758),
-                            Quantity = 92
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("6c28a28b-1936-4d08-905b-55becc778e41"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9759),
-                            Quantity = 59
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("a741e204-5dcb-4e47-9e8d-3451500e1a52"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9761),
-                            Quantity = 21
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("e00ccfd2-3513-4f71-94ae-60539c9f022f"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9762),
-                            Quantity = 65
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("6f14bd0f-0d20-4181-b659-0ddf49968719"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9764),
-                            Quantity = 47
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("69a99614-e9c6-46cb-a946-f32dbc2b8e36"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9765),
-                            Quantity = 37
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("9f2e7a48-2e72-416f-bb1b-157d7cf15a31"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9767),
-                            Quantity = 62
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("0eb38324-cba6-4275-9a1e-e9e5c21ad4ef"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9769),
-                            Quantity = 65
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("206b38f1-5d84-4fb7-88dd-d4d8b6721b4d"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9770),
+                            ProductId = new Guid("56025148-1929-4789-bf56-b1531ee27d6b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1221),
                             Quantity = 72
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("dce64e28-baa7-42a3-8cb1-87b89185629f"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9771),
-                            Quantity = 46
+                            ProductId = new Guid("3815c471-e4d4-4b1d-b6ce-0c811a3d8d61"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1224),
+                            Quantity = 24
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("443b8c99-9e51-40f7-aa17-f1ae235f0f2b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9773),
-                            Quantity = 88
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("5e0d2c43-72eb-440d-8dc5-a88ced649452"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9774),
-                            Quantity = 28
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("10f1a4c5-6ca7-4aea-80ce-efbd4659c3cd"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9776),
-                            Quantity = 48
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("264f4c8c-8211-4182-8c8f-9cfcf1fad70e"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9777),
-                            Quantity = 48
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("a4a5783c-17d3-4582-9765-da7be91e4029"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9779),
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("939529a7-6d89-4137-b96e-0046ecefc5ec"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9780),
-                            Quantity = 49
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("77278382-8206-43d9-9258-1006d65b4a9d"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9782),
-                            Quantity = 59
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("059684d0-b5d1-4ab0-8e20-2b64b73a22ac"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9783),
-                            Quantity = 91
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("2234e347-baf9-47d5-905f-983ab5de6774"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9785),
-                            Quantity = 63
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b008bb87-19c6-436d-a5ff-667d72fab328"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9786),
-                            Quantity = 36
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("31f2d39d-afad-4ab0-9ebd-edc42ca058ca"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9788),
-                            Quantity = 65
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("de9644c9-4492-49bb-b1d0-22f99bdb8c6c"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9790),
-                            Quantity = 64
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("9385e09a-c30e-4623-bb01-8ff93becc7da"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9791),
-                            Quantity = 27
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("3a55a5fe-aefa-47d6-8a07-87ef24e18b97"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9793),
-                            Quantity = 69
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("89e97744-b8fd-461e-a365-a87c35ecacb0"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9794),
-                            Quantity = 93
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("a6444f34-4825-4ec2-afb3-381c6b7af492"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9796),
-                            Quantity = 27
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("0e1484db-7c30-4df9-812d-eeade77c5a10"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9797),
-                            Quantity = 42
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b4d65baa-6a81-4ec6-86f9-5c398344637f"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9799),
-                            Quantity = 98
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b328435c-0004-4c7b-b68b-74df183331fd"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9800),
-                            Quantity = 51
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("00e9ac68-5a60-4efd-a087-480cbd1d4560"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9802),
-                            Quantity = 56
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("c306f595-7f32-47a6-9683-16233bd6746c"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9804),
-                            Quantity = 77
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("93a7c0ef-9f57-4134-9962-07065eb4dfe3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9806),
-                            Quantity = 38
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("2249915c-4c8c-4e0b-98e1-b74cd43ed066"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9807),
-                            Quantity = 51
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("09f0e79c-5c1f-47fe-ad0c-28dcb6f2d1a0"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9809),
-                            Quantity = 55
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("cfb75b41-2f0b-4486-a252-b47711c9a1e5"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9810),
-                            Quantity = 66
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("a3da18ac-5653-4bb1-abbc-3f4512c87bef"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9812),
-                            Quantity = 85
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("42070737-8b76-40dc-9dfe-c3ad6d274d99"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9813),
-                            Quantity = 76
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("6d210dc8-99dc-4e05-8ac3-5b624144b6c7"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9815),
-                            Quantity = 85
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("0e40d0fc-76f4-41e3-9743-6a3f05fdf7d5"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9816),
-                            Quantity = 30
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("72c32647-acd2-4989-8235-ad07144e6836"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9817),
-                            Quantity = 70
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("18b08464-6668-47ba-b218-d213be4eb956"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9819),
+                            ProductId = new Guid("e4be8474-0a73-48d1-a7dd-835806bf2953"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1226),
                             Quantity = 52
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("c6e6988b-7bbb-42a7-bf65-4d8f6425e1b3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9820),
-                            Quantity = 38
+                            ProductId = new Guid("cb85e60a-a300-48d8-a5f3-aa49092ef448"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1228),
+                            Quantity = 44
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("8ad5e1c0-0227-4887-9d24-f318a7bb9667"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9822),
-                            Quantity = 58
+                            ProductId = new Guid("b157f4ae-a337-47ce-bb1f-b9b39677e0a0"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1230),
+                            Quantity = 47
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("e46756e9-0d78-4e75-87b1-48da03f43ba6"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9823),
-                            Quantity = 96
+                            ProductId = new Guid("ed14d399-13d1-45c3-bb22-8ce2ab3a8ce7"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1288),
+                            Quantity = 59
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("75335219-3be8-4264-9c9e-9ba20b939b3b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9825),
-                            Quantity = 53
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("865a58fe-3ae0-4d51-8953-7bf514ead7a6"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9826),
-                            Quantity = 91
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("39751ddf-7f1b-4163-b1af-654719e23db3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9828),
-                            Quantity = 28
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("8d295478-046e-4822-a648-a50b398a5f6e"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9829),
-                            Quantity = 64
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("0ad36428-2066-4009-8b96-7335f90b7fcf"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9831),
-                            Quantity = 84
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("16885203-0de3-4d02-b072-774fa2c5d376"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9832),
-                            Quantity = 41
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("020fefb6-905f-4cfc-affb-87438f76e3f2"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9834),
-                            Quantity = 54
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("7a6953cb-d418-4b8e-9fd4-218ca0ddc278"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9835),
-                            Quantity = 53
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("b0266221-616e-40d3-9e9a-250e804cc8ba"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9837),
-                            Quantity = 51
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("2cf8bb56-9763-433b-b59a-a48acee916da"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9839),
-                            Quantity = 62
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("79119774-1161-4092-b25e-5095412666ba"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9840),
-                            Quantity = 93
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("e8eb440e-640c-4b09-8d43-fb0553704242"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9842),
-                            Quantity = 93
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("e7439069-4eff-4bd0-91ba-e0fb2d88fc77"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9843),
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("10898f93-24f4-43ae-ba47-1970f9406503"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9844),
-                            Quantity = 94
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("1a1604c5-b259-4cce-af78-f6a6c8e21587"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9846),
-                            Quantity = 36
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("72a72de0-bcd4-4b62-9863-fa1aa0a4db22"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9847),
-                            Quantity = 67
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("ebde4e15-1890-4cd7-8e43-dc7285d538e0"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9849),
-                            Quantity = 74
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("a4d62af5-7309-4d3d-98c9-bcf0b9540ac9"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9850),
-                            Quantity = 97
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("ad0d641d-0655-4f37-9a81-610851c3a850"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9852),
-                            Quantity = 31
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("0681df8f-4764-441e-8d96-0381d104dc70"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9853),
-                            Quantity = 31
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("f016b991-5566-44d8-94ec-bff357c41035"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9855),
-                            Quantity = 34
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("d740058d-bc9f-48be-9dd4-9d3e51fd636c"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9856),
-                            Quantity = 92
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("0a767fea-342d-459a-8c9e-73e3a0cc0a55"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9858),
-                            Quantity = 81
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("55992dbb-5629-4740-bb17-da7ca0185bf3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9859),
-                            Quantity = 58
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("7808a5b8-b97a-4c7c-95e3-db40c8d6ce7b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9861),
-                            Quantity = 25
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("5d155307-332f-4c2e-b031-439d2b701a90"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9862),
-                            Quantity = 82
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("04080c21-8f98-4bfb-8038-cd257c9554fb"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9864),
-                            Quantity = 73
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("38cecf99-f0fb-4ede-b8e3-6d7c5bbf0ca3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9865),
-                            Quantity = 71
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("1b87ccf3-91d1-4b82-a6cb-e176fe43f3c4"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9867),
-                            Quantity = 61
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("e3566da9-66b8-42c9-8043-1b229e130f84"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9868),
-                            Quantity = 85
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("3d060369-a0d2-4dfb-aa0f-901cb9a170fb"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9870),
-                            Quantity = 77
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("7ccd4cd5-3f12-4425-8427-c654cdb81466"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9871),
-                            Quantity = 70
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("13f7453b-fdf7-4b48-b38a-fdd1ecf37fd5"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9873),
-                            Quantity = 84
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("674fee3b-aa91-49e0-ba51-31cc5fa77f2f"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9874),
-                            Quantity = 58
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("f0a7ccb7-c4c9-4704-836d-cd4a179a1952"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9876),
-                            Quantity = 87
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("af0379a4-7470-47f2-9456-7526490becf1"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9877),
-                            Quantity = 23
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("d43abd0f-f35b-45fc-848b-715d98265b0c"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9879),
-                            Quantity = 20
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("c08a9d05-fd6f-4921-b563-978df2a5e3f9"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9880),
-                            Quantity = 21
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("889e6c38-2ac9-4ac8-8db4-c8910d72c31a"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9882),
-                            Quantity = 23
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("9ab9916a-623f-48c5-95ea-c34f8a87e019"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9883),
-                            Quantity = 82
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("429a9ccf-f92b-4544-81b5-ab738e6fdf9b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9885),
-                            Quantity = 28
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("5f33128a-d3c8-48ba-9a91-8049660f59ab"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9886),
+                            ProductId = new Guid("f7b97df1-f0b3-4d7e-9091-e52c57252c75"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1291),
                             Quantity = 46
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("b4bab4b0-ae01-4c59-9607-4c5376032249"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9888),
-                            Quantity = 72
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("124e27e9-41a3-45d9-9f5a-48689f16062d"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9889),
-                            Quantity = 31
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("5f222c9b-633e-46d2-8c3f-dfcdccf6381a"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9891),
-                            Quantity = 55
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("820b1d88-68b8-4cba-8616-2fb13dd8b16c"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9892),
-                            Quantity = 55
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("1950e5af-9772-4ee9-b982-86a0f438fcc5"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9894),
-                            Quantity = 90
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("a5392785-28f5-4a2e-b3df-cad28e7093ef"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9895),
-                            Quantity = 95
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("50814569-bee2-4183-b8a3-edba1ca9c0e0"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9897),
-                            Quantity = 71
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("f4191da6-4c7b-4982-a876-a63d198f5b2d"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9898),
-                            Quantity = 33
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("e831641c-b3e5-4dce-a4df-54d3abf5b414"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9961),
-                            Quantity = 64
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("1f873004-65d2-43c5-8084-31078d22a587"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9964),
-                            Quantity = 72
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("797488b1-4494-427b-9aed-849fb14062fc"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9966),
-                            Quantity = 42
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("6cda3f11-82c4-4aaa-a1ca-f155a2a74716"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9967),
-                            Quantity = 31
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("692d3744-9247-4057-98d6-3479ee2eda7c"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9969),
-                            Quantity = 20
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("0773be28-22d5-41e0-82f1-42d38b16c6e4"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9970),
+                            ProductId = new Guid("7ae7aa9a-9417-459e-b50b-241f08f7d586"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1293),
                             Quantity = 35
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("06e9db33-a016-4fc0-91cf-0adb29728ecd"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9972),
-                            Quantity = 73
+                            ProductId = new Guid("2c62005a-0bb1-4d06-aad5-9a5ac3bf96ca"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1295),
+                            Quantity = 70
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("65ad008f-0b82-4e02-9b71-8e9a45b27bd3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9973),
-                            Quantity = 42
+                            ProductId = new Guid("4fba1700-428f-43c1-adad-788e28a9cc4f"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1297),
+                            Quantity = 22
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("34818646-ea55-40db-86ee-711967971c0e"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9975),
-                            Quantity = 51
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("c5a768eb-8de5-4618-8db8-c10e3854fa80"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9976),
-                            Quantity = 79
-                        },
-                        new
-                        {
-                            ProductInventoryId = new Guid("f5cc27e8-fd3e-4791-8818-1fc163f49be8"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9977),
+                            ProductId = new Guid("4dd6e0b7-53f5-42f5-bb89-f16787ca603f"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1299),
                             Quantity = 38
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("0322cc1b-ef8c-41c6-a471-c6dd9f8a5df3"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9979),
-                            Quantity = 20
+                            ProductId = new Guid("b4bbe990-ced1-4176-bdb4-9413926f26c6"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1301),
+                            Quantity = 49
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("2cc77b69-2a76-42ac-997a-d5532b8e3e23"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9980),
+                            ProductId = new Guid("7730a1bd-352b-478a-a1be-1ca609e38104"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1303),
+                            Quantity = 32
+                        },
+                        new
+                        {
+                            ProductId = new Guid("988874ee-ba9a-4d1d-bf83-4732183eec39"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1306),
+                            Quantity = 82
+                        },
+                        new
+                        {
+                            ProductId = new Guid("f6d7c049-6647-4ebf-a916-ed2ec049bd37"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1308),
+                            Quantity = 78
+                        },
+                        new
+                        {
+                            ProductId = new Guid("c442f47b-8703-4834-b3cb-0c4c70c50816"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1310),
+                            Quantity = 21
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b5c9a48d-3e1b-445d-bf63-71c320fc0107"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1313),
+                            Quantity = 96
+                        },
+                        new
+                        {
+                            ProductId = new Guid("9a85e56f-9410-4bd3-9bd8-e49488bc391a"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1315),
+                            Quantity = 93
+                        },
+                        new
+                        {
+                            ProductId = new Guid("8505b958-d912-43ca-a7af-8d74e3a1976b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1317),
+                            Quantity = 25
+                        },
+                        new
+                        {
+                            ProductId = new Guid("7765dcb3-13e0-46de-9664-ce80551c49c2"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1319),
+                            Quantity = 73
+                        },
+                        new
+                        {
+                            ProductId = new Guid("9adaac89-c468-4bf6-a0a6-4ef785916bd9"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1321),
+                            Quantity = 83
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b51cb560-6afe-4196-8f28-af64cd45ae63"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1323),
+                            Quantity = 76
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4b98ff30-b8ef-4eab-9863-fabdc62c08ac"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1325),
+                            Quantity = 41
+                        },
+                        new
+                        {
+                            ProductId = new Guid("de850779-ef8b-41f3-8e9f-ad72de69ac3a"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1327),
+                            Quantity = 83
+                        },
+                        new
+                        {
+                            ProductId = new Guid("8e2b9dcb-86f3-4872-90db-13efa917a7c8"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1330),
+                            Quantity = 69
+                        },
+                        new
+                        {
+                            ProductId = new Guid("6b020957-30da-4527-a376-015bc4d90129"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1332),
+                            Quantity = 34
+                        },
+                        new
+                        {
+                            ProductId = new Guid("0bf3cfcf-a385-4f1c-9ab7-152e3ba95e1d"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1334),
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b52aa565-4b82-45a0-9a32-ba1e44bb8326"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1336),
+                            Quantity = 73
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a87d1c4d-f980-4841-9a4a-d1747834fd4a"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1338),
+                            Quantity = 93
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d80dbc67-5606-450e-8075-a7e5e8a3f68a"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1341),
+                            Quantity = 77
+                        },
+                        new
+                        {
+                            ProductId = new Guid("3eea6aa5-e1ee-4524-a8a2-16aa01d34c5d"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1343),
+                            Quantity = 55
+                        },
+                        new
+                        {
+                            ProductId = new Guid("e038df3a-01a5-417d-94e8-ec1be5d2c77d"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1345),
+                            Quantity = 26
+                        },
+                        new
+                        {
+                            ProductId = new Guid("586c2aff-1997-487b-853e-581fc085624d"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1348),
+                            Quantity = 66
+                        },
+                        new
+                        {
+                            ProductId = new Guid("6a76e444-65b8-4f52-8e6a-cc3eca30f0ac"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1350),
+                            Quantity = 66
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a3d3bcc6-cbb0-4e09-82fa-e9ae135fde5f"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1352),
+                            Quantity = 43
+                        },
+                        new
+                        {
+                            ProductId = new Guid("443f1aed-b4a3-431f-82ab-d4f20233bfce"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1354),
+                            Quantity = 54
+                        },
+                        new
+                        {
+                            ProductId = new Guid("6fd9e0b9-0cfd-46b6-84c1-a50cd3838941"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1356),
+                            Quantity = 61
+                        },
+                        new
+                        {
+                            ProductId = new Guid("cca9a8f9-ce9b-4703-8db7-65efbca2ae46"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1358),
+                            Quantity = 80
+                        },
+                        new
+                        {
+                            ProductId = new Guid("0f631b2e-3e34-422b-8057-87dd1783dc1b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1360),
+                            Quantity = 59
+                        },
+                        new
+                        {
+                            ProductId = new Guid("c8d5cde7-2a5e-4f67-8dab-f493c0ed7b03"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1362),
+                            Quantity = 86
+                        },
+                        new
+                        {
+                            ProductId = new Guid("527f0448-a846-46b6-b74d-1749f8fc66e0"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1365),
+                            Quantity = 97
+                        },
+                        new
+                        {
+                            ProductId = new Guid("04d1ddb2-bf66-49af-9b2c-57ff5f26b8c6"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1367),
+                            Quantity = 42
+                        },
+                        new
+                        {
+                            ProductId = new Guid("07fd8ddd-f7a4-4b51-8263-3a436553f365"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1369),
+                            Quantity = 41
+                        },
+                        new
+                        {
+                            ProductId = new Guid("021b1a7a-bb59-422b-aa8a-2cf5db374783"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1371),
+                            Quantity = 28
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4a94a437-bd9c-484d-bf9b-9efcd943bba0"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1373),
+                            Quantity = 28
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5e911c50-d0f8-46fd-9c97-69fd9be0253b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1375),
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4074626f-e3de-494a-a140-87a1ad4aec5a"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1378),
+                            Quantity = 94
+                        },
+                        new
+                        {
+                            ProductId = new Guid("996a73cc-a47b-4476-bd3d-8903940bd1df"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1380),
+                            Quantity = 40
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ee41596f-e7c9-44bc-874e-962937cbe3fa"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1382),
+                            Quantity = 84
+                        },
+                        new
+                        {
+                            ProductId = new Guid("64be8929-d9c8-45c5-8cbc-f09fcaa19c97"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1384),
+                            Quantity = 68
+                        },
+                        new
+                        {
+                            ProductId = new Guid("005a66cd-cd69-4924-a083-52059e734c90"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1386),
+                            Quantity = 97
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d9df92d7-7916-494e-8528-bfbe9bd8373b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1388),
+                            Quantity = 26
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4e678c48-be6e-40b7-81e9-49abe19e142e"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1390),
+                            Quantity = 91
+                        },
+                        new
+                        {
+                            ProductId = new Guid("aae22b08-dd20-4f88-b21a-fd9ca26ecd98"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1393),
+                            Quantity = 48
+                        },
+                        new
+                        {
+                            ProductId = new Guid("dbc93373-e67a-40b5-8b95-3295172d3256"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1395),
+                            Quantity = 59
+                        },
+                        new
+                        {
+                            ProductId = new Guid("1ef81754-86b0-4314-829a-ddbebe444238"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1397),
+                            Quantity = 83
+                        },
+                        new
+                        {
+                            ProductId = new Guid("337514d3-ced8-47a1-97e6-c8cc9c215fe9"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1399),
+                            Quantity = 64
+                        },
+                        new
+                        {
+                            ProductId = new Guid("8fea81a6-50fd-446f-b483-1ac041841384"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1401),
+                            Quantity = 27
+                        },
+                        new
+                        {
+                            ProductId = new Guid("2cd7c67c-1f05-4399-b5e5-be62c1edc702"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1403),
+                            Quantity = 77
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4415c81c-6620-4f49-b76c-3dabac6da667"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1406),
+                            Quantity = 31
+                        },
+                        new
+                        {
+                            ProductId = new Guid("563cac1f-0980-4020-8b47-d3716d041efc"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1408),
+                            Quantity = 32
+                        },
+                        new
+                        {
+                            ProductId = new Guid("673bbf30-8997-4b35-b891-d3787fe561a9"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1411),
+                            Quantity = 69
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ecfe3ed3-351b-4e7b-a762-3c2961d005de"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1413),
+                            Quantity = 89
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5b37f529-1274-4d74-85f3-b9498ff3cebe"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1415),
+                            Quantity = 75
+                        },
+                        new
+                        {
+                            ProductId = new Guid("7dd7b944-b388-4c28-bcad-01696b70c478"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1417),
+                            Quantity = 86
+                        },
+                        new
+                        {
+                            ProductId = new Guid("dd2d308d-4b58-4773-8637-b49ab9563669"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1419),
+                            Quantity = 59
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b4901bbd-08c4-4de6-b47d-1da942eb3d17"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1421),
+                            Quantity = 39
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b992eca2-c7c9-4cf0-8563-f70424a84d03"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1423),
+                            Quantity = 83
+                        },
+                        new
+                        {
+                            ProductId = new Guid("871e3a4d-0f5f-4b02-85b3-398cf0bb118b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1426),
+                            Quantity = 51
+                        },
+                        new
+                        {
+                            ProductId = new Guid("14f9a240-efe6-48a8-84c6-19c95406c8f6"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1428),
+                            Quantity = 29
+                        },
+                        new
+                        {
+                            ProductId = new Guid("53d83503-53e2-4cae-93f0-58a09095580e"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1430),
+                            Quantity = 45
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d14cd5c2-0822-48f0-9a79-36311b31e499"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1432),
                             Quantity = 57
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("911d3acd-394e-4028-bac4-69b8ca5a434b"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9982),
-                            Quantity = 81
+                            ProductId = new Guid("3318bb19-a09e-4893-a8c6-64b2c66eb95d"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1434),
+                            Quantity = 64
                         },
                         new
                         {
-                            ProductInventoryId = new Guid("e4cde3fe-a4f2-427c-bf4c-57927ae0e629"),
-                            LastInventory = new DateTime(2023, 10, 30, 16, 27, 47, 866, DateTimeKind.Local).AddTicks(9983),
-                            Quantity = 21
+                            ProductId = new Guid("748be502-b852-4c58-bf65-83d0db75814b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1436),
+                            Quantity = 72
+                        },
+                        new
+                        {
+                            ProductId = new Guid("284bdf6b-3cd4-46b0-bd70-a655aca4f0dd"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1438),
+                            Quantity = 92
+                        },
+                        new
+                        {
+                            ProductId = new Guid("990bf386-16bb-4fd7-b65b-f4c33a2d4060"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1440),
+                            Quantity = 23
+                        },
+                        new
+                        {
+                            ProductId = new Guid("e70c75e7-73d4-4025-97cb-99a1e6e669f0"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1442),
+                            Quantity = 80
+                        },
+                        new
+                        {
+                            ProductId = new Guid("cfc06d1c-5e0a-468c-b0ca-63b96ce9fcbe"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1445),
+                            Quantity = 44
+                        },
+                        new
+                        {
+                            ProductId = new Guid("240b8ca0-38d6-45e7-aaa0-abdf2372f0cd"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1447),
+                            Quantity = 79
+                        },
+                        new
+                        {
+                            ProductId = new Guid("7155c257-ebaa-4009-bb73-022a3b3c78fe"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1449),
+                            Quantity = 31
+                        },
+                        new
+                        {
+                            ProductId = new Guid("135591ba-8b87-46a2-ab16-e990d48662a5"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1451),
+                            Quantity = 80
+                        },
+                        new
+                        {
+                            ProductId = new Guid("c0cb838c-0ac9-409e-b0c8-42e7d52bbeff"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1453),
+                            Quantity = 44
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b8b81d55-713d-46fe-9a3c-37c5f3a4fb5b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1455),
+                            Quantity = 47
+                        },
+                        new
+                        {
+                            ProductId = new Guid("df053ed9-ce88-4568-8509-325c65d2cac4"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1457),
+                            Quantity = 70
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ede1d3b3-4fc0-4892-be32-8d017e1a3bc2"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1459),
+                            Quantity = 32
+                        },
+                        new
+                        {
+                            ProductId = new Guid("3d21ae85-3a60-4e37-961a-cf667f2a0190"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1461),
+                            Quantity = 77
+                        },
+                        new
+                        {
+                            ProductId = new Guid("00879e44-df95-4681-ae18-a4dd7a1e7bf4"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1463),
+                            Quantity = 63
+                        },
+                        new
+                        {
+                            ProductId = new Guid("f3479c2f-cc8e-4ed9-b0c4-b94d6d00fe52"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1465),
+                            Quantity = 84
+                        },
+                        new
+                        {
+                            ProductId = new Guid("bba36a46-1215-4408-ab6b-4c332aefedb9"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1468),
+                            Quantity = 67
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ee1b5e89-9621-4c1c-9667-a6703f903534"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1470),
+                            Quantity = 44
+                        },
+                        new
+                        {
+                            ProductId = new Guid("db2fa550-c93f-4081-90da-b7ae4aac0a4b"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1472),
+                            Quantity = 20
+                        },
+                        new
+                        {
+                            ProductId = new Guid("8f03ae13-99a5-4688-aff4-04e3d92f2643"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1474),
+                            Quantity = 26
+                        },
+                        new
+                        {
+                            ProductId = new Guid("89898340-89fe-4b89-a310-1a36fd1863cd"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1476),
+                            Quantity = 20
+                        },
+                        new
+                        {
+                            ProductId = new Guid("21c71088-76fe-40e0-ba66-bb78409aee6c"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1478),
+                            Quantity = 68
+                        },
+                        new
+                        {
+                            ProductId = new Guid("e3f39c69-e929-4c2a-abf1-cef14fa8332f"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1480),
+                            Quantity = 30
+                        },
+                        new
+                        {
+                            ProductId = new Guid("1e49e4a4-d60f-46f1-893d-641b9c7d4f83"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1482),
+                            Quantity = 35
+                        },
+                        new
+                        {
+                            ProductId = new Guid("187e6500-161a-4d47-b6df-63e901fe2c2a"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1484),
+                            Quantity = 89
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a905d658-4525-4908-9b24-871752cee673"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1486),
+                            Quantity = 53
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ac8c6b4b-a9d8-482d-9456-fdf8a772a0cc"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1489),
+                            Quantity = 39
+                        },
+                        new
+                        {
+                            ProductId = new Guid("010ef2e4-f026-498e-9b30-200eff6dce45"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1491),
+                            Quantity = 69
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a9ed6fd1-be1c-4cee-bb75-ad9b386dbbf1"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1493),
+                            Quantity = 39
+                        },
+                        new
+                        {
+                            ProductId = new Guid("c7ff05cf-cd55-45a1-9340-d9c889b35fe8"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1495),
+                            Quantity = 84
+                        },
+                        new
+                        {
+                            ProductId = new Guid("227c44ef-aab6-4335-9e75-e7e0cdff8854"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1497),
+                            Quantity = 62
+                        },
+                        new
+                        {
+                            ProductId = new Guid("e66a9090-a190-45a4-abe7-46f9b65fdbe4"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1499),
+                            Quantity = 30
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5ea41d06-4292-46d7-aba2-5cc07f97060d"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1501),
+                            Quantity = 50
+                        },
+                        new
+                        {
+                            ProductId = new Guid("08f5e044-0eac-4384-b9a3-2f3e55c7dbde"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1503),
+                            Quantity = 56
+                        },
+                        new
+                        {
+                            ProductId = new Guid("3fd46c49-945c-43ff-9d7c-12fb6869d7a3"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1505),
+                            Quantity = 35
+                        },
+                        new
+                        {
+                            ProductId = new Guid("6dd4446b-e109-4500-9ef7-db9ebe21f180"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1508),
+                            Quantity = 67
+                        },
+                        new
+                        {
+                            ProductId = new Guid("267bad5b-742e-4fc8-ae5b-973d13c81d31"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1510),
+                            Quantity = 25
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ae768add-a3b9-4344-b294-1e7c2a6fbbc3"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1512),
+                            Quantity = 40
+                        },
+                        new
+                        {
+                            ProductId = new Guid("fe76d9c7-7fd1-4c3a-b700-b5782c423b85"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1514),
+                            Quantity = 64
+                        },
+                        new
+                        {
+                            ProductId = new Guid("69432b90-2132-48d8-a6be-2bf92c424ed2"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1516),
+                            Quantity = 75
+                        },
+                        new
+                        {
+                            ProductId = new Guid("b2b43400-acd5-456e-8e6d-f3af17475904"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1519),
+                            Quantity = 67
+                        },
+                        new
+                        {
+                            ProductId = new Guid("6e739028-dec1-45ff-b564-027889ca4641"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1521),
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            ProductId = new Guid("7bceb641-91d8-48e8-9405-d215e1b954fd"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1523),
+                            Quantity = 99
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a08393a3-ad26-476d-a213-d80e09659209"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1525),
+                            Quantity = 27
+                        },
+                        new
+                        {
+                            ProductId = new Guid("586fe006-6823-4bd9-a895-456d8ded6f5c"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1527),
+                            Quantity = 82
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5894a5b0-4899-4859-adf4-3646102aa75c"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1530),
+                            Quantity = 54
+                        },
+                        new
+                        {
+                            ProductId = new Guid("df03a63e-d5dd-4644-9ecd-f59189d91d08"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1562),
+                            Quantity = 78
+                        },
+                        new
+                        {
+                            ProductId = new Guid("086d4b6b-310e-4dba-9f2c-1dcf5cf6de76"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1565),
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            ProductId = new Guid("920acaec-0d56-40de-8ce5-9519f7538476"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1567),
+                            Quantity = 74
+                        },
+                        new
+                        {
+                            ProductId = new Guid("0f2ce3e6-93ef-418b-83d2-41e052c80854"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1569),
+                            Quantity = 80
+                        },
+                        new
+                        {
+                            ProductId = new Guid("82ca69a3-a40c-4d0d-8f25-a501f8ef2250"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1571),
+                            Quantity = 44
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d2483c4f-5e0c-4925-a049-cb2008dc39f2"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1573),
+                            Quantity = 61
+                        },
+                        new
+                        {
+                            ProductId = new Guid("3689ba96-73c5-43a1-abbf-c621e0feb5d7"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1575),
+                            Quantity = 53
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5cdc9f25-b3eb-4590-b570-0f0e9513309a"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1579),
+                            Quantity = 39
+                        },
+                        new
+                        {
+                            ProductId = new Guid("66ab8980-cd7d-47a0-b536-8a917ab04894"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1581),
+                            Quantity = 42
+                        },
+                        new
+                        {
+                            ProductId = new Guid("494f8204-260b-4e64-bdba-fafd91c2c8b5"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1583),
+                            Quantity = 74
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a5c43137-c780-453f-b407-d052acc39121"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1585),
+                            Quantity = 66
+                        },
+                        new
+                        {
+                            ProductId = new Guid("8ad1ea37-f581-4c6d-897e-0f9c41fa05a7"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1587),
+                            Quantity = 63
+                        },
+                        new
+                        {
+                            ProductId = new Guid("239ddb4f-ca06-4b64-889f-4e31ce39ce8d"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1589),
+                            Quantity = 47
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4afecf81-86be-4020-b0c7-f85e7927671e"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1591),
+                            Quantity = 77
+                        },
+                        new
+                        {
+                            ProductId = new Guid("d04c3fbc-d7d1-4d2b-a43c-a6d5692b2ace"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1593),
+                            Quantity = 36
+                        },
+                        new
+                        {
+                            ProductId = new Guid("520a650d-69cc-4891-bb01-2e9111541850"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1595),
+                            Quantity = 64
+                        },
+                        new
+                        {
+                            ProductId = new Guid("cffab235-eff2-4285-a50f-f2d68df6dca2"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1597),
+                            Quantity = 55
+                        },
+                        new
+                        {
+                            ProductId = new Guid("f474f65d-fb70-4b3c-bb3d-e1202346a0cd"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1599),
+                            Quantity = 20
+                        },
+                        new
+                        {
+                            ProductId = new Guid("96326fec-19dc-4628-85ce-fc04d828eb49"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1602),
+                            Quantity = 70
+                        },
+                        new
+                        {
+                            ProductId = new Guid("74f787d6-2c0b-4cfc-951f-9c8a8cc867d4"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1604),
+                            Quantity = 49
+                        },
+                        new
+                        {
+                            ProductId = new Guid("acf27a5f-429d-4425-a6fe-58fdef309fb5"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1606),
+                            Quantity = 43
+                        },
+                        new
+                        {
+                            ProductId = new Guid("edd6915f-5d0b-4f27-a6ed-5d59da4f1e83"),
+                            LastInventory = new DateTime(2023, 10, 31, 11, 15, 17, 924, DateTimeKind.Local).AddTicks(1608),
+                            Quantity = 28
                         });
                 });
 
@@ -1953,7 +1953,7 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubCategoryId"));
 
-                    b.Property<int>("PrimaryCategoryId")
+                    b.Property<int?>("PrimaryCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("SubCategoryName")
@@ -1970,103 +1970,103 @@ namespace DataAccess.Migrations
                         new
                         {
                             SubCategoryId = 1,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 1,
                             SubCategoryName = "T-Shirts Men"
                         },
                         new
                         {
                             SubCategoryId = 2,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 2,
                             SubCategoryName = "T-Shirts Women"
                         },
                         new
                         {
                             SubCategoryId = 3,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 3,
                             SubCategoryName = "T-Shirts Unisex"
                         },
                         new
                         {
                             SubCategoryId = 4,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 1,
                             SubCategoryName = "Pants Men"
                         },
                         new
                         {
                             SubCategoryId = 5,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 2,
                             SubCategoryName = "Pants Women"
                         },
                         new
                         {
                             SubCategoryId = 6,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 3,
                             SubCategoryName = "Pants Unisex"
                         },
                         new
                         {
                             SubCategoryId = 7,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 2,
                             SubCategoryName = "Dresses"
                         },
                         new
                         {
                             SubCategoryId = 8,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 1,
                             SubCategoryName = "Shoes Men"
                         },
                         new
                         {
                             SubCategoryId = 9,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 2,
                             SubCategoryName = "Shoes Women"
                         },
                         new
                         {
                             SubCategoryId = 10,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 3,
                             SubCategoryName = "Shoes Unisex"
                         },
                         new
                         {
                             SubCategoryId = 11,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 1,
                             SubCategoryName = "Bags Men"
                         },
                         new
                         {
                             SubCategoryId = 12,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 2,
                             SubCategoryName = "Bags Women"
                         },
                         new
                         {
                             SubCategoryId = 13,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 3,
                             SubCategoryName = "Bags Unisex"
                         },
                         new
                         {
                             SubCategoryId = 14,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 1,
                             SubCategoryName = "Suits"
                         },
                         new
                         {
                             SubCategoryId = 15,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 1,
                             SubCategoryName = "Accessories Men"
                         },
                         new
                         {
                             SubCategoryId = 16,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 2,
                             SubCategoryName = "Accessories Women"
                         },
                         new
                         {
                             SubCategoryId = 17,
-                            PrimaryCategoryId = 0,
+                            PrimaryCategoryId = 3,
                             SubCategoryName = "Accessories Unisex"
                         });
                 });
@@ -2110,9 +2110,7 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("DataAccess.Models.Entities.PrimaryCategoryEntity", "PrimaryCategory")
                         .WithMany()
-                        .HasForeignKey("PrimaryCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PrimaryCategoryId");
 
                     b.Navigation("PrimaryCategory");
                 });

@@ -46,7 +46,10 @@ namespace DataAccess.Contexts
                 SubCategoryEntity entity = new SubCategoryEntity()
                 {
                     SubCategoryId = i + 1,
-                    SubCategoryName = SubCategories[i]
+                    SubCategoryName = SubCategories[i],
+                    PrimaryCategoryId = GetPrimaryCategoryId(SubCategories[i])
+                    
+
                 };
                 subCategories.Add(entity);
             }
@@ -67,6 +70,46 @@ namespace DataAccess.Contexts
                     return 2;
                 case "dresses":
                     return 2;
+                case "t-shirt men":
+                    return 1;
+                case "t-shirts men":
+                    return 1;
+                case "t-shirts women":
+                    return 2;
+                case "t-shirt unisex":
+                    return 1;
+                case "t-shirts unisex":
+                    return 3;
+                case "pants men":
+                    return 1;
+                case "pants women":
+                    return 2;
+                case "pants unisex":
+                    return 3;
+                case "shoes men":
+                    return 1;
+                case "shoes women":
+                    return 2;
+                case "shoes unisex":
+                    return 3;
+                case "bag men":
+                    return 1;
+                case "bags men":
+                    return 1;
+                case "bags women":
+                    return 2;
+                case "bag women":
+                    return 2;
+                case "bags unisex":
+                    return 3;
+                case "accessories men":
+                    return 1;
+                case "accessories women":
+                    return 2;
+                case "accessories unisex":
+                    return 3;
+                default:
+                    return 0;
 
             }
 
