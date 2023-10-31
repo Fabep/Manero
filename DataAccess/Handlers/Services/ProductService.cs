@@ -31,7 +31,7 @@ namespace DataAccess.Handlers.Services
 
 		public async Task GetAllBestSellersAsProducts()
 		{
-			var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
+			var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
 
 			BestSellers = productList
 			 .Select(p => DataConverter.ConvertProductEntityToProduct(p))
@@ -40,13 +40,12 @@ namespace DataAccess.Handlers.Services
 
 		public async Task<List<Product>> GetProductsFromSubCategory(string subProductCategory)
 		{
-			//var productList = _subCategoryRepository....
-
 			// vill hämta de produkter som tillhör vald subkategori
 			var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
-			
 
-		 //	ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategoryEntity()).ToList();
+			 ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategory)
+				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
+				.ToList();
 
 			//ProductsFromSubCategory = productList
 			//	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))

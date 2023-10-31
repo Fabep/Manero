@@ -15,15 +15,13 @@ public class IndexModel : PageModel
 	}
 
 
-    public string ProductCategory { get; set; }
+    public string PageTitle { get; set; }
     public List<Product> ProductList { get; set; }
 
 
     public async Task OnGet(string subProductCategory) // sidan ska visa de produkter i den produktkategori som valts.
     {
-        ProductCategory = subProductCategory;
+		PageTitle = subProductCategory;
         ProductList = await _productService.GetProductsFromSubCategory(subProductCategory);
-
-
     }
 }
