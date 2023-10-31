@@ -21,6 +21,9 @@
   <ItemGroup>
     <Folder Include="Views\Categories\" />
     <Folder Include="Views\Products\" />
+    <Folder Include="wwwroot\css\scss\core\" />
+    <Folder Include="wwwroot\css\scss\sections\" />
+    <Folder Include="wwwroot\css\scss\" />
   </ItemGroup>
 
   <ItemGroup>
