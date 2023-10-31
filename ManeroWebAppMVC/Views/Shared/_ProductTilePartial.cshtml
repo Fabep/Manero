@@ -2,7 +2,7 @@
 
 <div class="product-tile">
     <div class="product-image">
-        <a asp-page="/Products/Article" asp-route-id="@Model.ProductId">
+        <a href="@Url.Action("Article", "Products", new { id = @Model.ProductId })">
             <img src="/Images/t-shirt.png" alt="@Model.ProductName" />
         </a>
         <div class="product-buttons">
