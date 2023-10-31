@@ -23,7 +23,7 @@ namespace ManeroWebApplication
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(connectionString));
-            builder.Services.AddScoped<ProductRepository>();
+            builder.Services.AddTransient<ProductRepository>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -34,11 +34,7 @@ namespace ManeroWebApplication
 
 			var app = builder.Build();
 
-            using (var scope = app.Services.CreateScope())
-            {
-                var context = scope.ServiceProvider.GetRequiredService<LocalContext>();
-                context.Database.EnsureCreated();
-            }
+        
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

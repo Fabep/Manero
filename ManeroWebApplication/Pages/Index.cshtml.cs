@@ -7,6 +7,7 @@ using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace ManeroWebApplication.Pages
 {
@@ -24,12 +25,19 @@ namespace ManeroWebApplication.Pages
 		public List<DataAccess.Models.Product> BestSellers { get; set; }
         public List<DataAccess.Models.Product> FeaturedProducts { get; set; }
 
+        public int ProductCount { get; set; }
+
+
+
+
         public async Task OnGet()
         {
 
 
             var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
             var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
+
+            var allProducts = await _productRepository.GetAllAsync(x=> x.GetType() == typeof(ProductEntity));
 
             BestSellers = productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
