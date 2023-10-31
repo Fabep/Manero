@@ -23,7 +23,7 @@
 
 			<h1>Best Sellers</h1>
 
-			<a asp-page="/Products/BestSellers">
+			<a href="@Url.Action("Index", "Products", new { subProductCategory = "Best Sellers"})">
 				View All >
 			</a>
 
@@ -50,7 +50,7 @@
 
 			<h1>Featured Products</h1>
 
-			<a asp-page="/Products/FeaturedProducts">
+			<a href="@Url.Action("Index", "Products", new { subProductCategory = "Featured Products"})">
 				View All >
 			</a>
 
