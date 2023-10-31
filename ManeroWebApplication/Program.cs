@@ -23,7 +23,7 @@ namespace ManeroWebApplication
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(connectionString));
-            builder.Services.AddTransient<ProductRepository>();
+            builder.Services.AddScoped<ProductRepository>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
