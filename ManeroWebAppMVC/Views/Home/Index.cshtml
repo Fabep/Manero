@@ -1,8 +1,68 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model HomeViewModel
+
+@{
+	ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="offer-section">
+	<div class="container offer-container">
+		<div class="offer-text">
+			<h2>Take 50% off</h2>
+			<p>on selected items</p>
+			<a href="/Products/SalesProducts" class="btn-sales">Shop now</a>
+		</div>
+	</div>
+</section>
+
+<hr />
+
+<section class="product-section">
+	<div class="container product-container">
+
+		<div class="product-container-header">
+
+			<h1>Best Sellers</h1>
+
+			<a asp-page="/Products/BestSellers">
+				View All >
+			</a>
+
+		</div>
+
+		<div class="product-container-items">
+			@foreach (var product in Model.BestSellers.Take(4))
+			{
+				<partial name="_ProductTilePartial" model="product" />
+			}
+
+		</div>
+
+	</div>
+</section>
+
+<hr />
+
+
+<section class="product-section">
+	<div class="container product-container">
+
+		<div class="product-container-header">
+
+			<h1>Featured Products</h1>
+
+			<a asp-page="/Products/FeaturedProducts">
+				View All >
+			</a>
+
+		</div>
+
+		<div class="product-container-items">
+			@foreach (var product in Model.FeaturedProducts.Take(4))
+			{
+				<partial name="_ProductTilePartial" model="product" />
+			}
+
+		</div>
+
+	</div>
+</section>

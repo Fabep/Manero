@@ -1,5 +1,7 @@
 using DataAccess.Contexts;
 using DataAccess.Handlers.Repositories;
+using DataAccess.Handlers.Services.Abstractions;
+using DataAccess.Handlers.Services;
 using ManeroWebAppMVC.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,9 @@ builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+// Add services
+builder.Services.AddTransient<IProductService, ProductService>();
 
 var app = builder.Build();
 
