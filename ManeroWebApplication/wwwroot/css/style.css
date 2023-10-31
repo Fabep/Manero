@@ -155,6 +155,17 @@ header #main {
   margin-bottom: 5px;
   color: red;
 }
+.product-tile .product-price-old {
+  margin-bottom: 5px;
+  text-decoration: line-through;
+}
+.product-tile .sale-badge {
+  background-color: green;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
 .categories {
   height: 100%;

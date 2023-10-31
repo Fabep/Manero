@@ -4,6 +4,7 @@ using DataAccess.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(LocalContext))]
-    partial class LocalContextModelSnapshot : ModelSnapshot
+    [Migration("20231030183024_jek")]
+    partial class jek
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,11 +60,11 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("26cc1c21-6d0c-4228-ac4b-92be56feddee"),
+                            ProductId = new Guid("d13dd170-f8e8-422b-a338-f8f552db2290"),
                             ProductDescription = "Beskrivning av exempelprodukten",
                             ProductName = "Exempelprodukt",
                             ProductPrice = 19.989999999999998,
-                            PromotionId = new Guid("e02cec60-83b8-4990-a9e6-ff3b010f097f")
+                            PromotionId = new Guid("ee534c19-1650-4db5-8b92-e8225ee2ef16")
                         });
                 });
 
@@ -95,7 +98,7 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            PromotionId = new Guid("e02cec60-83b8-4990-a9e6-ff3b010f097f"),
+                            PromotionId = new Guid("ee534c19-1650-4db5-8b92-e8225ee2ef16"),
                             Description = "Big discounts for the summer season",
                             DiscountRate = 0.20000000000000001,
                             EndDate = new DateTime(2023, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
