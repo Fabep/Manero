@@ -15,6 +15,7 @@ public class LocalContext : DbContext
         Database.Migrate();
     }
     public DbSet<ProductEntity> Products { get; set; }
+    public DbSet<PromotionEntity> Promotions { get; set; }
 
     public DbSet<PrimaryCategoryEntity> PrimaryCategories { get; set; }
 

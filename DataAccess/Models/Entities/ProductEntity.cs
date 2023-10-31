@@ -16,14 +16,14 @@ public class ProductEntity
     public int? Rating { get; set; }
     public int? Quantity { get; set; }
 
-    public int SubCategoryId { get; set; }
+    public int? SubCategoryId { get; set; }
     [Required]
-    public SubCategoryEntity SubCategory { get; set; }
+    public SubCategoryEntity? SubCategory { get; set; }
 
-    public int ColorId { get; set; }
+    public int? ColorId { get; set; }
     public ColorEntity? Color { get; set; }
 
-    public int SizeId { get; set; }
+    public int? SizeId { get; set; }
     public SizeEntity? Size { get; set; }
 
     public ProductInventoryEntity? ProductInventory { get; set; }
