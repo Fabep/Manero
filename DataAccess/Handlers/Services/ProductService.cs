@@ -46,7 +46,7 @@ namespace DataAccess.Handlers.Services
 			var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
 			
 
-			ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategoryEntity()).ToList();
+		 //	ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategoryEntity()).ToList();
 
 			//ProductsFromSubCategory = productList
 			//	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
