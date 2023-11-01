@@ -10,6 +10,8 @@ namespace DataAccess.Handlers.Services
     public class ProductService : IProductService
 	{
 		private readonly ProductRepository _productRepository;
+
+		//Ta bort dessa listor, behövs bara i metoderna
         public List<Product> BestSellers { get; set; }
 		public List<Product> ProductsFromSubCategory { get; set; }
 
