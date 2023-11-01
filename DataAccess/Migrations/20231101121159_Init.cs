@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class initdb : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,7 +56,8 @@ namespace DataAccess.Migrations
                 name: "Promotions",
                 columns: table => new
                 {
-                    PromotionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PromotionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DiscountRate = table.Column<double>(type: "float", nullable: false),
@@ -112,7 +113,9 @@ namespace DataAccess.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: true),
                     SubCategoryId = table.Column<int>(type: "int", nullable: false),
                     ColorId = table.Column<int>(type: "int", nullable: true),
-                    SizeId = table.Column<int>(type: "int", nullable: true)
+                    SizeId = table.Column<int>(type: "int", nullable: true),
+                    PromotionId = table.Column<int>(type: "int", nullable: true),
+                    DiscountedPrice = table.Column<double>(type: "float", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -128,6 +131,11 @@ namespace DataAccess.Migrations
                         principalTable: "ProductInventories",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Promotions_PromotionId",
+                        column: x => x.PromotionId,
+                        principalTable: "Promotions",
+                        principalColumn: "PromotionId");
                     table.ForeignKey(
                         name: "FK_Products_Sizes_SizeId",
                         column: x => x.SizeId,
@@ -169,10 +177,10 @@ namespace DataAccess.Migrations
                 columns: new[] { "ProductId", "LastInventory", "Quantity" },
                 values: new object[,]
                 {
-                    { new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4545), 62 },
-                    { new Guid("286aa72f-94c8-429d-a2f4-fa10f0615a30"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4542), 92 },
-                    { new Guid("84f19366-ca90-4186-b247-63e5455ba388"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4548), 46 },
-                    { new Guid("8acfd15c-7552-4c42-bdef-a369c9c100db"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4470), 59 }
+                    { new Guid("8ff9dbee-983e-4981-a9c2-fab732a6a84a"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6175), 50 },
+                    { new Guid("ab0221a9-d973-490e-b20e-5e6cd68d8477"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6114), 78 },
+                    { new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6176), 47 },
+                    { new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6178), 92 }
                 });
 
             migrationBuilder.InsertData(
@@ -214,17 +222,22 @@ namespace DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "ColorId", "ProductDescription", "ProductName", "ProductPrice", "Quantity", "Rating", "SizeId", "SubCategoryId" },
+                columns: new[] { "ProductId", "ColorId", "DiscountedPrice", "ProductDescription", "ProductName", "ProductPrice", "PromotionId", "Quantity", "Rating", "SizeId", "SubCategoryId" },
                 values: new object[,]
                 {
-                    { new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"), 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Cozy Dress", 873.0, 46, 2, 1, 7 },
-                    { new Guid("84f19366-ca90-4186-b247-63e5455ba388"), 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Comfortable Pants", 482.0, 21, 1, 1, 4 }
+                    { new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Exquisite Suit", 903.0, null, 78, 3, 1, 14 },
+                    { new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Luxurious Shoes", 150.0, null, 31, 4, 1, 9 }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_ColorId",
                 table: "Products",
                 column: "ColorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_PromotionId",
+                table: "Products",
+                column: "PromotionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_SizeId",
@@ -249,13 +262,13 @@ namespace DataAccess.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Promotions");
-
-            migrationBuilder.DropTable(
                 name: "Colors");
 
             migrationBuilder.DropTable(
                 name: "ProductInventories");
+
+            migrationBuilder.DropTable(
+                name: "Promotions");
 
             migrationBuilder.DropTable(
                 name: "Sizes");
