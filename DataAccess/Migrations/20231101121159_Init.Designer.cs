@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(LocalContext))]
-    [Migration("20231031130340_init db")]
-    partial class initdb
+    [Migration("20231101121159_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -116,6 +116,9 @@ namespace DataAccess.Migrations
                     b.Property<int?>("ColorId")
                         .HasColumnType("int");
 
+                    b.Property<double?>("DiscountedPrice")
+                        .HasColumnType("float");
+
                     b.Property<string>("ProductDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -126,6 +129,9 @@ namespace DataAccess.Migrations
 
                     b.Property<double>("ProductPrice")
                         .HasColumnType("float");
+
+                    b.Property<int?>("PromotionId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
@@ -144,6 +150,8 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ColorId");
 
+                    b.HasIndex("PromotionId");
+
                     b.HasIndex("SizeId");
 
                     b.HasIndex("SubCategoryId");
@@ -153,27 +161,27 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"),
+                            ProductId = new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"),
                             ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Cozy Dress",
-                            ProductPrice = 873.0,
-                            Quantity = 46,
-                            Rating = 2,
+                            ProductName = "Exquisite Suit",
+                            ProductPrice = 903.0,
+                            Quantity = 78,
+                            Rating = 3,
                             SizeId = 1,
-                            SubCategoryId = 7
+                            SubCategoryId = 14
                         },
                         new
                         {
-                            ProductId = new Guid("84f19366-ca90-4186-b247-63e5455ba388"),
+                            ProductId = new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"),
                             ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Comfortable Pants",
-                            ProductPrice = 482.0,
-                            Quantity = 21,
-                            Rating = 1,
+                            ProductName = "Luxurious Shoes",
+                            ProductPrice = 150.0,
+                            Quantity = 31,
+                            Rating = 4,
                             SizeId = 1,
-                            SubCategoryId = 4
+                            SubCategoryId = 9
                         });
                 });
 
@@ -196,35 +204,37 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("8acfd15c-7552-4c42-bdef-a369c9c100db"),
-                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4470),
-                            Quantity = 59
+                            ProductId = new Guid("ab0221a9-d973-490e-b20e-5e6cd68d8477"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6114),
+                            Quantity = 78
                         },
                         new
                         {
-                            ProductId = new Guid("286aa72f-94c8-429d-a2f4-fa10f0615a30"),
-                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4542),
+                            ProductId = new Guid("8ff9dbee-983e-4981-a9c2-fab732a6a84a"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6175),
+                            Quantity = 50
+                        },
+                        new
+                        {
+                            ProductId = new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6176),
+                            Quantity = 47
+                        },
+                        new
+                        {
+                            ProductId = new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6178),
                             Quantity = 92
-                        },
-                        new
-                        {
-                            ProductId = new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"),
-                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4545),
-                            Quantity = 62
-                        },
-                        new
-                        {
-                            ProductId = new Guid("84f19366-ca90-4186-b247-63e5455ba388"),
-                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4548),
-                            Quantity = 46
                         });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Entities.PromotionEntity", b =>
                 {
-                    b.Property<Guid>("PromotionId")
+                    b.Property<int>("PromotionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PromotionId"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -435,6 +445,10 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DataAccess.Models.Entities.PromotionEntity", "Promotion")
+                        .WithMany()
+                        .HasForeignKey("PromotionId");
+
                     b.HasOne("DataAccess.Models.Entities.SizeEntity", "Size")
                         .WithMany()
                         .HasForeignKey("SizeId");
@@ -448,6 +462,8 @@ namespace DataAccess.Migrations
                     b.Navigation("Color");
 
                     b.Navigation("ProductInventory");
+
+                    b.Navigation("Promotion");
 
                     b.Navigation("Size");
 
