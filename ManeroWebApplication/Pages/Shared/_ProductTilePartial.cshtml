@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="product-image">
-		<a asp-page="/Products/Article" asp-route-id="@Model.ProductId" asp-route-discountedPrice="@Model.DiscountedPrice">
+		<a asp-page="/Products/Article" asp-route-n="@Model.ProductName">
 			<img src="/Images/t-shirt.png" alt="@Model.ProductName" />
 		</a>
 		<div class="product-buttons">

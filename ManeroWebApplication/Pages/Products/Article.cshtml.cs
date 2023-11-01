@@ -22,51 +22,39 @@ namespace ManeroWebApplication.Pages.Products
         public int ReviewCount { get; set; } = 0;
         [BindProperty]
         public int CurrentAmount { get; set; } = 0;
-		public async Task OnGetAsync(Guid id, double discountedPrice)
-		{
-			Product = DataConverter.ConvertProductEntityToProduct(
-				await _productRepository.GetAsync(x => x.ProductId == id));
-
-			// Adjust DiscountedPrice to include the decimal point
-			DiscountedPrice = discountedPrice / 10.0;
-		}
-
-
-
-	}
-        public int CurrentAmount { get; set; } = 0;
-
         public List<string> Sizes { get; set; } = new List<string>();
         public List<string> Colors { get; set; } = new List<string>();
-        public Dictionary<string, string> Combinations { get; set; }
+        public List<(string, string)> Combinations { get; set; }
         
         public async Task OnGetAsync(string n)
         {
             Product = await _productService.GetOneProductFromNameAsync(n);
             Combinations = await _productService.GetProductColorsAndSizesAsync(n);
-
-            foreach(var combination in Combinations)
-            {
-                Sizes.Add(combination.Key);
-                Colors.Add(combination.Value);
-            }
+            if (Combinations is not null)
+                foreach(var combination in Combinations)
+                {
+                    if (!Sizes.Contains(combination.Item1))
+                        Sizes.Add(combination.Item1);
+                    if (!Colors.Contains(combination.Item2))
+                        Colors.Add(combination.Item2);
+                }
         }
 
         public async Task<IActionResult> OnGetColorPickAsync(string color)
         {
-            var temp = Combinations.Where(x => x.Value == color).ToList();
+            var temp = Combinations.Where(x => x.Item2 == color).ToList();
             if (temp.Any())
             {
-                Sizes = temp.Select(x => x.Key).ToList();
+                Sizes = temp.Select(x => x.Item1).ToList();
             }
             return new JsonResult(new {sizes = Sizes});
         }
         public async Task<IActionResult> OnGetSizePickAsync(string size)
         {
-            var temp = Combinations.Where(x => x.Key == size);
+            var temp = Combinations.Where(x => x.Item1 == size);
             if(temp.Any())
             {
-                Colors = temp.Select(x => x.Value).ToList();
+                Colors = temp.Select(x => x.Item2).ToList();
             }
             return new JsonResult(new {colors = Colors});
         }

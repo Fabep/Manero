@@ -1,6 +1,5 @@
 ﻿using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace DataAccess.Contexts;
 
@@ -11,8 +10,8 @@ public class LocalContext : DbContext
     }
     public LocalContext(DbContextOptions<LocalContext> options) : base(options)
     {
-        //Database.EnsureCreated();
-        Database.Migrate();
+        Database.EnsureCreated();
+        //Database.Migrate();
     }
     public DbSet<ProductEntity> Products { get; set; }
     public DbSet<PromotionEntity> Promotions { get; set; }
@@ -34,12 +33,11 @@ public class LocalContext : DbContext
         if (!optionsBuilder.IsConfigured)
             optionsBuilder.UseSqlServer("Server=localhost;Database=ManeroDatabase;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true");
     }
-
+    
 
     // Seedings values here when the database is created.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
         modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
 
         modelBuilder.Entity<ProductEntity>()

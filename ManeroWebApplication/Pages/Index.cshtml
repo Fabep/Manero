@@ -22,7 +22,7 @@
 	<div class="container product-container">
 		<div class="product-container-header">
 			<h1>best Sellers</h1>
-			<a asp-page="/Products/FeaturedProducts">View All ></a>
+			<a asp-page="/Products/Index" asp-route-subProductCategory="T-Shirts Men">View All ></a>
 		</div>
 		<div class="product-container-items">
 			@foreach (var product in Model.BestSellers)

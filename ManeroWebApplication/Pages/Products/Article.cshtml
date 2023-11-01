@@ -61,7 +61,7 @@
         <div class="horizontal-button-container" id="size-buttons">
             @foreach(var size in Model.Sizes)
             {
-                <button data-size="@size.SizeName" class="size-button">@size.SizeName</button>
+                <button data-size="@size" class="size-button">@size</button>
             }
         </div>
     </div>
@@ -72,9 +72,8 @@
         <div class="horizontal-button-container" id="color-buttons">
             @foreach(var color in Model.Colors)
             {
-                <button class="color-button" data-color="@color.ColorName" style="background-color:@color.ColorName"></button>
+                <button class="color-button" data-color="@color" style="background-color:@color"></button>
             }
-            <button class="color-button"></button>
         </div>
     </div>
     
@@ -109,11 +108,6 @@
                 .then((json) => {
                     json.sizes.forEach(drawButtons)
                 })
-        }
-
-        function drawButtons() {
-            document.querySelector(`#size-buttons`).innerHTML =
-                `<button data-size="@size.SizeName" class="size-button">@size.SizeName</button>`
         }
     </script>
 }

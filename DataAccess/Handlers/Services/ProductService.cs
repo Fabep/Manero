@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,9 +101,9 @@ namespace DataAccess.Handlers.Services
             // vill hämta de produkter som tillhör vald subkategori
             var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
 
-            ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategory)
-               .Select(p => DataConverter.ConvertProductEntityToProduct(p))
-               .ToList();
+			ProductsFromSubCategory = productList.AsQueryable().Include(nameof(SubCategoryEntity))
+				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
+				.ToList();
 
             //ProductsFromSubCategory = productList
             //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
@@ -115,20 +116,22 @@ namespace DataAccess.Handlers.Services
             return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName));
         }
 
-        public async Task<Dictionary<string, string>> GetProductColorsAndSizesAsync(string productName)
+        public async Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName)
         {
             try
             {
-                var combinations = new Dictionary<string, string>();
+                var combinations = new List<(string, string)>();
 
                 var temp = await _productRepository.GetAllAsync(x => x.ProductName == productName);
-                var products = temp.AsQueryable()
-                    .Include(c => c.ColorEntity)
-                    .Include(s => s.SizeEntity).ToList();
+
+                var products = await temp
+                    .Include(c => c.Color)
+                    .Include(s => s.Size)
+					.Include(pi => pi.ProductInventory).ToListAsync();
 
                 foreach (var product in products)
                 {
-                    combinations.Add(product.Size.SizeName, product.Color.ColorName);
+                    combinations.Add((product.Size.Size, product.Color.Color));
                 }
                 return combinations;
             }

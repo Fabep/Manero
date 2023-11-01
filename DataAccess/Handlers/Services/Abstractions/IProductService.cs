@@ -12,9 +12,7 @@ namespace DataAccess.Handlers.Services.Abstractions
         Promotion GetPromotion();
         public Task GetAllBestSellersAsProducts();
         public Task<List<Product>> GetProductsFromSubCategory(string subProductCategory);
-        public Task GetAllBestSellersAsProducts();
-        public Task<List<Product>> GetProductsFromSubCategory(string subProductCategory);
-        public Task<Dictionary<string, string>> GetProductColorsAndSizesAsync(string productName);
+        public Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName);
         public Task<Product> GetOneProductFromNameAsync(string productName);
     }
 }
