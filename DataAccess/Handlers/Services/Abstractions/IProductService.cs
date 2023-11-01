@@ -16,5 +16,6 @@ namespace DataAccess.Handlers.Services.Abstractions
 		Promotion GetPromotion();
         public Task GetAllBestSellersAsProductsAsync();
         public Task<List<Product>> GetProductsFromSubCategoryAsync(string subProductCategory);
+		public Task<Product> GetOneProductFromIdAsync(Guid id);
     }
 }

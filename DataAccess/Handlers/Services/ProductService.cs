@@ -4,16 +4,10 @@ using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Services
 {
-	public class ProductService : IProductService
+    public class ProductService : IProductService
 	{
 		private readonly ProductRepository _productRepository;
         public List<Product> BestSellers { get; set; }
@@ -111,6 +105,14 @@ namespace DataAccess.Handlers.Services
 
             return ProductsFromSubCategory;
         }
+
+		public async Task<Product> GetOneProductFromIdAsync(Guid id)
+		{
+			var product = DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductId == id));
+
+            return product;
+        }
+
     }
 
 
