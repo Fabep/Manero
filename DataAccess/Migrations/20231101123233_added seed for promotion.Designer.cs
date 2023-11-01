@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(LocalContext))]
-    [Migration("20231101121159_Init")]
-    partial class Init
+    [Migration("20231101123233_added seed for promotion")]
+    partial class addedseedforpromotion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -161,27 +161,29 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"),
+                            ProductId = new Guid("6793dac3-5456-4a83-816a-64a39a363b71"),
                             ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Exquisite Suit",
-                            ProductPrice = 903.0,
-                            Quantity = 78,
-                            Rating = 3,
+                            ProductName = "Fashionable T-Shirt",
+                            ProductPrice = 57.0,
+                            PromotionId = 1,
+                            Quantity = 93,
+                            Rating = 1,
                             SizeId = 1,
-                            SubCategoryId = 14
+                            SubCategoryId = 1
                         },
                         new
                         {
-                            ProductId = new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"),
+                            ProductId = new Guid("b735481f-d67d-43e8-bbc9-eaf16b404ac9"),
                             ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Luxurious Shoes",
-                            ProductPrice = 150.0,
-                            Quantity = 31,
-                            Rating = 4,
+                            ProductName = "Great T-Shirt",
+                            ProductPrice = 924.0,
+                            PromotionId = 1,
+                            Quantity = 1,
+                            Rating = 1,
                             SizeId = 1,
-                            SubCategoryId = 9
+                            SubCategoryId = 2
                         });
                 });
 
@@ -204,27 +206,27 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("ab0221a9-d973-490e-b20e-5e6cd68d8477"),
-                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6114),
-                            Quantity = 78
+                            ProductId = new Guid("765daf03-6805-4e0d-82d2-222da6e66333"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6549),
+                            Quantity = 39
                         },
                         new
                         {
-                            ProductId = new Guid("8ff9dbee-983e-4981-a9c2-fab732a6a84a"),
-                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6175),
-                            Quantity = 50
+                            ProductId = new Guid("a6ea232e-3b47-414e-a852-d1ca234a7c5d"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6606),
+                            Quantity = 56
                         },
                         new
                         {
-                            ProductId = new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"),
-                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6176),
-                            Quantity = 47
+                            ProductId = new Guid("6793dac3-5456-4a83-816a-64a39a363b71"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6608),
+                            Quantity = 74
                         },
                         new
                         {
-                            ProductId = new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"),
-                            LastInventory = new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6178),
-                            Quantity = 92
+                            ProductId = new Guid("b735481f-d67d-43e8-bbc9-eaf16b404ac9"),
+                            LastInventory = new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6610),
+                            Quantity = 38
                         });
                 });
 
@@ -256,6 +258,17 @@ namespace DataAccess.Migrations
                     b.HasKey("PromotionId");
 
                     b.ToTable("Promotions");
+
+                    b.HasData(
+                        new
+                        {
+                            PromotionId = 1,
+                            Description = "Manero's best sale yet!",
+                            DiscountRate = 0.10000000000000001,
+                            EndDate = new DateTime(2023, 12, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6638),
+                            Name = "Autumn Sale",
+                            StartDate = new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6636)
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Entities.SizeEntity", b =>

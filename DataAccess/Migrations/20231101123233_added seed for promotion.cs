@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class addedseedforpromotion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -177,11 +177,16 @@ namespace DataAccess.Migrations
                 columns: new[] { "ProductId", "LastInventory", "Quantity" },
                 values: new object[,]
                 {
-                    { new Guid("8ff9dbee-983e-4981-a9c2-fab732a6a84a"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6175), 50 },
-                    { new Guid("ab0221a9-d973-490e-b20e-5e6cd68d8477"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6114), 78 },
-                    { new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6176), 47 },
-                    { new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"), new DateTime(2023, 11, 1, 13, 11, 59, 689, DateTimeKind.Local).AddTicks(6178), 92 }
+                    { new Guid("6793dac3-5456-4a83-816a-64a39a363b71"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6608), 74 },
+                    { new Guid("765daf03-6805-4e0d-82d2-222da6e66333"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6549), 39 },
+                    { new Guid("a6ea232e-3b47-414e-a852-d1ca234a7c5d"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6606), 56 },
+                    { new Guid("b735481f-d67d-43e8-bbc9-eaf16b404ac9"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6610), 38 }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Promotions",
+                columns: new[] { "PromotionId", "Description", "DiscountRate", "EndDate", "Name", "StartDate" },
+                values: new object[] { 1, "Manero's best sale yet!", 0.10000000000000001, new DateTime(2023, 12, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6638), "Autumn Sale", new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6636) });
 
             migrationBuilder.InsertData(
                 table: "Sizes",
@@ -225,8 +230,8 @@ namespace DataAccess.Migrations
                 columns: new[] { "ProductId", "ColorId", "DiscountedPrice", "ProductDescription", "ProductName", "ProductPrice", "PromotionId", "Quantity", "Rating", "SizeId", "SubCategoryId" },
                 values: new object[,]
                 {
-                    { new Guid("bdd27627-c6cd-4761-bad3-72811b4efd37"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Exquisite Suit", 903.0, null, 78, 3, 1, 14 },
-                    { new Guid("f87abd5b-edca-494a-9a7d-a3bed1a7a990"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Luxurious Shoes", 150.0, null, 31, 4, 1, 9 }
+                    { new Guid("6793dac3-5456-4a83-816a-64a39a363b71"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Fashionable T-Shirt", 57.0, 1, 93, 1, 1, 1 },
+                    { new Guid("b735481f-d67d-43e8-bbc9-eaf16b404ac9"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Great T-Shirt", 924.0, 1, 1, 1, 1, 2 }
                 });
 
             migrationBuilder.CreateIndex(

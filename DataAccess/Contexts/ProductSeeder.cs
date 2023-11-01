@@ -53,8 +53,8 @@ internal class ProductSeeder
                         Rating = random.Next(0, 5),
                         SubCategoryId = subCategoryId,
                         ColorId = 1,
-                        SizeId = 1
-
+                        SizeId = 1,
+                        PromotionId = 1
                     };
 
                     ProductIds.Add(entity.ProductId);
