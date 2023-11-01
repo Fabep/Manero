@@ -23,7 +23,7 @@ public class ProductEntity
 	public int? Quantity { get; set; }
 
 	// Navigations-egenskap till PromotionEntity (nullable)
-	public Guid? PromotionId { get; set; }
+	public int? PromotionId { get; set; }
 	[ForeignKey("PromotionId")]
 	public PromotionEntity? Promotion { get; set; }
 	public double? DiscountedPrice { get; set; }

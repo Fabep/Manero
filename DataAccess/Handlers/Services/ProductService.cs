@@ -69,7 +69,7 @@ namespace DataAccess.Handlers.Services
 		{
 			var promotion = new Promotion
 			{
-				PromotionId = Guid.NewGuid(),
+				
 				Name = "Special Discount",
 				Description = "10% off on selected products",
 				DiscountRate = 0.10,

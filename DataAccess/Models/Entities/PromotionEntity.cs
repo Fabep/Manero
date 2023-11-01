@@ -10,7 +10,7 @@ namespace DataAccess.Models.Entities
 	public class PromotionEntity
 	{
 		[Key]
-		public Guid PromotionId { get; set; }
+		public int PromotionId { get; set; }
 
 
 		public string Name { get; set; }
