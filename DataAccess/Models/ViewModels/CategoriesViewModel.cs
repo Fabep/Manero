@@ -8,6 +8,6 @@ namespace DataAccess.Models.ViewModels
 {
     public class CategoriesViewModel
     {
-
+	    public List<PrimaryCategory> PrimaryCategories { get; set; }
     }
 }

@@ -18,6 +18,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<ProductRepository>();
+builder.Services.AddScoped<SubCategoryRepository>();
 
 
 
@@ -27,6 +28,8 @@ builder.Services.AddControllersWithViews();
 
 // Add services
 builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
+
 
 var app = builder.Build();
 

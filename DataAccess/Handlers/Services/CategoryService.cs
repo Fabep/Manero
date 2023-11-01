@@ -1,12 +1,36 @@
-﻿using System;
+﻿using DataAccess.ExtensionMethods;
+using DataAccess.Handlers.Repositories;
+using DataAccess.Handlers.Services.Abstractions;
+using DataAccess.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Handlers.Services
 {
-	internal class CategoryService
+	public class CategoryService : ICategoryService
 	{
+		private readonly SubCategoryRepository _subCategoryRepository;
+
+		public CategoryService(SubCategoryRepository subCategoryRepository)
+		{
+			_subCategoryRepository = subCategoryRepository;
+		}
+
+		public async Task<List<PrimaryCategory>> GetAllPrimaryCategories()
+		{
+
+			var categoriesList = await _subCategoryRepository.GetAllAsync(x => x.SubCategoryName.Any());
+
+			//return categoriesList.AsQueryable().Include(x=> x.PrimaryCategoryId)
+			//	.Select(p => DataConverter.ConvertProductEntityToProduct(p))
+			//	.ToList(); 
+
+			return null;
+		}
+
 	}
 }
