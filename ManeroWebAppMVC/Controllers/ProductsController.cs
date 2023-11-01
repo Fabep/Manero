@@ -10,17 +10,17 @@ namespace ManeroWebAppMVC.Controllers
 	public class ProductsController : Controller
 	{
 		private readonly IProductService _productService;
-        private readonly ProductRepository _productRepository;
+		private readonly ProductRepository _productRepository;
 
 
-        public ProductsController(IProductService productService, ProductRepository productRepository)
-        {
-            _productService = productService;
-            _productRepository = productRepository;
-        }
+		public ProductsController(IProductService productService, ProductRepository productRepository)
+		{
+			_productService = productService;
+			_productRepository = productRepository;
+		}
 
 
-        public async Task<IActionResult> Index(string subProductCategory)
+		public async Task<IActionResult> Index(string subProductCategory)
 		{
 
 			var viewModel = new ProductsViewModel
@@ -33,18 +33,18 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
-        public async Task<IActionResult> Article(Guid id)
-        {
+		public async Task<IActionResult> Article(Guid id)
+		{
 
-            var viewModel = new ArticleViewModel
-            {
-                Product = DataConverter.ConvertProductEntityToProduct(
-                await _productRepository.GetAsync(x => x.ProductId == id)),
-        };
+			var viewModel = new ArticleViewModel
+			{
+				Product = DataConverter.ConvertProductEntityToProduct(
+				await _productRepository.GetAsync(x => x.ProductId == id)),
+			};
 
-            return View(viewModel);
-        }
+			return View(viewModel);
+		}
 
 
-    }
+	}
 }
