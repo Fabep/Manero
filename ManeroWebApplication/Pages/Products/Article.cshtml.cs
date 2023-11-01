@@ -16,9 +16,24 @@ namespace ManeroWebApplication.Pages.Products
         {
             _productService = productService;
         }
-        public Product Product { get; set; } = null!;
+        [BindProperty(SupportsGet = true)]
+        public double DiscountedPrice { get; set; }
+		public Product Product { get; set; } = null!;
         public int ReviewCount { get; set; } = 0;
         [BindProperty]
+        public int CurrentAmount { get; set; } = 0;
+		public async Task OnGetAsync(Guid id, double discountedPrice)
+		{
+			Product = DataConverter.ConvertProductEntityToProduct(
+				await _productRepository.GetAsync(x => x.ProductId == id));
+
+			// Adjust DiscountedPrice to include the decimal point
+			DiscountedPrice = discountedPrice / 10.0;
+		}
+
+
+
+	}
         public int CurrentAmount { get; set; } = 0;
 
         public List<string> Sizes { get; set; } = new List<string>();

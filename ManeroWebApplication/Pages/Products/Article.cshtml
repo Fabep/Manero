@@ -31,17 +31,31 @@
         }
     </div>
 
+    
     @* Price *@
     <div class="product-price">
-        <h4 class="m-0">$@Model.Product.ProductPrice</h4>
-        <div class="product-amount">
-            <button class="amount-button" onclick="remove()">-</button>
-            <div id="current-amount">@Model.CurrentAmount</div>
-            <button class="amount-button" onclick="add()">+</button>
-        </div>
+	    @{
+		    if (Model.DiscountedPrice != 0)
+		    {
+			    <h4 class=""><s>$@Model.Product.ProductPrice.ToString("0.00")</s></h4>
+                <h4 class="discount-price">$@Model.DiscountedPrice.ToString("0.00")</h4>
+		    }
+		    else
+		    {
+			    <h4 class="m-0">$@Model.Product.ProductPrice.ToString("0.00")</h4>
+		    }
+	    }
+	    <div class="product-amount">
+		    <button class="amount-button" onclick="remove()">-</button>
+		    <div id="current-amount">@Model.CurrentAmount</div>
+		    <button class="amount-button" onclick="add()">+</button>
+	    </div>
     </div>
 
-    @* SizeEntity *@
+
+
+
+    @* Sizes *@
     <div class="product-buttons">
         <h5 class="product-text-part">Size</h5>
         <div class="horizontal-button-container" id="size-buttons">

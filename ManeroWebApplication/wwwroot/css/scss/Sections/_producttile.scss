@@ -48,6 +48,9 @@
                 color: #DBE3F5;
             }
 
+
+
+
             .heart {
                 &:hover {
                     color: red;
@@ -73,10 +76,25 @@
 
     .product-price {
         margin-bottom: 5px;
+       
     }
+
 
     .product-price-sales {
         margin-bottom: 5px;
         color: red
+    }
+
+    .product-price-old {
+        margin-bottom: 5px;
+        text-decoration: line-through;
+    }
+
+    .sale-badge {
+        background-color: green;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 5px;
+        font-weight: bold;
     }
 }

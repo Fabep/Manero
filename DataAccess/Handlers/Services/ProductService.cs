@@ -13,43 +13,100 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Services
 {
-	public class ProductService :IProductService
-    {
+	public class ProductService : IProductService
+	{
 		private readonly ProductRepository _productRepository;
-		private readonly SubCategoryRepository _subCategoryRepository;
 
 		public ProductService(ProductRepository productRepository)
 		{
 			_productRepository = productRepository;
 		}
 
-
-		public List<Product> BestSellers { get; set; }
-		public List<Product> ProductsFromSubCategory { get; set; }
-
-
-
-		public async Task GetAllBestSellersAsProducts()
+		public async Task<List<Product>> GetBestSellersAsync()
 		{
-			var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
+			var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
+			var products = new List<Product>();
 
-			BestSellers = productList
-			 .Select(p => DataConverter.ConvertProductEntityToProduct(p))
-			 .ToList();
+			foreach (var productEntity in productList)
+			{
+				var product = DataConverter.ConvertProductEntityToProduct(productEntity);
+
+				if (ShouldHavePromotion(productEntity))
+				{
+					product.Promotion = GetPromotion();
+				}
+
+				products.Add(product);
+			}
+
+			return products;
 		}
 
-		public async Task<List<Product>> GetProductsFromSubCategory(string subProductCategory)
+		public async Task<List<Product>> GetFeaturedProductsAsync()
 		{
-			// vill hämta de produkter som tillhör vald subkategori
-			var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
+			var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
+			var products = new List<Product>();
 
-			 ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategory)
-				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
-				.ToList();
+			foreach (var productEntity in featuredProductList)
+			{
+				var product = DataConverter.ConvertProductEntityToProduct(productEntity);
 
-			//ProductsFromSubCategory = productList
-			//	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
-			//	.ToList();
+				if (ShouldHavePromotion(productEntity))
+				{
+					product.Promotion = GetPromotion();
+				}
+
+				products.Add(product);
+			}
+
+			return products;
+		}
+
+		public bool ShouldHavePromotion(ProductEntity product)
+		{
+			return product.ProductPrice < 400;
+		}
+
+		public Promotion GetPromotion()
+		{
+			var promotion = new Promotion
+			{
+				
+				Name = "Special Discount",
+				Description = "10% off on selected products",
+				DiscountRate = 0.10,
+				StartDate = DateTime.Now,
+				EndDate = DateTime.Now.AddMonths(1)
+			};
+
+			return promotion;
+		}
+        public List<Product> BestSellers { get; set; }
+        public List<Product> ProductsFromSubCategory { get; set; }
+
+
+
+        public async Task GetAllBestSellersAsProducts()
+        {
+            var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
+
+            BestSellers = productList
+             .Select(p => DataConverter.ConvertProductEntityToProduct(p))
+             .ToList();
+        }
+
+        public async Task<List<Product>> GetProductsFromSubCategory(string subProductCategory)
+        {
+            // vill hämta de produkter som tillhör vald subkategori
+            var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
+
+            ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategory)
+               .Select(p => DataConverter.ConvertProductEntityToProduct(p))
+               .ToList();
+
+            //ProductsFromSubCategory = productList
+            //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
+            //	.ToList();
 
 			return ProductsFromSubCategory;
 		}

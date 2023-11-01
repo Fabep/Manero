@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class initdb : Migration
+    public partial class addedseedforpromotion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,7 +56,8 @@ namespace DataAccess.Migrations
                 name: "Promotions",
                 columns: table => new
                 {
-                    PromotionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PromotionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DiscountRate = table.Column<double>(type: "float", nullable: false),
@@ -112,7 +113,9 @@ namespace DataAccess.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: true),
                     SubCategoryId = table.Column<int>(type: "int", nullable: false),
                     ColorId = table.Column<int>(type: "int", nullable: true),
-                    SizeId = table.Column<int>(type: "int", nullable: true)
+                    SizeId = table.Column<int>(type: "int", nullable: true),
+                    PromotionId = table.Column<int>(type: "int", nullable: true),
+                    DiscountedPrice = table.Column<double>(type: "float", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -128,6 +131,11 @@ namespace DataAccess.Migrations
                         principalTable: "ProductInventories",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Promotions_PromotionId",
+                        column: x => x.PromotionId,
+                        principalTable: "Promotions",
+                        principalColumn: "PromotionId");
                     table.ForeignKey(
                         name: "FK_Products_Sizes_SizeId",
                         column: x => x.SizeId,
@@ -169,11 +177,16 @@ namespace DataAccess.Migrations
                 columns: new[] { "ProductId", "LastInventory", "Quantity" },
                 values: new object[,]
                 {
-                    { new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4545), 62 },
-                    { new Guid("286aa72f-94c8-429d-a2f4-fa10f0615a30"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4542), 92 },
-                    { new Guid("84f19366-ca90-4186-b247-63e5455ba388"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4548), 46 },
-                    { new Guid("8acfd15c-7552-4c42-bdef-a369c9c100db"), new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4470), 59 }
+                    { new Guid("6793dac3-5456-4a83-816a-64a39a363b71"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6608), 74 },
+                    { new Guid("765daf03-6805-4e0d-82d2-222da6e66333"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6549), 39 },
+                    { new Guid("a6ea232e-3b47-414e-a852-d1ca234a7c5d"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6606), 56 },
+                    { new Guid("b735481f-d67d-43e8-bbc9-eaf16b404ac9"), new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6610), 38 }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Promotions",
+                columns: new[] { "PromotionId", "Description", "DiscountRate", "EndDate", "Name", "StartDate" },
+                values: new object[] { 1, "Manero's best sale yet!", 0.10000000000000001, new DateTime(2023, 12, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6638), "Autumn Sale", new DateTime(2023, 11, 1, 13, 32, 33, 604, DateTimeKind.Local).AddTicks(6636) });
 
             migrationBuilder.InsertData(
                 table: "Sizes",
@@ -214,17 +227,22 @@ namespace DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "ColorId", "ProductDescription", "ProductName", "ProductPrice", "Quantity", "Rating", "SizeId", "SubCategoryId" },
+                columns: new[] { "ProductId", "ColorId", "DiscountedPrice", "ProductDescription", "ProductName", "ProductPrice", "PromotionId", "Quantity", "Rating", "SizeId", "SubCategoryId" },
                 values: new object[,]
                 {
-                    { new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"), 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Cozy Dress", 873.0, 46, 2, 1, 7 },
-                    { new Guid("84f19366-ca90-4186-b247-63e5455ba388"), 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Comfortable Pants", 482.0, 21, 1, 1, 4 }
+                    { new Guid("6793dac3-5456-4a83-816a-64a39a363b71"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Fashionable T-Shirt", 57.0, 1, 93, 1, 1, 1 },
+                    { new Guid("b735481f-d67d-43e8-bbc9-eaf16b404ac9"), 1, null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ", "Great T-Shirt", 924.0, 1, 1, 1, 1, 2 }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_ColorId",
                 table: "Products",
                 column: "ColorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_PromotionId",
+                table: "Products",
+                column: "PromotionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_SizeId",
@@ -249,13 +267,13 @@ namespace DataAccess.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Promotions");
-
-            migrationBuilder.DropTable(
                 name: "Colors");
 
             migrationBuilder.DropTable(
                 name: "ProductInventories");
+
+            migrationBuilder.DropTable(
+                name: "Promotions");
 
             migrationBuilder.DropTable(
                 name: "Sizes");

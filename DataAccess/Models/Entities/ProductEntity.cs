@@ -28,4 +28,9 @@ public class ProductEntity
 
     public ProductInventoryEntity? ProductInventory { get; set; }
 
+	// Navigations-egenskap till PromotionEntity (nullable)
+	public int? PromotionId { get; set; }
+	[ForeignKey("PromotionId")]
+	public PromotionEntity? Promotion { get; set; }
+	public double? DiscountedPrice { get; set; }
 }

@@ -11,8 +11,8 @@ public class LocalContext : DbContext
     }
     public LocalContext(DbContextOptions<LocalContext> options) : base(options)
     {
-        Database.EnsureCreated();
-        //Database.Migrate();
+        //Database.EnsureCreated();
+        Database.Migrate();
     }
     public DbSet<ProductEntity> Products { get; set; }
     public DbSet<PromotionEntity> Promotions { get; set; }
@@ -60,7 +60,15 @@ public class LocalContext : DbContext
 
         modelBuilder.Entity<ProductInventoryEntity>().HasData(ProductSeeder.SeedProductInventory());
 
-
+        modelBuilder.Entity<PromotionEntity>().HasData(new PromotionEntity
+        {
+            PromotionId = 1,
+            Name = "Autumn Sale",
+            Description = "Manero's best sale yet!",
+            StartDate = DateTime.Now,
+            EndDate = DateTime.Now.AddDays(30),
+            DiscountRate = 0.10,
+        });
 
         base.OnModelCreating(modelBuilder);
     }
