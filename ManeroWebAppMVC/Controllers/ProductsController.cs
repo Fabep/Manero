@@ -10,7 +10,7 @@ namespace ManeroWebAppMVC.Controllers
 	public class ProductsController : Controller
 	{
 		private readonly IProductService _productService;
-		private readonly ProductRepository _productRepository;
+		//private readonly ProductRepository _productRepository;
 
 
 		public ProductsController(IProductService productService, ProductRepository productRepository)
