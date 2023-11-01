@@ -36,8 +36,6 @@ namespace ManeroWebAppMVC.Controllers
 			var viewModel = new ArticleViewModel
 			{
 				Product = await _productService.GetOneProductFromIdAsync(id),
-
-                //Product = DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductId == id)),
             };
 
 			return View(viewModel);
