@@ -3,8 +3,10 @@ using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +81,36 @@ namespace DataAccess.Handlers.Services
 
 			return promotion;
 		}
-	}
+        public List<Product> BestSellers { get; set; }
+        public List<Product> ProductsFromSubCategory { get; set; }
+
+
+
+        public async Task GetAllBestSellersAsProducts()
+        {
+            var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
+
+            BestSellers = productList
+             .Select(p => DataConverter.ConvertProductEntityToProduct(p))
+             .ToList();
+        }
+
+        public async Task<List<Product>> GetProductsFromSubCategory(string subProductCategory)
+        {
+            // vill hämta de produkter som tillhör vald subkategori
+            var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
+
+            ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategory)
+               .Select(p => DataConverter.ConvertProductEntityToProduct(p))
+               .ToList();
+
+            //ProductsFromSubCategory = productList
+            //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
+            //	.ToList();
+
+            return ProductsFromSubCategory;
+        }
+    }
+
 
 }

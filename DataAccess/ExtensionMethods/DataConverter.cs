@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess.Models.Schemas;
 
 namespace DataAccess.ExtensionMethods
 {
@@ -30,7 +31,6 @@ namespace DataAccess.ExtensionMethods
 			{
 				return null; // Returnera null om ingen kampanj hittades
 			}
-
 			var promotion = new Promotion()
 			{
 				PromotionId = promotionEntity.PromotionId,
@@ -43,6 +43,25 @@ namespace DataAccess.ExtensionMethods
 
 			return promotion;
 		}
+        public static ProductEntity ConvertProductSchemaToProductEntity(this ProductSchema p)
+        {
+            var product = new ProductEntity()
+            {
+                ProductName = p.ProductName,
+                ProductDescription = p.ProductDescription,
+                ProductPrice = p.ProductPrice,
+                ColorId = 1,
+                SizeId = 1,
+                SubCategoryId = 1,
+            };
+            var productInventory = new ProductInventoryEntity()
+            {
+                Quantity = p.Quantity ?? 0,
+                LastInventory = DateTime.Now
+            };
+            product.ProductInventory = productInventory;
+            return product;
+        }
     }
 }
 

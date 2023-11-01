@@ -1,26 +1,32 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DataAccess.Models.Entities;
 
 public class ProductEntity
 {
-	[Key]
-	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-	public Guid ProductId { get; set; }
+    [Key]
+    public Guid ProductId { get; set; } = Guid.NewGuid();
+    [Required]
+    public string ProductName { get; set; } = null!;
+    public string ProductDescription { get; set; } = null!;
+    [Required]
+    [Range(0, int.MaxValue)]
+    public double ProductPrice { get; set; }
+    public int? Rating { get; set; }
+    public int? Quantity { get; set; }
 
-	[Required]
-	public string ProductName { get; set; } = null!;
+    public int? SubCategoryId { get; set; }
+    [Required]
+    public SubCategoryEntity? SubCategory { get; set; }
 
-	public string ProductDescription { get; set; } = null!;
+    public int? ColorId { get; set; }
+    public ColorEntity? Color { get; set; }
 
-	[Required]
-	[Range(0, int.MaxValue)]
-	public double ProductPrice { get; set; }
+    public int? SizeId { get; set; }
+    public SizeEntity? Size { get; set; }
 
-	public int? Rating { get; set; }
-	public int? Quantity { get; set; }
+    public ProductInventoryEntity? ProductInventory { get; set; }
 
 	// Navigations-egenskap till PromotionEntity (nullable)
 	public int? PromotionId { get; set; }

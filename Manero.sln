@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroWebApplication", "Man
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroApi", "ManeroApi\ManeroApi.csproj", "{EF79CECE-685C-4018-9002-BB9DBC1EBEFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManeroWebAppMVC", "ManeroWebAppMVC\ManeroWebAppMVC.csproj", "{21C87A8D-0645-4C3B-8E16-6856CD585127}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF79CECE-685C-4018-9002-BB9DBC1EBEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF79CECE-685C-4018-9002-BB9DBC1EBEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF79CECE-685C-4018-9002-BB9DBC1EBEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF79CECE-685C-4018-9002-BB9DBC1EBEFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C87A8D-0645-4C3B-8E16-6856CD585127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C87A8D-0645-4C3B-8E16-6856CD585127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C87A8D-0645-4C3B-8E16-6856CD585127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C87A8D-0645-4C3B-8E16-6856CD585127}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

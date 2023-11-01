@@ -14,5 +14,7 @@ namespace DataAccess.Handlers.Services.Abstractions
 		Task<List<Product>> GetFeaturedProductsAsync();
 		bool ShouldHavePromotion(ProductEntity product);
 		Promotion GetPromotion();
-	}
+        public Task GetAllBestSellersAsProducts();
+        public Task<List<Product>> GetProductsFromSubCategory(string subProductCategory);
+    }
 }

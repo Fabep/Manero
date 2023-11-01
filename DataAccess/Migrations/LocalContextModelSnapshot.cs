@@ -22,14 +22,96 @@ namespace DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DataAccess.Models.Entities.ColorEntity", b =>
+                {
+                    b.Property<int>("ColorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ColorId"));
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ColorId");
+
+                    b.ToTable("Colors");
+
+                    b.HasData(
+                        new
+                        {
+                            ColorId = 1,
+                            Color = "Red"
+                        },
+                        new
+                        {
+                            ColorId = 2,
+                            Color = "Blue"
+                        },
+                        new
+                        {
+                            ColorId = 3,
+                            Color = "Green"
+                        },
+                        new
+                        {
+                            ColorId = 4,
+                            Color = "Yellow"
+                        },
+                        new
+                        {
+                            ColorId = 5,
+                            Color = "White"
+                        },
+                        new
+                        {
+                            ColorId = 6,
+                            Color = "Black"
+                        });
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Entities.PrimaryCategoryEntity", b =>
+                {
+                    b.Property<int>("PrimaryCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PrimaryCategoryId"));
+
+                    b.Property<string>("PrimaryCategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PrimaryCategoryId");
+
+                    b.ToTable("PrimaryCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            PrimaryCategoryId = 1,
+                            PrimaryCategoryName = "Men"
+                        },
+                        new
+                        {
+                            PrimaryCategoryId = 2,
+                            PrimaryCategoryName = "Women"
+                        },
+                        new
+                        {
+                            PrimaryCategoryId = 3,
+                            PrimaryCategoryName = "Unisex"
+                        });
+                });
+
             modelBuilder.Entity("DataAccess.Models.Entities.ProductEntity", b =>
                 {
                     b.Property<Guid>("ProductId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double?>("DiscountedPrice")
-                        .HasColumnType("float");
+                    b.Property<int?>("ColorId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ProductDescription")
                         .IsRequired()
@@ -51,220 +133,98 @@ namespace DataAccess.Migrations
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SizeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SubCategoryId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.HasKey("ProductId");
 
-                    b.HasIndex("PromotionId");
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("SizeId");
+
+                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Products");
 
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("2039b1d8-2f54-4e51-b14e-96ac7cb69517"),
+                            ProductId = new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"),
+                            ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Dress Black",
-                            ProductPrice = 322.0,
-                            Quantity = 6,
-                            Rating = 0
+                            ProductName = "Cozy Dress",
+                            ProductPrice = 873.0,
+                            Quantity = 46,
+                            Rating = 2,
+                            SizeId = 1,
+                            SubCategoryId = 7
                         },
                         new
                         {
-                            ProductId = new Guid("475dd5f0-1c56-407c-9356-3a568f9f262c"),
+                            ProductId = new Guid("84f19366-ca90-4186-b247-63e5455ba388"),
+                            ColorId = 1,
                             ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Pants Yellow",
-                            ProductPrice = 927.0,
-                            Quantity = 94,
-                            Rating = 3
+                            ProductName = "Comfortable Pants",
+                            ProductPrice = 482.0,
+                            Quantity = 21,
+                            Rating = 1,
+                            SizeId = 1,
+                            SubCategoryId = 4
+                        });
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Entities.ProductInventoryEntity", b =>
+                {
+                    b.Property<Guid>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("LastInventory")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("ProductInventories");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = new Guid("8acfd15c-7552-4c42-bdef-a369c9c100db"),
+                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4470),
+                            Quantity = 59
                         },
                         new
                         {
-                            ProductId = new Guid("a8d79399-8040-4e14-92cb-25fb0c5becd7"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Suit Blue",
-                            ProductPrice = 979.0,
-                            Quantity = 41,
-                            Rating = 1
+                            ProductId = new Guid("286aa72f-94c8-429d-a2f4-fa10f0615a30"),
+                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4542),
+                            Quantity = 92
                         },
                         new
                         {
-                            ProductId = new Guid("706a84b8-411b-4e0d-bc8e-76c028b39962"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "T-Shirt White",
-                            ProductPrice = 790.0,
-                            Quantity = 4,
-                            Rating = 2
+                            ProductId = new Guid("10bf5d1b-d09a-4ddf-abd9-21ebd2fd3594"),
+                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4545),
+                            Quantity = 62
                         },
                         new
                         {
-                            ProductId = new Guid("4fd544dc-3b66-43ea-b616-53c4f7ad09e2"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "T-Shirt Yellow",
-                            ProductPrice = 890.0,
-                            Quantity = 7,
-                            Rating = 3
-                        },
-                        new
-                        {
-                            ProductId = new Guid("85552ba8-35a8-4282-9ef7-fa8ea6a3ad61"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Shoes Blue",
-                            ProductPrice = 93.0,
-                            Quantity = 13,
-                            Rating = 0
-                        },
-                        new
-                        {
-                            ProductId = new Guid("d4888146-0a55-4ecc-a6ef-62b13135f94d"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Pants Blue",
-                            ProductPrice = 556.0,
-                            Quantity = 17,
-                            Rating = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("dfebd692-4b3f-4813-a8a6-da51afcd9240"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Dress Red",
-                            ProductPrice = 397.0,
-                            Quantity = 98,
-                            Rating = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("8111e2d8-2d73-4b21-ac01-68f3092a2e31"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Pants Yellow",
-                            ProductPrice = 291.0,
-                            Quantity = 53,
-                            Rating = 1
-                        },
-                        new
-                        {
-                            ProductId = new Guid("87646ef3-98ef-4881-b10e-3db4a0a9fb88"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Pants White",
-                            ProductPrice = 881.0,
-                            Quantity = 20,
-                            Rating = 2
-                        },
-                        new
-                        {
-                            ProductId = new Guid("cd9cb401-0d66-42b7-83dd-5717b471b8e0"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Dress Red",
-                            ProductPrice = 938.0,
-                            Quantity = 13,
-                            Rating = 2
-                        },
-                        new
-                        {
-                            ProductId = new Guid("fca117ab-8493-4807-a761-5070b7b8a717"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "T-Shirt White",
-                            ProductPrice = 818.0,
-                            Quantity = 71,
-                            Rating = 4
-                        },
-                        new
-                        {
-                            ProductId = new Guid("cc19e01d-3308-47e2-bd0e-6900d39c2766"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Pants White",
-                            ProductPrice = 569.0,
-                            Quantity = 62,
-                            Rating = 1
-                        },
-                        new
-                        {
-                            ProductId = new Guid("2c940870-ef4c-4393-b09a-7bc869b83fb0"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Suit Green",
-                            ProductPrice = 638.0,
-                            Quantity = 97,
-                            Rating = 0
-                        },
-                        new
-                        {
-                            ProductId = new Guid("7493a410-9bdd-4f07-9b28-14b2230db713"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Suit Blue",
-                            ProductPrice = 172.0,
-                            Quantity = 17,
-                            Rating = 2
-                        },
-                        new
-                        {
-                            ProductId = new Guid("dd633072-9cae-46d7-a7f4-6c7b7c46fd68"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Shoes Red",
-                            ProductPrice = 947.0,
-                            Quantity = 76,
-                            Rating = 1
-                        },
-                        new
-                        {
-                            ProductId = new Guid("436f2ee0-f38b-4071-baac-f03bd67c43ac"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Bag Green",
-                            ProductPrice = 257.0,
-                            Quantity = 11,
-                            Rating = 2
-                        },
-                        new
-                        {
-                            ProductId = new Guid("ab002cc9-749f-4471-b128-30da6e3b2ada"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "T-Shirt Red",
-                            ProductPrice = 839.0,
-                            Quantity = 51,
-                            Rating = 0
-                        },
-                        new
-                        {
-                            ProductId = new Guid("1eb01051-45eb-4914-baac-9a9da8d5d871"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Shoes Black",
-                            ProductPrice = 863.0,
-                            Quantity = 18,
-                            Rating = 2
-                        },
-                        new
-                        {
-                            ProductId = new Guid("ab3aed4f-6205-4f98-b489-a79bf2d9b75e"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Suit Black",
-                            ProductPrice = 920.0,
-                            Quantity = 18,
-                            Rating = 0
-                        },
-                        new
-                        {
-                            ProductId = new Guid("3c459816-39be-40d0-88b5-02d42de88978"),
-                            ProductDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                            ProductName = "Pants Yellow",
-                            ProductPrice = 688.0,
-                            Quantity = 99,
-                            Rating = 2
-                        },
-                        new
-                        {
-                            ProductId = new Guid("32073f6a-ca9f-437d-aa02-1181516534b9"),
-                            ProductDescription = "Description",
-                            ProductName = "Cool T-Shirt",
-                            ProductPrice = 1000.0,
-                            Quantity = 1,
-                            Rating = 5
+                            ProductId = new Guid("84f19366-ca90-4186-b247-63e5455ba388"),
+                            LastInventory = new DateTime(2023, 10, 31, 14, 3, 40, 204, DateTimeKind.Local).AddTicks(4548),
+                            Quantity = 46
                         });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Entities.PromotionEntity", b =>
                 {
-                    b.Property<int>("PromotionId")
+                    b.Property<Guid>("PromotionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PromotionId"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -286,6 +246,226 @@ namespace DataAccess.Migrations
                     b.HasKey("PromotionId");
 
                     b.ToTable("Promotions");
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Entities.SizeEntity", b =>
+                {
+                    b.Property<int>("SizeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SizeId"));
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SizeId");
+
+                    b.ToTable("Sizes");
+
+                    b.HasData(
+                        new
+                        {
+                            SizeId = 1,
+                            Size = "XS"
+                        },
+                        new
+                        {
+                            SizeId = 2,
+                            Size = "S"
+                        },
+                        new
+                        {
+                            SizeId = 3,
+                            Size = "M"
+                        },
+                        new
+                        {
+                            SizeId = 4,
+                            Size = "L"
+                        },
+                        new
+                        {
+                            SizeId = 5,
+                            Size = "XL"
+                        },
+                        new
+                        {
+                            SizeId = 6,
+                            Size = "XXL"
+                        });
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Entities.SubCategoryEntity", b =>
+                {
+                    b.Property<int>("SubCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubCategoryId"));
+
+                    b.Property<int?>("PrimaryCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubCategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SubCategoryId");
+
+                    b.HasIndex("PrimaryCategoryId");
+
+                    b.ToTable("SubCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            SubCategoryId = 1,
+                            PrimaryCategoryId = 1,
+                            SubCategoryName = "T-Shirts Men"
+                        },
+                        new
+                        {
+                            SubCategoryId = 2,
+                            PrimaryCategoryId = 2,
+                            SubCategoryName = "T-Shirts Women"
+                        },
+                        new
+                        {
+                            SubCategoryId = 3,
+                            PrimaryCategoryId = 3,
+                            SubCategoryName = "T-Shirts Unisex"
+                        },
+                        new
+                        {
+                            SubCategoryId = 4,
+                            PrimaryCategoryId = 1,
+                            SubCategoryName = "Pants Men"
+                        },
+                        new
+                        {
+                            SubCategoryId = 5,
+                            PrimaryCategoryId = 2,
+                            SubCategoryName = "Pants Women"
+                        },
+                        new
+                        {
+                            SubCategoryId = 6,
+                            PrimaryCategoryId = 3,
+                            SubCategoryName = "Pants Unisex"
+                        },
+                        new
+                        {
+                            SubCategoryId = 7,
+                            PrimaryCategoryId = 2,
+                            SubCategoryName = "Dresses"
+                        },
+                        new
+                        {
+                            SubCategoryId = 8,
+                            PrimaryCategoryId = 1,
+                            SubCategoryName = "Shoes Men"
+                        },
+                        new
+                        {
+                            SubCategoryId = 9,
+                            PrimaryCategoryId = 2,
+                            SubCategoryName = "Shoes Women"
+                        },
+                        new
+                        {
+                            SubCategoryId = 10,
+                            PrimaryCategoryId = 3,
+                            SubCategoryName = "Shoes Unisex"
+                        },
+                        new
+                        {
+                            SubCategoryId = 11,
+                            PrimaryCategoryId = 1,
+                            SubCategoryName = "Bags Men"
+                        },
+                        new
+                        {
+                            SubCategoryId = 12,
+                            PrimaryCategoryId = 2,
+                            SubCategoryName = "Bags Women"
+                        },
+                        new
+                        {
+                            SubCategoryId = 13,
+                            PrimaryCategoryId = 3,
+                            SubCategoryName = "Bags Unisex"
+                        },
+                        new
+                        {
+                            SubCategoryId = 14,
+                            PrimaryCategoryId = 1,
+                            SubCategoryName = "Suits"
+                        },
+                        new
+                        {
+                            SubCategoryId = 15,
+                            PrimaryCategoryId = 1,
+                            SubCategoryName = "Accessories Men"
+                        },
+                        new
+                        {
+                            SubCategoryId = 16,
+                            PrimaryCategoryId = 2,
+                            SubCategoryName = "Accessories Women"
+                        },
+                        new
+                        {
+                            SubCategoryId = 17,
+                            PrimaryCategoryId = 3,
+                            SubCategoryName = "Accessories Unisex"
+                        });
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Entities.ProductEntity", b =>
+                {
+                    b.HasOne("DataAccess.Models.Entities.ColorEntity", "Color")
+                        .WithMany()
+                        .HasForeignKey("ColorId");
+
+                    b.HasOne("DataAccess.Models.Entities.ProductInventoryEntity", "ProductInventory")
+                        .WithOne("Product")
+                        .HasForeignKey("DataAccess.Models.Entities.ProductEntity", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataAccess.Models.Entities.SizeEntity", "Size")
+                        .WithMany()
+                        .HasForeignKey("SizeId");
+
+                    b.HasOne("DataAccess.Models.Entities.SubCategoryEntity", "SubCategory")
+                        .WithMany()
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("ProductInventory");
+
+                    b.Navigation("Size");
+
+                    b.Navigation("SubCategory");
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Entities.SubCategoryEntity", b =>
+                {
+                    b.HasOne("DataAccess.Models.Entities.PrimaryCategoryEntity", "PrimaryCategory")
+                        .WithMany()
+                        .HasForeignKey("PrimaryCategoryId");
+
+                    b.Navigation("PrimaryCategory");
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Entities.ProductInventoryEntity", b =>
+                {
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("DataAccess.Models.Entities.ProductEntity", b =>
