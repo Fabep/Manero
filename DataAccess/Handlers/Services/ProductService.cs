@@ -11,11 +11,11 @@ namespace DataAccess.Handlers.Services
 	{
 		private readonly ProductRepository _productRepository;
         public List<Product> BestSellers { get; set; }
-        public List<Product> ProductsFromSubCategory { get; set; }
+		public List<Product> ProductsFromSubCategory { get; set; }
 
 
 
-        public ProductService(ProductRepository productRepository)
+		public ProductService(ProductRepository productRepository)
 		{
 			_productRepository = productRepository;
 		}
