@@ -23,13 +23,8 @@ namespace ManeroWebAppMVC.Controllers
 
             var viewModel = new HomeViewModel()
 			{
-				BestSellers = bestSellersProductList
-				.Select(p => p)
-				.ToList(),
-
-				FeaturedProducts = featuredProductList
-				.Select(p => p)
-				.ToList()
+				BestSellers = bestSellersProductList.ToList(),
+				FeaturedProducts = featuredProductList.ToList()
 			};
 
 
