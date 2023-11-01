@@ -2,24 +2,33 @@
 using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services;
+using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace ManeroWebApplication.Pages
 {
 	public class IndexModel : PageModel
 	{
 		private readonly ProductRepository _productRepository;
+        private readonly IProductService _productService;
 
-		public IndexModel(ProductRepository productRepository)
+		public IndexModel(ProductRepository productRepository, IProductService productService)
 		{
 			_productRepository = productRepository;
+			_productService = productService;
 		}
 
-        public List<DataAccess.Models.Product> BestSellers { get; set; }
+		public List<DataAccess.Models.Product> BestSellers { get; set; }
         public List<DataAccess.Models.Product> FeaturedProducts { get; set; }
+
+        public int ProductCount { get; set; }
+
+
+
 
         public async Task OnGet()
         {
@@ -28,9 +37,12 @@ namespace ManeroWebApplication.Pages
             var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
             var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
 
+            var allProducts = await _productRepository.GetAllAsync(x=> x.GetType() == typeof(ProductEntity));
+
             BestSellers = productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
              .ToList();
+
 
             //BestSellers = productList
             //    .Select(p => new DataAccess.Models.Product
