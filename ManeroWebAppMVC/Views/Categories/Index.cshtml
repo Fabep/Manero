@@ -4,15 +4,10 @@
 <section class="categories">
     <div class="container">
         <div class="main-categories-nav" id="mc-btns">
-            <div class="main-categories-nav-box">
-                <button class="main-categories-nav-box-btn active">MEN</button>
-            </div>
-            <div class="main-categories-nav-box">
-                <button class="main-categories-nav-box-btn">WOMEN</button>
-            </div>
-            <div class="main-categories-nav-box">
-                <button class="main-categories-nav-box-btn">UNISEX</button>
-            </div>
+            @foreach (var primaryCategory in Model.PrimaryCategories)
+            {
+                <partial name="_PrimaryCategoryButton" model="primaryCategory" />
+            }
         </div>
     </div>
 
