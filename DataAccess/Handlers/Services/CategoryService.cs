@@ -5,6 +5,7 @@ using DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Models.Entities;
@@ -28,7 +29,11 @@ namespace DataAccess.Handlers.Services
 
 
 
-			var primaryCategoriesList = categoriesList.Include(x=> x.PrimaryCategory).ToList();
+			var primaryCategoriesList = categoriesList
+				.Include(x=> x.PrimaryCategory)
+				.Select(x=> DataConverter.ConvertPrimaryCategoryEntityToPrimaryCategory(x.PrimaryCategory))
+				.Distinct()
+				.ToList();
 
 			//var primaryrnd = primaryCategoriesList.FirstOrDefault().PrimaryCategory.PrimaryCategoryName;
 

@@ -8,5 +8,9 @@ namespace DataAccess.Models
 {
 	public class PrimaryCategory
 	{
+		public int PrimaryCategoryId { get; set; }
+		public string PrimaryCategoryName { get; set; }
+
+
 	}
 }
