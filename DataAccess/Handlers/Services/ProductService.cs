@@ -5,25 +5,13 @@ using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Services
 {
     public class ProductService : IProductService
 	{
 		private readonly ProductRepository _productRepository;
-
-		//Ta bort dessa listor, behövs bara i metoderna
-        public List<Product> BestSellers { get; set; }
-		public List<Product> ProductsFromSubCategory { get; set; }
-
-
 
 		public ProductService(ProductRepository productRepository)
 		{
@@ -91,11 +79,11 @@ namespace DataAccess.Handlers.Services
 			return promotion;
 		}
     
-        public async Task GetAllBestSellersAsProductsAsync()
+        public async Task<List<Product>> GetAllBestSellersAsProductsAsync()
         {
             var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
 
-            BestSellers = productList
+            return productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
              .ToList();
         }
@@ -105,21 +93,17 @@ namespace DataAccess.Handlers.Services
             // vill hämta de produkter som tillhör vald subkategori
             var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
 
-			ProductsFromSubCategory = productList.AsQueryable().Include(nameof(SubCategoryEntity))
+			return productList.AsQueryable().Include(nameof(SubCategoryEntity))
 				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
 				.ToList();
 
             //ProductsFromSubCategory = productList
             //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
             //	.ToList();
-
-			return ProductsFromSubCategory;
 		}
         public async Task<Product> GetOneProductFromNameAsync(string productName)
         {
             return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName));
-        }
-            return ProductsFromSubCategory;
         }
 
 		public async Task<Product> GetOneProductFromIdAsync(Guid id)
