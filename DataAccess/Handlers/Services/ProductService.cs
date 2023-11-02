@@ -4,13 +4,7 @@ using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Services
 {
@@ -90,11 +84,11 @@ namespace DataAccess.Handlers.Services
 			return promotion;
 		}
     
-        public async Task GetAllBestSellersAsProductsAsync()
+        public async Task<List<Product>> GetAllBestSellersAsProductsAsync()
         {
             var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
 
-            BestSellers = productList
+            return productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
              .ToList();
         }
@@ -118,8 +112,6 @@ namespace DataAccess.Handlers.Services
         {
             return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName));
         }
-            return ProductsFromSubCategory;
-        }
 
 		public async Task<Product> GetOneProductFromIdAsync(Guid id)
 		{
@@ -127,8 +119,6 @@ namespace DataAccess.Handlers.Services
 
             return product;
         }
-
-    }
 
         public async Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName)
         {
@@ -155,7 +145,5 @@ namespace DataAccess.Handlers.Services
             }
             return null!;
         }
-
-
     }
 }
