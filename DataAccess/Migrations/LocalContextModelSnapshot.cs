@@ -113,6 +113,9 @@ namespace DataAccess.Migrations
                     b.Property<int?>("ColorId")
                         .HasColumnType("int");
 
+                    b.Property<double?>("DiscountedPrice")
+                        .HasColumnType("float");
+
                     b.Property<string>("ProductDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -509,6 +512,7 @@ namespace DataAccess.Migrations
                             ProductName = "Classy Dress",
                             ProductPrice = 492.0,
                             PromotionId = 1,
+                            Quantity = 93,
                             Rating = 1,
                             SizeId = 6,
                             SubCategoryId = 7
@@ -917,6 +921,7 @@ namespace DataAccess.Migrations
                             ProductName = "Cozy Pants",
                             ProductPrice = 358.0,
                             PromotionId = 1,
+                            Quantity = 1,
                             Rating = 1,
                             SizeId = 4,
                             SubCategoryId = 5

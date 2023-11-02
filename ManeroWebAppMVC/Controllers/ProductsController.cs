@@ -1,7 +1,6 @@
 ﻿using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
-using DataAccess.Models;
 using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +15,7 @@ namespace ManeroWebAppMVC.Controllers
 		{
 			_productService = productService;
 		}
+
 
 		public async Task<IActionResult> Index(string subProductCategory)
 		{

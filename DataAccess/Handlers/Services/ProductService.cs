@@ -18,6 +18,12 @@ namespace DataAccess.Handlers.Services
 	{
 		private readonly ProductRepository _productRepository;
 
+		//Ta bort dessa listor, behövs bara i metoderna
+        public List<Product> BestSellers { get; set; }
+		public List<Product> ProductsFromSubCategory { get; set; }
+
+
+
 		public ProductService(ProductRepository productRepository)
 		{
 			_productRepository = productRepository;
@@ -84,11 +90,11 @@ namespace DataAccess.Handlers.Services
 			return promotion;
 		}
     
-        public async Task<List<Product>> GetAllBestSellersAsProductsAsync()
+        public async Task GetAllBestSellersAsProductsAsync()
         {
             var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
 
-            return productList
+            BestSellers = productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
              .ToList();
         }
@@ -98,17 +104,21 @@ namespace DataAccess.Handlers.Services
             // vill hämta de produkter som tillhör vald subkategori
             var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
 
-			return productList.AsQueryable().Include(c => c.SubCategory)
+			ProductsFromSubCategory = productList.AsQueryable().Include(nameof(SubCategoryEntity))
 				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
 				.ToList();
 
             //ProductsFromSubCategory = productList
             //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
             //	.ToList();
+
+			return ProductsFromSubCategory;
 		}
         public async Task<Product> GetOneProductFromNameAsync(string productName)
         {
             return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName));
+        }
+            return ProductsFromSubCategory;
         }
 
 		public async Task<Product> GetOneProductFromIdAsync(Guid id)
@@ -117,6 +127,9 @@ namespace DataAccess.Handlers.Services
 
             return product;
         }
+
+    }
+
         public async Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName)
         {
             try
