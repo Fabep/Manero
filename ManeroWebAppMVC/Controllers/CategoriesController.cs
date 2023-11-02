@@ -8,7 +8,7 @@ namespace ManeroWebAppMVC.Controllers
 	{
 		private readonly ICategoryService _categoryService;
 
-		public CategoriesController(ICategoryService _categoryService)
+        public CategoriesController(ICategoryService _categoryService)
 		{
 			this._categoryService = _categoryService;
 		}
@@ -22,7 +22,20 @@ namespace ManeroWebAppMVC.Controllers
 			};
 
 
+
 			return View(viewModel);
 		}
-	}
+
+
+        public async Task<IActionResult> RefreshIndex(int primaryCategoryId)
+        {
+            var subCategories = await _categoryService.GetSubCategoriesByPrimaryCategoryId(primaryCategoryId);
+
+
+            return PartialView("_CategoriesPartial", subCategories);
+        }
+
+
+
+    }
 }

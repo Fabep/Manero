@@ -9,11 +9,11 @@
                 <div class="main-categories-nav-box">
                     @if (primaryCategory.PrimaryCategoryId == Model.SelectedPrimaryCategory)
                     {
-                        <button class="main-categories-nav-box-btn active">@primaryCategory.PrimaryCategoryName</button>
+                        <button id="@primaryCategory.PrimaryCategoryId" class="main-categories-nav-box-btn active">@primaryCategory.PrimaryCategoryName</button>
                     }
                     else
                     {
-                        <button class="main-categories-nav-box-btn">@primaryCategory.PrimaryCategoryName</button>
+                        <button id="@primaryCategory.PrimaryCategoryId" class="main-categories-nav-box-btn">@primaryCategory.PrimaryCategoryName</button>
                     }
                 </div>
             }
@@ -22,10 +22,39 @@
 
     <!-- Grid Section -->
     <div class="grid-container">
-        @foreach (var subCategory in Model.SubCategories)
-        {
-            <partial name="_CategoriesPartial" model="subCategory" />
-        }
+
+        <partial name="_CategoriesPartial" model="@Model.SubCategories" />
 
     </div>
 </section>
+
+@section Scripts
+    {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var buttons = document.querySelectorAll(".main-categories-nav-box-btn");
+
+            buttons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var primaryCategoryId = button.id;
+
+                    // Create an AJAX request
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            if (xhr.status === 200) {
+                                // Update the grid container with the new content
+                                var gridContainer = document.querySelector(".grid-container")
+                                console.log(xhr.responseText)
+
+                                gridContainer.innerHTML = xhr.responseText;
+                            }
+                        }
+                    };
+                    xhr.open("GET", `/Categories/RefreshIndex?primaryCategoryId=${primaryCategoryId}`, true);
+                    xhr.send();
+                });
+            });
+        });
+    </script>
+}
