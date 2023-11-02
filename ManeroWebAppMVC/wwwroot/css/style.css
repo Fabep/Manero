@@ -458,7 +458,7 @@ header #main {
 .sub-category-page .sort-filter {
   display: flex;
   justify-content: space-between;
-  margin: 0 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 .sub-category-page .product-box {
   display: grid;
