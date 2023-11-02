@@ -16,23 +16,35 @@ namespace ManeroWebAppMVC.Controllers
 			_productService = productService;
 		}
 
-		public async Task<IActionResult> Index()
-		{
-			var bestSellersProductList = await _productService.GetBestSellersAsync();
+        public async Task<IActionResult> Index()
+        {
+            var bestSellersProductList = await _productService.GetBestSellersAsync();
             var featuredProductList = await _productService.GetFeaturedProductsAsync();
 
+            // Apply the discount logic
+            foreach (var product in bestSellersProductList.Concat(featuredProductList))
+            {
+                if (product.Promotion != null)
+                {
+                    product.DiscountedPrice = product.ProductPrice * (1 - product.Promotion.DiscountRate);
+                }
+                else
+                {
+                    product.DiscountedPrice = product.ProductPrice; // No discount, so set it to the original price
+                }
+            }
+
             var viewModel = new HomeViewModel()
-			{
-				BestSellers = bestSellersProductList.ToList(),
-				FeaturedProducts = featuredProductList.ToList()
-			};
+            {
+                BestSellers = bestSellersProductList.ToList(),
+                FeaturedProducts = featuredProductList.ToList()
+            };
+
+            return View(viewModel);
+        }
 
 
-			return View(viewModel);
-
-		}
-
-		public IActionResult Privacy()
+        public IActionResult Privacy()
 		{
 			return View();
 		}
