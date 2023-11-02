@@ -31,29 +31,46 @@
     </div>
 
     @* Price *@
+   
     <div class="product-price">
-        <h4 class="m-0">$@Model.Product.ProductPrice</h4>
-        <div class="product-amount">
-            <button class="amount-button" onclick="remove()">-</button>
-            <div id="current-amount">@Model.CurrentAmount</div>
-            <button class="amount-button" onclick="add()">+</button>
-        </div>
+	    @if (Model.Product.Promotion != null)
+	    {
+		    var discountPrice = Model.Product.ProductPrice * (1 - Model.Product.Promotion.DiscountRate);
+		    var formattedDiscountPrice = discountPrice.ToString("0.0");
+
+		    <h4 class="product-price-old m-0"><s>$@Model.Product.ProductPrice.ToString("0.00")</s></h4>
+		    <h4 class="product-price-sales">$@formattedDiscountPrice</h4>
+	    }
+	    else
+	    {
+		    <h4 class="product-price-sales m-0">$@Model.Product.ProductPrice.ToString("0.00")</h4>
+	    }
+	    <div class="product-amount">
+		    <button class="amount-button" onclick="remove()">-</button>
+		    <div id="current-amount">@Model.CurrentAmount</div>
+		    <button class="amount-button" onclick="add()">+</button>
+	    </div>
     </div>
 
-    @* SizeEntity *@
+    @* Sizes *@
     <div class="product-buttons">
         <h5 class="product-text-part">Size</h5>
-        <div class="horizontal-button-container">
-            <button class="size-button">S</button>
-            <button class="size-button">M</button>
+        <div class="horizontal-button-container" id="size-buttons">
+            @foreach (var size in Model.Sizes)
+            {
+                <button data-size="@size" class="size-button">@size</button>
+            }
         </div>
     </div>
 
     @* Colors *@
     <div class="product-buttons">
         <h5 class="product-text-part">Color</h5>
-        <div class="horizontal-button-container">
-            <button class="color-button"></button>
+        <div class="horizontal-button-container" id="color-buttons">
+            @foreach (var color in Model.Colors)
+            {
+                <button class="color-button" data-color="@color" style="background-color:@color"></button>
+            }
         </div>
     </div>
 

@@ -13,6 +13,12 @@
   font-size: 0.8rem;
 }
 
+.back-nav {
+  text-decoration: none;
+  color: black;
+  margin: 0px 0px 10px 0px;
+}
+
 header {
   box-shadow: 0 0 3px 1px rgb(192, 192, 192);
   position: sticky;
@@ -154,6 +160,13 @@ header #main {
 .product-tile .product-price-sales {
   margin-bottom: 5px;
   color: red;
+}
+.product-tile .sale-badge {
+  background-color: green;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .categories {
@@ -415,6 +428,15 @@ header #main {
   padding-bottom: 10px;
 }
 
+.product-price {
+  margin-bottom: 5px;
+}
+
+.product-price-sales {
+  margin-bottom: 6px;
+  color: red;
+}
+
 .mobile-footer {
   display: none;
   background-color: #ffffff;
@@ -448,6 +470,11 @@ header #main {
   justify-content: center;
   align-items: center;
   margin: 10px;
+}
+.sub-category-page .sort-filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
 }
 .sub-category-page .product-box {
   display: grid;
