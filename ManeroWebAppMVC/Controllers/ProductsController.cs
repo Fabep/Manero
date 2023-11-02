@@ -30,8 +30,21 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
+
+
 		public async Task<IActionResult> Article(string n)
 		{
+            var product = await _productService.GetOneProductFromNameAsync(n);
+
+            // Apply the discount logic
+            if (product.Promotion != null)
+            {
+                product.DiscountedPrice = product.ProductPrice * (1 - product.Promotion.DiscountRate);
+            }
+            else
+            {
+                product.DiscountedPrice = product.ProductPrice; 
+            }
 
 			var viewModel = new ArticleViewModel
 			{
@@ -52,4 +65,5 @@ namespace ManeroWebAppMVC.Controllers
 			return View(viewModel);
 		}
 	}
+
 }
