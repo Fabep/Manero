@@ -26,8 +26,9 @@ namespace DataAccess.Handlers.Services
 
 			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
 
-			var primaryCategoriesList = categoriesList.AsQueryable().Include(x => x.PrimaryCategory.PrimaryCategoryId)
-				.ToList();
+
+
+			var primaryCategoriesList = categoriesList.Include(x=> x.PrimaryCategory).ToList();
 
 			//var primaryrnd = primaryCategoriesList.FirstOrDefault().PrimaryCategory.PrimaryCategoryName;
 
