@@ -22,20 +22,10 @@
 
     <!-- Grid Section -->
     <div class="grid-container">
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Dresses</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Pants</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Accessories</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Shoes</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">T-Shirts</div>
-        </a>
+        @foreach (var subCategory in Model.SubCategories)
+        {
+            <partial name="_CategoriesPartial" model="subCategory" />
+        }
+
     </div>
 </section>
