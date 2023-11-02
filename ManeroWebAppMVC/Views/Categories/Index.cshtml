@@ -1,7 +1,10 @@
 ﻿@model CategoriesViewModel
 @{
 }
+
 <section class="categories">
+
+    <!-- Primary Categories -->
     <div class="container">
         <div class="main-categories-nav" id="mc-btns">
             @foreach (var primaryCategory in Model.PrimaryCategories)
@@ -23,10 +26,11 @@
     <!-- Grid Section -->
     <div class="grid-container">
 
-        <partial name="_CategoriesPartial" model="@Model.SubCategories" />
+        <partial name="_CategoriesPartial" model="@Model.SubCategories"/>
 
     </div>
 </section>
+
 
 @section Scripts
     {
