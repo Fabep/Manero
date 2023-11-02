@@ -1,5 +1,6 @@
 ﻿using DataAccess.Models.Entities;
 using DataAccess.Models;
+using DataAccess.Enums;
 
 namespace DataAccess.Handlers.Services.Abstractions
 {
@@ -10,9 +11,9 @@ namespace DataAccess.Handlers.Services.Abstractions
         Task<List<Product>> GetFeaturedProductsAsync();
         bool ShouldHavePromotion(ProductEntity product);
         Promotion GetPromotion();
-        public Task GetAllBestSellersAsProducts();
-        public Task<List<Product>> GetProductsFromSubCategory(string subProductCategory);
-        public Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName);
+        public Task<List<Product>> GetAllBestSellersAsProductsAsync();
+        public Task<List<Product>> GetProductsFromSubCategoryAsync(string subProductCategory);
+        public Task<List<(SizeEnum, string)>> GetProductColorsAndSizesAsync(string productName);
         public Task<Product> GetOneProductFromNameAsync(string productName);
         public Task<Product> GetOneProductFromIdAsync(Guid id);
     }
