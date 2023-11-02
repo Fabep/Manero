@@ -20,7 +20,7 @@ namespace ManeroWebAppMVC.Controllers
 			};
 
 
-			return View();
+			return View(viewModel);
 		}
 	}
 }

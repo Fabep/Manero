@@ -24,6 +24,7 @@ public class ProductEntity
     public ColorEntity? Color { get; set; }
 
     public int? SizeId { get; set; }
+
     public SizeEntity? Size { get; set; }
 
     public ProductInventoryEntity? ProductInventory { get; set; }

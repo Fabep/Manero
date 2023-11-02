@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Handlers.Services
@@ -23,7 +24,13 @@ namespace DataAccess.Handlers.Services
 		public async Task<List<PrimaryCategory>> GetAllPrimaryCategories()
 		{
 
-			var categoriesList = await _subCategoryRepository.GetAllAsync(x => x.SubCategoryName.Any());
+			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
+
+			var primaryCategoriesList = categoriesList.AsQueryable().Include(x => x.PrimaryCategory.PrimaryCategoryId)
+				.ToList();
+
+			//var primaryrnd = primaryCategoriesList.FirstOrDefault().PrimaryCategory.PrimaryCategoryName;
+
 
 			//return categoriesList.AsQueryable().Include(x=> x.PrimaryCategoryId)
 			//	.Select(p => DataConverter.ConvertProductEntityToProduct(p))
