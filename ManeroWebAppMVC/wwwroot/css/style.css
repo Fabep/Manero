@@ -13,6 +13,12 @@
   font-size: 0.8rem;
 }
 
+.back-nav {
+  text-decoration: none;
+  color: black;
+  margin: 0px 0px 10px 0px;
+}
+
 header {
   box-shadow: 0 0 3px 1px rgb(192, 192, 192);
   position: sticky;
@@ -452,7 +458,7 @@ header #main {
 .sub-category-page .sort-filter {
   display: flex;
   justify-content: space-between;
-  margin: 0 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 .sub-category-page .product-box {
   display: grid;
