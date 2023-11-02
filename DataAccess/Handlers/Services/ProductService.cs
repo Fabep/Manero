@@ -4,19 +4,19 @@ using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Services
 {
     public class ProductService : IProductService
 	{
 		private readonly ProductRepository _productRepository;
+
+		//Ta bort dessa listor, behövs bara i metoderna
+        public List<Product> BestSellers { get; set; }
+		public List<Product> ProductsFromSubCategory { get; set; }
+
+
 
 		public ProductService(ProductRepository productRepository)
 		{
@@ -98,13 +98,15 @@ namespace DataAccess.Handlers.Services
             // vill hämta de produkter som tillhör vald subkategori
             var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
 
-			return productList.AsQueryable().Include(c => c.SubCategory)
+			ProductsFromSubCategory = productList.AsQueryable().Include(nameof(SubCategoryEntity))
 				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
 				.ToList();
 
             //ProductsFromSubCategory = productList
             //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
             //	.ToList();
+
+			return ProductsFromSubCategory;
 		}
         public async Task<Product> GetOneProductFromNameAsync(string productName)
         {
@@ -117,6 +119,7 @@ namespace DataAccess.Handlers.Services
 
             return product;
         }
+
         public async Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName)
         {
             try
@@ -142,7 +145,5 @@ namespace DataAccess.Handlers.Services
             }
             return null!;
         }
-
-
     }
 }
