@@ -1,5 +1,9 @@
 ﻿.sub-category-page {
     .header-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
         h1 {
         }
     }
@@ -14,10 +18,25 @@
     }
 }
 
-
-@media (min-width: 1120) {
+@media (min-width: 760px) {
     .sub-category-page {
         .header-box {
+            margin: 30px;
+
+            h1 {
+            }
+        }
+
+        .product-box {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
+
+@media (min-width: 1120px) {
+    .sub-category-page {
+        .header-box {
+            margin: 40px;
             h1 {
             }
         }

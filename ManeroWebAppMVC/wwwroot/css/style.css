@@ -442,3 +442,35 @@ header #main {
   color: #333;
   outline: none;
 }
+
+.sub-category-page .header-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.sub-category-page .product-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-self: center;
+}
+
+@media (min-width: 760px) {
+  .sub-category-page .header-box {
+    margin: 30px;
+  }
+  .sub-category-page .product-box {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1120px) {
+  .sub-category-page .header-box {
+    margin: 40px;
+  }
+  .sub-category-page .product-box {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
