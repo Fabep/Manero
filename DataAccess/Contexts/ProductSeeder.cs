@@ -32,11 +32,13 @@ internal class ProductSeeder
     internal static IEnumerable<ProductEntity> SeedProducts()
     {
         var baseProducts = new List<ProductEntity>();
-        for (int i = 0; i <= 1; i++)
+        for (int i = 0; i <= 10; i++)
         {
             var clothingName = ClothingNames[random.Next(0, 6)];
             var description = Descriptions[random.Next(0, 15)];
             var subCategoryId = CategorySeeder.GetSubCategoryId(clothingName);
+            bool isBestSeller = i%2 == 0;
+            bool isFeaturedProducts = i% 3 == 0;
 
             for (int colorId = 1; colorId < 7; colorId++)
             {
@@ -53,7 +55,9 @@ internal class ProductSeeder
                         SubCategoryId = subCategoryId,
                         ColorId = colorId,
                         SizeId = sizeId,
-                        PromotionId = 1
+                        PromotionId = 1,
+                        IsBestSeller = isBestSeller,
+                        IsFeaturedProduct = isFeaturedProducts,
                     };
 
                     ProductIds.Add(entity.ProductId);

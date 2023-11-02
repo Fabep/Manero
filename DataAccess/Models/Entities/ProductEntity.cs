@@ -32,4 +32,6 @@ public class ProductEntity
 	public int? PromotionId { get; set; }
 	[ForeignKey("PromotionId")]
 	public PromotionEntity? Promotion { get; set; }
+    public bool? IsBestSeller { get; set; }
+    public bool? IsFeaturedProduct { get; set; }
 }
