@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ManeroWebApplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+     <script src="https://kit.fontawesome.com/7541a05141.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/ManeroWebApplication.styles.css" asp-append-version="true" />
+    
+
+</head>
+<body>
+    <header>
+         <nav class="container">
+            <div class="nav-content">
+                <div class="nav-box navbar navbar-light">
+                    <button class="openbtn" onclick="openNav()"><span class="navbar-toggler-icon"></span></button>
+                </div>
+                <div class="nav-box logo">
+                    <a asp-area="" asp-page="/Index">MANERO</a>
+                </div>
+                <div class="nav-box shop-cart">
+                    <a href="checkout.html" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping"></i><span class="cart-badge">1</span></a>
+                </div>
+            </div>
+        </nav>
+        <div id="navSidebar" class="sidebar">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Categories/Index">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Categories/Index">Women</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Categories/Index">Unisex</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Categories/Index">Contact</a>
+                </li>
+                <div>
+                    <partial name="_LoginPartial" />
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer">
+        <div class="mobile-footer">
+            <button class="nav-item">
+                <i class="fas fa-home"></i>
+            </button>
+
+            <button class="nav-item">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <button class="nav-item">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+
+            <button class="nav-item">
+                <i class="fas fa-heart"></i>
+            </button>
+
+            <button class="nav-item">
+                <i class="fas fa-user"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

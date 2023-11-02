@@ -1,0 +1,40 @@
+﻿.offer-section {
+    background-color: #ff9900;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin: 20px 0px 20px 0px;
+}
+
+
+.offer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.offer-text {
+    text-align: center;
+}
+
+
+
+.btn-sales {
+    background-color: #fff;
+    color: #ff9900;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.btn-sales:hover {
+    background-color: #ffcc00;
+}
+
+.product-container-sales {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
