@@ -12,7 +12,7 @@ namespace ManeroWebAppMVC.Controllers
 		{
 			this._categoryService = _categoryService;
 		}
-		public async Task<IActionResult> Index(int primaryCategoryId = 1)
+		public async Task<IActionResult> Index(int primaryCategoryId)
 		{
 			var viewModel = new CategoriesViewModel()
 			{
