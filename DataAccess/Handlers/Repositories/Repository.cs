@@ -56,13 +56,13 @@ namespace DataAccess.Handlers.Repositories
                 return entity;
             }
         }
-        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression)
+        public async Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression)
         {
-            IEnumerable<TEntity> entity;
+            IQueryable<TEntity> entity;
 
             try
             {
-                var res = await _context.Set<TEntity>().Where(expression).ToListAsync();
+                var res = _context.Set<TEntity>().Where(expression);
 
                 if (res != null)
                 {

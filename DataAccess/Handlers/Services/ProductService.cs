@@ -4,6 +4,13 @@ using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Services
 {
@@ -97,14 +104,20 @@ namespace DataAccess.Handlers.Services
             // vill hämta de produkter som tillhör vald subkategori
             var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
 
-            ProductsFromSubCategory = productList.AsQueryable().Include(a => a.SubCategory)
-               .Select(p => DataConverter.ConvertProductEntityToProduct(p))
-               .ToList();
+			ProductsFromSubCategory = productList.AsQueryable().Include(nameof(SubCategoryEntity))
+				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
+				.ToList();
 
             //ProductsFromSubCategory = productList
             //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
             //	.ToList();
 
+			return ProductsFromSubCategory;
+		}
+        public async Task<Product> GetOneProductFromNameAsync(string productName)
+        {
+            return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName));
+        }
             return ProductsFromSubCategory;
         }
 
@@ -117,5 +130,32 @@ namespace DataAccess.Handlers.Services
 
     }
 
+        public async Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName)
+        {
+            try
+            {
+                var combinations = new List<(string, string)>();
 
+                var temp = await _productRepository.GetAllAsync(x => x.ProductName == productName);
+
+                var products = await temp
+                    .Include(c => c.Color)
+                    .Include(s => s.Size)
+					.Include(pi => pi.ProductInventory).ToListAsync();
+
+                foreach (var product in products)
+                {
+                    combinations.Add((product.Size.Size, product.Color.Color));
+                }
+                return combinations;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return null!;
+        }
+
+
+    }
 }
