@@ -1,6 +1,4 @@
-using DataAccess.ExtensionMethods;
-using DataAccess.Handlers.Repositories;
-using DataAccess.Handlers.Services;
+using DataAccess.Enums;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +20,9 @@ namespace ManeroWebApplication.Pages.Products
         public int ReviewCount { get; set; } = 0;
         [BindProperty]
         public int CurrentAmount { get; set; } = 0;
-        public List<string> Sizes { get; set; } = new List<string>();
+        public List<SizeEnum> Sizes { get; set; } = new List<SizeEnum>();
         public List<string> Colors { get; set; } = new List<string>();
-        public List<(string, string)> Combinations { get; set; }
+        public List<(SizeEnum, string)> Combinations { get; set; }
         
         public async Task OnGetAsync(string n)
         {
@@ -38,6 +36,7 @@ namespace ManeroWebApplication.Pages.Products
                     if (!Colors.Contains(combination.Item2))
                         Colors.Add(combination.Item2);
                 }
+            Sizes.Sort();
         }
 
         public async Task<IActionResult> OnGetColorPickAsync(string color)
@@ -51,7 +50,7 @@ namespace ManeroWebApplication.Pages.Products
         }
         public async Task<IActionResult> OnGetSizePickAsync(string size)
         {
-            var temp = Combinations.Where(x => x.Item1 == size);
+            var temp = Combinations.Where(x => x.Item1 == Enum.Parse<SizeEnum>(size));
             if(temp.Any())
             {
                 Colors = temp.Select(x => x.Item2).ToList();

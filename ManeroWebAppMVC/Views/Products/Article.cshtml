@@ -40,20 +40,25 @@
         </div>
     </div>
 
-    @* SizeEntity *@
+    @* Sizes *@
     <div class="product-buttons">
         <h5 class="product-text-part">Size</h5>
-        <div class="horizontal-button-container">
-            <button class="size-button">S</button>
-            <button class="size-button">M</button>
+        <div class="horizontal-button-container" id="size-buttons">
+            @foreach (var size in Model.Sizes)
+            {
+                <button data-size="@size" class="size-button">@size</button>
+            }
         </div>
     </div>
 
     @* Colors *@
     <div class="product-buttons">
         <h5 class="product-text-part">Color</h5>
-        <div class="horizontal-button-container">
-            <button class="color-button"></button>
+        <div class="horizontal-button-container" id="color-buttons">
+            @foreach (var color in Model.Colors)
+            {
+                <button class="color-button" data-color="@color" style="background-color:@color"></button>
+            }
         </div>
     </div>
 
