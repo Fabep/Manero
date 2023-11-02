@@ -30,17 +30,29 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
-		public async Task<IActionResult> Article(Guid id)
-		{
+        public async Task<IActionResult> Article(Guid id)
+        {
+            var product = await _productService.GetOneProductFromIdAsync(id);
 
-			var viewModel = new ArticleViewModel
-			{
-				Product = await _productService.GetOneProductFromIdAsync(id),
+            // Apply the discount logic
+            if (product.Promotion != null)
+            {
+                product.DiscountedPrice = product.ProductPrice * (1 - product.Promotion.DiscountRate);
+            }
+            else
+            {
+                product.DiscountedPrice = product.ProductPrice; // No discount, so set it to the original price
+            }
+
+            var viewModel = new ArticleViewModel
+            {
+                Product = product,
             };
 
-			return View(viewModel);
-		}
+            return View(viewModel);
+        }
 
 
-	}
+
+    }
 }
