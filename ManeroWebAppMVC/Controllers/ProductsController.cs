@@ -1,6 +1,7 @@
 ﻿using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
+using DataAccess.Models;
 using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,25 @@ namespace ManeroWebAppMVC.Controllers
 
 		public async Task<IActionResult> Index(string subProductCategory)
 		{
+			var productList = new List<Product>();
+			try
+			{
+                if (subProductCategory == "Best Sellers")
+                    productList = await _productService.GetBestSellersAsync();
+                else if (subProductCategory == "Featured Products")
+                    productList = await _productService.GetFeaturedProductsAsync();
+                else
+                    productList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory);
+            }
+            catch (Exception)
+			{
 
+			}
+			
 			var viewModel = new ProductsViewModel
 			{
 				PageTitle = subProductCategory,
-				ProductList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory)
+				ProductList = productList,
 			};
 
 			return View(viewModel);
