@@ -41,7 +41,7 @@ namespace DataAccess.Handlers.Services
 
 		public async Task<List<Product>> GetFeaturedProductsAsync()
 		{
-			var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
+			var featuredProductList = await _productRepository.GetAllAsync(x => x.IsFeaturedProduct == true);
 			var products = new List<Product>();
 
 			foreach (var productEntity in featuredProductList)
@@ -81,7 +81,7 @@ namespace DataAccess.Handlers.Services
     
         public async Task<List<Product>> GetAllBestSellersAsProductsAsync()
         {
-            var productList = await _productRepository.GetAllAsync(x => x.ProductPrice > 900);
+            var productList = await _productRepository.GetAllAsync(x => x.IsBestSeller == true);
 
             return productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
