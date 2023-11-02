@@ -4,15 +4,29 @@
 
 <div class="container sub-category-page">
 
-	<div class="header-box">
-		<h1>@Model.PageTitle</h1>
-	</div>
+    <div class="header-box">
+        <h1>@Model.PageTitle</h1>
+    </div>
 
-	<div class="product-box">
-		@foreach (var product in Model.ProductList)
-		{
-			<partial name="_ProductTilePartial" model="product" />
-		}
-	</div>
+    <div class="sort-filter">
+        
+        <div class="filtering">
+            <i class="fa-solid fa-filter"></i>
+            Add filter
+        </div>
+        
+        <div class="sorting">
+            <i class="fa-solid fa-sort"></i>
+            Sort products
+        </div>
+
+    </div>
+
+    <div class="product-box">
+        @foreach (var product in Model.ProductList)
+        {
+            <partial name="_ProductTilePartial" model="product" />
+        }
+    </div>
 
 </div>
