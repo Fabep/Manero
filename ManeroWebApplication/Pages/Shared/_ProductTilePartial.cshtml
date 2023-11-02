@@ -1,34 +1,53 @@
-﻿@model DataAccess.Models.Product;
+﻿@model DataAccess.Models.Product
 
 <div class="product-tile">
-    <div class="product-image">
-        <a asp-page="/Products/Article" asp-route-id="@Model.ProductId">
-            <img src="/Images/t-shirt.png" alt="@Model.ProductName"/>
-        </a>
-    <div class="product-buttons">
-        <i class="fa-regular fa-heart heart"></i>
-        <i class="fa-solid fa-bag-shopping buy"></i>
-    </div>
-    </div>
-    <div class="product-rating">
-        <div>
-            @for (var i = 0; i < 5; i++)
-            {
-                if (Model.Rating > i)
-                {
-                    <i class="fa-solid fa-star"></i>
-                }
-                else
-                {
-                    <i class="fa-regular fa-star"></i>
-                }
-            }
-        </div>
-    </div>
-    <div class="product-name">
-        @Model.ProductName
-    </div>
-    <div class="product-price">
-        $@Model.ProductPrice
-    </div>
-</div>
+	<div class="promotion-icon">
+		@if (Model.Promotion != null)
+		{
+			<div class="sale-badge">Sale</div>
+		}
+	</div>
+
+	<div class="product-image">
+		<a asp-page="/Products/Article" asp-route-n="@Model.ProductName">
+			<img src="/Images/t-shirt.png" alt="@Model.ProductName" />
+		</a>
+		<div class="product-buttons">
+			<i class="fa-regular fa-heart heart"></i>
+			<i class="fa-solid fa-bag-shopping buy"></i>
+		</div>
+	</div>
+	<div class="product-rating">
+		<div>
+			@for (var i = 0; i < 5; i++)
+			{
+				if (Model.Rating > i)
+				{
+					<i class="fa-solid fa-star"></i>
+				}
+				else
+				{
+					<i class="fa-regular fa-star"></i>
+				}
+			}
+		</div>
+	</div>
+	<div class="product-name">
+		@Model.ProductName
+	</div>
+	<div class="product-price">
+		@if (Model.Promotion != null)
+		{
+			var discountPrice = Model.ProductPrice * (1 - Model.Promotion.DiscountRate);
+			var formattedDiscountPrice = string.Format("{0:0.0}", discountPrice);
+
+			<span class="product-price-old">$@Model.ProductPrice</span>
+			<span class="product-price-sales">$@formattedDiscountPrice</span>
+		}
+		else
+		{
+		@Model.ProductPrice
+		}
+	</div>
+
+	</div>

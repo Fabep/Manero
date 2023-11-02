@@ -1,0 +1,96 @@
+﻿@model ArticleViewModel
+@{
+}
+
+@* Container *@
+<section class="product-page-container">
+    @* Images *@
+    <div class="product-image">
+        <img src="~/Images/t-shirt.png" />
+    </div>
+    <div class="image-slide-buttons"></div>
+
+    @* Product Name *@
+    <div class="product-name">
+        <h3 class="m-0"><b>@Model.Product.ProductName</b></h3>
+        <i class="fa-regular fa-heart heart"></i>
+    </div>
+    @* Stars *@
+    <div class="product-star-rating">
+        @for (var i = 0; i < 5; i++)
+        {
+            if (Model.Product.Rating > i)
+            {
+                <i class="fa-solid fa-star"></i>
+            }
+            else
+            {
+                <i class="fa-regular fa-star"></i>
+            }
+        }
+    </div>
+
+    @* Price *@
+   
+    <div class="product-price">
+	    @if (Model.Product.Promotion != null)
+	    {
+		    var discountPrice = Model.Product.ProductPrice * (1 - Model.Product.Promotion.DiscountRate);
+		    var formattedDiscountPrice = discountPrice.ToString("0.0");
+
+		    <h4 class="product-price-old m-0"><s>$@Model.Product.ProductPrice.ToString("0.00")</s></h4>
+		    <h4 class="product-price-sales">$@formattedDiscountPrice</h4>
+	    }
+	    else
+	    {
+		    <h4 class="product-price-sales m-0">$@Model.Product.ProductPrice.ToString("0.00")</h4>
+	    }
+	    <div class="product-amount">
+		    <button class="amount-button" onclick="remove()">-</button>
+		    <div id="current-amount">@Model.CurrentAmount</div>
+		    <button class="amount-button" onclick="add()">+</button>
+	    </div>
+    </div>
+
+
+
+
+    @* SizeEntity *@
+    <div class="product-buttons">
+        <h5 class="product-text-part">Size</h5>
+        <div class="horizontal-button-container">
+            <button class="size-button">S</button>
+            <button class="size-button">M</button>
+        </div>
+    </div>
+
+    @* Colors *@
+    <div class="product-buttons">
+        <h5 class="product-text-part">Color</h5>
+        <div class="horizontal-button-container">
+            <button class="color-button"></button>
+        </div>
+    </div>
+
+    @* Description *@
+    <div class="product-description">
+        <h5 class="product-text-part">Description</h5>
+        <p>@Model.Product.ProductDescription</p>
+    </div>
+
+    @* Add to cart *@
+    <button class="add-to-cart-button">
+        Add To Cart
+    </button>
+
+    @* Reviews *@
+    <div class="product-reviews">
+        <div class="review-top">
+            <h4>Reviews (@Model.ReviewCount)</h4>
+            <a asp-page="/Products/Article/Reviews" class="view-reviews-button">View all ></a>
+        </div>
+        <div class="review-box">
+            <img class="picture" src="" alt="Profile picture" />
+        </div>
+    </div>
+</section>
