@@ -6,7 +6,16 @@
         <div class="main-categories-nav" id="mc-btns">
             @foreach (var primaryCategory in Model.PrimaryCategories)
             {
-                <partial name="_PrimaryCategoryButton" model="primaryCategory" />
+                <div class="main-categories-nav-box">
+                    @if (primaryCategory.PrimaryCategoryId == Model.SelectedPrimaryCategory)
+                    {
+                        <button class="main-categories-nav-box-btn active">@primaryCategory.PrimaryCategoryName</button>
+                    }
+                    else
+                    {
+                        <button class="main-categories-nav-box-btn">@primaryCategory.PrimaryCategoryName</button>
+                    }
+                </div>
             }
         </div>
     </div>

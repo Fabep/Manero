@@ -17,7 +17,8 @@ namespace ManeroWebAppMVC.Controllers
 			var viewModel = new CategoriesViewModel()
 			{
 				PrimaryCategories = await _categoryService.GetAllPrimaryCategories(),
-				SubCategories =  await  _categoryService.GetSubCategoriesByPrimaryCategoryId(primaryCategoryId)
+				SubCategories =  await  _categoryService.GetSubCategoriesByPrimaryCategoryId(primaryCategoryId),
+				SelectedPrimaryCategory = primaryCategoryId
 			};
 
 

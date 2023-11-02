@@ -1,5 +1,14 @@
 ﻿@model DataAccess.Models.PrimaryCategory;
 
 <div class="main-categories-nav-box">
-    <button class="main-categories-nav-box-btn active">@Model.PrimaryCategoryName</button>
+    @if (@Model.PrimaryCategoryId == 1)
+    {
+        <button class="main-categories-nav-box-btn active">@Model.PrimaryCategoryName</button>
+    }
+        
+    else
+    {
+        <button class="main-categories-nav-box-btn">@Model.PrimaryCategoryName</button>
+
+    }
 </div>
