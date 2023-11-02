@@ -38,7 +38,7 @@ namespace ManeroWebAppMVC.Controllers
 			var viewModel = new ProductsViewModel
 			{
 				PageTitle = subProductCategory,
-				ProductList = productList, //await _productService.GetProductsFromSubCategoryAsync(subProductCategory)
+				ProductList = productList,
 			};
 
 			return View(viewModel);
