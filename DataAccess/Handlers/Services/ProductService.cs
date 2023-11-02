@@ -1,4 +1,5 @@
-﻿using DataAccess.ExtensionMethods;
+﻿using DataAccess.Enums;
+using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
@@ -125,23 +126,23 @@ namespace DataAccess.Handlers.Services
             return product;
         }
 
-
-        public async Task<List<(string, string)>> GetProductColorsAndSizesAsync(string productName)
+        public async Task<List<(SizeEnum, string)>> GetProductColorsAndSizesAsync(string productName)
         {
             try
             {
-                var combinations = new List<(string, string)>();
+                var combinations = new List<(SizeEnum, string)>();
 
                 var temp = await _productRepository.GetAllAsync(x => x.ProductName == productName);
 
                 var products = await temp
                     .Include(c => c.Color)
                     .Include(s => s.Size)
-                    .Include(pi => pi.ProductInventory).ToListAsync();
-
+					.Include(pi => pi.ProductInventory).ToListAsync();
+				var size = SizeEnum.S;
                 foreach (var product in products)
                 {
-                    combinations.Add((product.Size.Size, product.Color.Color));
+					Enum.TryParse<SizeEnum>(product.Size.Size, out size);
+                    combinations.Add((size, product.Color.Color));
                 }
                 return combinations;
             }

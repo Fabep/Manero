@@ -30,29 +30,26 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
-        public async Task<IActionResult> Article(Guid id)
-        {
-            var product = await _productService.GetOneProductFromIdAsync(id);
+		public async Task<IActionResult> Article(string n)
+		{
 
-            // Apply the discount logic
-            if (product.Promotion != null)
-            {
-                product.DiscountedPrice = product.ProductPrice * (1 - product.Promotion.DiscountRate);
-            }
-            else
-            {
-                product.DiscountedPrice = product.ProductPrice; // No discount, so set it to the original price
-            }
-
-            var viewModel = new ArticleViewModel
-            {
-                Product = product,
-            };
-
-            return View(viewModel);
-        }
-
-
-
-    }
+			var viewModel = new ArticleViewModel
+			{
+				Product = await _productService.GetOneProductFromNameAsync(n),
+				Combinations = await _productService.GetProductColorsAndSizesAsync(n)
+			};
+			if (viewModel.Combinations is not null)
+			{
+				foreach (var combination in viewModel.Combinations)
+				{
+					if (!viewModel.Sizes.Contains(combination.Item1))
+						viewModel.Sizes.Add(combination.Item1);
+					if (!viewModel.Colors.Contains(combination.Item2))
+						viewModel.Colors.Add(combination.Item2);
+				}
+				viewModel.Sizes.Sort();
+			}
+			return View(viewModel);
+		}
+	}
 }
