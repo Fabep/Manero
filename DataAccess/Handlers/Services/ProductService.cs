@@ -12,12 +12,6 @@ namespace DataAccess.Handlers.Services
 	{
 		private readonly ProductRepository _productRepository;
 
-		//Ta bort dessa listor, behövs bara i metoderna
-        public List<Product> BestSellers { get; set; }
-		public List<Product> ProductsFromSubCategory { get; set; }
-
-
-
 		public ProductService(ProductRepository productRepository)
 		{
 			_productRepository = productRepository;
@@ -98,15 +92,16 @@ namespace DataAccess.Handlers.Services
             // vill hämta de produkter som tillhör vald subkategori
             var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
 
-			ProductsFromSubCategory = productList.AsQueryable().Include(nameof(SubCategoryEntity))
+			var productsFromSubCategory = await productList.Include(x => x.SubCategory)
+				.Where(s => s.SubCategory.SubCategoryName == subProductCategory)
 				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
-				.ToList();
+				.ToListAsync();
 
             //ProductsFromSubCategory = productList
             //	.Select(productList => DataConverter.ConvertProductEntityToProduct(p))
             //	.ToList();
 
-			return ProductsFromSubCategory;
+			return productsFromSubCategory;
 		}
         public async Task<Product> GetOneProductFromNameAsync(string productName)
         {
