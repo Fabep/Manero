@@ -13,58 +13,33 @@ namespace ManeroWebApplication.Pages
 {
 	public class IndexModel : PageModel
 	{
-		private readonly ProductRepository _productRepository;
-        private readonly IProductService _productService;
+		private readonly IProductService _productService;
 
-		public IndexModel(ProductRepository productRepository, IProductService productService)
+		public IndexModel(IProductService productService)
 		{
-			_productRepository = productRepository;
 			_productService = productService;
 		}
 
-		public List<DataAccess.Models.Product> BestSellers { get; set; }
-        public List<DataAccess.Models.Product> FeaturedProducts { get; set; }
+		public List<DataAccess.Models.Product> BestSellers { get; set; } = new List<Product>();
+		public List<DataAccess.Models.Product> FeaturedProducts { get; set; } = new List<Product>();
 
-        public int ProductCount { get; set; }
+		public async Task OnGet()
+		{
+			BestSellers = await _productService.GetBestSellersAsync();
+			FeaturedProducts = await _productService.GetFeaturedProductsAsync();
+			foreach (var product in BestSellers.Concat(FeaturedProducts))
+			{
+				if (product.Promotion != null)
+				{
+					product.DiscountedPrice = product.ProductPrice * (1 - product.Promotion.DiscountRate);
+				}
+				else
+				{
+					product.DiscountedPrice = product.ProductPrice; // No discount, so set it to the original price
+				}
 
+			}
+		}
+	}
+	}
 
-
-
-        public async Task OnGet()
-        {
-
-
-            var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
-            var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
-
-            var allProducts = await _productRepository.GetAllAsync(x=> x.GetType() == typeof(ProductEntity));
-
-            BestSellers = productList
-             .Select(p => DataConverter.ConvertProductEntityToProduct(p))
-             .ToList();
-
-
-            //BestSellers = productList
-            //    .Select(p => new DataAccess.Models.Product
-            //    {
-            //        ProductName = p.ProductName,
-            //        ProductDescription = p.ProductDescription,
-            //        ProductPrice = p.ProductPrice,
-            //        Rating = p.Rating ?? 0,
-            //        Quantity = p.Quantity ?? 0
-            //    })
-            //    .ToList();
-
-            FeaturedProducts = featuredProductList
-                .Select(p => DataConverter.ConvertProductEntityToProduct(p))
-                //{
-                //    ProductName = p.ProductName,
-                //    ProductDescription = p.ProductDescription,
-                //    ProductPrice = p.ProductPrice,
-                //    Rating = p.Rating ?? 0,
-                //    Quantity = p.Quantity ?? 0
-                //})
-                .ToList();
-        }
-    }
-}

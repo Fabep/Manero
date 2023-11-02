@@ -22,6 +22,6 @@ public class IndexModel : PageModel
     public async Task OnGet(string subProductCategory) // sidan ska visa de produkter i den produktkategori som valts.
     {
 		PageTitle = subProductCategory;
-        ProductList = await _productService.GetProductsFromSubCategory(subProductCategory);
+        ProductList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory);
     }
 }

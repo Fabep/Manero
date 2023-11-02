@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 
 <section class="offer-section">
@@ -16,62 +16,36 @@
 
 <hr />
 
+<!-- Assuming you're inside a loop that iterates through BestSellers -->
+<!-- För bästsäljare -->
 <section class="product-section">
 	<div class="container product-container">
-
 		<div class="product-container-header">
-            
-            <h1>Best Sellers</h1>
-           
-            <a asp-page="/Products/BestSellers">
-                View All >
-            </a>
-
+			<h1>best Sellers</h1>
+			<a asp-page="/Products/Index" asp-route-subProductCategory="T-Shirts Men">View All ></a>
 		</div>
-
 		<div class="product-container-items">
-			@foreach (var product in Model.BestSellers.Take(4))
+			@foreach (var product in Model.BestSellers)
 			{
 				<partial name="_ProductTilePartial" model="product" />
 			}
-
 		</div>
-
 	</div>
 </section>
 
-<hr />
 
-
+<!-- För utvalda produkter -->
 <section class="product-section">
 	<div class="container product-container">
-
 		<div class="product-container-header">
-
 			<h1>Featured Products</h1>
-
-			<a asp-page="/Products/FeaturedProducts">
-				View All >
-			</a>
-
+			<a asp-page="/Products/FeaturedProducts">View All ></a>
 		</div>
-
 		<div class="product-container-items">
-			@foreach (var product in Model.FeaturedProducts.Take(4))
+			@foreach (var product in Model.FeaturedProducts)
 			{
 				<partial name="_ProductTilePartial" model="product" />
 			}
-
 		</div>
-
 	</div>
 </section>
-
-
-
-
-
-
-
-
-

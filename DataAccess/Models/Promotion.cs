@@ -10,7 +10,7 @@ namespace DataAccess.Models
 	public class Promotion
 	{
 		[Key]
-		public Guid PromotionId { get; set; }
+		public int PromotionId { get; set; }
 
 		[Required]
 		[MaxLength(255)]
@@ -21,7 +21,7 @@ namespace DataAccess.Models
 
 		[Required]
 		[RegularExpression(@"^\d+\.\d{0,2}$")]
-		public decimal DiscountRate { get; set; }
+		public double DiscountRate { get; set; }
 
 		[Required]
 		[DataType(DataType.Date)]

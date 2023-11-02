@@ -8,32 +8,23 @@ using System.Diagnostics;
 namespace ManeroWebAppMVC.Controllers
 {
 	public class HomeController : Controller
-	{
-		private readonly ProductRepository _productRepository;
+	{	
 		private readonly IProductService _productService;
 
-		public HomeController(ProductRepository productRepository, IProductService productService)
+		public HomeController(IProductService productService)
 		{
-			_productRepository = productRepository;
 			_productService = productService;
 		}
 
 		public async Task<IActionResult> Index()
 		{
+			var bestSellersProductList = await _productService.GetBestSellersAsync();
+            var featuredProductList = await _productService.GetFeaturedProductsAsync();
 
-			var bestSellersProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
-			var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
-
-
-			var viewModel = new HomeViewModel()
+            var viewModel = new HomeViewModel()
 			{
-				BestSellers = bestSellersProductList
-				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
-				.ToList(),
-
-				FeaturedProducts = featuredProductList
-				.Select(p => DataConverter.ConvertProductEntityToProduct(p))
-				.ToList()
+				BestSellers = bestSellersProductList.ToList(),
+				FeaturedProducts = featuredProductList.ToList()
 			};
 
 

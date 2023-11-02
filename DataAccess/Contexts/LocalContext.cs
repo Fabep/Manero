@@ -1,6 +1,5 @@
 ﻿using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace DataAccess.Contexts;
 
@@ -34,12 +33,11 @@ public class LocalContext : DbContext
         if (!optionsBuilder.IsConfigured)
             optionsBuilder.UseSqlServer("Server=localhost;Database=ManeroDatabase;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true");
     }
-
+    
 
     // Seedings values here when the database is created.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
         modelBuilder.Entity<ProductEntity>().HasKey(x => x.ProductId);
 
         modelBuilder.Entity<ProductEntity>()
@@ -60,7 +58,15 @@ public class LocalContext : DbContext
 
         modelBuilder.Entity<ProductInventoryEntity>().HasData(ProductSeeder.SeedProductInventory());
 
-
+        modelBuilder.Entity<PromotionEntity>().HasData(new PromotionEntity
+        {
+            PromotionId = 1,
+            Name = "Autumn Sale",
+            Description = "Manero's best sale yet!",
+            StartDate = DateTime.Now,
+            EndDate = DateTime.Now.AddDays(30),
+            DiscountRate = 0.10,
+        });
 
         base.OnModelCreating(modelBuilder);
     }

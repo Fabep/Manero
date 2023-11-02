@@ -38,29 +38,28 @@ internal class ProductSeeder
             var description = Descriptions[random.Next(0, 15)];
             var subCategoryId = CategorySeeder.GetSubCategoryId(clothingName);
 
-            //for (int colorId = 1; colorId < 7; colorId++)
-            //{
+            for (int colorId = 1; colorId < 7; colorId++)
+            {
 
-            //    for (int sizeId = 1; sizeId < 7; sizeId++)
-            //    {
+                for (int sizeId = 1; sizeId < 7; sizeId++)
+                {
                     ProductEntity entity = new ProductEntity()
                     {
                         ProductName = $"{description} {clothingName}",
                         ProductDescription =
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
                         ProductPrice = random.Next(50, 1000),
-                        Quantity = random.Next(0, 100),
                         Rating = random.Next(0, 5),
                         SubCategoryId = subCategoryId,
-                        ColorId = 1,
-                        SizeId = 1
-
+                        ColorId = colorId,
+                        SizeId = sizeId,
+                        PromotionId = 1
                     };
 
                     ProductIds.Add(entity.ProductId);
                     baseProducts.Add(entity);
-            //    }
-            //}
+                }
+            }
         }
         return baseProducts;
     }
