@@ -61,7 +61,7 @@ namespace DataAccess.Handlers.Services
 
         public bool ShouldHavePromotion(ProductEntity product)
         {
-            return product.ProductPrice < 400;
+            return product.ProductPrice < 799;
         }
 
         public Promotion GetPromotion()
@@ -106,8 +106,22 @@ namespace DataAccess.Handlers.Services
         }
         public async Task<Product> GetOneProductFromNameAsync(string productName)
         {
-            return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName));
+            var productEntity = await _productRepository.GetAsync(x => x.ProductName == productName);
+            var product = DataConverter.ConvertProductEntityToProduct(productEntity);
+
+            // Apply the promotion logic
+            if (ShouldHavePromotion(productEntity))
+            {
+                var promotion = GetPromotion();
+                product.Promotion = promotion;
+
+                // Calculate the discounted price
+                product.DiscountedPrice = product.ProductPrice * (1 - promotion.DiscountRate);
+            }
+
+            return product;
         }
+
 
         public async Task<Product> GetOneProductFromIdAsync(Guid id)
         {
