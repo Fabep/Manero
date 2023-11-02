@@ -139,7 +139,5 @@ namespace DataAccess.Handlers.Services
             }
             return null!;
         }
-
-
     }
 }
