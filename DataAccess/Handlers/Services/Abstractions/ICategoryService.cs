@@ -10,6 +10,6 @@ namespace DataAccess.Handlers.Services.Abstractions
 	public interface ICategoryService
 	{
 		Task<List<PrimaryCategory>> GetAllPrimaryCategories();
-		Task<List<SubCategory>> GetSubCategoriesByPrimaryCategoryId(int primaryCategoryId)
+		Task<List<SubCategory>> GetSubCategoriesByPrimaryCategoryId(int primaryCategoryId);
 	}
 }
