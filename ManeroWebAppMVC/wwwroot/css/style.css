@@ -449,6 +449,11 @@ header #main {
   align-items: center;
   margin: 10px;
 }
+.sub-category-page .sort-filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px 0;
+}
 .sub-category-page .product-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
