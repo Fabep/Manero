@@ -12,11 +12,12 @@ namespace ManeroWebAppMVC.Controllers
 		{
 			this._categoryService = _categoryService;
 		}
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(int primaryCategoryId = 1)
 		{
 			var viewModel = new CategoriesViewModel()
 			{
-				PrimaryCategories = await _categoryService.GetAllPrimaryCategories()
+				PrimaryCategories = await _categoryService.GetAllPrimaryCategories(),
+				SubCategories =  await  _categoryService.GetSubCategoriesByPrimaryCategoryId(primaryCategoryId)
 			};
 
 

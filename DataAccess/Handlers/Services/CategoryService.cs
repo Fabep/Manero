@@ -27,23 +27,28 @@ namespace DataAccess.Handlers.Services
 
 			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
 
-
-
 			var primaryCategoriesList = categoriesList
-				.Include(x=> x.PrimaryCategory)
-				.Select(x=> DataConverter.ConvertPrimaryCategoryEntityToPrimaryCategory(x.PrimaryCategory))
+				.Include(x => x.PrimaryCategory)
+				.Select(x => DataConverter.ConvertPrimaryCategoryEntityToPrimaryCategory(x.PrimaryCategory!))
 				.Distinct()
 				.ToList();
 
-			//var primaryrnd = primaryCategoriesList.FirstOrDefault().PrimaryCategory.PrimaryCategoryName;
 
-
-			//return categoriesList.AsQueryable().Include(x=> x.PrimaryCategoryId)
-			//	.Select(p => DataConverter.ConvertProductEntityToProduct(p))
-			//	.ToList(); 
-
-			return null;
+			return primaryCategoriesList;
 		}
+
+
+		public async Task<List<SubCategory>> GetSubCategoriesByPrimaryCategoryId(int primaryCategoryId)
+		{
+
+			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
+
+
+			return categoriesList.Where(x=> x.PrimaryCategoryId == primaryCategoryId)
+				.Select(x=> DataConverter.ConvertSubCategoryEntityToSubCategory(x))
+				.ToList();
+		}
+
 
 	}
 }

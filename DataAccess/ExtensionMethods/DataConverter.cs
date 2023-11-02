@@ -79,9 +79,28 @@ namespace DataAccess.ExtensionMethods
 
 			return primaryCategory;
 
+		}
 
+
+
+		public static SubCategory ConvertSubCategoryEntityToSubCategory(this SubCategoryEntity entity)
+		{
+			if (entity == null)
+			{
+				return null;
+			}
+
+			var subCategory = new SubCategory()
+			{
+				SubCategoryId = entity.SubCategoryId,
+				SubCategoryName = entity.SubCategoryName
+			};
+
+			return subCategory;
 
 		}
+
+
 
 	}
 }
