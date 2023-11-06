@@ -19,6 +19,41 @@
   margin: 0px 0px 10px 0px;
 }
 
+.sort-filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+}
+.sort-filter .filtering {
+  text-align: center;
+  background-color: #e4dfdf;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+.sort-filter .sorting {
+  display: flex;
+  justify-content: flex-start;
+}
+.sort-filter .sorting .sort-form {
+  display: flex;
+  justify-content: flex-end;
+}
+.sort-filter .sorting .sort-form .sort-box {
+  border: 1px solid #e4dfdf;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+.sort-filter .sorting .sort-form .sort-button {
+  background-color: #e4dfdf;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+
 header {
   box-shadow: 0 0 3px 1px rgb(192, 192, 192);
   position: sticky;
@@ -470,40 +505,6 @@ header #main {
   justify-content: center;
   align-items: center;
   margin: 10px;
-}
-.sub-category-page .sort-filter {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0 10px 0;
-}
-.sub-category-page .sort-filter .filtering {
-  text-align: center;
-  background-color: #e4dfdf;
-  border: none;
-  border-radius: 7px;
-  margin: 2px;
-  padding: 5px;
-}
-.sub-category-page .sort-filter .sorting {
-  display: flex;
-  justify-content: flex-start;
-}
-.sub-category-page .sort-filter .sorting .sort-form {
-  display: flex;
-  justify-content: flex-end;
-}
-.sub-category-page .sort-filter .sorting .sort-form .sort-box {
-  border: 1px solid #e4dfdf;
-  border-radius: 7px;
-  margin: 2px;
-  padding: 5px;
-}
-.sub-category-page .sort-filter .sorting .sort-form .sort-button {
-  background-color: #e4dfdf;
-  border: none;
-  border-radius: 7px;
-  margin: 2px;
-  padding: 5px;
 }
 .sub-category-page .product-box {
   display: grid;
