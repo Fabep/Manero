@@ -19,13 +19,23 @@
                     <button class="openbtn" onclick="openNav()"><span class="navbar-toggler-icon"></span></button>
                 </div>
                 <div class="nav-box logo">
-                   @Html.ActionLink("MANERO", "Index", "Home")
+                    @Html.ActionLink("MANERO", "Index", "Home")
                 </div>
                 <div class="nav-box shop-cart">
-                    <a href="checkout.html" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping" id="cart-icon" name="cart"></i><span class="cart-badge" id="cart-count">0</span></a>
+                    <a onclick="openCart()" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping" id="cart-icon" name="cart"></i><span class="cart-badge" id="cart-count">0</span></a>
                 </div>
+
             </div>
         </nav>
+
+
+        <div Id="cart" class="cart">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">×</a>
+            <div class="cart-title">Cart Items</div>
+            <div class="cart-content"></div>
+
+        </div>
+
         <div id="navSidebar" class="sidebar">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">

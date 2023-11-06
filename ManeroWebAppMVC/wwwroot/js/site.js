@@ -38,12 +38,35 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
+//Open and close shopping-cart
+function openCart() {
+    document.getElementById("cart").style.width = "100%";
+    document.getElementById("main").style.marginRight = "100px";
+}
+
+function closeCart() {
+    document.getElementById("cart").style.width = "0";
+    document.getElementById("main").style.marginRight = "0";
+}
 
 
+
+
+const btnCart = document.querySelector('#cart-icon');
+const cart = document.querySelector('.cart');
+
+
+
+btnCart.addEventListener('click', () => {
+    cart.classList.add('cart-active');
+});
+
+
+btnClose.addEventListener('click', () => {
+    cart.classList.remove('cart-active');
+});
 
 //Add to cart
-
-
 function addToCart() {
     let cartCount = document.getElementById('cart-count').innerText
     cartCount++;
