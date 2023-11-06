@@ -4,6 +4,7 @@ using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
@@ -57,6 +58,32 @@ namespace DataAccess.Handlers.Services
             }
 
             return products;
+        }
+
+        public List<Product> GetSortedListOfProducts(string sortOrder, string sortParameter, List<Product> productList)
+        {
+            if (sortParameter == null || sortOrder == null)
+                return productList;
+
+            switch (sortParameter)
+            {
+                case "ProductName":
+                    productList = sortOrder == "asc" ? productList.OrderBy(p => p.ProductName).ToList() 
+                        : productList.OrderByDescending(p => p.ProductName).ToList();
+                    break;
+                case "ProductPrice":
+                    productList = sortOrder == "asc" ? productList.OrderBy(p => p.ProductPrice).ToList() 
+                        : productList.OrderByDescending(p => p.ProductPrice).ToList();
+                    break;
+                case "DiscountedPrice":
+                    productList = sortOrder == "asc" ? productList.OrderBy(p => p.DiscountedPrice).ToList() 
+                        : productList.OrderByDescending(p => p.DiscountedPrice).ToList();
+                    break;
+                default:
+                    break;
+            }
+
+            return productList;
         }
 
         public bool ShouldHavePromotion(ProductEntity product)

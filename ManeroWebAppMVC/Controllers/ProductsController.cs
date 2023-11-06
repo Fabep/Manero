@@ -19,18 +19,20 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
-		public async Task<IActionResult> Index(string subProductCategory)
+		public async Task<IActionResult> Index(string subProductCategory, string? sortOrder, string? sortParameter)
 		{
 			var productList = new List<Product>();
 			try
 			{
-				if (subProductCategory == "Best Sellers")
-					productList = await _productService.GetBestSellersAsync();
+				if (subProductCategory == "Best Sellers")				
+                    productList = await _productService.GetBestSellersAsync();                
 				else if (subProductCategory == "Featured Products")
 					productList = await _productService.GetFeaturedProductsAsync();
 				else
 					productList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory);
-			}
+
+                productList = _productService.GetSortedListOfProducts("asc", "ProductName", productList);
+            }
 			catch (Exception ex) { Debug.WriteLine(ex.Message); }
 			
 			var viewModel = new ProductsViewModel
