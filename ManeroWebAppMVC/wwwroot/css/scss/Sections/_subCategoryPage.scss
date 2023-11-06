@@ -15,9 +15,37 @@
         margin: 10px 0 10px 0;
 
         .filtering {
+            text-align: center;
+            background-color: #e4dfdf;
+            border: none;
+            border-radius: 7px;
+            margin: 2px;
+            padding: 5px;
         }
 
         .sorting {
+            display: flex;
+            justify-content: flex-start;
+
+            .sort-form {
+                display: flex;
+                justify-content: flex-end;
+
+                .sort-box {
+                    border: 1px solid #e4dfdf;
+                    border-radius: 7px;
+                    margin: 2px;
+                    padding: 5px;
+                }
+
+                .sort-button {
+                    background-color: #e4dfdf;
+                    border: none;
+                    border-radius: 7px;
+                    margin: 2px;
+                    padding: 5px;
+                }
+            }
         }
     }
 
@@ -40,6 +68,21 @@
             }
         }
 
+        .sort-filter {
+            .filtering {
+            }
+
+            .sorting {
+                .sort-form {
+                    .sort-box {
+                    }
+
+                    .sort-button {
+                    }
+                }
+            }
+        }
+
         .product-box {
             grid-template-columns: 1fr 1fr 1fr;
         }
@@ -52,6 +95,21 @@
             margin: 40px;
 
             h1 {
+            }
+        }
+
+        .sort-filter {
+            .filtering {
+            }
+
+            .sorting {
+                .sort-form {
+                    .sort-box {
+                    }
+
+                    .sort-button {
+                    }
+                }
             }
         }
 

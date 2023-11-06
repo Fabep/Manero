@@ -16,15 +16,14 @@
         </div>
 
         <div class="sorting">
-
-            <form method="post">
-                <select asp-for="SortOrder">
+            <form method="post" class="sort-form">
+                <select asp-for="SortOrder" class="sort-box">
                     <option value="ProductNameAsc">Product name A-Z</option>
                     <option value="ProductNameDesc">Product name Z-A</option>
                     <option value="ProductPriceDesc">Highest to lowest price</option>
                     <option value="ProductPriceAsc">Lowest to highest price</option>
                 </select>
-                <input type="submit" value="Sort products" />
+                <input type="submit" value="Sort products" class="sort-button" />
             </form>
 
 

@@ -476,6 +476,35 @@ header #main {
   justify-content: space-between;
   margin: 10px 0 10px 0;
 }
+.sub-category-page .sort-filter .filtering {
+  text-align: center;
+  background-color: #e4dfdf;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+.sub-category-page .sort-filter .sorting {
+  display: flex;
+  justify-content: flex-start;
+}
+.sub-category-page .sort-filter .sorting .sort-form {
+  display: flex;
+  justify-content: flex-end;
+}
+.sub-category-page .sort-filter .sorting .sort-form .sort-box {
+  border: 1px solid #e4dfdf;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+.sub-category-page .sort-filter .sorting .sort-form .sort-button {
+  background-color: #e4dfdf;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
 .sub-category-page .product-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
