@@ -25,6 +25,8 @@ for (var i = 0; i < btns.length; i++) {
     });
 }
 
+
+
 //Open and close sidebar nav
 function openNav() {
     document.getElementById("navSidebar").style.width = "80%";

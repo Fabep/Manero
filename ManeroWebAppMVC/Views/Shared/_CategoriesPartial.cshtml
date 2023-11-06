@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DataAccess.Models.SubCategory>;
+
+
+<!-- Grid Section -->
+@foreach (var subCategory in Model)
+{
+    <a href="@Url.Action("Index", "Products")" class="grid-item">
+        <div class="text-wrapper">@subCategory.SubCategoryName</div>
+    </a>
+
+}
+
