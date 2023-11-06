@@ -60,25 +60,32 @@ namespace DataAccess.Handlers.Services
             return products;
         }
 
-        public List<Product> GetSortedListOfProducts(string sortOrder, string sortParameter, List<Product> productList)
+        public List<Product> GetSortedListOfProducts(string sortOrder, List<Product> productList)
         {
-            if (sortParameter == null || sortOrder == null)
+            if (sortOrder == null) 
                 return productList;
 
-            switch (sortParameter)
+            switch (sortOrder)
             {
-                case "ProductName":
-                    productList = sortOrder == "asc" ? productList.OrderBy(p => p.ProductName).ToList() 
-                        : productList.OrderByDescending(p => p.ProductName).ToList();
+                case "ProductNameAsc":
+                    productList = productList.OrderBy(p => p.ProductName).ToList();
                     break;
-                case "ProductPrice":
-                    productList = sortOrder == "asc" ? productList.OrderBy(p => p.ProductPrice).ToList() 
-                        : productList.OrderByDescending(p => p.ProductPrice).ToList();
+                case "ProductNameDesc":
+                    productList = productList.OrderByDescending(p => p.ProductName).ToList();
                     break;
-                case "DiscountedPrice":
-                    productList = sortOrder == "asc" ? productList.OrderBy(p => p.DiscountedPrice).ToList() 
-                        : productList.OrderByDescending(p => p.DiscountedPrice).ToList();
+                case "ProductPriceAsc":
+                    productList = productList.OrderBy(p => p.ProductPrice).ToList();
                     break;
+                case "ProductPriceDesc":
+                    productList = productList.OrderByDescending(p => p.ProductPrice).ToList();
+                    break;
+                case "DiscountedPriceAsc":
+                    productList = productList.OrderBy(p => p.DiscountedPrice).ToList();
+                    break;
+                case "DiscountedPriceDesc":
+                    productList = productList.OrderByDescending(p => p.DiscountedPrice).ToList();
+                    break;
+
                 default:
                     break;
             }

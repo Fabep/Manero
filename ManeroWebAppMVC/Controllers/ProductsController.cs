@@ -19,9 +19,19 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
-		public async Task<IActionResult> Index(string subProductCategory, string? sortOrder, string? sortParameter)
+		public async Task<IActionResult> Index(string subProductCategory, string? sortOrder)
 		{
-			var productList = new List<Product>();
+			var viewModel = new ProductsViewModel();
+            //{
+            //    PageTitle = subProductCategory,
+            //    ProductList = productList,
+
+            //};
+
+			viewModel.SortOrder = sortOrder;
+
+
+            var productList = new List<Product>();
 			try
 			{
 				if (subProductCategory == "Best Sellers")				
@@ -31,15 +41,12 @@ namespace ManeroWebAppMVC.Controllers
 				else
 					productList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory);
 
-                productList = _productService.GetSortedListOfProducts("asc", "ProductName", productList);
+                productList = _productService.GetSortedListOfProducts(sortOrder, productList);
             }
 			catch (Exception ex) { Debug.WriteLine(ex.Message); }
-			
-			var viewModel = new ProductsViewModel
-			{
-				PageTitle = subProductCategory,
-				ProductList = productList,
-			};
+
+			viewModel.PageTitle = subProductCategory;
+			viewModel.ProductList = productList;
 
 			return View(viewModel);
 		}

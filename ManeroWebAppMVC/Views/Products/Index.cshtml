@@ -16,16 +16,55 @@
         </div>
 
         <div class="sorting">
+
+            <form method="post">
+                <select asp-for="SortOrder">
+                    <option value="ProductNameAsc">Product name A-Z</option>
+                    <option value="ProductNameDesc">Product name Z-A</option>
+                    <option value="ProductPriceDesc">Highest to lowest price</option>
+                    <option value="ProductPriceAsc">Lowest to highest price</option>
+
+                </select>
+
+                <input type="submit" value="Sort products" />
+            </form>
+
+
             @* <i class="fa-solid fa-sort"></i>
 
             Sort by: *@
-            @Html.DropDownList("OrderBy", new List<SelectListItem>
+           @*  @Html.DropDownList("OrderBy", new List<SelectListItem>
 
             {
             new SelectListItem{ Text="A-Z", Value = "1" },
             new SelectListItem{ Text="Z-A", Value = "2" }
-            }, " Sort product by ")
+            }, " Sort product by ")*@
 
+        
+         @*    <form method="post">
+                <label>Sort list by:</label>
+                <select asp-for="SortOrder class="buttons" id="sort-options">
+                    <option value="customerId_asc">Customer Id ˄</option>
+                    <option value="customerId_desc">Customer Id ⌄</option>
+
+                    <option value="firstName_asc">First Name ˄</option>
+                    <option value="firstName_desc">First Name ⌄</option>
+
+                    <option value="lastName_asc">Last Name ˄</option>
+                    <option value="lastName_desc">Last Name ⌄</option>
+
+                    <option value="city_asc">City ˄</option>
+                    <option value="city_desc">City ⌄</option>
+                </select>
+                <input type="submit" value="Sort" class="buttons" id="sort-button" />
+            </form> *@
+
+
+
+          @*   <select asp-for="SortOrder" >
+                <option value=""> Sort products </option>
+            </select>
+ *@
         </div>
 
     </div>
