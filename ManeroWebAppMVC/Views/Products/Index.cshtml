@@ -16,8 +16,16 @@
         </div>
 
         <div class="sorting">
-            <i class="fa-solid fa-sort"></i>
-            Sort products
+            @* <i class="fa-solid fa-sort"></i>
+
+            Sort by: *@
+            @Html.DropDownList("OrderBy", new List<SelectListItem>
+
+            {
+            new SelectListItem{ Text="A-Z", Value = "1" },
+            new SelectListItem{ Text="Z-A", Value = "2" }
+            }, " Sort product by ")
+
         </div>
 
     </div>
