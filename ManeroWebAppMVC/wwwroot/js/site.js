@@ -37,3 +37,16 @@ function closeNav() {
     document.getElementById("navSidebar").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
 }
+
+
+
+
+//Add to cart
+
+
+function addToCart() {
+    let cartCount = document.getElementById('cart-count').innerText
+    cartCount++;
+    document.getElementById('cart-count').innerText = cartCount;
+}
+
