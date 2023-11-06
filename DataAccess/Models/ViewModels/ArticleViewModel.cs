@@ -12,9 +12,9 @@ namespace DataAccess.Models.ViewModels
         public Product Product { get; set; } = null!;
         public int ReviewCount { get; set; } = 0;
         public int CurrentAmount { get; set; } = 0;
-        public List<SizeEnum> Sizes { get; set; } = new List<SizeEnum>();
-        public List<string> Colors { get; set; } = new List<string>();
-        public List<(SizeEnum, string)> Combinations { get; set; } = null!;
+        public List<Size> Sizes { get; set; } = new List<Size>();
+        public List<Color> Colors { get; set; } = new List<Color>();
+        public List<SizeColorCombination> Combinations { get; set; } = null!;
 
 
     }

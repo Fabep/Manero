@@ -4,6 +4,7 @@ using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
+using DataAccess.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
@@ -113,11 +114,11 @@ namespace DataAccess.Handlers.Services
             return product;
         }
 
-        public async Task<List<(SizeEnum, string)>> GetProductColorsAndSizesAsync(string productName)
+        public async Task<List<SizeColorCombination>> GetProductColorsAndSizesAsync(string productName)
         {
             try
             {
-                var combinations = new List<(SizeEnum, string)>();
+                var combinations = new List<SizeColorCombination>();
 
                 var temp = await _productRepository.GetAllAsync(x => x.ProductName == productName);
 
@@ -128,8 +129,12 @@ namespace DataAccess.Handlers.Services
 				var size = SizeEnum.S;
                 foreach (var product in products)
                 {
-					Enum.TryParse<SizeEnum>(product.Size.Size, out size);
-                    combinations.Add((size, product.Color.Color));
+					Enum.TryParse<SizeEnum>(product.Size!.Size, out size);
+                    combinations.Add(new SizeColorCombination
+					{
+						Size = new Size { SizeType = size },
+						Color = new Color { ColorName = product.Color!.Color }
+					});
                 }
                 return combinations;
             }
@@ -138,6 +143,32 @@ namespace DataAccess.Handlers.Services
                 Debug.WriteLine(ex.Message);
             }
             return null!;
+        }
+
+        public void SetSizesAndColors(ArticleViewModel viewModel, SizeEnum? selectedSize, string selectedColor)
+        {
+			try
+			{
+				if (selectedColor is not null)
+				{
+					viewModel.Sizes = viewModel.Combinations.Where(s => s.Color.ColorName == selectedColor).Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
+					viewModel.Colors = viewModel.Combinations.Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
+				}
+				else if (selectedSize is not null)
+				{
+					viewModel.Sizes = viewModel.Combinations.Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
+					viewModel.Colors = viewModel.Combinations.Where(c => c.Size.SizeType == selectedSize).Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
+				}
+				else
+				{
+					viewModel.Sizes = viewModel.Combinations.Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
+					viewModel.Colors = viewModel.Combinations.Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
+				}
+            }
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
         }
     }
 }

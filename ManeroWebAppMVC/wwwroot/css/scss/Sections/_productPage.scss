@@ -76,6 +76,9 @@
         flex-direction: column;
 
         .size-button {
+            box-sizing: border-box;
+            text-decoration: none;
+            color: black;
             height: 40px;
             width: 40px;
             background-color: transparent;
@@ -83,19 +86,20 @@
             border: none;
             border-radius: 100px;
             box-shadow: 0 0 0 1px lightgray;
-
+            padding-top: 6px;
             &:focus {
                 background-color: lightgray;
             }
         }
 
         .color-button {
+            box-sizing: border-box;
             height: 40px;
             width: 40px;
             background-color: red;
             border: none;
             border-radius: 100px;
-
+            box-shadow: 0 0 0 1px lightgray;
             &:focus {
                 box-shadow: 0 0 0 5px lightgray;
             }

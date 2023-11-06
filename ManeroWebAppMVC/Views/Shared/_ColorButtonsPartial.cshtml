@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Color>
+
+<div class="product-buttons">
+    <h5 class="product-text-part">Color</h5>
+    <div class="horizontal-button-container" id="color-buttons">
+        @foreach (var color in Model)
+        {
+            if (color.HexColor is null)
+            {
+                <a asp-controller="Products" asp-action="Article" class="color-button" data-color="@color.ColorName" style="background-color:@color.ColorName"></a>
+            }
+            else
+            {
+                <a asp-controller="Products" asp-action="Article" class="color-button" data-color="@color.ColorName" style="background-color:@color.HexColor"></a>
+            }
+        }
+    </div>
+</div>

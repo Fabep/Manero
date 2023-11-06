@@ -1,13 +1,14 @@
-﻿using DataAccess.ExtensionMethods;
-using DataAccess.Handlers.Repositories;
+﻿using DataAccess.Enums;
 using DataAccess.Handlers.Services.Abstractions;
+using DataAccess.Models;
 using DataAccess.Models.ViewModels;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace ManeroWebAppMVC.Controllers
 {
-	public class ProductsController : Controller
+    public class ProductsController : Controller
 	{
 		private readonly IProductService _productService;
 
@@ -30,25 +31,18 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
-		public async Task<IActionResult> Article(string n)
+		public async Task<IActionResult> Article(string n, SizeEnum? selectedSize = null!, string selectedColor = null! )
 		{
-
+			
 			var viewModel = new ArticleViewModel
 			{
 				Product = await _productService.GetOneProductFromNameAsync(n),
 				Combinations = await _productService.GetProductColorsAndSizesAsync(n)
 			};
+
 			if (viewModel.Combinations is not null)
-			{
-				foreach (var combination in viewModel.Combinations)
-				{
-					if (!viewModel.Sizes.Contains(combination.Item1))
-						viewModel.Sizes.Add(combination.Item1);
-					if (!viewModel.Colors.Contains(combination.Item2))
-						viewModel.Colors.Add(combination.Item2);
-				}
-				viewModel.Sizes.Sort();
-			}
+				_productService.SetSizesAndColors(viewModel, selectedSize, selectedColor);
+			
 			return View(viewModel);
 		}
 	}
