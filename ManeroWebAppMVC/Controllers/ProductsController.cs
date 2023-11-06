@@ -5,6 +5,7 @@ using DataAccess.Models;
 using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace ManeroWebAppMVC.Controllers
 {
@@ -23,17 +24,14 @@ namespace ManeroWebAppMVC.Controllers
 			var productList = new List<Product>();
 			try
 			{
-                if (subProductCategory == "Best Sellers")
-                    productList = await _productService.GetBestSellersAsync();
-                else if (subProductCategory == "Featured Products")
-                    productList = await _productService.GetFeaturedProductsAsync();
-                else
-                    productList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory);
-            }
-            catch (Exception)
-			{
-
+				if (subProductCategory == "Best Sellers")
+					productList = await _productService.GetBestSellersAsync();
+				else if (subProductCategory == "Featured Products")
+					productList = await _productService.GetFeaturedProductsAsync();
+				else
+					productList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory);
 			}
+			catch (Exception ex) { Debug.WriteLine(ex.Message); }
 			
 			var viewModel = new ProductsViewModel
 			{
