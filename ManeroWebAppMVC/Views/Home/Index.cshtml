@@ -1,68 +1,94 @@
 ﻿@model HomeViewModel
 
 @{
-	ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home page";
 }
 
 <section class="offer-section">
-	<div class="container offer-container">
-		<div class="offer-text">
-			<h2>Take 50% off</h2>
-			<p>on selected items</p>
-			<a href="/Products/SalesProducts" class="btn-sales">Shop now</a>
-		</div>
-	</div>
+    <div class="container offer-container">
+        <div class="offer-text">
+            <h2>Take 50% off</h2>
+            <p>on selected items</p>
+            <a href="/Products/SalesProducts" class="btn-sales">Shop now</a>
+        </div>
+    </div>
 </section>
 
 <hr />
 
 <section class="product-section">
-	<div class="container product-container">
+    <div class="container product-container">
 
-		<div class="product-container-header">
+        <div class="product-container-header">
 
-			<h1>Best Sellers</h1>
+            <h1>Best Sellers</h1>
 
-			<a href="@Url.Action("Index", "Products", new { subProductCategory = "Best Sellers"})">
-				View All >
-			</a>
+            <a href="@Url.Action("Index", "Products", new { subProductCategory = "Best Sellers"})">
+                View All >
+            </a>
 
-		</div>
+        </div>
 
-		<div class="product-container-items">
-			@foreach (var product in Model.BestSellers.Take(4))
-			{
-				<partial name="_ProductTilePartial" model="product" />
-			}
+        <div class="product-container-items">
+            @foreach (var product in Model.BestSellers.Take(4))
+            {
+                <partial name="_ProductTilePartial" model="product" />
+            }
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 </section>
 
 <hr />
 
 
 <section class="product-section">
-	<div class="container product-container">
+    <div class="container product-container">
 
-		<div class="product-container-header">
+        <div class="product-container-header">
 
-			<h1>Featured Products</h1>
+            <h1>Featured Products</h1>
 
-			<a href="@Url.Action("Index", "Products", new { subProductCategory = "Featured Products"})">
-				View All >
-			</a>
+            <a href="@Url.Action("Index", "Products", new { subProductCategory = "Featured Products"})">
+                View All >
+            </a>
 
-		</div>
+        </div>
 
-		<div class="product-container-items">
-			@foreach (var product in Model.FeaturedProducts.Take(4))
-			{
-				<partial name="_ProductTilePartial" model="product" />
-			}
+        <div class="product-container-items">
+            @foreach (var product in Model.FeaturedProducts.Take(4))
+            {
+                <partial name="_ProductTilePartial" model="product" />
+            }
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 </section>
+
+
+
+@section Scripts
+    {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buyIcons = document.querySelectorAll('.fa-solid.fa-bag-shopping.buy');
+
+            buyIcons.forEach(function (buyIcon) {
+                buyIcon.addEventListener('click', function () {
+                    let productTile = this.closest('.product-tile');
+                    let title = productTile.querySelector('.product-name').innerText;
+                    let price = productTile.querySelector('.product-price').innerText;
+                    let imgSrc = productTile.querySelector('.product-image img').src;
+
+                    // Log the retrieved information
+                    console.log(title, price, imgSrc);
+                });
+            });
+        });
+
+    </script>
+
+}
+

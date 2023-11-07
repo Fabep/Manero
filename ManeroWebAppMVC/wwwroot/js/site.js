@@ -56,20 +56,73 @@ const btnCart = document.querySelector('#cart-icon');
 const cart = document.querySelector('.cart');
 
 
-
-btnCart.addEventListener('click', () => {
-    cart.classList.add('cart-active');
-});
-
-
-btnClose.addEventListener('click', () => {
-    cart.classList.remove('cart-active');
-});
-
 //Add to cart
-function addToCart() {
-    let cartCount = document.getElementById('cart-count').innerText
-    cartCount++;
-    document.getElementById('cart-count').innerText = cartCount;
+//function addToCart() {
+//    let cartCount = document.getElementById('cart-count').innerText
+//    cartCount++;
+//    document.getElementById('cart-count').innerText = cartCount;
+//}
+
+
+function loadContent() {
+    //RemoveItems  From Cart
+    let btnRemove = document.querySelectorAll('.cart-remove');
+    btnRemove.forEach((btn) => {
+        btn.addEventListener('click', removeItem);
+    });
+
+    //Product Item Change Event
+    let qtyElements = document.querySelectorAll('.cart-quantity');
+    qtyElements.forEach((input) => {
+        input.addEventListener('change', changeQty);
+    });
+
+    //Product Cart
+
+    let cartBtns = document.querySelectorAll('.add-cart');
+    cartBtns.forEach((btn) => {
+        btn.addEventListener('click', addCart);
+    });
+
+    updateTotal();
 }
 
+
+
+//function addCart() {
+//    let product = this.parentElement;
+//    let title = product.querySelector('.product-name').innerHTML;
+//    let price = product.querySelector('.product-price').innerHTML;
+//    let imgSrc = product.querySelector('.product-img').src;
+//    console.log(title,price,imgSrc);
+
+//    let newProduct = { title, price, imgSrc }
+
+
+//    itemList.push(newProduct);
+//}
+
+
+// Add a click event listener to the "buy" icon
+
+
+
+
+function updateTotal() {
+    const cartItems = document.querySelectorAll('.cart-box');
+    const totalValue = document.querySelector('.total-price');
+
+    let total = 0;
+
+    cartItems.forEach(product => {
+        let priceElement = product.querySelector('.cart-price');
+        let price = parseFloat(priceElement.innerHTML.replace("Rs.", ""));
+        let qty = product.querySelector('.cart-quantity').value;
+        total += (price * qty);
+        product.querySelector('.cart-amt').innerText = "Rs." + (price * qty);
+
+    });
+
+    totalValue.innerHTML = 'Rs.' + total;
+
+}
