@@ -1,5 +1,6 @@
 ﻿using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
+using DataAccess.Handlers.Services;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;
@@ -81,6 +82,27 @@ namespace ManeroWebAppMVC.Controllers
 			}
 			return View(viewModel);
 		}
-	}
+
+
+        public async Task<IActionResult> Search(string query)
+        {
+            var searchResults = await _productService.SearchProductsAsync(query);
+
+            var viewModel = new SearchViewModel
+            {
+                Query = query,
+                Results = searchResults
+            };
+
+            return View(viewModel);
+        }
+
+
+
+
+
+
+
+    }
 
 }
