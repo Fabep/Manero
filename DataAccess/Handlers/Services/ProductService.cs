@@ -173,5 +173,10 @@ namespace DataAccess.Handlers.Services
 				Debug.WriteLine(ex.Message);
 			}
         }
+
+        public async Task<Product> FindProduct(string productName, string selectedSize, string selectedColor)
+        {
+			return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName && x.Color.Color == selectedColor && x.Size.Size == selectedSize));
+        }
     }
 }

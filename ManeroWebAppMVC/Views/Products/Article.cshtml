@@ -34,9 +34,9 @@
     <div class="product-price">
         <h4 class="m-0">$@Model.Product.ProductPrice</h4>
         <div class="product-amount">
-            <button class="amount-button" onclick="remove()">-</button>
+            <button class="amount-button" onclick="decreaseAmount()">-</button>
             <div id="current-amount">@Model.CurrentAmount</div>
-            <button class="amount-button" onclick="add()">+</button>
+            <button class="amount-button" onclick="increaseAmount()">+</button>
         </div>
     </div>
 
@@ -47,7 +47,7 @@
         <div class="horizontal-button-container" id="size-buttons">
             @foreach (var size in Model.Sizes)
             {
-                <a data-size="@size" class="size-button" asp-controller="Products" asp-action="Article" asp-route-n="@Model.Product.ProductName" asp-route-selectedSize="@size.SizeType" >@size.SizeType</a>
+                <a id="size-@size.SizeType" class="size-button" onclick="selectThisSize('@size.SizeType')">@size.SizeType</a>
             }
         </div>
     </div>
@@ -61,11 +61,11 @@
             {
                 if (color.HexColor is null)
                 {
-                    <a asp-controller="Products" asp-action="Article" asp-route-n="@Model.Product.ProductName" asp-route-selectedColor="@color.ColorName" class="color-button" data-color="@color.ColorName" style="background-color:@color.ColorName"></a>
+                    <i id="color-@color.ColorName" class="color-button" onclick="selectThisColor('@color.ColorName')" style="background-color:@color.ColorName"></i>
                 }
                 else
                 {
-                    <a asp-controller="Products" asp-action="Article" asp-route-n="@Model.Product.ProductName" asp-route-selectedColor="@color.ColorName" class="color-button" data-color="@color.ColorName" style="background-color:@color.HexColor"></a>
+                    <i id="color-@color.ColorName" class="color-button" onclick="selectThisColor('@color.ColorName')" style="background-color:@color.HexColor"></i>
                 }
             }
         </div>
@@ -77,11 +77,17 @@
         <h5 class="product-text-part">Description</h5>
         <p>@Model.Product.ProductDescription</p>
     </div>
-
+    
     @* Add to cart *@
-    <button class="add-to-cart-button">
-        Add To Cart
-    </button>
+    <form method="post" action="AddProduct">
+        <input type="hidden" name="currentAmount" id="current-amount-input" value="@Model.CurrentAmount"/>
+        <input type="hidden" name="productName" value="@Model.Product.ProductName"/>
+        <input type="hidden" id="selected-size" name="selectedSize" value=""/>
+        <input type="hidden" id="selected-color" name="selectedColor" value=""/>
+        <button type="submit" class="add-to-cart-button">
+            Add To Cart
+        </button>
+    </form>
 
     @* Reviews *@
     <div class="product-reviews">

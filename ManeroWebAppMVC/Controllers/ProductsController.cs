@@ -42,8 +42,17 @@ namespace ManeroWebAppMVC.Controllers
 
 			if (viewModel.Combinations is not null)
 				_productService.SetSizesAndColors(viewModel, selectedSize, selectedColor);
-			
 			return View(viewModel);
+		}
+
+
+		[HttpPost]
+		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor)
+		{
+			Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
+
+			
+			return View("Article");
 		}
 	}
 }
