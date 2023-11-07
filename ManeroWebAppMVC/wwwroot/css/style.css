@@ -13,6 +13,47 @@
   font-size: 0.8rem;
 }
 
+.back-nav {
+  text-decoration: none;
+  color: black;
+  margin: 0px 0px 10px 0px;
+}
+
+.sort-filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+}
+.sort-filter .filtering {
+  text-align: center;
+  background-color: #e4dfdf;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+.sort-filter .sorting {
+  display: flex;
+  justify-content: flex-start;
+}
+.sort-filter .sorting .sort-form {
+  display: flex;
+  justify-content: flex-end;
+}
+.sort-filter .sorting .sort-form .sort-box {
+  border: 1px solid #e4dfdf;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+.sort-filter .sorting .sort-form .sort-button {
+  background-color: #e4dfdf;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 5px;
+}
+
 header {
   box-shadow: 0 0 3px 1px rgb(192, 192, 192);
   position: sticky;
@@ -154,6 +195,13 @@ header #main {
 .product-tile .product-price-sales {
   margin-bottom: 5px;
   color: red;
+}
+.product-tile .sale-badge {
+  background-color: green;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .categories {
@@ -415,6 +463,15 @@ header #main {
   padding-bottom: 10px;
 }
 
+.product-price {
+  margin-bottom: 5px;
+}
+
+.product-price-sales {
+  margin-bottom: 6px;
+  color: red;
+}
+
 .mobile-footer {
   display: none;
   background-color: #ffffff;
@@ -473,6 +530,16 @@ header #main {
   .sub-category-page .product-box {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
+.back-link {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007bff;
+  display: inline-block;
+}
+
+.back-link i {
+  margin-right: 5px;
 }
 body {
   font-family: "Arial", sans-serif;

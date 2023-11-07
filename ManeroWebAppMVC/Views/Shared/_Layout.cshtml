@@ -32,13 +32,13 @@
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Men</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Categories", new {primaryCategoryId = 1})">Men</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Women</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Categories", new {primaryCategoryId = 2})">Women</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Unisex</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Categories", new {primaryCategoryId = 3})">Unisex</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link">Contact</a>

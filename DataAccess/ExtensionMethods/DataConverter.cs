@@ -9,8 +9,8 @@ using DataAccess.Models.Schemas;
 
 namespace DataAccess.ExtensionMethods
 {
-    public static class DataConverter
-    {
+	public static class DataConverter
+	{
 		public static Product ConvertProductEntityToProduct(this ProductEntity p)
 		{
 			var product = new Product()
@@ -23,12 +23,14 @@ namespace DataAccess.ExtensionMethods
 			};
 			return product;
 		}
+
 		public static Promotion ConvertPromotionEntityToPromotion(this PromotionEntity promotionEntity)
 		{
 			if (promotionEntity == null)
 			{
 				return null; // Returnera null om ingen kampanj hittades
 			}
+
 			var promotion = new Promotion()
 			{
 				PromotionId = promotionEntity.PromotionId,
@@ -41,25 +43,65 @@ namespace DataAccess.ExtensionMethods
 
 			return promotion;
 		}
-        public static ProductEntity ConvertProductSchemaToProductEntity(this ProductSchema p)
-        {
-            var product = new ProductEntity()
-            {
-                ProductName = p.ProductName,
-                ProductDescription = p.ProductDescription,
-                ProductPrice = p.ProductPrice,
-                ColorId = 1,
-                SizeId = 1,
-                SubCategoryId = 1,
-            };
-            var productInventory = new ProductInventoryEntity()
-            {
-                Quantity = p.Quantity ?? 0,
-                LastInventory = DateTime.Now
-            };
-            product.ProductInventory = productInventory;
-            return product;
-        }
-    }
+
+		public static ProductEntity ConvertProductSchemaToProductEntity(this ProductSchema p)
+		{
+			var product = new ProductEntity()
+			{
+				ProductName = p.ProductName,
+				ProductDescription = p.ProductDescription,
+				ProductPrice = p.ProductPrice,
+				ColorId = 1,
+				SizeId = 1,
+				SubCategoryId = 1,
+			};
+			var productInventory = new ProductInventoryEntity()
+			{
+				Quantity = p.Quantity ?? 0,
+				LastInventory = DateTime.Now
+			};
+			product.ProductInventory = productInventory;
+			return product;
+		}
+
+		public static PrimaryCategory ConvertPrimaryCategoryEntityToPrimaryCategory(this PrimaryCategoryEntity entity)
+		{
+			if (entity == null)
+			{
+				return null;
+			}
+
+			var primaryCategory = new PrimaryCategory()
+			{
+				PrimaryCategoryId = entity.PrimaryCategoryId,
+				PrimaryCategoryName = entity.PrimaryCategoryName
+			};
+
+			return primaryCategory;
+
+		}
+
+
+
+		public static SubCategory ConvertSubCategoryEntityToSubCategory(this SubCategoryEntity entity)
+		{
+			if (entity == null)
+			{
+				return null;
+			}
+
+			var subCategory = new SubCategory()
+			{
+				SubCategoryId = entity.SubCategoryId,
+				SubCategoryName = entity.SubCategoryName
+			};
+
+			return subCategory;
+
+		}
+
+
+
+	}
 }
 
