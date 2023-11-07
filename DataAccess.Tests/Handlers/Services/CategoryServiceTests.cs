@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Tests.Handlers.Services
 {
-    public class ProductServicesTests
+    public class CategoryServiceTests
     {
+        //[Fact]
+        //public void Test1()
+        //{
+        //    //Arrange
 
-        [Fact]
-        public void Test1()
-        {
-            //Arrange
+        //    //Act
 
-            //Act
-
-            //Assert
-        }
+        //    //Assert
+        //}
     }
 }
