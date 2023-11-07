@@ -202,5 +202,29 @@ namespace DataAccess.Handlers.Services
             }
             return null!;
         }
+
+        public async Task<List<Product>> SearchProductsAsync(string query)
+        {
+            try
+            {
+                var productList = await _productRepository.GetAllAsync(x => x.ProductName.Contains(query));
+
+                var products = productList.Select(p => DataConverter.ConvertProductEntityToProduct(p)).ToList();
+
+                return products;
+            }
+            catch (Exception ex)
+            {
+               
+                Debug.WriteLine($"Ett fel uppstod vid sökning: {ex.Message}");
+
+                
+                return new List<Product>();
+            }
+        }
+
+
+
+
     }
 }

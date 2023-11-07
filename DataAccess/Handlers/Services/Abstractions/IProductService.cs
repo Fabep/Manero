@@ -18,5 +18,7 @@ namespace DataAccess.Handlers.Services.Abstractions
         public Task<List<(SizeEnum, string)>> GetProductColorsAndSizesAsync(string productName);
         public Task<Product> GetOneProductFromNameAsync(string productName);
         public Task<Product> GetOneProductFromIdAsync(Guid id);
+
+        public Task<List<Product>> SearchProductsAsync(string query);
     }
 }
