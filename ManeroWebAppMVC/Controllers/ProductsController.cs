@@ -19,14 +19,9 @@ namespace ManeroWebAppMVC.Controllers
 		}
 
 
-		public async Task<IActionResult> Index(string subProductCategory, string? sortOrder)
+		public async Task<IActionResult> Index(string subProductCategory, string sortOrder)
 		{
 			var viewModel = new ProductsViewModel();
-            //{
-            //    PageTitle = subProductCategory,
-            //    ProductList = productList,
-
-            //};
 
 			viewModel.SortOrder = sortOrder;
 

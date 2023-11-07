@@ -14,13 +14,5 @@ namespace DataAccess.Models.ViewModels
         public List<Product>? ProductList { get; set; }
 
         public string? SortOrder { get; set; }
-
-        // public string? SortParameter { get; set; }
-
-        //public IEnumerable<SelectListItem> SortParameters { get; } = new List<SelectListItem>
-        //{
-        //    new SelectListItem { Text = "A-Z", Value = "1" },
-        //    new SelectListItem { Text = "Z-A", Value = "2" }
-        //};
     }
 }
