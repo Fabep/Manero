@@ -25,7 +25,7 @@ namespace DataAccess.Tests.Handlers.Services
         }
 
         [Fact]
-        public async void GetBestSellersAsync_DoesNotReturnNull()
+        public async void GetBestSellersAsync_DoesNotReturn_Null()
         {
             //Arrange
 
@@ -37,7 +37,7 @@ namespace DataAccess.Tests.Handlers.Services
         }
 
         [Fact]
-        public async void GetBestSellersAsync_ReturnsTypeListOfProduct()
+        public async void GetBestSellersAsync_ReturnsType_ListOfProduct()
         {
             //Arrange
 
