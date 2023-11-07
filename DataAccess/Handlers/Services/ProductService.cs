@@ -4,6 +4,7 @@ using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
@@ -22,35 +23,70 @@ namespace DataAccess.Handlers.Services
         public async Task<List<Product>> GetBestSellersAsync()
         {
             var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
-            var products = new List<Product>();
-
-            foreach (var productEntity in productList)
-            {
-                var product = DataConverter.ConvertProductEntityToProduct(productEntity);
-
-                if (ShouldHavePromotion(productEntity))
-                {
-                    product.Promotion = GetPromotion();
-                }
-
-                products.Add(product);
-            }
+            var products = CalculateDiscount(productList);
 
             return products;
         }
 
 		public async Task<List<Product>> GetFeaturedProductsAsync()
 		{
-			var featuredProductList = await _productRepository.GetAllAsync(x => x.IsFeaturedProduct == true);
-			var products = new List<Product>();
+			var featuredProductList = await _productRepository.GetAllAsync(x => x.IsFeaturedProduct == true); 
+            var products = CalculateDiscount(featuredProductList);
 
-            foreach (var productEntity in featuredProductList)
+            return products;
+        }
+
+        public List<Product> GetSortedListOfProducts(string sortOrder, List<Product> productList)
+        {
+            if (sortOrder == null) 
+                return productList;
+
+            switch (sortOrder)
+            {
+                case "ProductNameAsc":
+                    productList = productList.OrderBy(p => p.ProductName).ToList();
+                    break;
+                case "ProductNameDesc":
+                    productList = productList.OrderByDescending(p => p.ProductName).ToList();
+                    break;
+                case "ProductPriceAsc":
+                    productList = productList.OrderBy(p => p.ProductPrice).ToList();
+                    break;
+                case "ProductPriceDesc":
+                    productList = productList.OrderByDescending(p => p.ProductPrice).ToList();
+                    break;
+                case "DiscountedPriceAsc":
+                    productList = productList.OrderBy(p => p.DiscountedPrice).ToList();
+                    break;
+                case "DiscountedPriceDesc":
+                    productList = productList.OrderByDescending(p => p.DiscountedPrice).ToList();
+                    break;
+                case "RatingAsc":
+                    productList = productList.OrderBy(p => p.Rating).ToList();
+                    break;
+                case "RatingDesc":
+                    productList = productList.OrderByDescending(p => p.Rating).ToList();
+                    break;
+
+                default:
+                    break;
+            }
+
+            return productList;
+        }
+
+        public List<Product> CalculateDiscount(IQueryable<ProductEntity> productEntities)
+        {
+            var products = new List<Product>();
+            foreach (var productEntity in productEntities)
             {
                 var product = DataConverter.ConvertProductEntityToProduct(productEntity);
 
                 if (ShouldHavePromotion(productEntity))
                 {
                     product.Promotion = GetPromotion();
+                    var discount = product.ProductPrice * product.Promotion.DiscountRate;
+                    product.DiscountedPrice = product.ProductPrice - discount;
                 }
 
                 products.Add(product);

@@ -9,6 +9,8 @@ namespace DataAccess.Handlers.Services.Abstractions
 
         Task<List<Product>> GetBestSellersAsync();
         Task<List<Product>> GetFeaturedProductsAsync();
+        public List<Product> GetSortedListOfProducts(
+          string sortOrder, List<Product> productList);
         bool ShouldHavePromotion(ProductEntity product);
         Promotion GetPromotion();
         public Task<List<Product>> GetAllBestSellersAsProductsAsync();
