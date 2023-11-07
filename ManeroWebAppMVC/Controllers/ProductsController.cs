@@ -3,22 +3,23 @@ using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using Newtonsoft.Json;
 
 namespace ManeroWebAppMVC.Controllers
 {
     public class ProductsController : Controller
 	{
 		private readonly IProductService _productService;
+		private readonly ICookieService _cookieService;
 
-		public ProductsController(IProductService productService)
-		{
-			_productService = productService;
-		}
+        public ProductsController(IProductService productService, ICookieService cookieService)
+        {
+            _productService = productService;
+            _cookieService = cookieService;
+        }
 
 
-		public async Task<IActionResult> Index(string subProductCategory)
+        public async Task<IActionResult> Index(string subProductCategory)
 		{
 
 			var viewModel = new ProductsViewModel
@@ -51,8 +52,39 @@ namespace ManeroWebAppMVC.Controllers
 		{
 			Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
 
-			
-			return View("Article");
+            var cookieOptions = new CookieOptions();
+
+            cookieOptions.Expires = DateTime.UtcNow.AddDays(1);
+            cookieOptions.Path = "/";
+
+			var cartObject = new ProductCartObject
+			{
+				Id = product.ProductId.ToString(),
+				Quantity = currentAmount,
+			};
+
+			var productCookie = _cookieService.GetCookie(Request,"ProductsCookie");
+
+			if (productCookie is null)
+			{
+				_cookieService.AddCookie(Response, "ProductsCookie", new List<object> { cartObject });
+			}
+			else
+			{
+				var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(_cookieService.GetCookie(Request, "ProductsCookie")!);
+
+				cartList!.Add(cartObject);
+
+                _cookieService.AddCookie(Response, "ProductsCookie", cartList);
+            }
+
+			var viewModel = new ArticleViewModel
+			{
+				Product = product,
+				Combinations = await _productService.GetProductColorsAndSizesAsync(product.ProductName)
+			};
+
+            return RedirectToAction("Article", new { n = product.ProductName});
 		}
 	}
 }
