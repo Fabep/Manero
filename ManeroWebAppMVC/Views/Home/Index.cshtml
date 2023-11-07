@@ -69,26 +69,5 @@
 
 
 
-@section Scripts
-    {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const buyIcons = document.querySelectorAll('.fa-solid.fa-bag-shopping.buy');
 
-            buyIcons.forEach(function (buyIcon) {
-                buyIcon.addEventListener('click', function () {
-                    let productTile = this.closest('.product-tile');
-                    let title = productTile.querySelector('.product-name').innerText;
-                    let price = productTile.querySelector('.product-price').innerText;
-                    let imgSrc = productTile.querySelector('.product-image img').src;
-
-                    // Log the retrieved information
-                    console.log(title, price, imgSrc);
-                });
-            });
-        });
-
-    </script>
-
-}
 
