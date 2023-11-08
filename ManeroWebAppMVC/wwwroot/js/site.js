@@ -31,6 +31,8 @@ function selectThisColor(color) {
 //    });
 //}
 
+
+
 //Open and close sidebar nav
 function openNav() {
     document.getElementById("navSidebar").style.width = "80%";

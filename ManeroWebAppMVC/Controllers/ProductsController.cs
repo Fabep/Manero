@@ -1,4 +1,7 @@
-﻿using DataAccess.Enums;
+﻿using DataAccess.ExtensionMethods;
+using DataAccess.Handlers.Repositories;
+using DataAccess.Handlers.Services;
+using DataAccess.Enums;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;
@@ -20,22 +23,51 @@ namespace ManeroWebAppMVC.Controllers
         }
 
 
-        public async Task<IActionResult> Index(string subProductCategory)
+		public async Task<IActionResult> Index(string subProductCategory, string sortOrder)
 		{
+			var viewModel = new ProductsViewModel();
 
-			var viewModel = new ProductsViewModel
+			viewModel.SortOrder = sortOrder;
+
+
+            var productList = new List<Product>();
+			try
 			{
-				PageTitle = subProductCategory,
-				ProductList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory)
-			};
+				if (subProductCategory == "Best Sellers")				
+                    productList = await _productService.GetBestSellersAsync();                
+				else if (subProductCategory == "Featured Products")
+					productList = await _productService.GetFeaturedProductsAsync();
+				else
+					productList = await _productService.GetProductsFromSubCategoryAsync(subProductCategory);
+
+                productList = _productService.GetSortedListOfProducts(sortOrder, productList);
+            }
+			catch (Exception ex) { Debug.WriteLine(ex.Message); }
+
+			viewModel.PageTitle = subProductCategory;
+			viewModel.ProductList = productList;
 
 			return View(viewModel);
 		}
 
 
+
+
+		public async Task<IActionResult> Article(string n)
 		public async Task<IActionResult> Article(string n, SizeEnum? selectedSize = null!, string selectedColor = null! )
 		{
-			
+            var product = await _productService.GetOneProductFromNameAsync(n);
+
+            // Apply the discount logic
+            if (product.Promotion != null)
+            {
+                product.DiscountedPrice = product.ProductPrice * (1 - product.Promotion.DiscountRate);
+            }
+            else
+            {
+                product.DiscountedPrice = product.ProductPrice; 
+            }
+
 			var viewModel = new ArticleViewModel
 			{
 				Product = await _productService.GetOneProductFromNameAsync(n),
@@ -93,5 +125,27 @@ namespace ManeroWebAppMVC.Controllers
             return RedirectToAction("Article", new { n = productName });
 			
 		}
-	}
+
+
+        public async Task<IActionResult> Search(string query)
+        {
+            var searchResults = await _productService.SearchProductsAsync(query);
+
+            var viewModel = new SearchViewModel
+            {
+                Query = query,
+                Results = searchResults
+            };
+
+            return View(viewModel);
+        }
+
+
+
+
+
+
+
+    }
+
 }

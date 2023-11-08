@@ -10,6 +10,8 @@ namespace DataAccess.Handlers.Services.Abstractions
 
         Task<List<Product>> GetBestSellersAsync();
         Task<List<Product>> GetFeaturedProductsAsync();
+        public List<Product> GetSortedListOfProducts(
+          string sortOrder, List<Product> productList);
         bool ShouldHavePromotion(ProductEntity product);
         Promotion GetPromotion();
         public Task<List<Product>> GetAllBestSellersAsProductsAsync();
@@ -19,5 +21,6 @@ namespace DataAccess.Handlers.Services.Abstractions
         public Task<Product> GetOneProductFromIdAsync(Guid id);
         void SetSizesAndColors(ArticleViewModel viewModel, SizeEnum? selectedSize, string selectedColor);
         Task<Product> FindProduct(string productName, string selectedSize, string selectedColor);
+        public Task<List<Product>> SearchProductsAsync(string query);
     }
 }

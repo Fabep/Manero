@@ -1,16 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.Handlers.Services.Abstractions;
+using DataAccess.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ManeroWebAppMVC.Controllers
 {
 	public class CategoriesController : Controller
 	{
-		public CategoriesController()
-		{
+		private readonly ICategoryService _categoryService;
 
-		}
-		public IActionResult Index()
+        public CategoriesController(ICategoryService _categoryService)
 		{
-			return View();
+			this._categoryService = _categoryService;
 		}
-	}
+		public async Task<IActionResult> Index(int primaryCategoryId)
+		{
+			var viewModel = new CategoriesViewModel()
+			{
+				PrimaryCategories = await _categoryService.GetAllPrimaryCategories(),
+				SubCategories =  await  _categoryService.GetSubCategoriesByPrimaryCategoryId(primaryCategoryId),
+				SelectedPrimaryCategory = primaryCategoryId
+			};
+
+
+
+			return View(viewModel);
+		}
+
+
+        public async Task<IActionResult> RefreshIndex(int primaryCategoryId)
+        {
+            var subCategories = await _categoryService.GetSubCategoriesByPrimaryCategoryId(primaryCategoryId);
+
+
+            return PartialView("_CategoriesPartial", subCategories);
+        }
+
+
+
+    }
 }

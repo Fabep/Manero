@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Handlers.Repositories
 {
-	public class SubCategoryRepository //: Repository<SubCategoryEntity, LocalContext>
+	public class SubCategoryRepository : Repository<SubCategoryEntity, LocalContext>
 	{
-		public SubCategoryRepository(LocalContext context) //: base(context)
+		public SubCategoryRepository(LocalContext context) : base(context)
 		{
 		}
 	}

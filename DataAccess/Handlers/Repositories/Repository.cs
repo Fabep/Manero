@@ -24,7 +24,7 @@ namespace DataAccess.Handlers.Repositories
         {
             try
             {
-                _context.Set<TEntity>().Add(entity);
+                await _context.Set<TEntity>().AddAsync(entity);
                 await _context.SaveChangesAsync();
                 return StatusMessage.Success;
             }
