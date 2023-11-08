@@ -16,11 +16,28 @@ function decreaseAmount() {
 }
 function selectThisSize(size) {
     $("#selected-size").val(size);
+
+    addSelectedForButton(`size-${size}`, `size-buttons`, `size-button`);
 }
 function selectThisColor(color) {
     $("#selected-color").val(color);
+
+    addSelectedForButton(`color-${color}`, `color-buttons`, `color-button`);
 }
-// Add active class to the current selected Main Category button (highlight it)
+
+function addSelectedForButton(target, containerId, className) {
+    let container = document.getElementById(containerId);
+
+    let btns = container.getElementsByClassName(className)
+    for (var i = 0; i < btns.length; i++) {
+        if (btns.item(i).classList.contains("selected")) {
+            btns.item(i).classList.remove("selected");
+        }
+    }
+    document.getElementById(target).classList.add("selected");
+}
+
+/* Add active class to the current selected Main Category button (highlight it)*/
 //var header = document.getElementById("mc-btns");
 //var btns = header.getElementsByClassName("main-categories-nav-box-btn");
 //for (var i = 0; i < btns.length; i++) {
