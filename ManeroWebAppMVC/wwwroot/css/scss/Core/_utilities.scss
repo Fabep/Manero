@@ -24,3 +24,80 @@
     color: black;
     margin: 0px 0px 10px 0px;
 }
+
+
+
+.sort-filter {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+
+    .filtering {
+        text-align: center;
+        background-color: #e4dfdf;
+        border: none;
+        border-radius: 7px;
+        margin: 2px;
+        padding: 5px;
+    }
+
+    .sorting {
+        display: flex;
+        justify-content: flex-start;
+
+        .sort-form {
+            display: flex;
+            justify-content: flex-end;
+
+            .sort-box {
+                border: 1px solid #e4dfdf;
+                border-radius: 7px;
+                margin: 2px;
+                padding: 5px;
+            }
+
+            .sort-button {
+                background-color: #e4dfdf;
+                border: none;
+                border-radius: 7px;
+                margin: 2px;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 760px) {
+    .sort-filter {
+        .filtering {
+        }
+
+        .sorting {
+            .sort-form {
+                .sort-box {
+                }
+
+                .sort-button {
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1120px) {
+    .sort-filter {
+        .filtering {
+        }
+
+        .sorting {
+            .sort-form {
+                .sort-box {
+                }
+
+                .sort-button {
+                }
+            }
+        }
+    }
+}

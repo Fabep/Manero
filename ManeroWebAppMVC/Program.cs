@@ -18,6 +18,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<ProductRepository>();
+builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<SubCategoryRepository>();
 
 

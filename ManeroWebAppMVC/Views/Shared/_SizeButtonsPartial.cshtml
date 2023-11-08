@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Size>
+
+<div class="product-buttons">
+    <h5 class="product-text-part">Size</h5>
+    <div class="horizontal-button-container" id="size-buttons">
+        @foreach (var size in Model)
+        {
+            <a data-size="@size" class="size-button" asp-controller="Products" asp-action="RefreshColorButtons">@size.SizeType</a>
+        }
+    </div>
+</div>

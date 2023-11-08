@@ -9,18 +9,6 @@
         }
     }
 
-    .sort-filter {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px 0 10px 0;
-
-        .filtering {
-        }
-
-        .sorting {
-        }
-    }
-
     .product-box {
         display: grid;
         grid-template-columns: 1fr 1fr;
