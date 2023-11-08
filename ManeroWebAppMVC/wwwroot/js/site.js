@@ -52,11 +52,6 @@ function closeCart() {
 
 
 //Add to cart
-//function addToCart() {
-//    let cartCount = document.getElementById('cart-count').innerText
-//    cartCount++;
-//    document.getElementById('cart-count').innerText = cartCount;
-//}
 
 
 
@@ -84,21 +79,25 @@ document.addEventListener('DOMContentLoaded', function () {
     let products = getCookie("ProductsCookie");
     var productsList = JSON.parse(products);
 
-    for (let i = 0; i < productsList.length; i++) {
+    let quantityCount = 0;
 
+    for (let i = 0; i < productsList.length; i++) {
         console.log(productsList[i].ProductName)
-        let newProductElement = createCartProduct(productsList[i].ProductName, productsList[i].Price, productsList[i].ImageUrl, productsList[i].Size, productsList[i].Color);
+        let newProductElement = createCartProduct(productsList[i]);
+
+        quantityCount += productsList[i].Quantity;
 
         let element = document.createElement('div');
         element.innerHTML = newProductElement;
         let cartBasket = document.querySelector('.cart-content');
         cartBasket.append(element);
 
-        loadContent();
-
     }
-});
 
+    cartCount(quantityCount);
+
+    loadContent();
+});
 
 
 
@@ -118,68 +117,34 @@ function getCookie(cname) {
     return "";
 }
 
-
-
-
-function createCartProduct(title, price,imgSrc,size, color) {
-
-    return `
-         <div class="cart-box">
-             <img src="${imgSrc}" class="cart-img">
-             <div class="detail-box">
-                <div class="cart-food-title">${title} ${size} ${color}</div>
-                <div class="price-box">
-                      <div class="cart-price">${price}</div>
-                      <div class="cart-amt">${price}</div>
-                </div>
-             <input type="number" value="1" class="cart-quantity">
-             </div>
-         </div>
-           `;
+function cartCount(quantityCount) {
+    let cartCount = document.getElementById('cart-count').innerText
+    cartCount = quantityCount;
+    document.getElementById('cart-count').innerText = cartCount;
 }
 
 
 
+
+
+function createCartProduct(product) {
+    return `
+        <div class="cart-box">
+            <img src="${product.ImageUrl}" class="cart-img">
+            <div class="detail-box">
+                <div class="cart-product-title">${product.ProductName} ${product.Size} ${product.Color}</div>
+                <div class="price-box">
+                    <div class="cart-price">$${product.Price} x ${product.Quantity} </div>
+                    <div class="cart-amt">${product.Price}</div>
+                </div>
+                <input type="number" value="${product.Quantity}" class="cart-quantity">
+            </div>
+        </div>
+    `;
+}
+
 const btnCart = document.querySelector('#cart-icon');
 const cart = document.querySelector('.cart');
-
-let productList = [];
-
-document.addEventListener('DOMContentLoaded', function () {
-    const buyIcons = document.querySelectorAll('.fa-solid.fa-bag-shopping.buy');
-
-    buyIcons.forEach(function (buyIcon) {
-        buyIcon.addEventListener('click', function () {
-            let productTile = this.closest('.product-tile');
-            let title = productTile.querySelector('.product-name').innerText;
-            let price = productTile.querySelector('.product-price').innerText;
-            let imgSrc = productTile.querySelector('.product-image img').src;
-
-            // Call the function to add the product to the list
-            addProductToList(title, price, imgSrc);
-        });
-    });
-
-    // Define the function to add the product to the list
-    function addProductToList(title, price, imgSrc) {
-        let newProduct = { title, price, imgSrc };
-
-        productList.push(newProduct);
-        console.log('Product added to the list:', newProduct);
-
-        let newProductElement = createCartProduct(title, price, imgSrc);
-
-        let element = document.createElement('div');
-        element.innerHTML = newProductElement;
-        let cartBasket = document.querySelector('.cart-content');
-        cartBasket.append(element);
-
-        loadContent();
-    }
-});
-
-
-
 
 function loadContent() {
     //RemoveItems  From Cart
@@ -189,10 +154,10 @@ function loadContent() {
     });
 
     //Product Item Change Event
-    //let qtyElements = document.querySelectorAll('.cart-quantity');
-    //qtyElements.forEach((input) => {
-    //    input.addEventListener('change', changeQty);
-    //});
+    let qtyElements = document.querySelectorAll('.cart-quantity');
+    qtyElements.forEach((input) => {
+        input.addEventListener('change', changeQty);
+    });
 
     //Product Cart
     let cartBtns = document.querySelectorAll('.add-cart');
@@ -201,9 +166,17 @@ function loadContent() {
     });
 
     updateTotal();
+
+
 }
 
 
+function changeQty() {
+    if (isNaN(this.value) || this.value < 1) {
+        this.value = 1;
+    }
+
+}
 
 function updateTotal() {
     const cartItems = document.querySelectorAll('.cart-box');
@@ -221,5 +194,5 @@ function updateTotal() {
     });
 
     totalValue.innerHTML = '$' + total;
-
 }
+
