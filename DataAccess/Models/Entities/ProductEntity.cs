@@ -14,6 +14,7 @@ public class ProductEntity
     [Range(0, int.MaxValue)]
     public double ProductPrice { get; set; }
     public int? Rating { get; set; }
+    // Kom ihåg att ta bort quantity här
     public int? Quantity { get; set; }
 
     public int? SubCategoryId { get; set; }

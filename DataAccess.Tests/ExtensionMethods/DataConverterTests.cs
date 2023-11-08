@@ -30,13 +30,13 @@ namespace DataAccess.Tests.ExtensionMethods
         [Fact]
         public void When_ProductSchema_IsConvertedToProjectEntity_ItHasTheSameValuesAsTheSchema()
         {
-            var expected = new ProductEntity
-            {
-                ProductName = "Test",
-                ProductDescription = "Test Description",
-                ProductPrice = 50,
-                Quantity = 1,
-            };
+
+            var result = _schema.ConvertProductSchemaToProductEntity();
+
+            Assert.Equal(_schema.ProductName, result.ProductName);
+            Assert.Equal(_schema.ProductPrice, result.ProductPrice);
+            Assert.Equal(_schema.ProductDescription, result.ProductDescription);
+            Assert.Equal(_schema.Quantity, result.ProductInventory!.Quantity);
         }
     }
 }
