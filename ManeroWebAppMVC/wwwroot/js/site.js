@@ -78,37 +78,6 @@ function closeCart() {
 
 // ADD TO CART FUNCTIONS
 
-
-//function getCookieValue(name) {
-//    const value = ${ document.cookie };
-//    const parts = value.split(; ${ name }=);
-//    if (parts.length === 2) return parts.pop().split(';').shift();
-//}
-
-//function getCookie(name) {
-//    const cookieString = document.cookie;
-//    const cookies = cookieString.split(';');
-//    for (let i = 0; i < cookies.length; i++) {
-//        let cookie = cookies[i];
-//        while (cookie.charAt(0) === ' ') {
-//            cookie = cookie.substring(1);
-//        }
-//        if (cookie.indexOf(name + '=') === 0) {
-//            return cookie.substring(name.length + 1, cookie.length);
-//        }
-//    }
-//    return null;
-//}
-
-
-//const myProductCookie = document.cookie.split(';').find(cookie => cookie.includes('myProductCookie'));
-//if (myProductCookie) {
-//    const value = myProductCookie.split('=')[1];
-//    console.log(value);
-//} else {
-//    console.log('Cookie not found.');
-//}
-
 document.addEventListener('DOMContentLoaded', function () {
     let products = getCookie("ProductsCookie");
     var productsList = JSON.parse(products);
@@ -218,10 +187,10 @@ function loadContent() {
     });
 
     //Product Item Change Event
-    let qtyElements = document.querySelectorAll('.cart-quantity');
-    qtyElements.forEach((input) => {
-        input.addEventListener('change', changeQty);
-    });
+    //let qtyElements = document.querySelectorAll('.cart-quantity');
+    //qtyElements.forEach((input) => {
+    //    input.addEventListener('change', changeQty);
+    //});
 
     //Product Cart
     let cartBtns = document.querySelectorAll('.add-cart');
@@ -242,13 +211,13 @@ function updateTotal() {
 
     cartItems.forEach(product => {
         let priceElement = product.querySelector('.cart-price');
-        let price = parseFloat(priceElement.innerHTML.replace("Rs.", ""));
+        let price = parseFloat(priceElement.innerHTML.replace("$", ""));
         let qty = product.querySelector('.cart-quantity').value;
         total += (price * qty);
-        product.querySelector('.cart-amt').innerText = "Rs." + (price * qty);
+        product.querySelector('.cart-amt').innerText = "$" + (price * qty);
 
     });
 
-    totalValue.innerHTML = 'Rs.' + total;
+    totalValue.innerHTML = '$' + total;
 
 }
