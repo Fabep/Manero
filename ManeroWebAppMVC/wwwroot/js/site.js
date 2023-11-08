@@ -25,7 +25,8 @@ function selectThisColor(color) {
 
 //Open and close sidebar nav
 function openNav() {
-    document.getElementById("navSidebar").style.width = "80%";
+    document.getElementById("navSidebar").style.width = "100%";
+    document.getElementById("navSidebar").style.maxWidth = "400px";
     document.getElementById("main").style.marginLeft = "250px";
 }
 
@@ -37,6 +38,7 @@ function closeNav() {
 //Open and close shopping-cart
 function openCart() {
     document.getElementById("cart").style.width = "100%";
+    document.getElementById("cart").style.maxWidth = "400px";
     document.getElementById("main").style.marginRight = "100px";
 }
 
@@ -85,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < productsList.length; i++) {
 
         console.log(productsList[i].ProductName)
-        let newProductElement = createCartProduct(productsList[i].ProductName, productsList[i].Price, productsList[i].Size, productsList[i].Color);
+        let newProductElement = createCartProduct(productsList[i].ProductName, productsList[i].Price, productsList[i].ImageUrl, productsList[i].Size, productsList[i].Color);
 
-         let element = document.createElement('div');
+        let element = document.createElement('div');
         element.innerHTML = newProductElement;
         let cartBasket = document.querySelector('.cart-content');
         cartBasket.append(element);
@@ -119,12 +121,13 @@ function getCookie(cname) {
 
 
 
-function createCartProduct(title, price, size, color ) {
+function createCartProduct(title, price,imgSrc,size, color) {
 
     return `
          <div class="cart-box">
+             <img src="${imgSrc}" class="cart-img">
              <div class="detail-box">
-                <div class="cart-food-title">${title}</div>
+                <div class="cart-food-title">${title} ${size} ${color}</div>
                 <div class="price-box">
                       <div class="cart-price">${price}</div>
                       <div class="cart-amt">${price}</div>
@@ -135,7 +138,6 @@ function createCartProduct(title, price, size, color ) {
            `;
 }
 
-//<img src="${imgSrc}" class="cart-img">
 
 
 const btnCart = document.querySelector('#cart-icon');
