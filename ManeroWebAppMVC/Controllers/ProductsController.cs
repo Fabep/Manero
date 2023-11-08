@@ -83,12 +83,13 @@ namespace ManeroWebAppMVC.Controllers
 				Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
                 var cartObject = new ProductCartObject
                 {
-					ProductId = product.ProductId,
+                    ProductId = product.ProductId,
                     ProductName = product.ProductName,
                     Price = (decimal)product.ProductPrice,
-                    Size = Enum.Parse<SizeEnum>(selectedSize),
+                    Size = selectedSize,
                     Color = selectedColor,
-                    Quantity = currentAmount
+                    Quantity = currentAmount,
+                    ImageUrl = product.ImageUrl
                 };
 
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
@@ -100,8 +101,14 @@ namespace ManeroWebAppMVC.Controllers
                 else
                 {
                     var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(_cookieService.GetCookie(Request, "ProductsCookie")!);
-
-                    cartList!.Add(cartObject);
+                    if (cartList.Select(x => x.ProductId).Contains(cartObject.ProductId))
+                    {
+                        cartList.FirstOrDefault(x => x.ProductId == cartObject.ProductId).Quantity += cartObject.Quantity;
+                    }
+                    else
+                    {
+                        cartList!.Add(cartObject);
+                    }
 
                     _cookieService.AddCookie(Response, "ProductsCookie", cartList);
                 }

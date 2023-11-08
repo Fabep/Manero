@@ -12,8 +12,9 @@ namespace DataAccess.Models
         public Guid ProductId { get; set; }
         public string ProductName { get; set; } = null!;
         public decimal Price { get; set; }
-        public SizeEnum Size { get; set; }
+        public string Size { get; set; } = null!;
         public string Color { get; set; } = null!;
         public int Quantity { get; set; }
+        public string ImageUrl { get; set; } = null!;
     }
 }
