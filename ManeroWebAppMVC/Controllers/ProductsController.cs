@@ -49,11 +49,6 @@ namespace ManeroWebAppMVC.Controllers
 
 			return View(viewModel);
 		}
-
-
-
-
-		public async Task<IActionResult> Article(string n)
 		public async Task<IActionResult> Article(string n, SizeEnum? selectedSize = null!, string selectedColor = null! )
 		{
             var product = await _productService.GetOneProductFromNameAsync(n);
