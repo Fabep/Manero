@@ -93,6 +93,9 @@ header nav .nav-content .shop-cart {
   position: relative;
   font-size: 22px;
 }
+header nav .nav-content .shop-cart a {
+  cursor: pointer;
+}
 header nav .nav-content .shop-cart a .shop-icon {
   color: black;
 }
@@ -218,8 +221,8 @@ header .cart .cart-quantity {
   font-size: 1rem;
 }
 header .cart .cart-remove {
-  font-size: 24px;
-  color: red;
+  font-size: 20px;
+  color: #818181 !important;
   cursor: pointer;
 }
 header .cart .total {

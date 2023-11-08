@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     cartCount(quantityCount);
-
     loadContent();
-});
+    updateTotal();
 
+});
 
 
 function getCookie(cname) {
@@ -124,9 +124,6 @@ function cartCount(quantityCount) {
 }
 
 
-
-
-
 function createCartProduct(product) {
     return `
         <div class="cart-box">
@@ -136,6 +133,7 @@ function createCartProduct(product) {
                 <div class="price-box">
                     <div class="cart-price">$${product.Price} x ${product.Quantity} </div>
                     <div class="cart-amt">${product.Price}</div>
+                    <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
                 </div>
                 <input type="number" value="${product.Quantity}" class="cart-quantity">
             </div>
@@ -153,29 +151,20 @@ function loadContent() {
         btn.addEventListener('click', removeItem);
     });
 
-    //Product Item Change Event
-    let qtyElements = document.querySelectorAll('.cart-quantity');
-    qtyElements.forEach((input) => {
-        input.addEventListener('change', changeQty);
-    });
-
     //Product Cart
     let cartBtns = document.querySelectorAll('.add-cart');
     cartBtns.forEach((btn) => {
         btn.addEventListener('click', addCart);
     });
-
-    updateTotal();
-
-
 }
 
-
-function changeQty() {
-    if (isNaN(this.value) || this.value < 1) {
-        this.value = 1;
+function removeItem() {
+    if (confirm('Remove product?')) {
+        let title = this.parentElement.querySelector('.cart-product-title').innerHTML;
+        itemList = itemList.filter(el => el.title != title);
+        this.parentElement.remove();
+        loadContent();
     }
-
 }
 
 function updateTotal() {
