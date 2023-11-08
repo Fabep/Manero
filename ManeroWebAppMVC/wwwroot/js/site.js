@@ -21,17 +21,6 @@ function selectThisColor(color) {
     $("#selected-color").val(color);
 }
 
-// Add active class to the current selected Main Category button (highlight it)
-var header = document.getElementById("mc-btns");
-var btns = header.getElementsByClassName("main-categories-nav-box-btn");
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-    });
-}
-
 
 
 //Open and close sidebar nav
@@ -58,9 +47,6 @@ function closeCart() {
 
 
 
-// ADD TO CART FUNCTIONS
-const btnCart = document.querySelector('#cart-icon');
-const cart = document.querySelector('.cart');
 
 
 //Add to cart
@@ -88,6 +74,103 @@ const cart = document.querySelector('.cart');
 
 // Add a click event listener to the "buy" icon
 
+
+
+// ADD TO CART FUNCTIONS
+
+
+//function getCookieValue(name) {
+//    const value = ${ document.cookie };
+//    const parts = value.split(; ${ name }=);
+//    if (parts.length === 2) return parts.pop().split(';').shift();
+//}
+
+//function getCookie(name) {
+//    const cookieString = document.cookie;
+//    const cookies = cookieString.split(';');
+//    for (let i = 0; i < cookies.length; i++) {
+//        let cookie = cookies[i];
+//        while (cookie.charAt(0) === ' ') {
+//            cookie = cookie.substring(1);
+//        }
+//        if (cookie.indexOf(name + '=') === 0) {
+//            return cookie.substring(name.length + 1, cookie.length);
+//        }
+//    }
+//    return null;
+//}
+
+
+//const myProductCookie = document.cookie.split(';').find(cookie => cookie.includes('myProductCookie'));
+//if (myProductCookie) {
+//    const value = myProductCookie.split('=')[1];
+//    console.log(value);
+//} else {
+//    console.log('Cookie not found.');
+//}
+
+document.addEventListener('DOMContentLoaded', function () {
+    let products = getCookie("ProductsCookie");
+    var productsList = JSON.parse(products);
+
+    for (let i = 0; i < productsList.length; i++) {
+
+        console.log(productsList[i].ProductName)
+        let newProductElement = createCartProduct(productsList[i].ProductName, productsList[i].Price, productsList[i].Size, productsList[i].Color);
+
+         let element = document.createElement('div');
+        element.innerHTML = newProductElement;
+        let cartBasket = document.querySelector('.cart-content');
+        cartBasket.append(element);
+
+        loadContent();
+
+    }
+});
+
+
+
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+
+
+function createCartProduct(title, price, size, color ) {
+
+    return `
+         <div class="cart-box">
+             <div class="detail-box">
+                <div class="cart-food-title">${title}</div>
+                <div class="price-box">
+                      <div class="cart-price">${price}</div>
+                      <div class="cart-amt">${price}</div>
+                </div>
+             <input type="number" value="1" class="cart-quantity">
+             </div>
+         </div>
+           `;
+}
+
+//<img src="${imgSrc}" class="cart-img">
+
+
+const btnCart = document.querySelector('#cart-icon');
+const cart = document.querySelector('.cart');
 
 let productList = [];
 
@@ -125,22 +208,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function createCartProduct(title, price, imgSrc) {
-
-    return `
-         <div class="cart-box">
-                <img src="${imgSrc}" class="cart-img">
-             <div class="detail-box">
-                <div class="cart-food-title">${title}</div>
-                <div class="price-box">
-                      <div class="cart-price">${price}</div>
-                      <div class="cart-amt">${price}</div>
-                </div>
-             <input type="number" value="1" class="cart-quantity">
-             </div>
-         </div>
-           `;
-}
 
 
 function loadContent() {
