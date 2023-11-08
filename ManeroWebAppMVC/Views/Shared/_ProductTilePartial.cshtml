@@ -10,7 +10,7 @@
 	<div class="product-image">
 
 		<a href="@Url.Action("Article", "Products", new { n = @Model.ProductName })">
-			<img src="/Images/t-shirt.png" alt="@Model.ProductName"/>
+			<img src="@Model.ImageUrl" alt="@Model.ProductName"/>
 		</a>
 		<div class="product-buttons">
 			<i class="fa-regular fa-heart heart"></i>

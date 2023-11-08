@@ -19,6 +19,7 @@ public class Product
 
 	public int? Rating { get; set; }
 	public int? Quantity { get; set; }
+	public string ImageUrl { get; set; } = null!;
 
 	// Navigations-egenskap till PromotionEntity (nullable)
 	public int? PromotionId { get; set; }
