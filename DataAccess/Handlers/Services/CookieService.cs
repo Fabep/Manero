@@ -18,7 +18,7 @@ namespace DataAccess.Handlers.Services
         }
         public void AddCookie(HttpResponse response, string cookieKey, object cookieValue)
         {
-            response.Cookies.Append(cookieKey, JsonConvert.SerializeObject(new List<object> { cookieValue }), _cookieOptions);
+            response.Cookies.Append(cookieKey, JsonConvert.SerializeObject(cookieValue), _cookieOptions);
         }
 
         public string GetCookie(HttpRequest req, string cookieKey)
