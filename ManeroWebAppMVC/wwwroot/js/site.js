@@ -75,9 +75,11 @@ function closeCart() {
 
 // ADD TO CART FUNCTIONS
 
-document.addEventListener('DOMContentLoaded', function () {
+var productsList;
+
+document.addEventListener('DOMContentLoaded', function refreshCart() {
     let products = getCookie("ProductsCookie");
-    var productsList = JSON.parse(products);
+    productsList = JSON.parse(products);
 
     let quantityCount = 0;
 
@@ -126,7 +128,7 @@ function cartCount(quantityCount) {
 
 function createCartProduct(product) {
     return `
-        <div class="cart-box">
+        <div class="cart-box" data-product-id="${product.ProductId}">
             <img src="${product.ImageUrl}" class="cart-img">
             <div class="detail-box">
                 <div class="cart-product-title">${product.ProductName} ${product.Size} ${product.Color}</div>
@@ -135,7 +137,7 @@ function createCartProduct(product) {
                     <div class="cart-amt">${product.Price}</div>
                     <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
                 </div>
-                <input type="number" value="${product.Quantity}" class="cart-quantity">
+                <input type="number" value="${product.Quantity}" class="add-cart cart-quantity">
             </div>
         </div>
     `;
@@ -154,18 +156,72 @@ function loadContent() {
     //Product Cart
     let cartBtns = document.querySelectorAll('.add-cart');
     cartBtns.forEach((btn) => {
-        btn.addEventListener('click', addCart);
+        btn.addEventListener('click', addToCart);
     });
 }
 
+
+
+
 function removeItem() {
     if (confirm('Remove product?')) {
-        let title = this.parentElement.querySelector('.cart-product-title').innerHTML;
-        itemList = itemList.filter(el => el.title != title);
+        let title = document.querySelector('.cart-product-title').innerHTML;
+
+        productsList = productsList.filter(el => el.title != title);
         this.parentElement.remove();
-        loadContent();
+
+        refreshCart();
     }
 }
+
+function addToCart() {
+    let productId = this.parentElement.parentElement.getAttribute('data-product-id');
+    let newQuantity = parseInt(this.value);
+
+    // Check if the quantity is updated
+    let isQuantityUpdated = false;
+    for (let i = 0; i < productsList.length; i++) {
+        if (productsList[i].ProductId === productId && productsList[i].Quantity !== newQuantity) {
+            productsList[i].Quantity = newQuantity;
+            isQuantityUpdated = true;
+            break;
+        }
+    }
+
+    // Update the ProductsCookie if the quantity is updated
+    if (isQuantityUpdated) {
+        document.cookie = "ProductsCookie=" + JSON.stringify(productsList);
+        // Save the state of the sidebar before reloading the page
+        saveSidebarState();
+        // Automatically refresh the page
+        location.reload();
+    }
+}
+
+
+function saveSidebarState() {
+    let sidebar = document.querySelector('.cart');
+    let isSidebarOpen = sidebar.classList.contains('open');
+    localStorage.setItem('isSidebarOpen', isSidebarOpen);
+}
+
+
+window.addEventListener('beforeunload', saveSidebarState);
+
+// Retrieve the state of the sidebar after the page reloads
+document.addEventListener('DOMContentLoaded', function () {
+    let isSidebarOpen = localStorage.getItem('isSidebarOpen');
+    let sidebar = document.querySelector('.cart');
+
+    if (isSidebarOpen === 'true') {
+        sidebar.classList.add('open');
+    } else {
+        sidebar.classList.remove('open');
+    }
+});
+
+
+
 
 function updateTotal() {
     const cartItems = document.querySelectorAll('.cart-box');
