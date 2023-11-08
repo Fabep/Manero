@@ -158,6 +158,63 @@ header .cart .cart-img {
   border: 2px solid rgba(0, 0, 0, 0.1);
   padding: 5px;
 }
+header .cart .detail-box {
+  display: grid;
+  row-gap: 0.5rem;
+}
+header .cart .price-box {
+  display: flex;
+  justify-content: space-between;
+}
+header .cart .cart-food-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #ff6348;
+  font-weight: 500;
+}
+header .cart .cart-price {
+  font-weight: 500;
+}
+header .cart .cart-quantity {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  width: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+header .cart .cart-remove {
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
+}
+header .cart .total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+header .cart .total-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+header .cart .total-price {
+  margin-left: 0.5rem;
+}
+header .cart .btn-buy {
+  padding: 12px 20px;
+  background-color: #2f3542;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+header .cart #cart-close {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
 header #main {
   transition: margin-left 0.5s;
   padding: 16px;
