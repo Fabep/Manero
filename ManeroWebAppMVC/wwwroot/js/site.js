@@ -130,7 +130,7 @@ function createCartProduct(product) {
                     <div class="cart-amt">${product.Price}</div>
                     <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
                 </div>
-                <input type="number" value="${product.Quantity}" class="add-cart cart-quantity">
+                <input type="number" value="${product.Quantity}" class="add-cart cart-quantity" min="1">
             </div>
         </div>
     `;
