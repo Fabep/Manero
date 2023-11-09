@@ -674,7 +674,7 @@ header #main {
 .back-link {
   margin-top: 20px;
   text-decoration: none;
-  color: #007bff;
+  color: gray;
   display: inline-block;
 }
 

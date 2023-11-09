@@ -98,7 +98,7 @@ namespace DataAccess.Handlers.Services
 
         public bool ShouldHavePromotion(ProductEntity product)
         {
-            return product.ProductPrice < 799;
+            return product.ProductPrice < 499;
         }
 
         public Promotion GetPromotion()
