@@ -164,22 +164,15 @@ function removeItem() {
 
             productsList = productsList.filter(product => product.ProductId !== productId);
 
-            // Define the cookie options
             var cookieOptions = {
                 Expires: new Date(Date.now() + 86400000).toUTCString(), // Expires in 1 day
                 Path: "/"
             };
 
-            // Convert productsList to a JSON string and encode it
             var encodedProductsList = encodeURIComponent(JSON.stringify(productsList));
-
-            // Set the cookie with the name "ProductsCookie" and options
             document.cookie = "ProductsCookie=" + encodedProductsList + "; expires=" + cookieOptions.Expires + "; path=" + cookieOptions.Path;
 
-            // Save the state of the sidebar before reloading the page
             saveSidebarState();
-
-            // Refresh the cart after removing the item
             location.reload();
         }
     }
@@ -199,13 +192,17 @@ function addToCart() {
         }
     }
 
-    // Update the ProductsCookie if the quantity is updated
     if (isQuantityUpdated) {
 
-        document.cookie = "ProductsCookie" + JSON.stringify(productsList);
-        // Save the state of the sidebar before reloading the page
+        var cookieOptions = {
+            Expires: new Date(Date.now() + 86400000).toUTCString(), // Expires in 1 day
+            Path: "/"
+        };
+
+        var encodedProductsList = encodeURIComponent(JSON.stringify(productsList));
+        document.cookie = "ProductsCookie=" + encodedProductsList + "; expires=" + cookieOptions.Expires + "; path=" + cookieOptions.Path;
+
         saveSidebarState();
-        // Automatically refresh the page
         location.reload();
     }
 }
