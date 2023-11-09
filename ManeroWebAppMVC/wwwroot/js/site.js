@@ -44,10 +44,6 @@ function closeCart() {
     document.getElementById("cart").classList.remove("open");
 }
 
-
-
-
-
 //Add to cart
 
 
@@ -234,8 +230,6 @@ document.addEventListener('DOMContentLoaded', function () {
         sidebar.classList.remove('open');
     }
 });
-
-
 
 
 function updateTotal() {
