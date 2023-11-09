@@ -9,6 +9,6 @@ namespace DataAccess.Models.ViewModels
     public class WishListViewModel
     {
         public string PageTitle { get; set; } = "Wish list";
-        public List<Product>? Products { get; set; }
+        public List<Product> Products { get; set; } = new List<Product>();
     }
 }

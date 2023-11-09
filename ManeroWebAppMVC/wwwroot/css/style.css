@@ -594,3 +594,78 @@ body {
 .profile-container .menu-option i {
   margin-right: 0.625rem;
 }
+
+.wishList-product {
+  max-height: fit-content;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 16px;
+  margin: 10px;
+}
+.wishList-product .wl-promotion .wl-sale-badge {
+  background-color: green;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.wishList-product .wl-product-image {
+  margin-bottom: 10px;
+  height: 140px;
+  width: 140px;
+  align-self: center;
+}
+.wishList-product .wl-product-image a {
+  width: inherit;
+  height: inherit;
+}
+.wishList-product .wl-product-image a img {
+  width: inherit;
+  height: inherit;
+  object-fit: fill;
+}
+.wishList-product .wl-product-image:hover .wl-product-buttons {
+  display: flex;
+}
+.wishList-product .wl-product-image .wl-product-buttons {
+  position: relative;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  right: 13px;
+  bottom: 150px;
+  width: fit-content;
+}
+.wishList-product .wl-product-image .wl-product-buttons i {
+  font-size: 20px;
+  text-decoration: none;
+  margin: 5px;
+  color: #DBE3F5;
+}
+.wishList-product .wl-product-image .wl-product-buttons .heart:hover {
+  color: red;
+}
+.wishList-product .wl-product-image .wl-product-buttons .buy:hover {
+  color: cornflowerblue;
+}
+.wishList-product .wl-product-rating {
+  margin-bottom: 10px;
+  color: #FFBE00;
+}
+.wishList-product .wl-product-name {
+  margin-bottom: 10px;
+}
+.wishList-product .wl-product-price {
+  margin-bottom: 5px;
+}
+.wishList-product .wl-product-price .wl-product-price-sales {
+  margin-bottom: 5px;
+  color: red;
+}
+
+.wishList-page {
+  border: 5px dotted blue;
+}

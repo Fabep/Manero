@@ -1,23 +1,23 @@
 ﻿@model DataAccess.Models.Product;
 
-<div class="product-tile">
-	<div class="">
+<div class="wishList-product">
+	<div class="wl-promotion">
 		@if (Model.Promotion != null)
 		{
-			<div class="sale-badge">Sale</div>
+			<div class="wl-sale-badge">Sale</div>
 		}
 	</div>
-	<div class="product-image">
+	<div class="wl-product-image">
 
 		<a href="@Url.Action("Article", "Products", new { n = @Model.ProductName })">
 			<img src="@Model.ImageUrl" alt="@Model.ProductName" />
 		</a>
-		<div class="product-buttons">
+		<div class="wl-product-buttons">
 			<i class="fa-regular fa-heart heart"></i>
 			<i class="fa-solid fa-bag-shopping buy"></i>
 		</div>
 	</div>
-	<div class="product-rating">
+	<div class="wl-product-rating">
 		<div>
 			@for (var i = 0; i < 5; i++)
 			{
@@ -32,21 +32,21 @@
 			}
 		</div>
 	</div>
-	<div class="product-name">
+	<div class="wl-product-name">
 		@Model.ProductName
 	</div>
-	<div class="product-price">
+	<div class="wl-product-price">
 		@if (Model.Promotion != null)
 		{
 			var discountPrice = Model.ProductPrice * (1 - Model.Promotion.DiscountRate);
 			var formattedDiscountPrice = discountPrice.ToString("0.0");
 
-			<span class="product-price-old">$@Model.ProductPrice.ToString("0.00")</span>
-			<span class="product-price-sales">$@formattedDiscountPrice</span>
+			<span class="wl-product-price-old">$@Model.ProductPrice.ToString("0.00")</span>
+			<span class="wl-product-price-sales">$@formattedDiscountPrice</span>
 		}
 		else
 		{
-			<span class="product-price-old">$@Model.ProductPrice.ToString("0.00")</span>
+			<span class="wl-product-price-old">$@Model.ProductPrice.ToString("0.00")</span>
 		}
 	</div>
 
