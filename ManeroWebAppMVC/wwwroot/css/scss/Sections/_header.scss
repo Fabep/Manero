@@ -52,6 +52,7 @@
 
                 a {
                     cursor: pointer;
+
                     .shop-icon {
                         color: black;
                     }
@@ -102,6 +103,12 @@
         }
     }
 
+
+    .open {
+        width: 100% !important;
+        max-width: 400px !important;
+    }
+
     .cart {
         height: 100%;
         width: 0;
@@ -116,6 +123,7 @@
         z-index: 99;
         font-size: 15px;
         color: #818181 !important;
+        max-width: 0px;
         /*    .nav-item {
             margin-left: 3rem;
         }*/

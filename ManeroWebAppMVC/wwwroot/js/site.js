@@ -37,14 +37,11 @@ function closeNav() {
 
 //Open and close shopping-cart
 function openCart() {
-    document.getElementById("cart").style.width = "100%";
-    document.getElementById("cart").style.maxWidth = "400px";
-    document.getElementById("main").style.marginRight = "100px";
+    document.getElementById("cart").classList.add("open")
 }
 
 function closeCart() {
-    document.getElementById("cart").style.width = "0";
-    document.getElementById("main").style.marginRight = "0";
+    document.getElementById("cart").classList.remove("open");
 }
 
 
@@ -165,12 +162,30 @@ function loadContent() {
 
 function removeItem() {
     if (confirm('Remove product?')) {
-        let title = document.querySelector('.cart-product-title').innerHTML;
+        let productBox = this.closest('.cart-box');
+        if (productBox) {
+            let productId = productBox.getAttribute('data-product-id');
 
-        productsList = productsList.filter(el => el.title != title);
-        this.parentElement.remove();
+            productsList = productsList.filter(product => product.ProductId !== productId);
 
-        refreshCart();
+            // Define the cookie options
+            var cookieOptions = {
+                Expires: new Date(Date.now() + 86400000).toUTCString(), // Expires in 1 day
+                Path: "/"
+            };
+
+            // Convert productsList to a JSON string and encode it
+            var encodedProductsList = encodeURIComponent(JSON.stringify(productsList));
+
+            // Set the cookie with the name "ProductsCookie" and options
+            document.cookie = "ProductsCookie=" + encodedProductsList + "; expires=" + cookieOptions.Expires + "; path=" + cookieOptions.Path;
+
+            // Save the state of the sidebar before reloading the page
+            saveSidebarState();
+
+            // Refresh the cart after removing the item
+            location.reload();
+        }
     }
 }
 
@@ -190,7 +205,8 @@ function addToCart() {
 
     // Update the ProductsCookie if the quantity is updated
     if (isQuantityUpdated) {
-        document.cookie = "ProductsCookie=" + JSON.stringify(productsList);
+
+        document.cookie = "ProductsCookie" + JSON.stringify(productsList);
         // Save the state of the sidebar before reloading the page
         saveSidebarState();
         // Automatically refresh the page
@@ -202,15 +218,14 @@ function addToCart() {
 function saveSidebarState() {
     let sidebar = document.querySelector('.cart');
     let isSidebarOpen = sidebar.classList.contains('open');
-    localStorage.setItem('isSidebarOpen', isSidebarOpen);
+    sessionStorage.setItem('isSidebarOpen', isSidebarOpen);
 }
-
 
 window.addEventListener('beforeunload', saveSidebarState);
 
 // Retrieve the state of the sidebar after the page reloads
 document.addEventListener('DOMContentLoaded', function () {
-    let isSidebarOpen = localStorage.getItem('isSidebarOpen');
+    let isSidebarOpen = sessionStorage.getItem('isSidebarOpen');
     let sidebar = document.querySelector('.cart');
 
     if (isSidebarOpen === 'true') {
