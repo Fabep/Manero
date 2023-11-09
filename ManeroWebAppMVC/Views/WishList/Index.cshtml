@@ -1,0 +1,26 @@
+﻿@model WishListViewModel
+
+@{
+}
+
+<div class="container wishList-page">
+
+    <div class="header-box">
+        <h1>@Model.PageTitle</h1>
+    </div>
+
+   
+
+
+    <div class="wishListProducts-box">
+        @foreach (var product in Model.Products)
+        {
+            <partial name="_DetailedProductPartial" model="product" />
+        }
+    </div>
+
+    <hr />
+
+    <partial name="_BackButtonPartial" />
+
+</div>

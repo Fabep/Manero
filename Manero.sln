@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroApi", "ManeroApi\Mane
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroWebAppMVC", "ManeroWebAppMVC\ManeroWebAppMVC.csproj", "{21C87A8D-0645-4C3B-8E16-6856CD585127}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManeroWebAppMVC.Tests", "ManeroWebAppMVC.Tests\ManeroWebAppMVC.Tests.csproj", "{FDFD7EEA-9A41-4BAB-A788-CF040C89DFDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroWebAppMVC.Tests", "ManeroWebAppMVC.Tests\ManeroWebAppMVC.Tests.csproj", "{FDFD7EEA-9A41-4BAB-A788-CF040C89DFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Tests", "DataAccess.Tests\DataAccess.Tests.csproj", "{F71BE26B-C76E-4C34-A622-0700F131CBBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Tests", "DataAccess.Tests\DataAccess.Tests.csproj", "{F71BE26B-C76E-4C34-A622-0700F131CBBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
