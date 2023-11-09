@@ -21,8 +21,6 @@ function selectThisColor(color) {
     $("#selected-color").val(color);
 }
 
-
-
 //Open and close sidebar nav
 function openNav() {
     document.getElementById("navSidebar").style.width = "100%";
@@ -44,30 +42,8 @@ function closeCart() {
     document.getElementById("cart").classList.remove("open");
 }
 
-//Add to cart
-
-
-
-//function addCart() {
-//    let product = this.parentElement;
-//    let title = product.querySelector('.product-name').innerHTML;
-//    let price = product.querySelector('.product-price').innerHTML;
-//    let imgSrc = product.querySelector('.product-img').src;
-//    console.log(title,price,imgSrc);
-
-//    let newProduct = { title, price, imgSrc }
-
-
-//    itemList.push(newProduct);
-//}
-
-
-// Add a click event listener to the "buy" icon
-
-
 
 // ADD TO CART FUNCTIONS
-
 var productsList;
 
 document.addEventListener('DOMContentLoaded', function refreshCart() {
@@ -140,13 +116,13 @@ const btnCart = document.querySelector('#cart-icon');
 const cart = document.querySelector('.cart');
 
 function loadContent() {
-    //RemoveItems  From Cart
+    //Remove items from Cart
     let btnRemove = document.querySelectorAll('.cart-remove');
     btnRemove.forEach((btn) => {
         btn.addEventListener('click', removeItem);
     });
 
-    //Product Cart
+    //Add items to Cart
     let cartBtns = document.querySelectorAll('.add-cart');
     cartBtns.forEach((btn) => {
         btn.addEventListener('click', addToCart);
@@ -208,6 +184,8 @@ function addToCart() {
 }
 
 
+
+//Cart sidebar stays open after update
 function saveSidebarState() {
     let sidebar = document.querySelector('.cart');
     let isSidebarOpen = sidebar.classList.contains('open');
@@ -216,7 +194,6 @@ function saveSidebarState() {
 
 window.addEventListener('beforeunload', saveSidebarState);
 
-// Retrieve the state of the sidebar after the page reloads
 document.addEventListener('DOMContentLoaded', function () {
     let isSidebarOpen = sessionStorage.getItem('isSidebarOpen');
     let sidebar = document.querySelector('.cart');
@@ -228,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
+//Update total value of items
 function updateTotal() {
     const cartItems = document.querySelectorAll('.cart-box');
     const totalValue = document.querySelector('.total-price');
