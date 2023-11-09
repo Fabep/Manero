@@ -87,11 +87,7 @@
             border-radius: 100px;
             box-shadow: 0 0 0 1px lightgray;
             padding-top: 6px;
-            &:focus {
-                background-color: lightgray;
-            }
         }
-
         .color-button {
             box-sizing: border-box;
             height: 40px;
@@ -100,13 +96,13 @@
             border: none;
             border-radius: 100px;
             box-shadow: 0 0 0 1px lightgray;
-            &:focus {
-                box-shadow: 0 0 0 5px lightgray;
-            }
+        }
+        .selected {
+            box-shadow: 0 0 0 5px lightgray;
         }
     }
 
-   .product-color {
+    .product-color {
         display: flex;
         gap: 20px;
         text-align: center;

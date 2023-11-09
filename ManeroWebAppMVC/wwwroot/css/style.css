@@ -547,9 +547,6 @@ header #main {
   box-shadow: 0 0 0 1px lightgray;
   padding-top: 6px;
 }
-.product-page-container .product-buttons .size-button:focus {
-  background-color: lightgray;
-}
 .product-page-container .product-buttons .color-button {
   box-sizing: border-box;
   height: 40px;
@@ -559,7 +556,7 @@ header #main {
   border-radius: 100px;
   box-shadow: 0 0 0 1px lightgray;
 }
-.product-page-container .product-buttons .color-button:focus {
+.product-page-container .product-buttons .selected {
   box-shadow: 0 0 0 5px lightgray;
 }
 .product-page-container .product-color {
