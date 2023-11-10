@@ -145,9 +145,13 @@ function loadContent() {
 }
 
 
-
-
-function removeItem() {
+var cookieOptions = {
+    SameSite: "Strict",
+    Secure: true,
+    IsEssential: true,
+    Path: "/"
+};
+function removeItem() { 
     if (confirm('Remove product?')) {
         let productBox = this.closest('.cart-box');
         if (productBox) {
@@ -155,13 +159,8 @@ function removeItem() {
 
             productsList = productsList.filter(product => product.ProductId !== productId);
 
-            var cookieOptions = {
-                Expires: new Date(Date.now() + 86400000).toUTCString(), // Expires in 1 day
-                Path: "/"
-            };
-
             var encodedProductsList = encodeURIComponent(JSON.stringify(productsList));
-            document.cookie = "ProductsCookie=" + encodedProductsList + "; expires=" + cookieOptions.Expires + "; path=" + cookieOptions.Path;
+            document.cookie = "ProductsCookie=" + encodedProductsList + "; path=" + cookieOptions.Path + "; SameSite=" + cookieOptions.Samesite + "; Secure=" + cookieOptions.Secure+ "; IsEssential=" + cookieOptions.IsEssential;
 
             saveSidebarState();
             location.reload();
@@ -185,13 +184,15 @@ function addToCart() {
 
     if (isQuantityUpdated) {
 
-        var cookieOptions = {
-            Expires: new Date(Date.now() + 86400000).toUTCString(), // Expires in 1 day
-            Path: "/"
-        };
+        //var cookieOptions = {
+        //    SameSite: "Strict",
+        //    Secure: true,
+        //    IsEssential: true,
+        //    Path: "/"
+        //};
 
         var encodedProductsList = encodeURIComponent(JSON.stringify(productsList));
-        document.cookie = "ProductsCookie=" + encodedProductsList + "; expires=" + cookieOptions.Expires + "; path=" + cookieOptions.Path;
+        document.cookie = "ProductsCookie=" + encodedProductsList + "; path=" + cookieOptions.Path + "; SameSite=" + cookieOptions.Samesite + "; Secure=" + cookieOptions.Secure + "; IsEssential=" + cookieOptions.IsEssential;
 
         saveSidebarState();
         location.reload();
