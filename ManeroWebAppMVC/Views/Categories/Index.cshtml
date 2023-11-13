@@ -35,6 +35,21 @@
 @section Scripts
     {
     <script>
+
+        // Add active class to the current selected Main Category button (highlight it)
+        var header = document.getElementById("mc-btns");
+        var btns = header.getElementsByClassName("main-categories-nav-box-btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+        
+        
+        
         document.addEventListener("DOMContentLoaded", function () {
             var buttons = document.querySelectorAll(".main-categories-nav-box-btn");
 
@@ -60,5 +75,6 @@
                 });
             });
         });
+    
     </script>
 }

@@ -108,7 +108,7 @@ namespace DataAccess.ExtensionMethods
                 1 or 2 or 3 => "https://maneroimagestorage.blob.core.windows.net/images/t-shirt.png",
                 4 or 5 or 6 => "https://maneroimagestorage.blob.core.windows.net/images/pants.png",
                 7 => "https://maneroimagestorage.blob.core.windows.net/images/dress.png",
-                8 or 9 or 10 => "https://maneroimagestorage.blob.core.windows.net/images/shoes.png",
+                8 or 9 or 10 => "https://maneroimagestorage.blob.core.windows.net/images/shoe.png",
                 11 or 12 or 13 => "https://maneroimagestorage.blob.core.windows.net/images/bag.png",
                 14 => "https://maneroimagestorage.blob.core.windows.net/images/suit.png",
                 15 or 16 or 17 => "https://maneroimagestorage.blob.core.windows.net/images/accessory.png",

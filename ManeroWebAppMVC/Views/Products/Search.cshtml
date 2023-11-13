@@ -15,20 +15,21 @@ else
 {
 	<section class="product-section">
 		<div class="container product-container">
-			<div class="product-container-header">
-				<h1>Search Results</h1>
-			</div>
+
+
+
 			<div class="product-container-items">
-				<div class="row">
-					@foreach (var product in Model.Results)
-					{
-						<div class="col-md-3">
-							<partial name="_ProductTilePartial" model="product" />
-						</div>
-					}
-				</div>
+				@foreach (var product in Model.Results)
+
+				{
+					<partial name="_ProductTilePartial" model="product" />
+				}
+
 			</div>
+
 		</div>
 	</section>
+
+
 
 }

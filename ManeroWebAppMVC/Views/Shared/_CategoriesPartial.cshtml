@@ -4,9 +4,10 @@
 <!-- Grid Section -->
 @foreach (var subCategory in Model)
 {
-    <a href="@Url.Action("Index", "Products")" class="grid-item">
+    <a href="@Url.Action("Index", "Products", new { subProductCategory = subCategory.SubCategoryName })" , class="grid-item">
         <div class="text-wrapper">@subCategory.SubCategoryName</div>
     </a>
+
 
 }
 

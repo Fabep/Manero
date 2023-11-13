@@ -101,9 +101,9 @@ namespace ManeroWebAppMVC.Controllers
                 else
                 {
                     var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(_cookieService.GetCookie(Request, "ProductsCookie")!);
-                    if (cartList.Select(x => x.ProductId).Contains(cartObject.ProductId))
+                    if (cartList!.Select(x => x.ProductId).Contains(cartObject.ProductId))
                     {
-                        cartList.FirstOrDefault(x => x.ProductId == cartObject.ProductId).Quantity += cartObject.Quantity;
+                        cartList.FirstOrDefault(x => x.ProductId == cartObject.ProductId)!.Quantity += cartObject.Quantity;
                     }
                     else
                     {
