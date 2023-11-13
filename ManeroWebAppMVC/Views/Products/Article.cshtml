@@ -101,6 +101,17 @@
         </button>
     </form>
 
+    @* Add to wishlist *@
+    <form method="post" action="AddToWishList">
+        <input type="hidden" name="productName" value="@Model.Product.ProductName" />
+        <input type="hidden" name="currentAmount" id="current-amount-input" value="@Model.CurrentAmount" />
+        <input type="hidden" id="selected-size" name="selectedSize" value="" />
+        <input type="hidden" id="selected-color" name="selectedColor" value="" />
+        <button type="submit" class="add-to-cart-button">
+            Add To WishList
+        </button>
+    </form>
+
     @* Reviews *@
     <div class="product-reviews">
         <div class="review-top">
