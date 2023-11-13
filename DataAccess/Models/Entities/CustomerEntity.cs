@@ -12,6 +12,9 @@ namespace DataAccess.Models.Entities
 		[Key]
 		public int CustomerId { get; set; } 
 		public string? TelephoneNumber { get; set; } 
-		public int PaymentMethod { get; set; } 
+		public int PaymentId{ get; set; }
+
+		public PaymentMethodEntity Payment { get; set; }
+
 	}
 }

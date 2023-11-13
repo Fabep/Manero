@@ -11,8 +11,9 @@ namespace DataAccess.Models.Entities
 	{
 		[Key]
 		public int Id { get; set; } 
-		public int OrderId { get; set; } // [fk]
-		public string? AddressType { get; set; }
+		public int OrderId { get; set; }
+        public OrdersEntity? Order { get; set; }
+        public string? AddressType { get; set; }
 		public string? StreetAddress { get; set; }
 		public string? Streetnumber { get; set; }
 		public string? PostalCode { get; set; }

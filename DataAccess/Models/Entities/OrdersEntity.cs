@@ -13,10 +13,12 @@ namespace DataAccess.Models.Entities
 	{
 		[Key]
 		public int OrderId { get; set; } 
-		public int CustomerId { get; set; } // [fk]
+		public int CustomerId { get; set; }
 		[Required, Column(TypeName = "money")] public decimal TotalAmount { get; set; }
 		public DateTime? OrderDate { get; set; }
 		public string? PaymentMethod { get; set; }
-		public int? OrderStatus { get; set; } 
-	}
+		public int? StatusId { get; set; }
+        public OrderStatusEntity? Status { get; set; }
+
+    }
 }

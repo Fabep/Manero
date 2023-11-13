@@ -12,11 +12,13 @@ namespace DataAccess.Models.Entities
 	public class OrderItemsEntity
 	{
 		[Key]
-		public int Id { get; set; }
-		public int ProductId { get; set; } // [fk]
+        public int OrderItermsId { get; set; }
+        public int OrderId { get; set; }
+		public OrdersEntity? Order { get; set; }
+		public int ProductId { get; set; }
 		public string? ProductName { get; set; }
 		[Required, Column(TypeName = "money")] public decimal TotalAmount { get; set; }
-		public double DiscountPrice { get; set; }
+        [Required, Column(TypeName = "money")] public decimal DiscountPrice { get; set; }
 		public int Quantity { get; set; }
 	}
 }

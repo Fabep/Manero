@@ -12,5 +12,6 @@ namespace DataAccess.Models.Entities
 		[Key]
 		public int WishListId { get; set; } 
 		public int CustomerId { get; set; } // [fk]
+		public CustomerEntity? Customer { get; set; }
 	}
 }

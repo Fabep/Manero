@@ -13,29 +13,22 @@ public class LocalContext : DbContext
         Database.EnsureCreated();
         //Database.Migrate();
     }
+
     public DbSet<ProductEntity> Products { get; set; }
     public DbSet<PromotionEntity> Promotions { get; set; }
-
     public DbSet<PrimaryCategoryEntity> PrimaryCategories { get; set; }
-
     public DbSet<SubCategoryEntity> SubCategories { get; set; }
-
     public DbSet<ColorEntity> Colors { get; set; }
-
     public DbSet<SizeEntity> Sizes { get; set; }
-
     public DbSet<ProductInventoryEntity> ProductInventories { get; set; }
 	public DbSet<CustomerEntity> Customers { get; set; }
 	public DbSet<CustomerAddressEntity> CustomerAddresses  { get; set; }
-
-	public DbSet<PaymentMethodEntity> paymentMethods { get; set; }
+	public DbSet<PaymentMethodEntity> PaymentMethods { get; set; }
 	public DbSet<OrderAddressEntity> OrderAddresses { get; set; }
 	public DbSet<OrdersEntity> Orders { get; set; }
 	public DbSet<OrderItemsEntity> OrderItems { get; set; }
 	public DbSet<OrderStatusEntity> OrderStatuses  { get; set; }
-
 	public DbSet<WishListEntity> WishLists { get; set; }
-
     public DbSet<WishListItemsEntity> WishListItems { get; set; }
 
 

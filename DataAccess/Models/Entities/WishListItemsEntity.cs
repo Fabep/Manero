@@ -11,8 +11,12 @@ namespace DataAccess.Models.Entities
 	{
 
 		[Key]
+		public int WishListItemId { get; set; }
 		public int WishListId { get; set; } 
+		public WishListEntity? WishList { get; set; }
+		public int ProductId { get; set; }
 
-		public int ProductId { get; set; } // [fk]
+
+
 	}
 }
