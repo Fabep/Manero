@@ -25,34 +25,7 @@ namespace ManeroWebAppMVC.Controllers
 			return View(viewModel);
 		}
 
-        public async Task<IActionResult> AddToWishList(string productName, int currentAmount, string selectedSize, string selectedColor)
-		{
-            try
-            {
-                Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
-                var cartObject = new ProductCartObject
-                {
-                    ProductId = product.ProductId,
-                    ProductName = product.ProductName,
-                    Price = (decimal)product.ProductPrice,
-                    Size = selectedSize,
-                    Color = selectedColor,
-                    Quantity = currentAmount,
-                    ImageUrl = product.ImageUrl
-                };
-
-                var viewModel = new WishListViewModel();
-                viewModel.Products.Add(cartObject);
-                    
-                    //Product = product,
-                    //Combinations = await _productService.GetProductColorsAndSizesAsync(product.ProductName)
-                
-
-            }
-            catch (Exception ex) { Debug.WriteLine(ex.Message); }
-            return RedirectToAction("Article", new { n = productName });
-
-        }
+       
 
 
 
