@@ -29,12 +29,11 @@ namespace DataAccess.Contexts
                     TotalAmount = orderAmount,
                     OrderDate = DateTime.Now,
                     PaymentMethod = $"Kortnr: {cardNumber}",
-                    StatusId = 1 // random.Next(0, 4),
+                    StatusId = 1 //random.Next(1, 6),
                 };
 
                 OrderIds.Add(entity.OrderId);
                 baseOrders.Add(entity);
-
             }
             return baseOrders;
         }

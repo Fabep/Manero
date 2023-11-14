@@ -75,8 +75,8 @@ public class LocalContext : DbContext
         });
 
         modelBuilder.Entity<OrderStatusEntity>().HasData(OrderSeeder.SeedOrderStatus());
-        //modelBuilder.Entity<OrdersEntity>().HasData(OrderSeeder.SeedOrders());
-        //modelBuilder.Entity<OrderItemsEntity>().HasData(OrderSeeder.SeedOrderItems());
+        modelBuilder.Entity<OrdersEntity>().HasData(OrderSeeder.SeedOrders());
+        modelBuilder.Entity<OrderItemsEntity>().HasData(OrderSeeder.SeedOrderItems());
 
         base.OnModelCreating(modelBuilder);
     }
