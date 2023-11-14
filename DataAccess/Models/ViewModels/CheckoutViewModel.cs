@@ -8,10 +8,10 @@ namespace DataAccess.Models.ViewModels
 {
     public class CheckoutViewModel
     {
-        public decimal TotalOrderSum { get; set; }
-        public List<CheckOutArticleViewModel>? Products { get; set; } = new List<CheckOutArticleViewModel>(); 
-        public decimal OrderDiscount { get; set; }
-        public string? DeliveryFee { get; set; }
+        public decimal TotalOrderSum { get; set; } = 0;
+        public List<CheckOutArticleViewModel>? Products { get; set; } = new List<CheckOutArticleViewModel>();
+        public decimal OrderDiscount { get; set; } = 0;
+        public string DeliveryFee { get; set; } = "Free";
         public string? ShippingDetails { get; set; }
         public string? PaymentMethod { get; set; }
         public string? UserComment { get; set; }

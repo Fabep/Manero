@@ -14,6 +14,7 @@ namespace DataAccess.Handlers.Services
     {
 
         private readonly OrderRepository _orderRepository;
+        private readonly OrderItemRepository _orderItemRepository;
 
         public OrderService(OrderRepository orderRepository)
         {
@@ -26,16 +27,22 @@ namespace DataAccess.Handlers.Services
             var orderEntity = await _orderRepository.GetAsync(x => x.OrderId == id);
             var order = DataConverter.ConvertOrderEntityToOrder(orderEntity);
 
-            if (ShouldHavePromotion(productEntity))
-            {
-                var promotion = GetPromotion();
-                product.Promotion = promotion;
+            return order;
+        }
+        public async Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id)
+        {
+            var orderItems = new List<OrderItem>();
+            var orderItemEntityQueryableList = await _orderItemRepository.GetAllAsync(x => x.OrderId == id);
+            var orderItemEntityList = orderItemEntityQueryableList.ToList();
 
-                // Calculate the discounted price
-                product.DiscountedPrice = product.ProductPrice * (1 - promotion.DiscountRate);
+            foreach (var itemEntity in orderItemEntityList) 
+            { 
+                var item = DataConverter.ConvertOrderItemEntityToOrderItem(itemEntity);
+                orderItems.Add(item);
             }
 
-            return product;
+            return orderItems; 
         }
+
     }
 }
