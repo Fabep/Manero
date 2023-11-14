@@ -8,5 +8,12 @@ namespace ManeroWebAppMVC.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> ShippingDetails()
+        {
+
+
+            return View();
+        }
     }
 }
