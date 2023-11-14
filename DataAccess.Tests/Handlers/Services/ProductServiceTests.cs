@@ -170,7 +170,7 @@ namespace DataAccess.Tests.Handlers.Services
 			
 
 			// Act
-			var result = await _sut.SearchProductsAsync("kalle");
+			var result = await _sut.SearchProductsAsync("Cozy Suit");
 
 			// Assert
 			Assert.NotNull(result);
