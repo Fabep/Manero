@@ -12,7 +12,6 @@ namespace DataAccess.Handlers.Repositories
     {
         public OrderRepository(LocalContext context) : base(context)
         {
-        }
-    {
+        }    
     }
 }

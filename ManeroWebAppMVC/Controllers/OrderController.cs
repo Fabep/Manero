@@ -20,7 +20,7 @@ namespace ManeroWebAppMVC.Controllers
             return View();
         }
 
-        public IActionResult Checkout(int orderId, int? customerId) //Ta bort CustomerId?
+        public async Task<IActionResult> Checkout(int orderId, int? customerId) //Ta bort CustomerId?
         {
             var viewModel = new CheckoutViewModel();
             if(orderId > 0)
@@ -29,8 +29,8 @@ namespace ManeroWebAppMVC.Controllers
                 viewModel.TotalOrderSum = order.Result.TotalAmount;
             }            
             
-            //viewModel.Products = _service.GetOrderProducts();
-           
+            viewModel.OrderItems = await _orderService.GetOrderItemsFromOrderIdAsync(orderId);
+            // viewModel.OrderDiscount = _orderService.GetOrderDiscount(orderId);
             viewModel.ShippingDetails = "1006 Telefonvägen";
             viewModel.PaymentMethod = "Kort nr 348620"; //order.Result.PaymentMethod; 
 
