@@ -116,6 +116,21 @@ namespace DataAccess.ExtensionMethods
             };
             return url;
 		}
-	}
+
+        public static object ConvertOrderEntityToOrder(this OrdersEntity orderEntity)
+        {
+            var order = new Order()
+            {
+				OrderId = orderEntity.OrderId,
+				CustomerId = orderEntity.CustomerId,
+				OrderDate = orderEntity.OrderDate,
+				PaymentMethod = orderEntity.PaymentMethod,
+				StatusId = orderEntity.StatusId,
+				Status = orderEntity.Status,	
+				TotalAmount = orderEntity.TotalAmount,				
+            };
+            return order;
+        }
+        }
 }
 
