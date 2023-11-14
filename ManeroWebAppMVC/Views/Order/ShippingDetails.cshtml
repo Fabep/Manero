@@ -1,5 +1,7 @@
 ﻿@model ShippingDetailsViewModel
-
+@{
+    var address = new CustomerAddress();
+}
 @* Container *@
 <div class="shipping-container">
     @* Top *@
@@ -14,11 +16,11 @@
     </div> *@
     @* List Addresses *@
     <div class="address-list">
-        @foreach(var address in @Model.CustomerAddresses)
+        @foreach(var addressItem in @Model.CustomerAddresses)
         {
             <div class="address-grid">
-                <div class="address-name">@address.AddressName</div>
-                <div class="address-location">@address.PostalCode @address.StreetAddress @address.Streetnumber, @address.City, @address.Country</div>
+                <div class="address-name">@addressItem.AddressName</div>
+                <div class="address-location">@addressItem.PostalCode @addressItem.StreetAddress @addressItem.Streetnumber, @addressItem.City, @addressItem.Country</div>
                 <div class="select-address" onclick="select-this-address"></div>
             </div>
         }
@@ -32,5 +34,5 @@
     <div></div>
 
     @* Back to order button*@
-    <a asp-controller="Order" asp-action="Index" asp-route-address=""></a>
+    <a asp-controller="Order" asp-action="Index" asp-route-address="address">Back to</a>
 </div>
