@@ -20,6 +20,7 @@ builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(conn
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<SubCategoryRepository>();
+builder.Services.AddScoped<CustomerAddressRepository>();
 
 builder.Services.AddCookiePolicy(x =>
 {

@@ -1,1 +1,36 @@
-﻿@model ShippingDetailsViewModel;
+﻿@model ShippingDetailsViewModel
+
+@* Container *@
+<div class="shipping-container">
+    @* Top *@
+    <div class="top-flex">
+        <div class="decenter"><partial name="_BackButtonPartial" /></div>
+        <h3>Shipping Details</h3>
+        <div class="decenter"></div>
+    </div>
+    @* Map? *@
+    @* <div>
+        <iframe />
+    </div> *@
+    @* List Addresses *@
+    <div class="address-list">
+        @foreach(var address in @Model.CustomerAddresses)
+        {
+            <div class="address-grid">
+                <div class="address-name">@address.AddressName</div>
+                <div class="address-location">@address.PostalCode @address.StreetAddress @address.Streetnumber, @address.City, @address.Country</div>
+                <div class="select-address" onclick="select-this-address"></div>
+            </div>
+        }
+    </div>
+    @* Add New *@
+    <div >
+
+    </div>
+
+    @* Use current button *@
+    <div></div>
+
+    @* Back to order button*@
+    <a asp-controller="Order" asp-action="Index" asp-route-address=""></a>
+</div>

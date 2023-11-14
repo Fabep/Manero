@@ -9,6 +9,6 @@ namespace DataAccess.Models.ViewModels
 {
     public class ShippingDetailsViewModel
     {
-        public CustomerAddress CustomerAddress { get; set; }
+        public List<CustomerAddress> CustomerAddresses { get; set; } = new List<CustomerAddress>();
     }
 }

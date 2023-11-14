@@ -9,6 +9,7 @@ namespace DataAccess.Models
 {
     public class CustomerAddress
     {
+        public string? AddressName { get; set; }
         public string? StreetAddress { get; set; }
         public string? Streetnumber { get; set; }
         public string? PostalCode { get; set; }
