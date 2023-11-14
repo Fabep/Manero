@@ -81,7 +81,7 @@ namespace DataAccess.Tests.Handlers.Services
         public void ShouldHavePromotion_ProductPriceLessThan799_ReturnsTrue()
         {
 	        // Arrange
-	        var product = new ProductEntity { ProductPrice = 798 };
+	        var product = new ProductEntity { ProductPrice = 498 };
 
 	        // Act
 	        var result = _sut.ShouldHavePromotion(product);
@@ -93,7 +93,7 @@ namespace DataAccess.Tests.Handlers.Services
         public void ShouldHavePromotion_ProductPrice799OrMore_ReturnsFalse()
         {
 	        // Arrange
-	        var product = new ProductEntity { ProductPrice = 799 };
+	        var product = new ProductEntity { ProductPrice = 499 };
 
 	        // Act
 	        var result = _sut.ShouldHavePromotion(product);
