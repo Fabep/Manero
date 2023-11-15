@@ -65,7 +65,7 @@ namespace ManeroWebAppMVC.Controllers
 
 			var viewModel = new ArticleViewModel
 			{
-				Product = await _productService.GetOneProductFromNameAsync(n),
+				Product = product,
 				Combinations = await _productService.GetProductColorsAndSizesAsync(n)
 			};
 
