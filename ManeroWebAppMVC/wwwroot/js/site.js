@@ -111,6 +111,24 @@ function cartCount(quantityCount) {
 
 
 function createCartProduct(product) {
+
+    if (product.DiscountedPrice > 0 ) {
+        return `
+        <div class="cart-box" data-product-id="${product.ProductId}">
+            <img src="${product.ImageUrl}" class="cart-img">
+            <div class="detail-box">
+                <div class="cart-product-title">${product.ProductName} ${product.Size} ${product.Color}</div>
+                <div class="price-box">
+                    <div class="cart-price">$${product.DiscountedPrice} x ${product.Quantity} </div>
+                    <div class="cart-amt">${product.DiscountedPrice}</div>
+                    <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
+                </div>
+                <input type="number" value="${product.Quantity}" class="add-cart cart-quantity" min="1">
+            </div>
+        </div>
+    `;
+    }
+
     return `
         <div class="cart-box" data-product-id="${product.ProductId}">
             <img src="${product.ImageUrl}" class="cart-img">
@@ -125,6 +143,7 @@ function createCartProduct(product) {
             </div>
         </div>
     `;
+ 
 }
 
 const btnCart = document.querySelector('#cart-icon');

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ManeroWebAppMVC.Controllers
 {
@@ -6,11 +7,8 @@ namespace ManeroWebAppMVC.Controllers
     {
         public IActionResult Index()
         {
-
-
-
-
-            return View();
+            var viewModel = new OrderViewModel();
+            return View(viewModel);
         }
     }
 }
