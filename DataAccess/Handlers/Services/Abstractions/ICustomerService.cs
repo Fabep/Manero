@@ -5,6 +5,5 @@ namespace DataAccess.Handlers.Services.Abstractions;
 
 public interface ICustomerService
 {
-    Task<List<CustomerAddress>>GetAllCustomerAddressesFromCustomerId(int id);
-    Task<CustomerAddress> CreateCustomerAddressIfNotExisting(CustomerAddressSchema customerAddress);
+    Task<List<CustomerAddress>> GetAllCustomerAddressesFromCustomerId(int id);
 }

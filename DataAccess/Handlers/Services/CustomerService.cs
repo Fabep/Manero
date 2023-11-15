@@ -15,27 +15,6 @@ public class CustomerService : ICustomerService
         _customerAddressRepository = customerAddressRepository;
     }
 
-    public async Task<CustomerAddress> CreateCustomerAddressIfNotExisting(CustomerAddressSchema schema)
-    {
-        var temp = await _customerAddressRepository.GetAsync(x =>
-            x.CustomerId == schema.CustomerId &&
-            x.StreetAddress == schema.StreetAddress &&
-            x.AddressName == schema.AddressName &&
-            x.City == schema.Country &&
-            x.Country == schema.Country &&
-            x.Streetnumber == schema.Streetnumber &&
-            x.PostalCode == schema.PostalCode &&
-            x.Region == schema.Region);
-        if (temp is null)
-        {
-            var res = await _customerAddressRepository.CreateAsync(schema.ConvertCustomerAddressSchemaToCustomerAddressEntity());
-
-            if (res is Enums.StatusMessage.Success)
-                return null!; 
-        }
-        return null!;
-    }
-
     public async Task<List<CustomerAddress>> GetAllCustomerAddressesFromCustomerId(int id)
     {
         return await _customerAddressRepository.GetAll(x => x.CustomerId == id).Select(x => new CustomerAddress

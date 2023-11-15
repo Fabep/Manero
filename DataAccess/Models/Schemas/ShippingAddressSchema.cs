@@ -3,10 +3,8 @@
 namespace DataAccess.Models.Schemas;
 
 [BindProperties]
-public class CustomerAddressSchema
+public class ShippingAddressSchema
 {
-    public int CustomerId { get; set; }
-    public string AddressName { get; set; } = null!;
     public string StreetAddress { get; set; } = null!;
     public string? Streetnumber { get; set; }
     public string PostalCode { get; set; } = null!;

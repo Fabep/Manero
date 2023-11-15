@@ -1,7 +1,4 @@
-﻿using DataAccess.ExtensionMethods;
-using DataAccess.Handlers.Repositories;
-using DataAccess.Handlers.Services;
-using DataAccess.Handlers.Services.Abstractions;
+﻿using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models.Schemas;
 using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -15,25 +12,29 @@ namespace ManeroWebAppMVC.Controllers
         {
             _customerService = customerService;
         }
-        public IActionResult Index()
+        public IActionResult Index(ShippingAddressSchema shippingAddress = null!)
         {
             return View();
         }
-
-        public async Task<IActionResult> ShippingDetails(int cid)
+        [HttpGet]
+        public async Task<IActionResult> ShippingDetails(int? cid)
         {
             var vm = new ShippingDetailsViewModel();
-
-            foreach(var customerAddress in await _customerService.GetAllCustomerAddressesFromCustomerId(cid))
+            if (cid is not null)
             {
-                vm.CustomerAddresses.Add(customerAddress);
+                foreach (var customerAddress in await _customerService.GetAllCustomerAddressesFromCustomerId((int)cid!))
+                {
+                    vm.CustomerAddresses.Add(customerAddress);
+                }
             }
             return View(vm);
         }
         [HttpPost]
-        public async Task<IActionResult> ShippingDetailsSubmit(CustomerAddressSchema schema)
+        public IActionResult ShippingDetails(ShippingAddressSchema schema)
         {
-            return null!;
+            if (schema is not null && ModelState.IsValid)
+                return RedirectToAction("Index", new { shippingAddress = schema });
+            return View();
         }
     }
 }
