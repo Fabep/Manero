@@ -96,6 +96,10 @@
         <input type="hidden" name="productName" value="@Model.Product.ProductName"/>
         <input type="hidden" id="selected-size" name="selectedSize" value=""/>
         <input type="hidden" id="selected-color" name="selectedColor" value=""/>
+        @if (Model.Product.Promotion is not null)
+        {
+            <input type="hidden" id="discount-price" value="@Model.Product.ProductPrice * (1 - @Model.Product.Promotion.DiscountRate)"/>
+        }
         <button type="submit" class="add-to-cart-button">
             Add To Cart
         </button>
