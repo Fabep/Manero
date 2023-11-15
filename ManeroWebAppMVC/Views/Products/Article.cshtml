@@ -33,13 +33,11 @@
     @* Price *@
    
     <div class="product-price">
-	    @if (Model.Product.Promotion != null)
+	    @if (Model.Product.DiscountedPrice != 0)
 	    {
-		    var discountPrice = Model.Product.ProductPrice * (1 - Model.Product.Promotion.DiscountRate);
-		    var formattedDiscountPrice = discountPrice.ToString("0.0");
 
 		    <h4 class="product-price-old m-0"><s>$@Model.Product.ProductPrice.ToString("0.00")</s></h4>
-		    <h4 class="product-price-sales">$@formattedDiscountPrice</h4>
+		    <h4 class="product-price-sales">$@Model.Product.DiscountedPrice.ToString("0.00")</h4>
 	    }
 	    else
 	    {
@@ -98,7 +96,7 @@
         <input type="hidden" id="selected-color" name="selectedColor" value=""/>
         @if (Model.Product.Promotion is not null)
         {
-            <input type="hidden" id="discount-price" value="@Model.Product.ProductPrice * (1 - @Model.Product.Promotion.DiscountRate)"/>
+            <input type="hidden" id="discount-price" value="@Model.Product.DiscountedPrice" name="discountPrice"/>
         }
         <button type="submit" class="add-to-cart-button">
             Add To Cart
