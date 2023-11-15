@@ -81,6 +81,7 @@ namespace ManeroWebAppMVC.Controllers
 			try
 			{
 				Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
+
                 var cartObject = new ProductCartObject
                 {
                     ProductId = product.ProductId,
@@ -89,8 +90,9 @@ namespace ManeroWebAppMVC.Controllers
                     Size = selectedSize,
                     Color = selectedColor,
                     Quantity = currentAmount,
-                    ImageUrl = product.ImageUrl
-                };
+                    ImageUrl = product.ImageUrl,
+                    DiscountedPrice = (decimal)(product.ProductPrice * (1 - product.Promotion.DiscountRate))
+            };
 
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
 
