@@ -258,6 +258,25 @@ namespace DataAccess.Handlers.Services
                 return new List<Product>();
             }
         }
+        public async Task<List<Product>> GetFilteredProducts(string query)
+        {
+            try
+            {
+                var productList = await _productRepository.GetAllAsync(x => x.Color.Color.Contains(query));
+
+                var products = productList.Select(p => DataConverter.ConvertProductEntityToProduct(p)).ToList();
+
+                return products;
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine($"Ett fel uppstod vid sökning: {ex.Message}");
+
+
+                return new List<Product>();
+            }
+        }
 
 
 

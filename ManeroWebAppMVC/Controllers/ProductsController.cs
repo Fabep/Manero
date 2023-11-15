@@ -73,9 +73,12 @@ namespace ManeroWebAppMVC.Controllers
 				_productService.SetSizesAndColors(viewModel, selectedSize, selectedColor);
 			return View(viewModel);
 		}
+      
 
 
-		[HttpPost]
+
+
+        [HttpPost]
 		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor)
 		{
 			try
@@ -143,6 +146,21 @@ namespace ManeroWebAppMVC.Controllers
         }
 
 
+
+
+
+        public async Task<IActionResult> Filter(string color)
+    {
+        var filterResults = await _productService.GetFilteredProducts(color);
+
+        var viewModel = new SearchViewModel
+        {
+            Query = $"Color: {color}",
+            Results = filterResults
+        };
+
+        return View(viewModel);
+    }
 
 
 

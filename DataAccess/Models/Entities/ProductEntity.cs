@@ -35,4 +35,9 @@ public class ProductEntity
 	public PromotionEntity? Promotion { get; set; }
     public bool? IsBestSeller { get; set; }
     public bool? IsFeaturedProduct { get; set; }
+
+    internal ProductEntity Where(Func<object, bool> value)
+    {
+        throw new NotImplementedException();
+    }
 }

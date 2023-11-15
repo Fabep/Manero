@@ -1,0 +1,62 @@
+﻿@model SearchViewModel
+
+<a class="back-link" href="@Url.Action("Index", "Home")">
+    <i class="fa-solid fa-backward"></i> Back
+</a>
+
+<div class="filtering">
+    <i class="fa-solid fa-filter"></i>
+    <label for="colorFilter">Color:</label>
+    <select name="color" id="colorFilter">
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Yellow">Yellow</option>
+        <option value="White">White</option>
+        <option value="Black">Black</option>
+        <!-- Add more color options as needed -->
+    </select>
+    <button id="filterButton" class="sort-button">Start</button>
+
+    <!-- Lägg till en "Refresh" knapp -->
+    <button id="refreshButton" class="sort-button">Refresh</button>
+</div>
+
+<section id="filteredResults" class="product-section">
+    <!-- Placera direkt HTML-koden för att visa de filtrerade resultaten här -->
+    <div class="container product-container-items">
+        @foreach (var product in Model.Results)
+        {
+            <partial name="_ProductTilePartial" model="product" />
+        }
+    </div>
+</section>
+
+@section scripts {
+    <script>
+        // JavaScript för att göra AJAX-anrop när användaren väljer färg
+        $(document).ready(function () {
+            $('#filterButton').on('click', function () {
+                var selectedColor = $('#colorFilter').val();
+                $.ajax({
+                    url: '@Url.Action("Filter", "Products")',
+                    type: 'GET',
+                    data: { color: selectedColor },
+                    success: function (result) {
+                        // Uppdatera endast innehållet i product-container-items
+                        $('#filteredResults .product-container-items').html($(result).find('.product-container-items').html());
+                    },
+                    error: function () {
+                        console.error('Error in AJAX request');
+                    }
+                });
+            });
+
+            // JavaScript för att göra sidan om när "Refresh" knappen klickas på
+            $('#refreshButton').on('click', function () {
+                location.reload();
+            });
+        });
+
+    </script>
+}
