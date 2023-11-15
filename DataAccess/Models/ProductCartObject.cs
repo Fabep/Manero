@@ -12,7 +12,7 @@ namespace DataAccess.Models
         public Guid ProductId { get; set; }
         public string ProductName { get; set; } = null!;
         public decimal Price { get; set; }
-        public decimal DiscountedPrice { get; set; }
+        public double DiscountedPrice { get; set; }
         public string Size { get; set; } = null!;
         public string Color { get; set; } = null!;
         public int Quantity { get; set; }
