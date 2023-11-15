@@ -1,19 +1,23 @@
 ﻿@model ShippingDetailsViewModel
 @{
-    var address = new CustomerAddress();
+    var address = new CustomerAddressSchema();
 }
 @* Container *@
+
 <div class="shipping-container">
     @* Top *@
+
     <div class="top-flex">
         <div class="decenter"><partial name="_BackButtonPartial" /></div>
         <h3>Shipping Details</h3>
         <div class="decenter"></div>
     </div>
+
     @* Map? *@
     @* <div>
         <iframe />
     </div> *@
+
     @* List Addresses *@
     <div class="address-list">
         @foreach(var addressItem in @Model.CustomerAddresses)
@@ -25,13 +29,33 @@
             </div>
         }
     </div>
-    @* Add New *@
-    <div >
-
-    </div>
 
     @* Use current button *@
     <div></div>
+
+    @* Address to use *@
+    <div >
+        <form method="post">
+            <div>
+                <input type="text" asp-for="@address"/>
+            </div>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+        </form>
+    </div>
 
     @* Back to order button*@
     <a asp-controller="Order" asp-action="Index" asp-route-address="address">Back to</a>

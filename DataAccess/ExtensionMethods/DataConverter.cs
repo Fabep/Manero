@@ -112,6 +112,20 @@ namespace DataAccess.ExtensionMethods
 				Country = entity.Country,
 			};
 		}
+		public static CustomerAddressEntity ConvertCustomerAddressSchemaToCustomerAddressEntity(this CustomerAddressSchema schema)
+		{
+			return new CustomerAddressEntity()
+			{
+				CustomerId = schema.CustomerId,
+				StreetAddress = schema.StreetAddress,
+				AddressName = schema.AddressName,
+				City = schema.Country,
+				Country = schema.Country,
+				Streetnumber = schema.Streetnumber,
+				PostalCode = schema.PostalCode,
+				Region = schema.Region
+			};
+		}
 		private static string GetProductImage(int? subCategoryId)
 		{
 			var url = string.Empty;
