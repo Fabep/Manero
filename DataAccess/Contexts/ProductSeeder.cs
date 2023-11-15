@@ -39,6 +39,7 @@ internal class ProductSeeder
             var subCategoryId = CategorySeeder.GetSubCategoryId(clothingName);
             bool isBestSeller = i%2 == 0;
             bool isFeaturedProducts = i% 3 == 0;
+            var productPrice = random.Next(50, 1000);
 
             for (int colorId = 1; colorId < 7; colorId++)
             {
@@ -50,7 +51,7 @@ internal class ProductSeeder
                         ProductName = $"{description} {clothingName}",
                         ProductDescription =
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                        ProductPrice = random.Next(50, 1000),
+                        ProductPrice = productPrice,
                         Rating = random.Next(0, 5),
                         SubCategoryId = subCategoryId,
                         ColorId = colorId,

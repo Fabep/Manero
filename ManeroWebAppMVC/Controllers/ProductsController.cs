@@ -1,23 +1,26 @@
 ﻿using DataAccess.ExtensionMethods;
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services;
+using DataAccess.Enums;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace ManeroWebAppMVC.Controllers
 {
-	public class ProductsController : Controller
+    public class ProductsController : Controller
 	{
 		private readonly IProductService _productService;
+		private readonly ICookieService _cookieService;
 
-		public ProductsController(IProductService productService)
-		{
-			_productService = productService;
-		}
+        public ProductsController(IProductService productService, ICookieService cookieService)
+        {
+            _productService = productService;
+            _cookieService = cookieService;
+        }
 
 
 		public async Task<IActionResult> Index(string subProductCategory, string sortOrder)
@@ -46,11 +49,7 @@ namespace ManeroWebAppMVC.Controllers
 
 			return View(viewModel);
 		}
-
-
-
-
-		public async Task<IActionResult> Article(string n)
+		public async Task<IActionResult> Article(string n, SizeEnum? selectedSize = null!, string selectedColor = null! )
 		{
             var product = await _productService.GetOneProductFromNameAsync(n);
 
@@ -66,21 +65,69 @@ namespace ManeroWebAppMVC.Controllers
 
 			var viewModel = new ArticleViewModel
 			{
-				Product = await _productService.GetOneProductFromNameAsync(n),
+				Product = product,
 				Combinations = await _productService.GetProductColorsAndSizesAsync(n)
 			};
+
 			if (viewModel.Combinations is not null)
-			{
-				foreach (var combination in viewModel.Combinations)
-				{
-					if (!viewModel.Sizes.Contains(combination.Item1))
-						viewModel.Sizes.Add(combination.Item1);
-					if (!viewModel.Colors.Contains(combination.Item2))
-						viewModel.Colors.Add(combination.Item2);
-				}
-				viewModel.Sizes.Sort();
-			}
+				_productService.SetSizesAndColors(viewModel, selectedSize, selectedColor);
 			return View(viewModel);
+		}
+
+
+		[HttpPost]
+		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, double? discountPrice)
+		{
+			try
+			{
+				Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
+
+                var cartObject = new ProductCartObject
+                {
+                    ProductId = product.ProductId,
+                    ProductName = product.ProductName,
+                    Price = (decimal)product.ProductPrice,
+                    Size = selectedSize,
+                    Color = selectedColor,
+                    Quantity = currentAmount,
+                    ImageUrl = product.ImageUrl,
+                    DiscountedPrice = discountPrice ?? 0
+            };
+
+                var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
+
+                if (productCookie is null)
+                {
+                    _cookieService.AddCookie(Response, "ProductsCookie", new List<ProductCartObject> { cartObject });
+                }
+                else
+                {
+                    var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(_cookieService.GetCookie(Request, "ProductsCookie")!);
+                    if (cartList!.Select(x => x.ProductId).Contains(cartObject.ProductId))
+                    {
+                        cartList.FirstOrDefault(x => x.ProductId == cartObject.ProductId)!.Quantity += cartObject.Quantity;
+                    }
+                    else
+                    {
+                        cartList!.Add(cartObject);
+                    }
+
+                    _cookieService.AddCookie(Response, "ProductsCookie", cartList);
+                }
+
+                var viewModel = new ArticleViewModel
+                {
+                    Product = product,
+                    Combinations = await _productService.GetProductColorsAndSizesAsync(product.ProductName)
+                };
+
+            }
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+            return RedirectToAction("Article", new { n = productName });
+			
 		}
 
 
