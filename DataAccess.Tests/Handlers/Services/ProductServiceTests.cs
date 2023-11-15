@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using DataAccess.Models.Entities;
 using Moq;
 using ManeroWebApplication.Pages.Products;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Tests.Handlers.Services
 {
@@ -20,7 +21,7 @@ namespace DataAccess.Tests.Handlers.Services
         private IProductService _sut;
         private ProductRepository _productRepository;
         private LocalContext _localContext;
-        
+
         public ProductServiceTests()
         {
             _localContext = new LocalContext();
@@ -56,50 +57,50 @@ namespace DataAccess.Tests.Handlers.Services
         [Fact]
         public async void GetFeaturedProductsAsync_DoesNotReturn_Null()
         {
-	        //Arrange
+            //Arrange
 
-	        //Act
-	        var result = await _sut.GetFeaturedProductsAsync();
+            //Act
+            var result = await _sut.GetFeaturedProductsAsync();
 
-	        //Assert
-	        Assert.NotEmpty(result);
+            //Assert
+            Assert.NotEmpty(result);
         }
 
         [Fact]
         public async void GetFeaturedProductsAsync_ReturnsType_ListOfProduct()
         {
-	        //Arrange
+            //Arrange
 
-	        //Act
-	        var result = await _sut.GetFeaturedProductsAsync();
+            //Act
+            var result = await _sut.GetFeaturedProductsAsync();
 
-	        //Assert
-	        Assert.IsType<List<Product>>(result);
+            //Assert
+            Assert.IsType<List<Product>>(result);
         }
 
         [Fact]
         public void ShouldHavePromotion_ProductPriceLessThan799_ReturnsTrue()
         {
-	        // Arrange
-	        var product = new ProductEntity { ProductPrice = 798 };
+            // Arrange
+            var product = new ProductEntity { ProductPrice = 498 };
 
-	        // Act
-	        var result = _sut.ShouldHavePromotion(product);
+            // Act
+            var result = _sut.ShouldHavePromotion(product);
 
-	        // Assert
-	        Assert.True(result);
+            // Assert
+            Assert.True(result);
         }
         [Fact]
         public void ShouldHavePromotion_ProductPrice799OrMore_ReturnsFalse()
         {
-	        // Arrange
-	        var product = new ProductEntity { ProductPrice = 799 };
+            // Arrange
+            var product = new ProductEntity { ProductPrice = 499 };
 
-	        // Act
-	        var result = _sut.ShouldHavePromotion(product);
+            // Act
+            var result = _sut.ShouldHavePromotion(product);
 
-	        // Assert
-	        Assert.False(result);
+            // Assert
+            Assert.False(result);
         }
 
         [Fact]
@@ -162,5 +163,24 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.Equal(expected, result);
         }
 
-    }
+		[Fact]
+		public async Task SearchProductsAsync_ReturnsListOfProducts()
+		{
+			// Arrange
+			
+
+			// Act
+			var result = await _sut.SearchProductsAsync("Cozy Suit");
+
+			// Assert
+			Assert.NotNull(result);
+			Assert.IsType<List<Product>>(result);
+			Assert.True(result.Any(p => p.ProductName.Contains("Cozy Suit")), "Expected product not found in the result.");
+		}
+
+		
+
+
+
+	}
 }
