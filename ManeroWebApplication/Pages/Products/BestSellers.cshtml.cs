@@ -20,7 +20,7 @@ namespace ManeroWebApplication.Pages.Products
 		public async Task OnGet()
 		{
 
-			var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
+			var productList = _productRepository.GetAll(x => x.ProductPrice < 900);
 
 			BestSellers = productList
 			 .Select(p => DataConverter.ConvertProductEntityToProduct(p))

@@ -21,7 +21,7 @@ namespace ManeroWebAppMVC.Controllers
         {
             var vm = new ShippingDetailsViewModel();
 
-            foreach(var details in await _customerAddressRepository.GetAllAsync(x => x.CustomerId == cid))
+            foreach(var details in _customerAddressRepository.GetAll(x => x.CustomerId == cid))
             {
                 vm.CustomerAddresses.Add(DataConverter.ConvertCustomerAddressEntityToCustomerAddress(details));
             }
