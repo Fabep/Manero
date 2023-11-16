@@ -15,7 +15,7 @@ namespace DataAccess.Models.Entities
         public int OrderItemsId { get; set; }
         public int OrderId { get; set; }
 		public OrdersEntity? Order { get; set; }
-		public int ProductId { get; set; }
+		public Guid ProductId { get; set; }
 		public string? ProductName { get; set; }
 		[Required, Column(TypeName = "money")] public decimal TotalAmount { get; set; }
         [Required, Column(TypeName = "money")] public decimal DiscountPrice { get; set; }

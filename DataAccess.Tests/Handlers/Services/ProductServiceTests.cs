@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Models.Entities;
 using Moq;
-using ManeroWebApplication.Pages.Products;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Tests.Handlers.Services
