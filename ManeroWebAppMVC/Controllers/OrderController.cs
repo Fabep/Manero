@@ -126,13 +126,8 @@ namespace ManeroWebAppMVC.Controllers
                             public string Size { get; set; } = null!;
                             public string Color { get; set; } = null!;
                             public int Quantity { get; set; }
-                            public string ImageUrl { get; set; } = null!;
-
-                 
+                            public string ImageUrl { get; set; } = null!;                                         
                         */
-
-
-
                     }
 
                     // spara  i databas
