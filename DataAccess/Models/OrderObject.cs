@@ -8,9 +8,9 @@ namespace DataAccess.Models
 {
     public class OrderObject
     {
-        public List<ProductCartObject> Products { get; set; } = null!;
-        public decimal TotalAmount { get; set; }
-        public decimal PromotionDiscount { get; set; }
+        public List<ProductCartObject> Items { get; set; } = null!;
+        public double TotalAmount { get; set; }
+        public double PromotionDiscount { get; set; }
 
     }
 }

@@ -8,5 +8,6 @@ namespace DataAccess.Models.ViewModels
 {
     public class OrderViewModel
     {
+        public OrderObject Order { get; set; }
     }
 }
