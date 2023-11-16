@@ -25,6 +25,6 @@ public class Product
 	public int? PromotionId { get; set; }
 	[ForeignKey("PromotionId")]
 	public Promotion? Promotion { get; set; }
-	public double? DiscountedPrice { get; set; }
+	public double DiscountedPrice { get; set; } = 0;
 
 }

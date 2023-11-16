@@ -65,7 +65,7 @@ namespace ManeroWebAppMVC.Controllers
 
 			var viewModel = new ArticleViewModel
 			{
-				Product = await _productService.GetOneProductFromNameAsync(n),
+				Product = product,
 				Combinations = await _productService.GetProductColorsAndSizesAsync(n)
 			};
 
@@ -76,11 +76,12 @@ namespace ManeroWebAppMVC.Controllers
 
 
 		[HttpPost]
-		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor)
+		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, double? discountPrice)
 		{
 			try
 			{
 				Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
+
                 var cartObject = new ProductCartObject
                 {
                     ProductId = product.ProductId,
@@ -89,8 +90,9 @@ namespace ManeroWebAppMVC.Controllers
                     Size = selectedSize,
                     Color = selectedColor,
                     Quantity = currentAmount,
-                    ImageUrl = product.ImageUrl
-                };
+                    ImageUrl = product.ImageUrl,
+                    DiscountedPrice = discountPrice ?? 0
+            };
 
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
 
