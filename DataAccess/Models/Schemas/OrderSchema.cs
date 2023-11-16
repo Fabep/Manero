@@ -1,5 +1,8 @@
-﻿namespace DataAccess.Models.Schemas;
+﻿using Microsoft.AspNetCore.Mvc;
 
+namespace DataAccess.Models.Schemas;
+
+[BindProperties]
 public class OrderSchema
 {
     public int CustomerId { get; set; }

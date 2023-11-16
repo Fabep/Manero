@@ -104,7 +104,6 @@ namespace DataAccess.ExtensionMethods
 		{
 			return new CustomerAddress()
 			{
-				AddressName = entity.AddressName,
 				StreetAddress = entity.StreetAddress,
 				Streetnumber = entity.Streetnumber,
 				City = entity.City,

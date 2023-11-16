@@ -1,7 +1,6 @@
 ﻿@using DataAccess.ExtensionMethods;
-@model ShippingDetailsViewModel
+@model OrderAddressViewModel
 @{
-    var address = new ShippingAddressSchema();
 }
 @* Container *@
 
@@ -37,29 +36,30 @@
     </div>
 
     @* Address Form *@
-    <form method="post" class="address-form">
-        <div class="input-container">
+    <form method="post" asp-route-orderSchema="@Model.Order" asp-route-addressType="@Model.AddressType" class="address-form">
+        <div id="address" class="input-container">
             <label>Street Address</label>
-            <div>
-                <input type="text" name="StreetAddress" value="" />
-                <input type="number" name="StreetNumber" value="" />
-            </div>
+            <input type="text" name="StreetAddress" value="" />
         </div>
-        <div class="input-container">
+        <div id="address-number" class="input-container">
+            <label>Street Number</label>
+            <input type="number" name="StreetNumber" value="" />
+        </div>
+        <div id="postal-code" class="input-container">
             <label>Postal Code</label>
             <input type="text" name="PostalCode" value="" />
         </div>
-        <div class="input-container">
+        <div id="country" class="input-container">
             <label>Country</label>
             <input type="text" name="Country" value="" />
         </div>
-        <div class="input-container">
-            <label>City</label>
-            <input type="text" name="City" value="" />
-        </div>
-        <div class="input-container">
+        <div id="region" class="input-container">
             <label>Region</label>
             <input type="text" name="Region" value="" />
+        </div>
+        <div id="city" class="input-container">
+            <label>City</label>
+            <input type="text" name="City" value="" />
         </div>
         <button type="submit">Save</button>
     </form>

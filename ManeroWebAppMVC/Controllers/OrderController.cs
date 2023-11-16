@@ -1,11 +1,10 @@
 ﻿using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;
-using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models.Schemas;
-using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace ManeroWebAppMVC.Controllers
 {
@@ -55,28 +54,39 @@ namespace ManeroWebAppMVC.Controllers
             }
             return View();
         }
-       
+
         [HttpGet]
-        public async Task<IActionResult> ShippingDetails(int? cid)
+        public async Task<IActionResult> Address(string addressType, OrderSchema orderSchema)
         {
-            var vm = new ShippingDetailsViewModel();
-            if (cid is not null)
+            var vm = new OrderAddressViewModel
             {
-                foreach (var customerAddress in await _customerService.GetAllCustomerAddressesFromCustomerId((int)cid!))
-                {
-                    vm.CustomerAddresses.Add(customerAddress);
-                }
-            }
+                Order = orderSchema,
+                AddressType = addressType,
+            };
+            if (orderSchema.CustomerId > 0)
+                vm.CustomerAddresses.AddRange(await _customerService.GetAllCustomerAddressesFromCustomerId(orderSchema.CustomerId));
             return View(vm);
         }
         [HttpPost]
-        public IActionResult ShippingDetails(ShippingAddressSchema schema)
+        public IActionResult Address(OrderSchema orderSchema, ShippingAddressSchema addressSchema, string addressType)
         {
-            if (schema is not null && ModelState.IsValid)
+            try
             {
-                return RedirectToAction("Checkout", schema);
+                if (addressType == "Billing")
+                    orderSchema.BillingAddressSchema = addressSchema;
+                else if (addressType == "Delivery")
+                    orderSchema.DeliveryAddressSchema = addressSchema;
+                else
+                {
+                    throw new Exception("Unspecified address type.");
+                }
+                return RedirectToAction("Checkout", orderSchema);
             }
-            return View();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return RedirectToAction("Checkout", orderSchema);
         }
     }
 }
