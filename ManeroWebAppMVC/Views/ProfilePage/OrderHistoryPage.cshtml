@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <link rel="stylesheet" href="styles.scss">
+    <script src="https://kit.fontawesome.com/3b211ba7f4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="order-history-container">
+        <div class="order-history-header">
+            <button onclick="goBack()" class="go-back"><i class="fas fa-arrow-left"></i></button>
+            @* <partial name="_BackButtonPartial"></partial> *@
+            <h1 class="title">Order history</h1>
+        </div>
+
+        <div class="order-item shipping">
+            <div class="order-summary">
+                <div class="order-info">
+                    <h2>#100345</h2>
+                    <p>Feb 02, 2022 at 8:32 PM</p>
+                </div>
+                <div class="order-status">
+                    <p><i class="fas fa-shipping-fast"></i> Shipping</p>
+                    <p>$354.32</p>
+                </div>
+            </div>
+            <div class="order-details">
+                <div class="product-info">
+                    <p>Kids Red Hoodie, S, pink</p>
+                    <p>1 x $34.95</p>
+                </div>
+                <div class="actions">
+                    <a href="#" class="repeat-order">repeat order</a>
+                    <a href="#" class="leave-review">leave a review</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-item canceled">
+            <div class="order-summary">
+                <div class="order-info">
+                    <h2>#100345</h2>
+                    <p>Feb 02, 2022 at 8:32 PM</p>
+                </div>
+                <div class="order-status">
+                    <p><i class="fas fa-times-circle"></i> Canceled</p>
+                    <p>$354.32</p>
+                </div>
+            </div>
+            <div class="order-details">
+                <div class="product-info">
+                    <p>Kids Red Hoodie, S, pink</p>
+                    <p>1 x $34.95</p>
+                </div>
+                <div class="actions">
+                    <a href="#" class="repeat-order">repeat order</a>
+                    <a href="#" class="leave-review">leave a review</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-item delivered">
+            <div class="order-summary">
+                <div class="order-info">
+                    <h2>#100345</h2>
+                    <p>Feb 02, 2022 at 8:32 PM</p>
+                </div>
+                <div class="order-status">
+                    <p><i class="fas fa-check-circle"></i> Delivered</p>
+                    <p>$354.32</p>
+                </div>
+            </div>
+            <div class="order-details">
+                <div class="product-info">
+                    <p>Kids Red Hoodie, S, pink</p>
+                    <p>1 x $34.95</p>
+                </div>
+                <div class="actions">
+                    <a href="#" class="repeat-order">repeat order</a>
+                    <a href="#" class="leave-review">leave a review</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.order-history-container').addEventListener('click', function (event) {
+                if (event.target.closest('.order-summary')) {
+                    var orderDetails = event.target.closest('.order-item').querySelector('.order-details');
+                    orderDetails.classList.toggle('active');
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
