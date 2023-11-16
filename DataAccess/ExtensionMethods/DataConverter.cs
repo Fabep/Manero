@@ -99,7 +99,33 @@ namespace DataAccess.ExtensionMethods
 
             return subCategory;
 
-        }
+		}
+		public static CustomerAddress ConvertCustomerAddressEntityToCustomerAddress(this CustomerAddressEntity entity)
+		{
+			return new CustomerAddress()
+			{
+				AddressName = entity.AddressName,
+				StreetAddress = entity.StreetAddress,
+				Streetnumber = entity.Streetnumber,
+				City = entity.City,
+				PostalCode = entity.PostalCode,
+				Country = entity.Country,
+			};
+		}
+
+		public static ShippingAddressSchema ConvertCustomerAddressToShippingAddressSchema(this CustomerAddress address)
+		{
+			return new ShippingAddressSchema()
+			{
+				StreetAddress = address.StreetAddress,
+				Streetnumber = address.Streetnumber,
+				City = address.City,
+				Country = address.Country,
+				PostalCode = address.PostalCode,
+				Region = address.Region,
+			};
+		}
+		
         private static string GetProductImage(int? subCategoryId)
         {
             var url = string.Empty;

@@ -112,9 +112,6 @@ namespace DataAccess.Contexts
                     return 0;
 
             }
-
-            return random.Next(1, 4);
-
         }
 
 

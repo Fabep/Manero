@@ -17,7 +17,7 @@ namespace ManeroWebApplication.Pages.Products
 
 		public async Task OnGet()
 		{
-			var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 500);
+			var featuredProductList = _productRepository.GetAll(x => x.ProductPrice < 500);
 
 			FeaturedProducts = featuredProductList
 				.Select(p => new DataAccess.Models.Product

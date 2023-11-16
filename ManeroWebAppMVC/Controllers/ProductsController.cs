@@ -86,7 +86,7 @@ namespace ManeroWebAppMVC.Controllers
                 {
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
-                    Price = (decimal)product.ProductPrice,
+                    Price = product.ProductPrice,
                     Size = selectedSize,
                     Color = selectedColor,
                     Quantity = currentAmount,

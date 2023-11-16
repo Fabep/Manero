@@ -13,6 +13,7 @@ namespace DataAccess.Models.Entities
 		public int AddressId { get; set; } 
 		public int CustomerId { get; set; } // [fk]
 		public CustomerEntity? Customer { get; set; }
+		public string? AddressName { get; set; }
 		public string? StreetAddress { get; set; }
 		public string? Streetnumber { get; set; }
 		public string? PostalCode { get; set; }
