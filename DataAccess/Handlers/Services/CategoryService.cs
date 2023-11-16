@@ -25,7 +25,7 @@ namespace DataAccess.Handlers.Services
 		public async Task<List<PrimaryCategory>> GetAllPrimaryCategories()
 		{
 
-			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
+			var categoriesList = _subCategoryRepository.GetAll(x => true);
 
 			var primaryCategoriesList = categoriesList
 				.Include(x => x.PrimaryCategory)
@@ -41,7 +41,7 @@ namespace DataAccess.Handlers.Services
 		public async Task<List<SubCategory>> GetSubCategoriesByPrimaryCategoryId(int primaryCategoryId)
 		{
 
-			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
+			var categoriesList = _subCategoryRepository.GetAll(x => true);
 
 
 			return categoriesList.Where(x=> x.PrimaryCategoryId == primaryCategoryId)

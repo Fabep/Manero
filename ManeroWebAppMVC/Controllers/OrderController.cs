@@ -1,6 +1,9 @@
 ﻿using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;
+using DataAccess.Handlers.Services.Abstractions;
+using DataAccess.Models.Schemas;
+using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -9,10 +12,12 @@ namespace ManeroWebAppMVC.Controllers
     public class OrderController : Controller
     {
         private readonly ICookieService _cookieService;
+        private readonly ICustomerService _customerService;
 
-        public OrderController(ICookieService cookieService)
+        public OrderController(ICookieService cookieService, ICustomerService customerService)
         {
             _cookieService = cookieService;
+            _customerService = customerService;
         }
 
         public IActionResult Index()
@@ -37,7 +42,7 @@ namespace ManeroWebAppMVC.Controllers
                 }
 
                 var viewModel = new OrderViewModel
-                { 
+                {
                     Order = order,
                 };
 
@@ -47,9 +52,30 @@ namespace ManeroWebAppMVC.Controllers
             }
             catch (Exception)
             {
-
             }
-
+            return View();
+        }
+       
+        [HttpGet]
+        public async Task<IActionResult> ShippingDetails(int? cid)
+        {
+            var vm = new ShippingDetailsViewModel();
+            if (cid is not null)
+            {
+                foreach (var customerAddress in await _customerService.GetAllCustomerAddressesFromCustomerId((int)cid!))
+                {
+                    vm.CustomerAddresses.Add(customerAddress);
+                }
+            }
+            return View(vm);
+        }
+        [HttpPost]
+        public IActionResult ShippingDetails(ShippingAddressSchema schema)
+        {
+            if (schema is not null && ModelState.IsValid)
+            {
+                return RedirectToAction("Index", schema);
+            }
             return View();
         }
     }
