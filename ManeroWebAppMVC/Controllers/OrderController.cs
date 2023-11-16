@@ -9,6 +9,7 @@ using DataAccess.Models;
 using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using DataAccess.Models.Entities;
 
 namespace ManeroWebAppMVC.Controllers
 {
@@ -16,21 +17,14 @@ namespace ManeroWebAppMVC.Controllers
     {
         private readonly ICookieService _cookieService;
         private readonly ICustomerService _customerService;
+        private readonly IOrderService _orderService;
 
-        public OrderController(ICookieService cookieService, ICustomerService customerService)
+        public OrderController(ICookieService cookieService, ICustomerService customerService, IOrderService orderService)
         {
             _cookieService = cookieService;
             _customerService = customerService;
-        }
-
-
-        private readonly OrderService _orderService;
-
-        public OrderController(OrderService orderService)
-        {
             _orderService = orderService;
         }
-
 
         public IActionResult Index()
         {
@@ -67,7 +61,7 @@ namespace ManeroWebAppMVC.Controllers
             }
             return View();
         }
-       
+
         [HttpGet]
         public async Task<IActionResult> ShippingDetails(int? cid)
         {
@@ -91,24 +85,54 @@ namespace ManeroWebAppMVC.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Checkout(int orderId) 
+
+
+        //     [HttpPost]
+        public async Task<IActionResult> SubmitCheckout(CheckoutViewModel viewModel)
         {
+
+            if (viewModel is not null && ModelState.IsValid)
+            {
+
+                //verifiera order i service
+                if (viewModel.PaymentMethod != null && viewModel.TotalOrderSum > 0
+                    && viewModel.ShippingDetails != null && viewModel.OrderItems?.Count > 0)
+                {
+
+                    // spara  i databas
+
+                    // orderSchema till orderservice där det blir en orderentity
+
+                    return RedirectToAction("");// gå till sida för att se om ordern lyckats
+                }
+
+            }
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> Checkout(object products, ShippingAddressSchema? schema)
+        {
+            var order = new OrdersEntity();
+
+            // gör en produktlista - orderitems 
+
+
+
+
             var viewModel = new CheckoutViewModel();
-            //if(orderId > 0)
-            //{
-            //    var order = _orderService.GetOneOrderFromOrderIdAsync(orderId);
-
-            //}
-
 
             viewModel.DeliveryFee = "";
             viewModel.TotalOrderSum = 0; //order.Result.TotalAmount;
-            viewModel.OrderItems = await _orderService.GetOrderItemsFromOrderIdAsync(orderId);
+            // viewModel.OrderItems = ; // await _orderService.GetOrderItemsFromOrderIdAsync(orderId);
             viewModel.OrderDiscount = 0; // _orderService.GetOrderDiscount(orderId);
-            viewModel.ShippingDetails = "1006 Telefonvägen";
+
+            // ShippingDetails sparas
+            viewModel.ShippingDetails = schema;
+
             viewModel.PaymentMethod = "Kort nr 348620"; //order.Result.PaymentMethod; 
 
             return View(viewModel);
+
         }
     }
 }

@@ -32,7 +32,7 @@ namespace DataAccess.Handlers.Services
         public async Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id)
         {
             var orderItems = new List<OrderItem>();
-            var orderItemEntityQueryableList = await _orderItemRepository.GetAllAsync(x => x.OrderId == id);
+            var orderItemEntityQueryableList = _orderItemRepository.GetAll(x => x.OrderId == id);
             var orderItemEntityList = orderItemEntityQueryableList.ToList();
 
             foreach (var itemEntity in orderItemEntityList) 

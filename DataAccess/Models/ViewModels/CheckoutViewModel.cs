@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Models.Schemas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace DataAccess.Models.ViewModels
         public List<OrderItem>? OrderItems { get; set; } = new List<OrderItem>();
         public decimal OrderDiscount { get; set; } = 0;
         public string DeliveryFee { get; set; } = "Free";
-        public string? ShippingDetails { get; set; }
+        public ShippingAddressSchema? ShippingDetails { get; set; }
         public string? PaymentMethod { get; set; }
         public string? UserComment { get; set; }
     }

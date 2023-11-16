@@ -9,9 +9,22 @@
     @Model.OrderDiscount
     @Model.DeliveryFee
     <hr />
-    @Model.ShippingDetails
+
+    <div>
+        <a asp-controller="Order" asp-action="ShippingDetails" asp-route-viewModel="@Model" >
+            @Model.ShippingDetails
+        </a>
+    </div>
+    
     <hr />
     @Model.PaymentMethod
     <hr />
     <div>Comment</div>
+
+    <div>
+        <a asp-controller="Order" asp-action="SubmitCheckout" asp-route-viewModel="@Model">
+            Confirm Order
+        </a>
+    </div>
+
 </section>
