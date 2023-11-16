@@ -29,7 +29,7 @@ namespace ManeroWebAppMVC.Controllers
                 var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(productCookie!);
 
 
-                var order = new OrderObject();
+                var order = new OrderSchema();
                 order.Items = cartList;
 
 
@@ -74,7 +74,7 @@ namespace ManeroWebAppMVC.Controllers
         {
             if (schema is not null && ModelState.IsValid)
             {
-                return RedirectToAction("Index", schema);
+                return RedirectToAction("Checkout", schema);
             }
             return View();
         }

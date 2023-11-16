@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccess.Models.Schemas;
 
 namespace DataAccess.Models.ViewModels
 {
     public class OrderViewModel
     {
-        public OrderObject Order { get; set; }
+        public OrderSchema Order { get; set; }
     }
 }
