@@ -17,22 +17,25 @@
 
                 <div class="detail-box">
                     <div class="cart-product-title">@product.ProductName @product.Size @product.Color</div>
-                    <div class="price-box">
-                        @if (product.DiscountedPrice > 0)
-                        {
-                            <span class="old-price">$@product.Price</span>
-                            <div class="cart-price"><span class="discount">$@product.DiscountedPrice</span> x @product.Quantity </div>
-                            <div class="cart-amt">@product.DiscountedPrice</div>
-                        }
-                        else
-                        {
-                            <div class="cart-price">@product.Price x @product.Quantity </div>
-                            <div class="cart-amt">@product.Price</div>
-                        }
+                    @if (product.DiscountedPrice > 0)
+                    {
+                        <div class="old-price">$@product.Price</div>
+                        <div class="discount-price-box">
+                            <div class="order-price"><span class="discount">$@product.DiscountedPrice</span> x @product.Quantity </div>
+                            <div class="order-amt">$@product.DiscountedPrice</div>
+                            <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="price-box">
 
+                            <div class="order-price">@product.Price x @product.Quantity </div>
+                            <div class="order-amt">$@product.Price</div>
+                            <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
+                        </div>
+                    }
 
-                        <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
-                    </div>
                     <input type="number" value="@product.Quantity" class="add-cart cart-quantity" min="1" />
                 </div>
             </div>

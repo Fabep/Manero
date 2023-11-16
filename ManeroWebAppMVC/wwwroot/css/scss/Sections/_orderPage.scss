@@ -56,13 +56,15 @@
     }
 
     .cart-img {
-        width: 75px;
-        height: 75px;
-        object-fit: cover;
-        border: 2px solid rgba(0,0,0,0.1);
-        padding: 5px;
+        width: 75px !important;
+        height: 75px !important;
+        object-fit: cover !important;
+        border: 2px solid rgba(0,0,0,0.1) !important;
+        padding: 5px !important;
     }
 
+    .old-price {
+    }
 
     .detail-box {
         display: grid;
@@ -74,6 +76,11 @@
         justify-content: space-between;
     }
 
+    .discount-price-box {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .cart-product-title {
         font-size: 1rem;
         text-transform: uppercase;
@@ -81,7 +88,7 @@
         font-weight: 500;
     }
 
-    .cart-price {
+    .order-price {
         font-weight: 500;
     }
 
