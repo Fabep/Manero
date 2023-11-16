@@ -11,50 +11,9 @@
 
         @foreach (var product in Model.Order.Items)
         {
-            <div class="cart-box" data-product-id=@product.ProductId>
-
-                <img src=@product.ImageUrl class="cart-img" />
-
-                <div class="detail-box">
-                    <div class="cart-product-title">@product.ProductName @product.Size @product.Color</div>
-                    @if (product.DiscountedPrice > 0)
-                    {
-                        <div class="old-price">$@product.Price</div>
-
-                        <div class="price-box">
-                            <div class="order-price"><span class="discount">$@product.DiscountedPrice</span> x @product.Quantity </div>
-                            <div class="order-amt">$@product.DiscountedPrice</div>
-                            <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="price-box">
-
-                            <div class="order-price">@product.Price x @product.Quantity </div>
-                            <div class="order-amt">$@product.Price</div>
-                            <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
-
-                        </div>
-                    }
-
-                    <div class="product-amount">
-                        <form method="post" action="@Url.Action("ChangeQuantity", "Order")">
-                            <input type="hidden" name="productId" value="@product.ProductId" />
-                            <input type="hidden" name="operation" value="decrease" />
-                            <button type="submit" class="amount-button">-</button>
-                        </form>
-
-                        <div id="current-amount-@product.ProductId">@product.Quantity</div>
-
-                        <form method="post" action="@Url.Action("ChangeQuantity", "Order")">
-                            <input type="hidden" name="productId" value="@product.ProductId" />
-                            <input type="hidden" name="operation" value="increase" />
-                            <button type="submit" class="amount-button">+</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <partial name="_OrderTilePartial" model="product" />
         }
+
+
     </div>
 </section>
