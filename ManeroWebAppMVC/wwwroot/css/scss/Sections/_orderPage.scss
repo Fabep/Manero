@@ -76,10 +76,25 @@
         justify-content: space-between;
     }
 
-    .discount-price-box {
+
+    .product-amount {
         display: flex;
-        justify-content: space-between;
+        flex-direction: row;
+        align-self: center;
+        gap: 15px;
+        font-size: 1.2em;
+
+        #current-amount {
+            align-self: end;
+        }
+
+        .amount-button {
+            text-decoration: solid;
+            background-color: transparent;
+            border: none;
+        }
     }
+
 
     .cart-product-title {
         font-size: 1rem;

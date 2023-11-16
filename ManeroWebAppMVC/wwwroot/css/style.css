@@ -981,9 +981,20 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.order-section .discount-price-box {
+.order-section .product-amount {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  align-self: center;
+  gap: 15px;
+  font-size: 1.2em;
+}
+.order-section .product-amount #current-amount {
+  align-self: end;
+}
+.order-section .product-amount .amount-button {
+  text-decoration: solid;
+  background-color: transparent;
+  border: none;
 }
 .order-section .cart-product-title {
   font-size: 1rem;
