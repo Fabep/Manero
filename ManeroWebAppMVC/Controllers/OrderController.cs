@@ -35,7 +35,7 @@ namespace ManeroWebAppMVC.Controllers
                 var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(productCookie!);
 
 
-                var order = new OrderObject();
+                var order = new OrderSchema();
                 order.Items = cartList;
 
 
@@ -76,11 +76,11 @@ namespace ManeroWebAppMVC.Controllers
             return View(vm);
         }
         [HttpPost]
-        public IActionResult ShippingDetails(ShippingAddressSchema schema)
+        public IActionResult ShippingDetails(AddressSchema schema)
         {
             if (schema is not null && ModelState.IsValid)
             {
-                return RedirectToAction("Index", schema);
+                return RedirectToAction("Checkout", schema);
             }
             return View();
         }
