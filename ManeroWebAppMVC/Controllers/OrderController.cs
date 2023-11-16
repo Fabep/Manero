@@ -12,7 +12,7 @@ namespace ManeroWebAppMVC.Controllers
         {
             _customerService = customerService;
         }
-        public IActionResult Index(ShippingAddressSchema shippingAddress = null!)
+        public IActionResult Index(ShippingAddressSchema? shippingAddress)
         {
             return View();
         }
@@ -33,7 +33,9 @@ namespace ManeroWebAppMVC.Controllers
         public IActionResult ShippingDetails(ShippingAddressSchema schema)
         {
             if (schema is not null && ModelState.IsValid)
-                return RedirectToAction("Index", new { shippingAddress = schema });
+            {
+                return RedirectToAction("Index", schema);
+            }
             return View();
         }
     }
