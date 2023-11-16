@@ -12,10 +12,12 @@ namespace ManeroWebAppMVC.Controllers
     public class OrderController : Controller
     {
         private readonly ICookieService _cookieService;
+        private readonly ICustomerService _customerService;
 
-        public OrderController(ICookieService cookieService)
+        public OrderController(ICookieService cookieService, ICustomerService customerService)
         {
             _cookieService = cookieService;
+            _customerService = customerService;
         }
 
         public IActionResult Index()
@@ -40,7 +42,7 @@ namespace ManeroWebAppMVC.Controllers
                 }
 
                 var viewModel = new OrderViewModel
-                { 
+                {
                     Order = order,
                 };
 
@@ -50,18 +52,10 @@ namespace ManeroWebAppMVC.Controllers
             }
             catch (Exception)
             {
-
             }
-
-        private readonly ICustomerService _customerService;
-        public OrderController(ICustomerService customerService)
-        {
-            _customerService = customerService;
-        }
-        public IActionResult Index(ShippingAddressSchema? shippingAddress)
-        {
             return View();
         }
+       
         [HttpGet]
         public async Task<IActionResult> ShippingDetails(int? cid)
         {
