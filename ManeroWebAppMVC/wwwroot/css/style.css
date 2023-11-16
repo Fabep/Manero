@@ -20,6 +20,14 @@
   margin: 0px 0px 10px 0px;
 }
 
+.old-price {
+  text-decoration: line-through;
+}
+
+.discount {
+  color: red;
+}
+
 .sort-filter {
   display: flex;
   justify-content: space-between;
@@ -719,11 +727,24 @@ body {
   margin: 0.3125rem 0;
 }
 .profile-container .menu-option {
-  padding: 1.25rem 0;
+  display: block;
+  width: 100%;
+  padding: 1.25rem 1rem;
+  text-align: left;
+  background-color: #fff;
+  color: inherit;
+  border: none;
+  outline: none;
+  box-shadow: none;
   border-bottom: 1px solid #e5e5e5;
+}
+.profile-container .menu-option:hover {
+  background-color: #f0f0f0;
 }
 .profile-container .menu-option .menu-option-icon {
   font-size: 20px;
+  vertical-align: middle;
+  margin-right: 0.625rem;
 }
 .profile-container .menu-option:last-child {
   border-bottom: none;
@@ -732,34 +753,115 @@ body {
   margin-right: 0.625rem;
 }
 
-.shipping-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.order-history-container {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
-.shipping-container .top-flex {
+.order-history-container .order-history-header {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  margin-top: 30px;
-  text-align: center;
+  align-items: center;
   justify-content: center;
+  position: relative;
+  padding: 1rem;
 }
-.shipping-container .top-flex div {
-  margin-top: 2px;
-  flex: 1;
+.order-history-container .title {
+  position: relative;
+  z-index: 1;
 }
-@media screen and (min-width: 720px) {
-  .shipping-container .top-flex div {
-    margin-top: 4px;
-  }
+.order-history-container .go-back {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: inherit;
 }
-@media screen and (min-width: 1080px) {
-  .shipping-container .top-flex div {
-    margin-top: 6px;
-  }
+.order-history-container .go-back:hover {
+  text-decoration: underline;
 }
-.shipping-container .top-flex h3 {
-  flex: 2;
-  text-align: center;
+.order-history-container .go-back:focus {
+  outline: none;
+}
+
+.order-item {
+  background-color: #fff;
+  margin: 0.5rem 0;
+}
+.order-item .order-summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.order-item .order-summary .order-info h2 {
+  margin: 0;
+}
+.order-item .order-summary .order-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+.order-item .order-summary .order-status {
+  text-align: right;
+}
+.order-item .order-summary .order-status p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+.order-item .order-summary .order-status p:first-child {
+  font-weight: bold;
+}
+.order-item .order-summary .order-status p i {
+  margin-right: 0.5rem;
+}
+.order-item.delivered .order-summary, .order-item.canceled .order-summary, .order-item.shipping .order-summary {
+  cursor: pointer;
+}
+.order-item.delivered .order-summary .order-status p:first-child {
+  color: green;
+}
+.order-item.delivered .order-summary .order-status p:first-child i {
+  color: green;
+}
+.order-item.canceled .order-summary .order-status p:first-child {
+  color: red;
+}
+.order-item.canceled .order-summary .order-status p:first-child i {
+  color: red;
+}
+.order-item.shipping .order-summary .order-status p:first-child {
+  color: orange;
+}
+.order-item.shipping .order-summary .order-status p:first-child i {
+  color: orange;
+}
+.order-item .order-details {
+  display: none;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+.order-item .order-details.active {
+  display: block;
+}
+.order-item .order-details .product-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.order-item .order-details .product-info p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+.order-item .order-details .actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.order-item .order-details .actions a {
+  color: #20262f;
+  font-size: 15px;
 }

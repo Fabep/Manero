@@ -40,15 +40,29 @@
     }
 
     .menu-option {
-        padding: 1.25rem 0;
-        border-bottom: 1px solid #e5e5e5;
+        display: block; // Make the button a block element
+        width: 100%; // Full width
+        padding: 1.25rem 1rem; // Vertical padding, horizontal will be to the full width
+        text-align: left; // Align text to the left
+        background-color: #fff; // Match the background color
+        color: inherit; // Inherit the font color
+        border: none; // Remove borders
+        outline: none; // Remove outline
+        box-shadow: none; // Remove any box shadows
+        border-bottom: 1px solid #e5e5e5; // Maintain the bottom border
+
+        &:hover {
+            background-color: #f0f0f0; // Change background color on hover
+        }
 
         .menu-option-icon {
             font-size: 20px;
+            vertical-align: middle; // Align the icon vertically
+            margin-right: 0.625rem; // Space between icon and text
         }
 
         &:last-child {
-            border-bottom: none;
+            border-bottom: none; // Remove bottom border for the last item
         }
 
         i {
