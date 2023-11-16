@@ -20,7 +20,8 @@
                     <div class="price-box">
                         @if (product.DiscountedPrice > 0)
                         {
-                            <div class="cart-price">@product.DiscountedPrice x @product.Quantity </div>
+                            <span class="old-price">$@product.Price</span>
+                            <div class="cart-price"><span class="discount">$@product.DiscountedPrice</span> x @product.Quantity </div>
                             <div class="cart-amt">@product.DiscountedPrice</div>
                         }
                         else
