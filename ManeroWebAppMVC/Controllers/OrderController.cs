@@ -1,4 +1,5 @@
 ﻿using DataAccess.Handlers.Services;
+using DataAccess.Models;
 using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,17 +21,20 @@ namespace ManeroWebAppMVC.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Checkout(int orderId, int? customerId) //Ta bort CustomerId?
+        public async Task<IActionResult> Checkout(int orderId) 
         {
             var viewModel = new CheckoutViewModel();
-            if(orderId > 0)
-            {
-                var order = _orderService.GetOneOrderFromOrderIdAsync(orderId);
-                viewModel.TotalOrderSum = order.Result.TotalAmount;
-            }            
-            
+            //if(orderId > 0)
+            //{
+            //    var order = _orderService.GetOneOrderFromOrderIdAsync(orderId);
+
+            //}
+
+
+            viewModel.DeliveryFee = "";
+            viewModel.TotalOrderSum = 0; //order.Result.TotalAmount;
             viewModel.OrderItems = await _orderService.GetOrderItemsFromOrderIdAsync(orderId);
-            // viewModel.OrderDiscount = _orderService.GetOrderDiscount(orderId);
+            viewModel.OrderDiscount = 0; // _orderService.GetOrderDiscount(orderId);
             viewModel.ShippingDetails = "1006 Telefonvägen";
             viewModel.PaymentMethod = "Kort nr 348620"; //order.Result.PaymentMethod; 
 
