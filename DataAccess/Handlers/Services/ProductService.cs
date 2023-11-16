@@ -108,7 +108,7 @@ namespace DataAccess.Handlers.Services
 
                 Name = "Special Discount",
                 Description = "10% off on selected products",
-                DiscountRate = 0.10,
+                DiscountRate = 0.10m,
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddMonths(1)
             };

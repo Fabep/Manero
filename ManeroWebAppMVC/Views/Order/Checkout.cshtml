@@ -3,26 +3,34 @@
 }
 
 <section>
-    @Model.TotalOrderSum
+    @Model.Order.TotalAmount 
     <hr />
-    @Model.OrderItems
-    @Model.OrderDiscount
+    @Model.Order.Items
+    @Model.Order.PromotionDiscount
     @Model.DeliveryFee
     <hr />
 
     <div>
-        <a asp-controller="Order" asp-action="ShippingDetails" asp-route-viewModel="@Model" >
-            @Model.ShippingDetails
+        <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Delivery"
+        asp-route-viewModel="@Model.Order.DeliveryAddressSchema" >
+            @Model.Order.DeliveryAddressSchema
+        </a>
+    </div>
+
+    <div>
+        <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Billing"
+        asp-route-viewModel="@Model.Order.BillingAddressSchema">
+            @Model.Order.BillingAddressSchema
         </a>
     </div>
     
     <hr />
-    @Model.PaymentMethod
+    @Model.Order.PaymentMethod
     <hr />
     <div>Comment</div>
 
     <div>
-        <a asp-controller="Order" asp-action="SubmitCheckout" asp-route-viewModel="@Model">
+        <a asp-controller="Order" asp-action="SubmitCheckout" asp-route-order="@Model.Order">
             Confirm Order
         </a>
     </div>

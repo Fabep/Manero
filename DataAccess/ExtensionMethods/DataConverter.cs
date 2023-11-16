@@ -99,32 +99,32 @@ namespace DataAccess.ExtensionMethods
 
             return subCategory;
 
-		}
-		public static CustomerAddress ConvertCustomerAddressEntityToCustomerAddress(this CustomerAddressEntity entity)
-		{
-			return new CustomerAddress()
-			{
-				StreetAddress = entity.StreetAddress,
-				Streetnumber = entity.Streetnumber,
-				City = entity.City,
-				PostalCode = entity.PostalCode,
-				Country = entity.Country,
-			};
-		}
+        }
+        public static CustomerAddress ConvertCustomerAddressEntityToCustomerAddress(this CustomerAddressEntity entity)
+        {
+            return new CustomerAddress()
+            {
+                StreetAddress = entity.StreetAddress,
+                Streetnumber = entity.Streetnumber,
+                City = entity.City,
+                PostalCode = entity.PostalCode,
+                Country = entity.Country,
+            };
+        }
 
-		public static AddressSchema ConvertCustomerAddressToShippingAddressSchema(this CustomerAddress address)
-		{
-			return new AddressSchema()
-			{
-				StreetAddress = address.StreetAddress,
-				Streetnumber = address.Streetnumber,
-				City = address.City,
-				Country = address.Country,
-				PostalCode = address.PostalCode,
-				Region = address.Region,
-			};
-		}
-		
+        public static AddressSchema ConvertCustomerAddressToShippingAddressSchema(this CustomerAddress address)
+        {
+            return new AddressSchema()
+            {
+                StreetAddress = address.StreetAddress,
+                Streetnumber = address.Streetnumber,
+                City = address.City,
+                Country = address.Country,
+                PostalCode = address.PostalCode,
+                Region = address.Region,
+            };
+        }
+
         private static string GetProductImage(int? subCategoryId)
         {
             var url = string.Empty;
@@ -154,7 +154,10 @@ namespace DataAccess.ExtensionMethods
                 OrderId = orderEntity.OrderId,
                 CustomerId = orderEntity.CustomerId,
                 OrderDate = orderEntity.OrderDate,
-                PaymentMethod = orderEntity.PaymentMethod,
+                PaymentMethod = new PaymentMethodEntity()
+                {
+                    CardNumber = orderEntity.PaymentMethod.CardNumber,
+                },
                 StatusId = orderEntity.StatusId,
                 Status = orderEntity.Status,
                 TotalAmount = orderEntity.TotalAmount,
@@ -167,21 +170,41 @@ namespace DataAccess.ExtensionMethods
 
             if (orderItemsEntity == null)
             {
-                return null;
+                return null!;
             }
 
             var order = new OrderItem()
             {
-                OrderItermsId = orderItemsEntity.OrderItermsId,
+                OrderItermsId = orderItemsEntity.OrderItemsId,
                 OrderId = orderItemsEntity.OrderId,
                 DiscountPrice = orderItemsEntity.DiscountPrice,
-                ProductId = orderItemsEntity.ProductId, 
+                ProductId = orderItemsEntity.ProductId,
                 ProductName = orderItemsEntity.ProductName,
                 Quantity = orderItemsEntity.Quantity,
                 TotalAmount = orderItemsEntity.TotalAmount
             };
             return order;
         }
+
+      
+        public static OrdersEntity ConvertOrderSchemaToOrderEntity(this OrderSchema orderSchema)
+        {
+            if (orderSchema == null)
+            {
+                return null!;
+            }
+            var orderEntity = new OrdersEntity()
+            {
+                CustomerId = orderSchema.CustomerId,
+                TotalAmount = orderSchema.TotalAmount,
+                OrderDate = DateTime.Now,
+                PaymentMethod = new PaymentMethodEntity()
+                {
+                    CardNumber = orderSchema.PaymentMethod.CardNumber,
+                },
+            };
+            return orderEntity;
+        }
+
     }
 }
-
