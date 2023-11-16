@@ -70,7 +70,7 @@ namespace ManeroWebAppMVC.Controllers
             return View(vm);
         }
         [HttpPost]
-        public IActionResult ShippingDetails(ShippingAddressSchema schema)
+        public IActionResult ShippingDetails(AddressSchema schema)
         {
             if (schema is not null && ModelState.IsValid)
             {

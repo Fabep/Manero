@@ -104,7 +104,6 @@ namespace DataAccess.ExtensionMethods
 		{
 			return new CustomerAddress()
 			{
-				AddressName = entity.AddressName,
 				StreetAddress = entity.StreetAddress,
 				Streetnumber = entity.Streetnumber,
 				City = entity.City,
@@ -113,9 +112,9 @@ namespace DataAccess.ExtensionMethods
 			};
 		}
 
-		public static ShippingAddressSchema ConvertCustomerAddressToShippingAddressSchema(this CustomerAddress address)
+		public static AddressSchema ConvertCustomerAddressToShippingAddressSchema(this CustomerAddress address)
 		{
-			return new ShippingAddressSchema()
+			return new AddressSchema()
 			{
 				StreetAddress = address.StreetAddress,
 				Streetnumber = address.Streetnumber,
