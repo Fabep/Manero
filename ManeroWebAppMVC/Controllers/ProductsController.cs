@@ -149,18 +149,19 @@ namespace ManeroWebAppMVC.Controllers
 
 
 
-        public async Task<IActionResult> Filter(string color)
-    {
-        var filterResults = await _productService.GetFilteredProducts(color);
-
-        var viewModel = new SearchViewModel
+        public async Task<IActionResult> Filter(string color, double? minPrice, double? maxPrice)
         {
-            Query = $"Color: {color}",
-            Results = filterResults
-        };
+            var filterResults = await _productService.GetFilteredProducts(color, minPrice, maxPrice);
 
-        return View(viewModel);
-    }
+            var viewModel = new SearchViewModel
+            {
+                Query = $"Color: {color}, MinPrice: {minPrice}, MaxPrice: {maxPrice}",
+                Results = filterResults
+            };
+
+            return View(viewModel);
+        }
+
 
 
 

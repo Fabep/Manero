@@ -8,6 +8,7 @@ using DataAccess.Models.ViewModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace DataAccess.Handlers.Services
 {
@@ -258,22 +259,26 @@ namespace DataAccess.Handlers.Services
                 return new List<Product>();
             }
         }
-        public async Task<List<Product>> GetFilteredProducts(string query)
+        public async Task<List<Product>> GetFilteredProducts(string color, double? minPrice, double? maxPrice)
         {
             try
             {
-                var productList = await _productRepository.GetAllAsync(x => x.Color.Color.Contains(query));
+                // Skapa en Expression<Func<ProductEntity, bool>> baserat på dina filtreringskriterier
+                Expression<Func<ProductEntity, bool>> filterExpression = x =>
+                    (string.IsNullOrEmpty(color) || x.Color.Color.Contains(color)) &&
+                    (!minPrice.HasValue || x.ProductPrice >= minPrice.Value) &&
+                    (!maxPrice.HasValue || x.ProductPrice <= maxPrice.Value);
 
+                // Hämta produktlistan från databasen baserat på filteruttrycket
+                var productList = await _productRepository.GetAllAsync(filterExpression);
+
+                // Konvertera och returnera produkterna
                 var products = productList.Select(p => DataConverter.ConvertProductEntityToProduct(p)).ToList();
-
                 return products;
             }
             catch (Exception ex)
             {
-
                 Debug.WriteLine($"Ett fel uppstod vid sökning: {ex.Message}");
-
-
                 return new List<Product>();
             }
         }

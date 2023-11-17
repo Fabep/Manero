@@ -742,3 +742,36 @@ body {
 .profile-container .menu-option i {
   margin-right: 0.625rem;
 }
+
+.color-label {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.red {
+  background-color: Red;
+}
+
+.blue {
+  background-color: Blue;
+}
+
+.green {
+  background-color: Green;
+}
+
+.yellow {
+  background-color: Yellow;
+}
+
+.white {
+  background-color: White;
+}
+
+.black {
+  background-color: Black;
+}

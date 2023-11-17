@@ -6,16 +6,32 @@
 
 <div class="filtering">
     <i class="fa-solid fa-filter"></i>
-    <label for="colorFilter">Color:</label>
-    <select name="color" id="colorFilter">
-        <option value="Red">Red</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="Yellow">Yellow</option>
-        <option value="White">White</option>
-        <option value="Black">Black</option>
-        <!-- Add more color options as needed -->
-    </select>
+
+    <!-- Färgalternativ med cirklar -->
+    <div class="color-options">
+        <input type="radio" name="color" id="red" value="Red" class="color-op" />
+        <label for="red" class="color-label red"></label>
+
+        <input type="radio" name="color" id="blue" value="Blue" class="color-op" />
+        <label for="blue" class="color-label blue"></label>
+
+        <input type="radio" name="color" id="green" value="Green" class="color-op" />
+        <label for="green" class="color-label green"></label>
+
+        <input type="radio" name="color" id="yellow" value="Yellow" class="color-op" />
+        <label for="yellow" class="color-label yellow"></label>
+
+        <input type="radio" name="color" id="white" value="White" class="color-op" />
+        <label for="white" class="color-label white"></label>
+
+        <input type="radio" name="color" id="black" value="Black" class="color-op" />
+        <label for="black" class="color-label black"></label>
+        <!-- Lägg till fler färgalternativ efter behov -->
+    </div>
+
+    <label for="priceRange">Price Range: $<span id="priceValues">0 - 1000</span></label>
+    <input type="range" id="priceSlider" min="0" max="1000" value="0" step="1">
+
     <button id="filterButton" class="sort-button">Start</button>
 
     <!-- Lägg till en "Refresh" knapp -->
@@ -34,14 +50,51 @@
 
 @section scripts {
     <script>
-        // JavaScript för att göra AJAX-anrop när användaren väljer färg
-        $(document).ready(function () {
-            $('#filterButton').on('click', function () {
-                var selectedColor = $('#colorFilter').val();
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sparade värden för färg och pris
+            var selectedColor = null;
+            var selectedMinPrice = 0;
+            var selectedMaxPrice = 1000;
+
+            // Färgfiltrering
+            var colorOps = document.querySelectorAll('.color-op');
+            colorOps.forEach(function (colorOp) {
+                colorOp.addEventListener('click', function () {
+                    selectedColor = this.value;
+                    filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice);
+                });
+            });
+
+            // Prisfiltrering med reglage
+            var priceSlider = document.getElementById('priceSlider');
+            var priceValues = document.getElementById('priceValues');
+            priceSlider.addEventListener('input', function () {
+                selectedMinPrice = this.value;
+                priceValues.textContent = selectedMinPrice + " - " + selectedMaxPrice;
+                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice);
+            });
+
+            var filterButton = document.getElementById('filterButton');
+            filterButton.addEventListener('click', function () {
+                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice);
+            });
+
+            // JavaScript för att göra sidan om när "Refresh" knappen klickas på
+            var refreshButton = document.getElementById('refreshButton');
+            refreshButton.addEventListener('click', function () {
+                location.reload();
+            });
+
+            function filterProducts(color, minPrice, maxPrice) {
+                var colorValue = color || null;
+                var minPriceValue = minPrice || 0;
+                var maxPriceValue = maxPrice || 1000;
+
+                // Gör ett AJAX-anrop för att hämta de uppdaterade resultaten
                 $.ajax({
                     url: '@Url.Action("Filter", "Products")',
                     type: 'GET',
-                    data: { color: selectedColor },
+                    data: { color: colorValue, minPrice: minPriceValue, maxPrice: maxPriceValue },
                     success: function (result) {
                         // Uppdatera endast innehållet i product-container-items
                         $('#filteredResults .product-container-items').html($(result).find('.product-container-items').html());
@@ -50,13 +103,7 @@
                         console.error('Error in AJAX request');
                     }
                 });
-            });
-
-            // JavaScript för att göra sidan om när "Refresh" knappen klickas på
-            $('#refreshButton').on('click', function () {
-                location.reload();
-            });
+            }
         });
-
     </script>
 }
