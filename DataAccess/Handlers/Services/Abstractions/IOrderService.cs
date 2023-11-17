@@ -1,4 +1,5 @@
 ﻿using DataAccess.Models;
+using DataAccess.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace DataAccess.Handlers.Services.Abstractions
     {
         public Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id);
         public Task<Order> GetOneOrderFromOrderIdAsync(int id);
+        public Task SaveOrderToDatabase(OrdersEntity orderEntity);
     }
 }

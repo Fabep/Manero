@@ -2,6 +2,7 @@
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
+using DataAccess.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,10 @@ namespace DataAccess.Handlers.Services
             return orderItems; 
         }
 
-        
+        public async Task SaveOrderToDatabase(OrdersEntity orderEntity)
+        {
+            await _orderRepository.CreateAsync(orderEntity);
+        }
 
     }
 }

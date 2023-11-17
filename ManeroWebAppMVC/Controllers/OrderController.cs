@@ -100,12 +100,21 @@ namespace ManeroWebAppMVC.Controllers
 
                     // orderSchema till orderEntity gör om i en orderservice 
                     var orderEntity = DataConverter.ConvertOrderSchemaToOrderEntity(order);
+                    orderEntity.Status = new OrderStatusEntity() { Status = "C" };
+
+                    await _orderService.SaveOrderToDatabase(orderEntity);
+
+                    // skapa order och hämta upp orderid från databasen
                     foreach (var item in order.Items)
                     {
                         // orderitems är productCartObjet och ska sparas i databas som orderitem
                         var orderItemEntity = new OrderItemsEntity();
+                       // orderItemEntity.OrderId = order.
                         orderItemEntity.ProductId = item.ProductId;
-
+                        orderItemEntity.ProductName = item.ProductName;
+                        orderItemEntity.Quantity = item.Quantity;
+                        orderItemEntity.DiscountPrice = item.DiscountedPrice; //är det priset eller är det procentsats?
+                        orderItemEntity.TotalAmount = item.Quantity * item.Price;
 
                         /*
                         orderitem
