@@ -24,7 +24,7 @@ namespace ManeroWebApplication.Pages.Products
 				{
 					ProductName = p.ProductName,
 					ProductDescription = p.ProductDescription,
-					ProductPrice = p.ProductPrice * 0.5, // Dra av 50 % från priset
+					ProductPrice = p.ProductPrice * 0.5m, // Dra av 50 % från priset
 					Rating = p.Rating ?? 0,
 					Quantity = p.Quantity ?? 0
 				})

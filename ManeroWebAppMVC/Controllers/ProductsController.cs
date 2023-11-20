@@ -76,7 +76,7 @@ namespace ManeroWebAppMVC.Controllers
 
 
 		[HttpPost]
-		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, double? discountPrice)
+		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, decimal? discountPrice)
 		{
 			try
 			{
