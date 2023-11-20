@@ -90,6 +90,7 @@ namespace ManeroWebAppMVC.Controllers
 
         public async Task<IActionResult> SubmitCheckout(OrderSchema order)
         {
+
             if (order is not null && ModelState.IsValid)
             {
                 //verifiera order i service
@@ -104,12 +105,12 @@ namespace ManeroWebAppMVC.Controllers
 
                     await _orderService.SaveOrderToDatabase(orderEntity);
 
-                    // skapa order och hämta upp orderid från databasen
+                    // skapa order och hämta upp orderid från databasen innan orderitems läggs till.
                     foreach (var item in order.Items)
                     {
                         // orderitems är productCartObjet och ska sparas i databas som orderitem
                         var orderItemEntity = new OrderItemsEntity();
-                       // orderItemEntity.OrderId = order.
+                       // orderItemEntity.OrderId = order.  // sparas automatiskt i databas
                         orderItemEntity.ProductId = item.ProductId;
                         orderItemEntity.ProductName = item.ProductName;
                         orderItemEntity.Quantity = item.Quantity;
