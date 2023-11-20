@@ -20,7 +20,7 @@ builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(conn
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped<IOrderService, OrderService>();
+//builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<SubCategoryRepository>();
 builder.Services.AddScoped<CustomerAddressRepository>();
 
@@ -42,6 +42,8 @@ builder.Services.AddControllersWithViews();
 // Add services
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
 
 
 var app = builder.Build();
