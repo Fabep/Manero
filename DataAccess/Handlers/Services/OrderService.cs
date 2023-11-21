@@ -50,5 +50,10 @@ namespace DataAccess.Handlers.Services
             await _orderRepository.CreateAsync(orderEntity);
         }
 
+        public async Task GetOrderIdAsync(int customerId)
+        {
+            await _orderRepository.GetAsync(x => x.CustomerId == customerId); // hämta order med customerId?
+        }
+
     }
 }

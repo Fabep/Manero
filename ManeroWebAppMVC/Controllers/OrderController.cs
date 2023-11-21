@@ -105,17 +105,22 @@ namespace ManeroWebAppMVC.Controllers
 
                     await _orderService.SaveOrderToDatabase(orderEntity);
 
+
+
                     // skapa order och hämta upp orderid från databasen innan orderitems läggs till.
                     foreach (var item in order.Items)
                     {
                         // orderitems är productCartObjet och ska sparas i databas som orderitem
                         var orderItemEntity = new OrderItemsEntity();
-                       // orderItemEntity.OrderId = order.  // sparas automatiskt i databas
+                       // orderItemEntity.OrderId = order.  // lägg till orderid från ordern
                         orderItemEntity.ProductId = item.ProductId;
                         orderItemEntity.ProductName = item.ProductName;
                         orderItemEntity.Quantity = item.Quantity;
                         orderItemEntity.DiscountPrice = item.DiscountedPrice; //är det priset eller är det procentsats?
                         orderItemEntity.TotalAmount = item.Quantity * item.Price;
+
+                        
+                        // spara orderitems till databas
 
                         /*
                         orderitem
