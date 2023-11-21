@@ -22,7 +22,7 @@ namespace DataAccess.Handlers.Services.Abstractions
         void SetSizesAndColors(ArticleViewModel viewModel, SizeEnum? selectedSize, string selectedColor);
         Task<Product> FindProduct(string productName, string selectedSize, string selectedColor);
         public Task<List<Product>> SearchProductsAsync(string query);
-        public  Task<List<Product>> GetFilteredProducts(string color, double? minPrice, double? maxPrice);
+        public  Task<List<Product>> GetFilteredProducts(string color, double? minPrice, double? maxPrice, string subCategory);
 
 
 

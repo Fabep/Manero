@@ -27,12 +27,36 @@
         <input type="radio" name="color" id="black" value="Black" class="color-op" />
         <label for="black" class="color-label black"></label>
         <!-- Lägg till fler färgalternativ efter behov -->
-    </div>
 
+
+    </div>
+    <label for="primaryCategory">Primary Category:</label>
+    <select id="primaryCategory" class="primary-category">
+        <option value="">All</option>
+        <option value="Men">Men</option>
+        <option value="Women">Women</option>
+        <option value="Unisex">Unisex</option>
+        <!-- Lägg till fler primära kategorier efter behov -->
+    </select>
     <label for="priceRange">Price Range: $<span id="priceValues">0 - 1000</span></label>
     <input type="range" id="priceSlider" min="0" max="1000" value="0" step="1">
 
-   
+
+    <label for="subCategory">Subcategory:</label>
+    <select id="subCategory" class="sub-category">
+        <option value="">All</option>
+        @foreach (var subCategory in new[] {
+        "T-Shirts Men", "T-Shirts Women", "T-Shirts Unisex",
+        "Pants Men", "Pants Women", "Pants Unisex","Dresses",
+        "Shoes Men", "Shoes Women", "Shoes Unisex",
+        "Bags Men", "Bags Women", "Bags Unisex","Suits",
+        "Accessories Men", "Accessories Women", "Accessories Unisex"
+        })
+        {
+            <option value="@subCategory">@subCategory</option>
+        }
+    </select>
+
 
   
    
@@ -54,17 +78,18 @@
 @section scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Sparade värden för färg och pris
+            // Sparade värden för färg, pris och subkategori
             var selectedColor = null;
             var selectedMinPrice = 0;
             var selectedMaxPrice = 1000;
+            var selectedSubCategory = null;
 
             // Färgfiltrering
             var colorOps = document.querySelectorAll('.color-op');
             colorOps.forEach(function (colorOp) {
                 colorOp.addEventListener('click', function () {
                     selectedColor = this.value;
-                    filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice);
+                    filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
                 });
             });
 
@@ -74,12 +99,14 @@
             priceSlider.addEventListener('input', function () {
                 selectedMinPrice = this.value;
                 priceValues.textContent = selectedMinPrice + " - " + selectedMaxPrice;
-                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice);
+                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
             });
 
-            var filterButton = document.getElementById('filterButton');
-            filterButton.addEventListener('click', function () {
-                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice);
+            // Subkategorifiltrering
+            var subCategoryDropdown = document.getElementById('subCategory');
+            subCategoryDropdown.addEventListener('change', function () {
+                selectedSubCategory = this.value;
+                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
             });
 
             // JavaScript för att göra sidan om när "Refresh" knappen klickas på
@@ -88,16 +115,17 @@
                 location.reload();
             });
 
-            function filterProducts(color, minPrice, maxPrice) {
+            function filterProducts(color, minPrice, maxPrice, subCategory) {
                 var colorValue = color || null;
                 var minPriceValue = minPrice || 0;
                 var maxPriceValue = maxPrice || 1000;
+                var subCategoryValue = subCategory || null;
 
                 // Gör ett AJAX-anrop för att hämta de uppdaterade resultaten
                 $.ajax({
                     url: '@Url.Action("Filter", "Products")',
                     type: 'GET',
-                    data: { color: colorValue, minPrice: minPriceValue, maxPrice: maxPriceValue },
+                    data: { color: colorValue, minPrice: minPriceValue, maxPrice: maxPriceValue, subCategory: subCategoryValue },
                     success: function (result) {
                         // Uppdatera endast innehållet i product-container-items
                         $('#filteredResults .product-container-items').html($(result).find('.product-container-items').html());

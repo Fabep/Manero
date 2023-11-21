@@ -259,13 +259,14 @@ namespace DataAccess.Handlers.Services
                 return new List<Product>();
             }
         }
-        public async Task<List<Product>> GetFilteredProducts(string color, double? minPrice, double? maxPrice)
+        public async Task<List<Product>> GetFilteredProducts(string color, double? minPrice, double? maxPrice,string subCategory)
         {
             try
             {
                 // Skapa en Expression<Func<ProductEntity, bool>> baserat på dina filtreringskriterier
                 Expression<Func<ProductEntity, bool>> filterExpression = x =>
                     (string.IsNullOrEmpty(color) || x.Color.Color.Contains(color)) &&
+                    (string.IsNullOrEmpty(subCategory) || x.SubCategory.SubCategoryName.Contains(subCategory)) &&
                     (!minPrice.HasValue || x.ProductPrice >= minPrice.Value) &&
                     (!maxPrice.HasValue || x.ProductPrice <= maxPrice.Value);
 
