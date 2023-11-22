@@ -1,0 +1,53 @@
+﻿#orderConfirmationPage {
+    .order-status {
+        display: none; // Standardinställning, visas med JavaScript.
+        text-align: center;
+        border-radius: 12px;
+        padding: 2rem;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        i {
+            font-size: 100px; // Storlek på ikonen
+        }
+
+        &.success {
+            color: #22C55E; // Grön färg för framgångsstatus
+            i {
+                color: #22C55E;
+            }
+        }
+
+        &.failed {
+            color: #EF4444; // Röd färg för felstatus
+            i {
+                color: #EF4444;
+            }
+        }
+
+        h1 {
+            color: #1F2937; // Mörk textfärg
+            margin: 0.5em 0;
+        }
+
+        p {
+            color: #1F2937; // Mörk textfärg
+            margin-bottom: 1.5em;
+        }
+
+        button {
+            background-color: #111827; // Mörk bakgrundsfärg för knappar
+            color: white;
+            border: none;
+            padding: 1em 2em;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 0.5em;
+
+            &:hover {
+                opacity: 0.8; // Opacitet för hover-effekt
+            }
+        }
+    }
+}
