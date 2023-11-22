@@ -46,11 +46,15 @@ namespace ManeroWebAppMVC.Controllers
                 order.Items = cartList;
                 order  = _orderService.CalculateTotalAmountOfNewOrder(order);
 
+
                 var viewModel = new OrderViewModel
                 {
                     Order = order,
                 };
 
+
+
+                viewModel.SubTotal = order.TotalAmount;
                 return View(viewModel);
 
             }
@@ -59,7 +63,7 @@ namespace ManeroWebAppMVC.Controllers
                 Debug.WriteLine(ex.Message);
             }
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -87,9 +91,36 @@ namespace ManeroWebAppMVC.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult ApplyPromocode(string promocode)
+        {
+
+            var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
+            var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(productCookie!);
+            var order = new OrderSchema();
+
+            if (cartList.Count == 0 || cartList is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            order.Items = cartList;
+            order = _orderService.CalculateTotalAmountOfNewOrder(order);
 
 
-        [HttpGet]
+
+            var viewModel = new OrderViewModel
+            {
+                Order = order,
+            };
+
+
+            return View(viewModel);
+
+        }
+
+
+            [HttpGet]
         public async Task<IActionResult> ShippingDetails(int? cid)
         {
             var vm = new ShippingDetailsViewModel();

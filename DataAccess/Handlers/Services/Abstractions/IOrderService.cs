@@ -14,6 +14,6 @@ namespace DataAccess.Handlers.Services.Abstractions
 
         Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id);
 
-        OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order)
+        OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order);
     }
 }

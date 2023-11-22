@@ -14,13 +14,66 @@
             <partial name="_OrderTilePartial" model="product" />
         }
 
-        <div class="promocode">
+
+
+        <div class="order-subtotal">
+            <div class="promocode">
+                <form asp-controller="Order" asp-action="ApplyPromocode" method="post">
+                    <p>Promocode:</p>
+                    <input name="promocode" id="promocodeInput" />
+                    <input type="hidden" name="pro" value="@Model" />
+                    <button type="submit" style="display: none;"></button>
+                </form>
+            </div>
+            <div class="sub-fees">
+                <table>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td id="subtotal" class="sub-values">$@Model.SubTotal</td>
+                    </tr>
+                    @if (Model.Discount != 0)
+                    {
+                        <tr>
+                            <td>Discount:</td>
+                            <td id="discount" class="sub-values">-@Model.Discount</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>Delivery:</td>
+                        <td id="delivery" class="sub-values">Free</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
-        <div class="order-total">
 
+        <div class="order-total">
+            <table>
+            <tr>
+                <td id="total-header">Total:</td>
+                <td id="" class="sum">$@Model.Order.TotalAmount</td>
+            </tr>
+            </table>
+        </div>
+
+
+
+        <div class="to-checkout">
+
+            <button class="large-btn">PROCEED TO CHECKOUT</button>
         </div>
 
 
     </div>
 </section>
+
+
+
+<script>
+    // Submit the form when Enter is pressed in the input field
+    document.getElementById('promocodeInput').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            document.querySelector('form').submit();
+        }
+    });
+</script>
