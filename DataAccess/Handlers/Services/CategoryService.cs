@@ -13,42 +13,42 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Handlers.Services
 {
-	public class CategoryService : ICategoryService
-	{
-		private readonly SubCategoryRepository _subCategoryRepository;
+    public class CategoryService : ICategoryService
+    {
+        private readonly SubCategoryRepository _subCategoryRepository;
 
-		public CategoryService(SubCategoryRepository subCategoryRepository)
-		{
-			_subCategoryRepository = subCategoryRepository;
-		}
+        public CategoryService(SubCategoryRepository subCategoryRepository)
+        {
+            _subCategoryRepository = subCategoryRepository;
+        }
 
-		public async Task<List<PrimaryCategory>> GetAllPrimaryCategories()
-		{
+        public async Task<List<PrimaryCategory>> GetAllPrimaryCategories()
+        {
 
-			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
+            var categoriesList = _subCategoryRepository.GetAll(x => true);
 
-			var primaryCategoriesList = categoriesList
-				.Include(x => x.PrimaryCategory)
-				.Select(x => DataConverter.ConvertPrimaryCategoryEntityToPrimaryCategory(x.PrimaryCategory!))
-				.Distinct()
-				.ToList();
-
-
-			return primaryCategoriesList;
-		}
+            var primaryCategoriesList = categoriesList
+                .Include(x => x.PrimaryCategory)
+                .Select(x => DataConverter.ConvertPrimaryCategoryEntityToPrimaryCategory(x.PrimaryCategory!))
+                .Distinct()
+                .ToList();
 
 
-		public async Task<List<SubCategory>> GetSubCategoriesByPrimaryCategoryId(int primaryCategoryId)
-		{
-
-			var categoriesList = await _subCategoryRepository.GetAllAsync(x => true);
+            return primaryCategoriesList;
+        }
 
 
-			return categoriesList.Where(x=> x.PrimaryCategoryId == primaryCategoryId)
-				.Select(x=> DataConverter.ConvertSubCategoryEntityToSubCategory(x))
-				.ToList();
-		}
+        public async Task<List<SubCategory>> GetSubCategoriesByPrimaryCategoryId(int primaryCategoryId)
+        {
+
+            var categoriesList = _subCategoryRepository.GetAll(x => true);
 
 
-	}
+            return categoriesList.Where(x => x.PrimaryCategoryId == primaryCategoryId)
+                .Select(x => DataConverter.ConvertSubCategoryEntityToSubCategory(x))
+                .ToList();
+        }
+
+
+    }
 }

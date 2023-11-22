@@ -20,7 +20,7 @@ namespace DataAccess.Models.Entities
 
 
 
-		public double DiscountRate { get; set; }
+		public decimal DiscountRate { get; set; }
 
 
 		[DataType(DataType.Date)]

@@ -71,7 +71,7 @@ public class LocalContext : DbContext
             Description = "Manero's best sale yet!",
             StartDate = DateTime.Now,
             EndDate = DateTime.Now.AddDays(30),
-            DiscountRate = 0.10,
+            DiscountRate = 10,
         });
 
         base.OnModelCreating(modelBuilder);

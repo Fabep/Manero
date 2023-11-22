@@ -51,7 +51,7 @@ namespace DataAccess.ExtensionMethods
 			{
 				ProductName = p.ProductName,
 				ProductDescription = p.ProductDescription,
-				ProductPrice = p.ProductPrice,
+				ProductPrice = (decimal)p.ProductPrice,
 				ColorId = 1,
 				SizeId = 1,
 				SubCategoryId = 1,
