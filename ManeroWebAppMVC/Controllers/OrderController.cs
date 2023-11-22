@@ -35,6 +35,7 @@ namespace ManeroWebAppMVC.Controllers
             {
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
                 var cartList = JsonConvert.DeserializeObject<List<ProductCartObject>>(productCookie!);
+                var order = new OrderSchema();
 
                 if (cartList.Count == 0 || cartList is null)
                 {
@@ -42,16 +43,13 @@ namespace ManeroWebAppMVC.Controllers
                 }
 
 
-                var order = new OrderSchema();
                 order.Items = cartList;
-
-
+                order  = _orderService.CalculateTotalAmountOfNewOrder(order);
 
                 var viewModel = new OrderViewModel
                 {
                     Order = order,
                 };
-
 
                 return View(viewModel);
 
