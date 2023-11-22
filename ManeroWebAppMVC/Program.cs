@@ -41,6 +41,8 @@ builder.Services.AddControllersWithViews();
 // Add services
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<OrderRepository>();
 
 
 var app = builder.Build();

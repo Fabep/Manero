@@ -2,6 +2,7 @@
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
+using DataAccess.Models.Schemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,19 @@ namespace DataAccess.Handlers.Services
         }
 
         
+        public OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order)
+        {
+
+            foreach (var item in order.Items!)
+            {
+                if (item.DiscountedPrice > 0)
+                    order.TotalAmount += item.DiscountedPrice * item.Quantity;
+                else
+                    order.TotalAmount += item.Price * item.Quantity;
+            }
+
+            return order;
+        }
 
     }
 }

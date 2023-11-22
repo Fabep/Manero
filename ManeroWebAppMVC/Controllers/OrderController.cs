@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using DataAccess.Models.Entities;
 using DataAccess.ExtensionMethods;
+using System.Diagnostics;
 
 namespace ManeroWebAppMVC.Controllers
 {
@@ -27,9 +28,9 @@ namespace ManeroWebAppMVC.Controllers
             _orderService = orderService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-
             try
             {
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
@@ -45,13 +46,6 @@ namespace ManeroWebAppMVC.Controllers
                 order.Items = cartList;
 
 
-                foreach (var item in order.Items!)
-                {
-                    if (item.DiscountedPrice > 0)
-                        order.TotalAmount += item.DiscountedPrice * item.Quantity;
-                    else
-                        order.TotalAmount += item.Price * item.Quantity;
-                }
 
                 var viewModel = new OrderViewModel
                 {
@@ -62,9 +56,11 @@ namespace ManeroWebAppMVC.Controllers
                 return View(viewModel);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
             }
+
             return View();
         }
 
