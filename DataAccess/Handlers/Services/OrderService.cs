@@ -33,7 +33,7 @@ namespace DataAccess.Handlers.Services
 
             return order;
         }
-        public async Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id)
+        public async Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id) // ta bort async eftersom det itne är en async metod?
         {
             var orderItems = new List<OrderItem>();
             var orderItemEntityQueryableList = _orderItemRepository.GetAll(x => x.OrderId == id);
@@ -76,7 +76,7 @@ namespace DataAccess.Handlers.Services
                     orderItemEntity.ProductId = item.ProductId;
                     orderItemEntity.ProductName = item.ProductName;
                     orderItemEntity.Quantity = item.Quantity;
-                    orderItemEntity.DiscountPrice = item.DiscountedPrice; //är det priset eller är det procentsats?
+                    orderItemEntity.DiscountPrice = item.DiscountedPrice; 
                     orderItemEntity.TotalAmount = item.Quantity * item.Price; 
 
                     await SaveOrderItemEntityToDataBase(orderItemEntity);
