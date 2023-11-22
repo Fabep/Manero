@@ -78,7 +78,7 @@ namespace DataAccess.Tests.Handlers.Services
         }
 
         [Fact]
-        public void ShouldHavePromotion_ProductPriceLessThan799_ReturnsTrue()
+        public void ShouldHavePromotion_ProductPriceLessThan499_ReturnsTrue()
         {
             // Arrange
             var product = new ProductEntity { ProductPrice = 498 };
@@ -90,7 +90,7 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.True(result);
         }
         [Fact]
-        public void ShouldHavePromotion_ProductPrice799OrMore_ReturnsFalse()
+        public void ShouldHavePromotion_ProductPrice499OrMore_ReturnsFalse()
         {
             // Arrange
             var product = new ProductEntity { ProductPrice = 499 };
@@ -169,12 +169,12 @@ namespace DataAccess.Tests.Handlers.Services
 			
 
 			// Act
-			var result = await _sut.SearchProductsAsync("Cozy Suit");
+			var result = await _sut.SearchProductsAsync("Cozy Bag");
 
 			// Assert
 			Assert.NotNull(result);
 			Assert.IsType<List<Product>>(result);
-			Assert.True(result.Any(p => p.ProductName.Contains("Cozy Suit")), "Expected product not found in the result.");
+			Assert.True(result.Any(p => p.ProductName.Contains("Cozy Bag")), "Expected product not found in the result.");
 		}
 
 		
