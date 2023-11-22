@@ -16,7 +16,7 @@ namespace DataAccess.Models.Entities
 		public int CustomerId { get; set; }
 		[Required, Column(TypeName = "money")] public decimal TotalAmount { get; set; }
 		public DateTime? OrderDate { get; set; }
-		public string? PaymentMethod { get; set; }
+		public PaymentMethodEntity? PaymentMethod { get; set; }
 		public int? StatusId { get; set; }
         public OrderStatusEntity? Status { get; set; }
 

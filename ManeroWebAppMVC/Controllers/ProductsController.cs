@@ -76,7 +76,7 @@ namespace ManeroWebAppMVC.Controllers
 
 
 		[HttpPost]
-		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, double? discountPrice)
+		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, decimal? discountPrice)
 		{
 			try
 			{
@@ -86,7 +86,7 @@ namespace ManeroWebAppMVC.Controllers
                 {
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
-                    Price = (decimal)product.ProductPrice,
+                    Price = product.ProductPrice,
                     Size = selectedSize,
                     Color = selectedColor,
                     Quantity = currentAmount,

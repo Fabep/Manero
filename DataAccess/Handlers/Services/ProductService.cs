@@ -23,7 +23,7 @@ namespace DataAccess.Handlers.Services
 
         public async Task<List<Product>> GetBestSellersAsync()
         {
-            var productList = await _productRepository.GetAllAsync(x => x.ProductPrice < 900);
+            var productList = _productRepository.GetAll(x => x.ProductPrice < 900);
             var products = CalculateDiscount(productList);
 
             return products;
@@ -31,7 +31,7 @@ namespace DataAccess.Handlers.Services
 
 		public async Task<List<Product>> GetFeaturedProductsAsync()
 		{
-			var featuredProductList = await _productRepository.GetAllAsync(x => x.IsFeaturedProduct == true); 
+			var featuredProductList = _productRepository.GetAll(x => x.IsFeaturedProduct == true); 
             var products = CalculateDiscount(featuredProductList);
 
             return products;
@@ -108,7 +108,7 @@ namespace DataAccess.Handlers.Services
 
                 Name = "Special Discount",
                 Description = "10% off on selected products",
-                DiscountRate = 0.10,
+                DiscountRate = 0.10m,
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddMonths(1)
             };
@@ -118,7 +118,7 @@ namespace DataAccess.Handlers.Services
 
         public async Task<List<Product>> GetAllBestSellersAsProductsAsync()
         {
-            var productList = await _productRepository.GetAllAsync(x => x.IsBestSeller == true);
+            var productList = _productRepository.GetAll(x => x.IsBestSeller == true);
 
             return productList
              .Select(p => DataConverter.ConvertProductEntityToProduct(p))
@@ -128,7 +128,7 @@ namespace DataAccess.Handlers.Services
         public async Task<List<Product>> GetProductsFromSubCategoryAsync(string subProductCategory)
         {
             // vill hämta de produkter som tillhör vald subkategori
-            var productList = await _productRepository.GetAllAsync(x => x.GetType() == typeof(ProductEntity));
+            var productList = _productRepository.GetAll(x => x.GetType() == typeof(ProductEntity));
 
             var productsFromSubCategory = await productList.Include(x => x.SubCategory)
                 .Where(s => s.SubCategory.SubCategoryName == subProductCategory)
@@ -183,7 +183,7 @@ namespace DataAccess.Handlers.Services
             {
                 var combinations = new List<SizeColorCombination>();
 
-                var temp = await _productRepository.GetAllAsync(x => x.ProductName == productName);
+                var temp = _productRepository.GetAll(x => x.ProductName == productName);
 
                 var products = await temp
                     .Include(c => c.Color)
@@ -243,7 +243,7 @@ namespace DataAccess.Handlers.Services
         {
             try
             {
-                var productList = await _productRepository.GetAllAsync(x => x.ProductName.Contains(query));
+                var productList = _productRepository.GetAll(x => x.ProductName.Contains(query));
 
                 var products = productList.Select(p => DataConverter.ConvertProductEntityToProduct(p)).ToList();
 

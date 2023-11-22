@@ -1,0 +1,66 @@
+﻿@using DataAccess.ExtensionMethods;
+@model ShippingDetailsViewModel
+@{
+    var address = new AddressSchema();
+}
+@* Container *@
+
+<div class="shipping-container">
+    @* Top *@
+
+    <div class="top-flex">
+        <div class="decenter"><partial name="_BackButtonPartial" /></div>
+        <h3>Shipping Details</h3>
+        <div class="decenter"></div>
+    </div>
+
+    @* Map? *@
+    @* <div>
+        <iframe />
+    </div> *@
+
+    @* List Addresses *@
+    <div class="address-list">
+        @foreach(var addressItem in @Model.CustomerAddresses)
+        {
+            <div class="address-grid">
+                <div class="address-name">@addressItem.AddressName</div>
+                <div class="address-location">@addressItem.PostalCode @addressItem.StreetAddress @addressItem.Streetnumber, @addressItem.City, @addressItem.Country</div>
+                <a class="select-address" asp-controller="Order" asp-action="Checkout" asp-route-shippingAddress="@DataConverter.ConvertCustomerAddressToShippingAddressSchema(addressItem);"></a>
+            </div>
+        }
+    </div>
+
+    @* Use current button *@
+    <div>
+
+    </div>
+
+    @* Address Form *@
+    <form method="post" class="address-form">
+        <div class="input-container">
+            <label>Street Address</label>
+            <div>
+                <input type="text" name="StreetAddress" value="" />
+                <input type="number" name="StreetNumber" value="" />
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Postal Code</label>
+            <input type="text" name="PostalCode" value="" />
+        </div>
+        <div class="input-container">
+            <label>Country</label>
+            <input type="text" name="Country" value="" />
+        </div>
+        <div class="input-container">
+            <label>City</label>
+            <input type="text" name="City" value="" />
+        </div>
+        <div class="input-container">
+            <label>Region</label>
+            <input type="text" name="Region" value="" />
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</div>

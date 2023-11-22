@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroWebApplication", "ManeroWebApplication\ManeroWebApplication.csproj", "{7C0C209F-BC45-46ED-B458-2755880C20F3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroApi", "ManeroApi\ManeroApi.csproj", "{EF79CECE-685C-4018-9002-BB9DBC1EBEFE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroWebAppMVC", "ManeroWebAppMVC\ManeroWebAppMVC.csproj", "{21C87A8D-0645-4C3B-8E16-6856CD585127}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManeroWebAppMVC.Tests", "ManeroWebAppMVC.Tests\ManeroWebAppMVC.Tests.csproj", "{FDFD7EEA-9A41-4BAB-A788-CF040C89DFDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManeroWebAppMVC.Tests", "ManeroWebAppMVC.Tests\ManeroWebAppMVC.Tests.csproj", "{FDFD7EEA-9A41-4BAB-A788-CF040C89DFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Tests", "DataAccess.Tests\DataAccess.Tests.csproj", "{F71BE26B-C76E-4C34-A622-0700F131CBBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Tests", "DataAccess.Tests\DataAccess.Tests.csproj", "{F71BE26B-C76E-4C34-A622-0700F131CBBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7C0C209F-BC45-46ED-B458-2755880C20F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C0C209F-BC45-46ED-B458-2755880C20F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C0C209F-BC45-46ED-B458-2755880C20F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C0C209F-BC45-46ED-B458-2755880C20F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3202AC-FCC0-4453-AEAC-04DE7A9162BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
