@@ -90,67 +90,17 @@ namespace ManeroWebAppMVC.Controllers
 
         public async Task<IActionResult> SubmitCheckout(OrderSchema order)
         {
-
+            var orderSucceeded = false;
             if (order is not null && ModelState.IsValid)
             {
                 //verifiera order i service
-                if (order.PaymentMethod != null && order.TotalAmount > 0
-                    && order.BillingAddressSchema != null && order.DeliveryAddressSchema != null
-                    && order.Items?.Count > 0)
+                if (_orderService.VerifyOrder(order))
                 {
-
-                    // orderSchema till orderEntity gör om i en orderservice 
-                    var orderEntity = DataConverter.ConvertOrderSchemaToOrderEntity(order);
-                    orderEntity.Status = new OrderStatusEntity() { Status = "C" };
-
-                    await _orderService.SaveOrderToDatabase(orderEntity);
-
-
-
-                    // skapa order och hämta upp orderid från databasen innan orderitems läggs till.
-                    foreach (var item in order.Items)
-                    {
-                        // orderitems är productCartObjet och ska sparas i databas som orderitem
-                        var orderItemEntity = new OrderItemsEntity();
-                       // orderItemEntity.OrderId = order.  // lägg till orderid från ordern
-                        orderItemEntity.ProductId = item.ProductId;
-                        orderItemEntity.ProductName = item.ProductName;
-                        orderItemEntity.Quantity = item.Quantity;
-                        orderItemEntity.DiscountPrice = item.DiscountedPrice; //är det priset eller är det procentsats?
-                        orderItemEntity.TotalAmount = item.Quantity * item.Price;
-
-                        
-                        // spara orderitems till databas
-
-                        /*
-                        orderitem
-                            public int OrderItermsId { get; set; } - skapas automatiskt?
-                            public int OrderId { get; set; } - från ordern
-		                    public OrdersEntity? Order { get; set; }
-		                    public int ProductId { get; set; } -  productid från productcartobject
-		                    public string? ProductName { get; set; } - från productcartobject
-		                    public decimal TotalAmount { get; set; } - quantity * price från productcartobject
-                            public decimal DiscountPrice { get; set; } - quantity * discount price från productcartobject
-		                    public int Quantity { get; set; } - quantity från productcartobject
-
-                         productcartobjet
-                            public Guid ProductId { get; set; }
-                            public string ProductName { get; set; } = null!;
-                            public double Price { get; set; }
-                            public double DiscountedPrice { get; set; }
-                            public string Size { get; set; } = null!;
-                            public string Color { get; set; } = null!;
-                            public int Quantity { get; set; }
-                            public string ImageUrl { get; set; } = null!;                                         
-                        */
-                    }
-
-                    // spara  i databas
-
-                    return RedirectToAction("");// gå till sida för att se om ordern lyckats
+                    orderSucceeded =  await _orderService.CreateOrder(order); 
                 }
+                return RedirectToAction("alex sida", orderSucceeded); 
             }
-            return View();
+            return View(order);
         }
 
         [HttpGet]
