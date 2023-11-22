@@ -19,9 +19,10 @@ namespace DataAccess.Handlers.Services
         private readonly OrderRepository _orderRepository;
         private readonly OrderItemRepository _orderItemRepository;
 
-        public OrderService(OrderRepository orderRepository)
+        public OrderService(OrderRepository orderRepository, OrderItemRepository orderItemRepository)
         {
             _orderRepository = orderRepository;
+            _orderItemRepository = orderItemRepository;
         }
 
 
@@ -62,26 +63,22 @@ namespace DataAccess.Handlers.Services
         {
             try
             {
-                // orderSchema till orderEntity gör om i en orderservice 
                 var orderEntity = DataConverter.ConvertOrderSchemaToOrderEntity(order);
                 orderEntity.Status = new OrderStatusEntity() { Status = "C" };
 
-                // skapa order i databasen och hämta upp orderid från databasen innan orderitems läggs till.
                 await SaveOrderEntityToDatabase(orderEntity);
                 var orderFromDataBase = await GetOrderFromCustomerIdAsync(order.CustomerId);
 
                 foreach (var item in order.Items)
                 {
-                    // orderitems är productCartObjet och ska sparas i databas som orderitem
                     var orderItemEntity = new OrderItemsEntity();
                     orderItemEntity.OrderId = orderFromDataBase.OrderId;
                     orderItemEntity.ProductId = item.ProductId;
                     orderItemEntity.ProductName = item.ProductName;
                     orderItemEntity.Quantity = item.Quantity;
                     orderItemEntity.DiscountPrice = item.DiscountedPrice; //är det priset eller är det procentsats?
-                    orderItemEntity.TotalAmount = item.Quantity * item.Price;
+                    orderItemEntity.TotalAmount = item.Quantity * item.Price; 
 
-                    // spara orderitems till databas
                     await SaveOrderItemEntityToDataBase(orderItemEntity);
                 }
                 return true;
@@ -102,7 +99,7 @@ namespace DataAccess.Handlers.Services
 
         public async Task<Order> GetOrderFromCustomerIdAsync(int customerId)
         {
-            var orderEntity = await _orderRepository.GetAsync(x => x.CustomerId == customerId); // hämta order med customerId?
+            var orderEntity = await _orderRepository.GetAsync(x => x.CustomerId == customerId); 
             var order = DataConverter.ConvertOrderEntityToOrder(orderEntity);
             return order;
         }

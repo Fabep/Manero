@@ -13,14 +13,14 @@
     <div>
         <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Delivery"
         asp-route-viewModel="@Model.Order.DeliveryAddressSchema" >
-            @Model.Order.DeliveryAddressSchema
+            Deliveryaddress:   @Model.Order.DeliveryAddressSchema
         </a>
     </div>
 
     <div>
         <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Billing"
         asp-route-viewModel="@Model.Order.BillingAddressSchema">
-            @Model.Order.BillingAddressSchema
+            Billingaddress:   @Model.Order.BillingAddressSchema
         </a>
     </div>
     

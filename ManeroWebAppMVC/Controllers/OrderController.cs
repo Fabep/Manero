@@ -86,22 +86,21 @@ namespace ManeroWebAppMVC.Controllers
             return View();
         }
 
-
-
+        [HttpGet]
         public async Task<IActionResult> SubmitCheckout(OrderSchema order)
         {
             var orderSucceeded = false;
             if (order is not null && ModelState.IsValid)
             {
-                //verifiera order i service
                 if (_orderService.VerifyOrder(order))
                 {
                     orderSucceeded =  await _orderService.CreateOrder(order); 
                 }
                 return RedirectToAction("alex sida", orderSucceeded); 
             }
-            return View(order);
+            return RedirectToAction("alex sida", orderSucceeded);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Checkout(OrderSchema schema)
