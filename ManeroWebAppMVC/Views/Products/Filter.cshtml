@@ -7,7 +7,7 @@
 <div class="filtering">
     <i class="fa-solid fa-filter"></i>
 
-    <!-- Färgalternativ med cirklar -->
+    
     <div class="color-options">
         <input type="radio" name="color" id="red" value="Red" class="color-op" />
         <label for="red" class="color-label red"></label>
@@ -26,36 +26,26 @@
 
         <input type="radio" name="color" id="black" value="Black" class="color-op" />
         <label for="black" class="color-label black"></label>
-        <!-- Lägg till fler färgalternativ efter behov -->
+      
 
 
     </div>
-    <label for="primaryCategory">Primary Category:</label>
-    <select id="primaryCategory" class="primary-category">
-        <option value="">All</option>
-        <option value="Men">Men</option>
-        <option value="Women">Women</option>
-        <option value="Unisex">Unisex</option>
-        <!-- Lägg till fler primära kategorier efter behov -->
-    </select>
+   
     <label for="priceRange">Price Range: $<span id="priceValues">0 - 1000</span></label>
     <input type="range" id="priceSlider" min="0" max="1000" value="0" step="1">
 
 
-    <label for="subCategory">Subcategory:</label>
-    <select id="subCategory" class="sub-category">
-        <option value="">All</option>
+    <div class="category-boxes">
         @foreach (var subCategory in new[] {
-        "T-Shirts Men", "T-Shirts Women", "T-Shirts Unisex",
-        "Pants Men", "Pants Women", "Pants Unisex","Dresses",
-        "Shoes Men", "Shoes Women", "Shoes Unisex",
-        "Bags Men", "Bags Women", "Bags Unisex","Suits",
-        "Accessories Men", "Accessories Women", "Accessories Unisex"
+        "T-Shirt", "Pants", "Dress", "Shoes", "Bag", "Suits"
         })
         {
-            <option value="@subCategory">@subCategory</option>
+            <div class="category-box" onclick="filterBySubCategory('@subCategory')">
+                @subCategory
+            </div>
         }
-    </select>
+    </div>
+
 
 
   
@@ -78,7 +68,7 @@
 @section scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Sparade värden för färg, pris och subkategori
+            // Sparade värden för färg, pris, primär kategori och subkategori
             var selectedColor = null;
             var selectedMinPrice = 0;
             var selectedMaxPrice = 1000;
@@ -102,18 +92,19 @@
                 filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
             });
 
+            // Primär kategorifiltrering (Om du har lagt till detta)
+            // ... (Din befintliga kod för att hantera primär kategorifiltrering) ...
+
             // Subkategorifiltrering
-            var subCategoryDropdown = document.getElementById('subCategory');
-            subCategoryDropdown.addEventListener('change', function () {
-                selectedSubCategory = this.value;
-                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
+            var categoryBoxes = document.querySelectorAll('.category-box');
+            categoryBoxes.forEach(function (categoryBox) {
+                categoryBox.addEventListener('click', function () {
+                    selectedSubCategory = categoryBox.textContent.trim();
+                    filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
+                });
             });
 
-            // JavaScript för att göra sidan om när "Refresh" knappen klickas på
-            var refreshButton = document.getElementById('refreshButton');
-            refreshButton.addEventListener('click', function () {
-                location.reload();
-            });
+            // ... (Din befintliga kod för att hantera filterknappen och Refresh-knappen) ...
 
             function filterProducts(color, minPrice, maxPrice, subCategory) {
                 var colorValue = color || null;
@@ -136,5 +127,6 @@
                 });
             }
         });
+
     </script>
 }

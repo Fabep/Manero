@@ -247,7 +247,7 @@ namespace DataAccess.Handlers.Services
                 var productList = await _productRepository.GetAllAsync(x => x.ProductName.Contains(query));
 
                 var products = productList.Select(p => DataConverter.ConvertProductEntityToProduct(p)).ToList();
-
+                products = CalculateDiscount(productList);
                 return products;
             }
             catch (Exception ex)
@@ -259,22 +259,24 @@ namespace DataAccess.Handlers.Services
                 return new List<Product>();
             }
         }
-        public async Task<List<Product>> GetFilteredProducts(string color, double? minPrice, double? maxPrice,string subCategory)
+        public async Task<List<Product>> GetFilteredProducts(string color, double? minPrice, double? maxPrice,string subCategory,string size)
         {
             try
             {
-                // Skapa en Expression<Func<ProductEntity, bool>> baserat på dina filtreringskriterier
+                
                 Expression<Func<ProductEntity, bool>> filterExpression = x =>
                     (string.IsNullOrEmpty(color) || x.Color.Color.Contains(color)) &&
                     (string.IsNullOrEmpty(subCategory) || x.SubCategory.SubCategoryName.Contains(subCategory)) &&
+                     (string.IsNullOrEmpty(size) || x.Size.Size.Contains(subCategory)) &&
                     (!minPrice.HasValue || x.ProductPrice >= minPrice.Value) &&
                     (!maxPrice.HasValue || x.ProductPrice <= maxPrice.Value);
 
-                // Hämta produktlistan från databasen baserat på filteruttrycket
+                
                 var productList = await _productRepository.GetAllAsync(filterExpression);
 
-                // Konvertera och returnera produkterna
+               
                 var products = productList.Select(p => DataConverter.ConvertProductEntityToProduct(p)).ToList();
+              products = CalculateDiscount(productList);
                 return products;
             }
             catch (Exception ex)

@@ -38,3 +38,15 @@
     cursor: pointer;
     outline: inherit;
 }
+.category-box {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.category-box:hover {
+    background-color: #f0f0f0;
+}
+
