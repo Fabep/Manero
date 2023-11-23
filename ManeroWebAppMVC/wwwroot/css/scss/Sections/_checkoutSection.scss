@@ -1,6 +1,6 @@
 ﻿.checkout-page {
-    box-shadow: gray 0px 2px 10px;
-    background-color: #ffffff;
+    /* box-shadow: #e4dede 0px 2px 10px;*/
+    /*background-color: #ffffff;*/
     padding: 20px;
     margin-top: 20px;
 
@@ -41,7 +41,7 @@
 
     .ch-adress-section {
         border-top: 1px solid #e4dede;
-      
+
 
         .ch-address-section {
             .ch-address-title {
@@ -53,7 +53,8 @@
                 color: #4b4a4a;
 
                 .ch-address-field {
-                    background-color: #f3f2f8;
+                    background-color: #ffffff;
+                    box-shadow: #e7e3e3 0px 1px 8px;
                     border-radius: 7px;
                     padding: 5px;
                     text-decoration: none;
@@ -70,7 +71,8 @@
         }
 
         .ch-payment-method {
-            background-color: #f3f2f8;
+            background-color: #ffffff;
+            box-shadow: #e7e3e3 0px 1px 8px;
             border-radius: 7px;
             padding: 5px;
             color: #4b4a4a;
@@ -82,11 +84,11 @@
         padding: 10px 0 5px 0;
 
         .ch-comment-title {
-
         }
 
         .ch-comment {
-            background-color: #f3f2f8;
+            background-color: #ffffff;
+            box-shadow: #e7e3e3 0px 1px 8px;
             border-radius: 7px;
             padding: 5px;
             color: #4b4a4a;
