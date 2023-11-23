@@ -35,13 +35,13 @@
                 <table>
                     <tr>
                         <td>Subtotal:</td>
-                        <td id="subtotal" class="sub-values">$@Model.SubTotal</td>
+                        <td id="subtotal" class="sub-values">$@Model.SubTotal.ToString("0.00")</td>
                     </tr>
                     @if (Model.Discount != 0)
                     {
                         <tr>
                             <td>Discount:</td>
-                            <td id="discount" class="sub-values">-@Model.Discount</td>
+                            <td id="discount" class="sub-values">-@Model.Discount.ToString("0.00")</td>
                         </tr>
                     }
                     <tr>
@@ -57,7 +57,7 @@
             <table>
                 <tr>
                     <td id="total-header">Total:</td>
-                    <td id="" class="sum">$@Model.Order.TotalAmount</td>
+                    <td id="" class="sum">$@Model.Order.TotalAmount.ToString("0.00")</td>
                 </tr>
             </table>
         </div>
