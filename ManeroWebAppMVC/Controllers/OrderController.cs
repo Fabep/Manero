@@ -155,9 +155,9 @@ namespace ManeroWebAppMVC.Controllers
                 {
                     orderSucceeded =  await _orderService.CreateOrder(order); 
                 }
-                return RedirectToAction("alex sida", orderSucceeded); 
+                return RedirectToAction("OrderConfirmationPage", orderSucceeded); 
             }
-            return RedirectToAction("alex sida", orderSucceeded);
+            return RedirectToAction("OrderConfirmationPage", orderSucceeded);
         }
 
 
@@ -183,7 +183,7 @@ namespace ManeroWebAppMVC.Controllers
                     City = "Stockholm",
                     Country = "Sweden",
                     PostalCode = "70171",
-                    Region = "1",
+                    Region = "County of Stockholm",
                 };
 
                 viewModel.Order.DeliveryAddressSchema = addressSchema;

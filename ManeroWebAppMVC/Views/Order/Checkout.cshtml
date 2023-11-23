@@ -3,34 +3,67 @@
 }
 
 <section class="checkout-page">
-    @Model.Order.TotalAmount 
-    <hr />
-    @Model.Order.Items
-    @Model.Order.PromotionDiscount
-    @Model.DeliveryFee
-    <hr />
+    <div class="ch-title">Checkout</div>
+    <div class="ch-total-amount">Total Amount: @Model.Order.TotalAmount$</div>
 
-    <div>
-        <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Delivery"
-        asp-route-cid="@Model.Order.CustomerId" >
-            Deliveryaddress:   @Model.Order.DeliveryAddressSchema
-        </a>
+    @foreach (var item in @Model.Order.Items)
+    {
+        <div class="ch-product">@item.ProductName, quantity: @item.Quantity, unit price: @item.Price$</div>
+    }
+
+    <div class="ch-discount-section">
+        Discount: @Model.Order.PromotionDiscount$
     </div>
 
-    <div>
-        <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Billing"
-        asp-route-cid="@Model.Order.CustomerId">
-            Billingaddress:   @Model.Order.BillingAddressSchema
-        </a>
+    <div class="ch-deliveryFee-section">
+        Delivery fee: @Model.DeliveryFee$
     </div>
-    
-    <hr />
-    @Model.Order.PaymentMethod
-    <hr />
-    <div>Comment</div>
 
-    <div>
-        <a asp-controller="Order" asp-action="SubmitCheckout" asp-route-orderAsJsonObject="@Model.OrderDataJson">
+    <div class="ch-adress-section">
+        <div class="ch-address-section">
+            <div class="ch-address-title">Deliveryaddress: </div>
+            <a class="ch-address-link" asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Delivery"
+               asp-route-cid="@Model.Order.CustomerId">
+                <div class="ch-address-field">
+                    @Model.Order.DeliveryAddressSchema!.StreetAddress
+                    @Model.Order.DeliveryAddressSchema!.Streetnumber,
+                    @Model.Order.DeliveryAddressSchema!.PostalCode
+                    @Model.Order.DeliveryAddressSchema!.City,
+                    @Model.Order.DeliveryAddressSchema!.Region,
+                    @Model.Order.DeliveryAddressSchema!.Country
+                </div>
+
+            </a>
+        </div>
+
+        <div class="ch-address-section">
+            <div class="ch-address-title">Billingaddress: </div>
+            <a class="ch-address-link" asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Billing"
+               asp-route-cid="@Model.Order.CustomerId">
+                <div class="ch-address-field">
+                    @Model.Order.BillingAddressSchema!.StreetAddress
+                    @Model.Order.BillingAddressSchema!.Streetnumber,
+                    @Model.Order.BillingAddressSchema!.PostalCode
+                    @Model.Order.BillingAddressSchema!.City,
+                    @Model.Order.BillingAddressSchema!.Region,
+                    @Model.Order.BillingAddressSchema!.Country
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="ch-payment-section">
+        <div class="ch-payment-title">Paymentmethod:</div>
+        <div class="ch-payment-method"> Card number: @Model.Order.PaymentMethod!.CardNumber</div>
+    </div>
+
+    <div class="ch-comment-section">
+        <div class="ch-comment-title">Comment:</div>
+        <div class="ch-comment"></div>
+    </div>
+
+    <div class="ch-submit-section">
+        <a class="ch-submit-button large-btn" asp-controller="Order" asp-action="SubmitCheckout" asp-route-orderAsJsonObject="@Model.OrderDataJson">
             Confirm Order
         </a>
     </div>
