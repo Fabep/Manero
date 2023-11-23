@@ -22,6 +22,12 @@ builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<SubCategoryRepository>();
 builder.Services.AddScoped<CustomerAddressRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<OrderRepository>();
+builder.Services.AddScoped<OrderItemRepository>();
+
 
 builder.Services.AddCookiePolicy(x =>
 {
@@ -37,13 +43,6 @@ builder.Services.AddCookiePolicy(x =>
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-
-// Add services
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IOrderService, OrderService>();
-builder.Services.AddScoped<OrderRepository>();
-
 
 var app = builder.Build();
 

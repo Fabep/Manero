@@ -36,6 +36,7 @@
   padding: 15px;
   width: 100%;
   max-width: 500px;
+  text-decoration: none;
 }
 
 .sort-filter {
@@ -1183,4 +1184,93 @@ body {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   height: 50vh; /* Full height of the viewport */
+}
+
+.checkout-page {
+  box-shadow: gray 0px 2px 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+}
+.checkout-page .ch-title {
+  font-size: 2.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.checkout-page .ch-total-amount {
+  display: flex;
+  justify-content: right;
+  border-top: 1px solid #e4dede;
+  padding: 15px 0 10px 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+.checkout-page .ch-product {
+  display: flex;
+  justify-content: right;
+  border-top: 1px solid #e4dede;
+  padding: 10px 0 5px 0;
+}
+.checkout-page .ch-discount-section {
+  display: flex;
+  justify-content: right;
+  padding: 5px 0 5px 0;
+}
+.checkout-page .ch-deliveryFee-section {
+  display: flex;
+  justify-content: right;
+  padding: 5px 0 5px 0;
+}
+.checkout-page .ch-adress-section {
+  border-top: 1px solid #e4dede;
+  border-bottom: 1px solid #e4dede;
+  padding: 10px 0 10px 0;
+}
+.checkout-page .ch-adress-section .ch-address-section .ch-address-title {
+  margin: 5px 0 5px 0;
+}
+.checkout-page .ch-adress-section .ch-address-section .ch-address-link {
+  text-decoration: none;
+  color: #4b4a4a;
+}
+.checkout-page .ch-adress-section .ch-address-section .ch-address-link .ch-address-field {
+  background-color: #f3f2f8;
+  border-radius: 7px;
+  padding: 5px;
+  text-decoration: none;
+}
+.checkout-page .ch-payment-section {
+  border-bottom: 1px solid #e4dede;
+  padding: 10px 0 10px 0;
+}
+.checkout-page .ch-payment-section .ch-payment-title {
+  margin: 5px 0 5px 0;
+}
+.checkout-page .ch-payment-section .ch-payment-method {
+  background-color: #f3f2f8;
+  border-radius: 7px;
+  padding: 5px;
+  color: #4b4a4a;
+}
+.checkout-page .ch-comment-section {
+  padding: 10px 0 5px 0;
+  border-bottom: 1px solid #e4dede;
+}
+.checkout-page .ch-comment-section .ch-comment {
+  background-color: #f3f2f8;
+  border-radius: 7px;
+  padding: 5px;
+  color: #4b4a4a;
+  min-height: 50px;
+}
+.checkout-page .ch-submit-section {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+.checkout-page .ch-submit-section .ch-submit-button {
+  display: flex;
+  justify-content: center;
 }
