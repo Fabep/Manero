@@ -94,7 +94,7 @@ namespace ManeroWebAppMVC.Controllers
                     Color = selectedColor,
                     Quantity = currentAmount,
                     ImageUrl = product.ImageUrl,
-                    DiscountedPrice = discountPrice ?? 0
+                    DiscountedPrice = product.DiscountedPrice
             };
 
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
