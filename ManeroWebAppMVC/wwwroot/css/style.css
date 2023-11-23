@@ -1203,15 +1203,14 @@ body {
   display: flex;
   justify-content: right;
   border-top: 1px solid #e4dede;
-  padding: 15px 0 10px 0;
+  padding: 15px 0 5px 0;
   font-size: 20px;
   font-weight: 800;
 }
 .checkout-page .ch-product {
   display: flex;
   justify-content: right;
-  border-top: 1px solid #e4dede;
-  padding: 10px 0 5px 0;
+  padding: 5px 0 5px 0;
 }
 .checkout-page .ch-discount-section {
   display: flex;
@@ -1221,15 +1220,13 @@ body {
 .checkout-page .ch-deliveryFee-section {
   display: flex;
   justify-content: right;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 10px 0;
 }
 .checkout-page .ch-adress-section {
   border-top: 1px solid #e4dede;
-  border-bottom: 1px solid #e4dede;
-  padding: 10px 0 10px 0;
 }
 .checkout-page .ch-adress-section .ch-address-section .ch-address-title {
-  margin: 5px 0 5px 0;
+  margin: 20px 0 0px 0;
 }
 .checkout-page .ch-adress-section .ch-address-section .ch-address-link {
   text-decoration: none;
@@ -1242,11 +1239,10 @@ body {
   text-decoration: none;
 }
 .checkout-page .ch-payment-section {
-  border-bottom: 1px solid #e4dede;
   padding: 10px 0 10px 0;
 }
 .checkout-page .ch-payment-section .ch-payment-title {
-  margin: 5px 0 5px 0;
+  margin: 10px 0 0px 0;
 }
 .checkout-page .ch-payment-section .ch-payment-method {
   background-color: #f3f2f8;
@@ -1256,7 +1252,6 @@ body {
 }
 .checkout-page .ch-comment-section {
   padding: 10px 0 5px 0;
-  border-bottom: 1px solid #e4dede;
 }
 .checkout-page .ch-comment-section .ch-comment {
   background-color: #f3f2f8;
