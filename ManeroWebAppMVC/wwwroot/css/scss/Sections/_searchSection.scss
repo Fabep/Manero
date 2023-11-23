@@ -8,3 +8,14 @@
 .back-link i {
     margin-right: 5px; 
 }
+
+.invisible-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit; /* Behåll textfärgen som ärver från föräldern */
+    font: inherit; /* Behåll textstilen som ärver från föräldern */
+    text-decoration: underline; /* Lägg till understreck för att indikera att det är en länk */
+}
+

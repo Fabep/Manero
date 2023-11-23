@@ -1,6 +1,8 @@
 ﻿using DataAccess.Models;
 using DataAccess.Models.Entities;
 using DataAccess.Models.Schemas;
+using DataAccess.Models;
+using DataAccess.Models.Schemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +21,10 @@ namespace DataAccess.Handlers.Services.Abstractions
         public Task SaveOrderItemEntityToDataBase(OrderItemsEntity orderItemEntity);
         public Task<Order> GetOrderFromCustomerIdAsync(int customerId);
 
+        Task<Order> GetOneOrderFromOrderIdAsync(int id);
+
+        Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id);
+
+        OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order);
     }
 }

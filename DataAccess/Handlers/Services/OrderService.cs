@@ -2,6 +2,7 @@
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
+using DataAccess.Models.Schemas;
 using DataAccess.Models.Entities;
 using DataAccess.Models.Schemas;
 using System;
@@ -87,6 +88,20 @@ namespace DataAccess.Handlers.Services
             return false;
         }
 
+        
+        public OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order)
+        {
+
+            foreach (var item in order.Items!)
+            {
+                if (item.DiscountedPrice > 0)
+                    order.TotalAmount += item.DiscountedPrice * item.Quantity;
+                else
+                    order.TotalAmount += item.Price * item.Quantity;
+            }
+
+            return order;
+        }
         public async Task SaveOrderEntityToDatabase(OrdersEntity orderEntity)
         {
             await _orderRepository.CreateAsync(orderEntity);
