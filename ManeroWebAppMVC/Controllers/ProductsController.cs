@@ -79,7 +79,7 @@ namespace ManeroWebAppMVC.Controllers
 
 
         [HttpPost]
-		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor)
+		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, decimal? discountPrice)
 		{
 			try
 			{
@@ -94,8 +94,8 @@ namespace ManeroWebAppMVC.Controllers
                     Color = selectedColor,
                     Quantity = currentAmount,
                     ImageUrl = product.ImageUrl,
-                    DiscountedPrice = product.DiscountedPrice
-            };
+                    DiscountedPrice = discountPrice ?? 0
+                };
 
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
 

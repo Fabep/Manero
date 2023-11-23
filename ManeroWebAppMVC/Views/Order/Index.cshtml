@@ -15,8 +15,19 @@
             <div class="promocode">
                 <form asp-controller="Order" asp-action="ApplyPromocode" method="post">
                     <p>Promocode:</p>
-                    <input name="promocode" id="promocodeInput" />
-                    <input type="hidden" name="pro" value="@Model" />
+                    <input name="promoCodeQuery" id="promocodeInput" />
+                    <input type="hidden" name="discount" value="@Model.Discount" />
+                    <input type="hidden" name="currentTotal" value="@Model.Order.TotalAmount" />
+
+                    @for (int i = 0; i < Model.ActivePromotions?.Count; i++)
+                    {
+                        <input type="hidden" name="activePromotions[@i].Name" value="@Model.ActivePromotions[i].Name" />
+                        <input type="hidden" name="activePromotions[@i].DiscountRate" value="@Model.ActivePromotions[i].DiscountRate" />
+                        <input type="hidden" name="activePromotions[@i].Description" value="@Model.ActivePromotions[i].Description" />
+                        <input type="hidden" name="activePromotions[@i].StartDate" value="@Model.ActivePromotions[i].StartDate" />
+                        <input type="hidden" name="activePromotions[@i].EndDate" value="@Model.ActivePromotions[i].EndDate" />
+                        <input type="hidden" name="activePromotions[@i].IsActive" value="@Model.ActivePromotions[i].IsActive" />
+                    }
                     <button type="submit" style="display: none;"></button>
                 </form>
             </div>

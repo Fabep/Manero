@@ -208,7 +208,7 @@ namespace DataAccess.ExtensionMethods
 
 
 
-        public static PromotionCode ConvertPromotionCodeEntityToPromotion(this PromotionCodeEntity promotionCodeEntity)
+        public static PromotionCode ConvertPromotionCodeEntityToPromotionCode(this PromotionCodeEntity promotionCodeEntity)
         {
             if (promotionCodeEntity == null)
             {

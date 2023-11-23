@@ -14,5 +14,8 @@ namespace DataAccess.Models.ViewModels
 
         public string OrderDataJson { get; set; }
 
+        public List<PromotionCode>? ActivePromotions { get; set; }
+
+
     }
 }

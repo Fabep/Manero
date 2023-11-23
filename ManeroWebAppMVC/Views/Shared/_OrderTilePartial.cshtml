@@ -11,8 +11,8 @@
             <div class="old-price">$@Model.Price</div>
 
             <div class="price-box">
-                <div class="order-price"><span class="discount">$@Model.DiscountedPrice</span> x @Model.Quantity </div>
-                <div class="order-amt">$@Model.DiscountedPrice</div>
+                <div class="order-price"><span class="discount">$@Model.DiscountedPrice.ToString("0.00")</span> x @Model.Quantity </div>
+                <div class="order-amt">$@Model.DiscountedPrice.ToString("0.00")</div>
                 <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
             </div>
         }
@@ -20,7 +20,7 @@
         {
             <div class="price-box">
 
-                <div class="order-price">$@Model.Price x @Model.Quantity </div>
+                <div class="order-price">$@Model.Price.ToString("0.00") x @Model.Quantity </div>
                 <div class="order-amt">$@Model.Price</div>
                 <div class=""><i class="cart-remove fa-regular fa-trash-can"></i></div>
 

@@ -20,12 +20,15 @@ namespace ManeroWebAppMVC.Controllers
         private readonly ICookieService _cookieService;
         private readonly ICustomerService _customerService;
         private readonly IOrderService _orderService;
+        private readonly IPromotionService _promotionService;
 
-        public OrderController(ICookieService cookieService, ICustomerService customerService, IOrderService orderService)
+
+        public OrderController(ICookieService cookieService, ICustomerService customerService, IOrderService orderService, IPromotionService promotionService)
         {
             _cookieService = cookieService;
             _customerService = customerService;
             _orderService = orderService;
+            _promotionService = promotionService;
         }
 
         [HttpGet]
@@ -91,7 +94,7 @@ namespace ManeroWebAppMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult ApplyPromocode(string promocode)
+        public async Task<IActionResult> ApplyPromocode(string promoCodeQuery, decimal discount, decimal currentTotal, List<PromotionCode> activePromotions)
         {
 
             var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
@@ -104,18 +107,37 @@ namespace ManeroWebAppMVC.Controllers
             }
 
             order.Items = cartList;
-            order = _orderService.CalculateTotalAmountOfNewOrder(order);
+            var totalBeforeDiscount = _orderService.CalculateTotalAmountOfNewOrder(order).TotalAmount;
+            order.TotalAmount = currentTotal;
 
+            var appliedPromotion = activePromotions.FirstOrDefault(x => x.Name == promoCodeQuery);
 
+            if (appliedPromotion == null)
+            {
+                appliedPromotion = await _promotionService.GetPromotionCode(promoCodeQuery);
+                if (appliedPromotion != null)
+                {
+                    activePromotions.Add(appliedPromotion);
+                    discount = 0m;
+                    foreach (var promotion in activePromotions)
+                    {
+                        discount += _promotionService.CalculatePromotionCodeDiscount(promotion.DiscountRate, totalBeforeDiscount);
+                    }
+
+                    order.TotalAmount = totalBeforeDiscount - discount;
+                }
+            }
 
             var viewModel = new OrderViewModel
             {
                 Order = order,
+                SubTotal = totalBeforeDiscount,
+                ActivePromotions = activePromotions,
+                Discount = discount,
                 OrderDataJson = JsonConvert.SerializeObject(order)
             };
 
-
-            return View(viewModel);
+            return View("Index", viewModel);
 
         }
 
