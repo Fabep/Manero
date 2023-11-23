@@ -143,6 +143,11 @@ namespace ManeroWebAppMVC.Controllers
             return View();
         }
 
+        public ActionResult OrderConfirmationPage()
+        {
+            return View();
+        }
+
         [HttpGet]
         public async Task<IActionResult> Checkout(OrderSchema schema)
         {

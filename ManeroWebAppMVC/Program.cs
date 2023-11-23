@@ -22,6 +22,9 @@ builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<SubCategoryRepository>();
 builder.Services.AddScoped<CustomerAddressRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<OrderRepository>();
+
 
 builder.Services.AddCookiePolicy(x =>
 {

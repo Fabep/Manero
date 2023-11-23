@@ -1,53 +1,63 @@
-﻿#orderConfirmationPage {
-    .order-status {
-        display: none; // Standardinställning, visas med JavaScript.
-        text-align: center;
-        border-radius: 12px;
-        padding: 2rem;
-        background-color: #fff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+﻿.order-status {
+    text-align: center;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    max-width: 600px;
+    box-sizing: border-box;
+
+    i {
+        font-size: 100px;
+    }
+
+    &.success {
+        color: #22C55E;
 
         i {
-            font-size: 100px; // Storlek på ikonen
+            color: #22C55E;
         }
+    }
 
-        &.success {
-            color: #22C55E; // Grön färg för framgångsstatus
-            i {
-                color: #22C55E;
-            }
+    &.failed {
+        color: #EF4444;
+
+        i {
+            color: #EF4444;
         }
+    }
 
-        &.failed {
-            color: #EF4444; // Röd färg för felstatus
-            i {
-                color: #EF4444;
-            }
-        }
+    h1 {
+        color: #1F2937;
+        margin: 0.5em 0;
+    }
 
-        h1 {
-            color: #1F2937; // Mörk textfärg
-            margin: 0.5em 0;
-        }
+    p {
+        color: #1F2937;
+        margin-bottom: 1.5em;
+    }
 
-        p {
-            color: #1F2937; // Mörk textfärg
-            margin-bottom: 1.5em;
-        }
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
 
-        button {
-            background-color: #111827; // Mörk bakgrundsfärg för knappar
-            color: white;
-            border: none;
-            padding: 1em 2em;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-right: 0.5em;
+    button {
+        background-color: #111827;
+        color: white;
+        border: none;
+        padding: 1em 2em;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin: 0.5em 0;
+        width: auto;
 
-            &:hover {
-                opacity: 0.8; // Opacitet för hover-effekt
-            }
+        &:hover {
+            opacity: 0.8;
         }
     }
 }

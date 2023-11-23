@@ -1,33 +1,36 @@
-﻿<!DOCTYPE html>
-<html lang="sv">
+﻿
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Status</title>
-    <link rel="stylesheet" href="style.css"> <!-- Se till att inkludera den kompilerade CSS-filen här -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"> <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
 
     <div class="order-status success" id="successMessage" style="display:none;">
         <i class="fas fa-check-circle"></i>
-        <h1>Tack för din order!</h1>
-        <p>Din order kommer att levereras i tid.</p>
-        <button type="button" onclick="window.location.href='/orders'">Visa order</button>
-        <button type="button" onclick="window.location.href='/'">Fortsätt handla</button>
+        <h1>Thank you for your order!</h1>
+        <p>Your order will be delivered on time.</p>
+        <div class="button-container">
+            <button type="button" onclick="window.location.href='/orders'">View orders</button>
+            <button type="button" onclick="window.location.href='/'">Continue shopping</button>
+        </div>
     </div>
 
     <div class="order-status failed" id="failureMessage" style="display:none;">
         <i class="fas fa-times-circle"></i>
-        <h1>Tyvärr, din order kunde inte genomföras!</h1>
-        <p>Något gick fel. Vänligen försök igen.</p>
-        <button type="button" onclick="window.location.href='/retry-order'">Försök igen</button>
-        <button type="button" onclick="window.location.href='/profile'">Gå till min profil</button>
+        <h1>Sorry, your order has failed!</h1>
+        <p>Something went wrong. Please try again</p>
+        <div class="button-container">
+            <button type="button" onclick="window.location.href='/retry-order'">Try again</button>
+            <button type="button" onclick="window.location.href='/profile'">Go to My Profile</button>
+        </div>
     </div>
 
     <script>
         function displayOrderStatus() {
-            var isSuccess = Math.random() >= 0.5; 
+            var isSuccess = Math.random() >= 0.5;
             if (isSuccess) {
                 document.getElementById('successMessage').style.display = 'block';
                 document.getElementById('failureMessage').style.display = 'none';
@@ -41,4 +44,3 @@
     </script>
 
 </body>
-</html>
