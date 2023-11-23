@@ -8,6 +8,7 @@ using DataAccess.Models.ViewModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace DataAccess.Handlers.Services
 {
@@ -29,9 +30,9 @@ namespace DataAccess.Handlers.Services
             return products;
         }
 
-		public async Task<List<Product>> GetFeaturedProductsAsync()
-		{
-			var featuredProductList = _productRepository.GetAll(x => x.IsFeaturedProduct == true); 
+        public async Task<List<Product>> GetFeaturedProductsAsync()
+        {
+            var featuredProductList = _productRepository.GetAll(x => x.IsFeaturedProduct == true);
             var products = CalculateDiscount(featuredProductList);
 
             return products;
@@ -39,7 +40,7 @@ namespace DataAccess.Handlers.Services
 
         public List<Product> GetSortedListOfProducts(string sortOrder, List<Product> productList)
         {
-            if (sortOrder == null) 
+            if (sortOrder == null)
                 return productList;
 
             switch (sortOrder)
@@ -188,16 +189,16 @@ namespace DataAccess.Handlers.Services
                 var products = await temp
                     .Include(c => c.Color)
                     .Include(s => s.Size)
-					.Include(pi => pi.ProductInventory).ToListAsync();
-				var size = SizeEnum.S;
+                    .Include(pi => pi.ProductInventory).ToListAsync();
+                var size = SizeEnum.S;
                 foreach (var product in products)
                 {
-					Enum.TryParse<SizeEnum>(product.Size!.Size, out size);
+                    Enum.TryParse<SizeEnum>(product.Size!.Size, out size);
                     combinations.Add(new SizeColorCombination
-					{
-						Size = new Size { SizeType = size },
-						Color = new Color { ColorName = product.Color!.Color }
-					});
+                    {
+                        Size = new Size { SizeType = size },
+                        Color = new Color { ColorName = product.Color!.Color }
+                    });
                 }
                 return combinations;
             }
@@ -210,33 +211,33 @@ namespace DataAccess.Handlers.Services
 
         public void SetSizesAndColors(ArticleViewModel viewModel, SizeEnum? selectedSize, string selectedColor)
         {
-			try
-			{
-				if (selectedColor is not null)
-				{
-					viewModel.Sizes = viewModel.Combinations.Where(s => s.Color.ColorName == selectedColor).Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
-					viewModel.Colors = viewModel.Combinations.Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
-				}
-				else if (selectedSize is not null)
-				{
-					viewModel.Sizes = viewModel.Combinations.Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
-					viewModel.Colors = viewModel.Combinations.Where(c => c.Size.SizeType == selectedSize).Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
-				}
-				else
-				{
-					viewModel.Sizes = viewModel.Combinations.Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
-					viewModel.Colors = viewModel.Combinations.Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
-				}
+            try
+            {
+                if (selectedColor is not null)
+                {
+                    viewModel.Sizes = viewModel.Combinations.Where(s => s.Color.ColorName == selectedColor).Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
+                    viewModel.Colors = viewModel.Combinations.Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
+                }
+                else if (selectedSize is not null)
+                {
+                    viewModel.Sizes = viewModel.Combinations.Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
+                    viewModel.Colors = viewModel.Combinations.Where(c => c.Size.SizeType == selectedSize).Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
+                }
+                else
+                {
+                    viewModel.Sizes = viewModel.Combinations.Select(x => x.Size).DistinctBy(s => s.SizeType).OrderBy(x => x.SizeType).ToList();
+                    viewModel.Colors = viewModel.Combinations.Select(x => x.Color).DistinctBy(c => c.ColorName).ToList();
+                }
             }
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-			}
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         public async Task<Product> FindProduct(string productName, string selectedSize, string selectedColor)
         {
-			return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName && x.Color.Color == selectedColor && x.Size.Size == selectedSize));
+            return DataConverter.ConvertProductEntityToProduct(await _productRepository.GetAsync(x => x.ProductName == productName && x.Color.Color == selectedColor && x.Size.Size == selectedSize));
         }
 
         public async Task<List<Product>> SearchProductsAsync(string query)
@@ -251,13 +252,38 @@ namespace DataAccess.Handlers.Services
             }
             catch (Exception ex)
             {
-               
+
                 Debug.WriteLine($"Ett fel uppstod vid sökning: {ex.Message}");
 
-                
+
                 return new List<Product>();
             }
         }
+        public List<Product> GetFilteredProducts(string color, decimal? minPrice, decimal? maxPrice, string subCategory, string size)
+        {
+            try
+            {
+                Expression<Func<ProductEntity, bool>> filterExpression = x =>
+                    (string.IsNullOrEmpty(color) || x.Color.Color.Contains(color)) &&
+                    (string.IsNullOrEmpty(subCategory) || x.SubCategory.SubCategoryName.Contains(subCategory)) &&
+                    (string.IsNullOrEmpty(size) || x.Size.Size.Contains(size)) &&
+                    (!minPrice.HasValue || x.ProductPrice >= minPrice.Value) &&
+                    (!maxPrice.HasValue || x.ProductPrice <= maxPrice.Value);
+
+                var productList = _productRepository.GetAll(filterExpression).ToList();
+                var products = productList.Select(p => DataConverter.ConvertProductEntityToProduct(p)).ToList();
+               
+
+                return products;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Ett fel uppstod vid sökning: {ex.Message}");
+                return new List<Product>();
+            }
+        }
+
+
 
 
 
