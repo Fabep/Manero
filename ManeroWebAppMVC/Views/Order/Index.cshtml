@@ -7,15 +7,10 @@
         <div class="header-box">
             <h1>Your Order</h1>
         </div>
-
-
         @foreach (var product in Model.Order.Items)
         {
             <partial name="_OrderTilePartial" model="product" />
         }
-
-
-
         <div class="order-subtotal">
             <div class="promocode">
                 <form asp-controller="Order" asp-action="ApplyPromocode" method="post">
@@ -49,19 +44,19 @@
 
         <div class="order-total">
             <table>
-            <tr>
-                <td id="total-header">Total:</td>
-                <td id="" class="sum">$@Model.Order.TotalAmount</td>
-            </tr>
+                <tr>
+                    <td id="total-header">Total:</td>
+                    <td id="" class="sum">$@Model.Order.TotalAmount</td>
+                </tr>
             </table>
         </div>
 
 
 
-        <div class="to-checkout">
-
+        <form class="to-checkout" asp-controller="Order" asp-action="Checkout" method="post" asp-route-orderDataJson="@Model.OrderDataJson">
             <button class="large-btn">PROCEED TO CHECKOUT</button>
-        </div>
+        </form>
+
 
 
     </div>
@@ -76,4 +71,16 @@
             document.querySelector('form').submit();
         }
     });
+
+
+    //function prepareFormData() {
+    //    var orderData = JSON.stringify(@Html.Raw(Json.Serialize(Model.Order)));
+    //    var hiddenInput = document.createElement("input");
+    //    hiddenInput.setAttribute("type", "hidden");
+    //    hiddenInput.setAttribute("name", "orderData");
+    //    hiddenInput.setAttribute("value", orderData);
+    //    document.querySelector(".to-checkout").appendChild(hiddenInput);
+    //}
+
+
 </script>

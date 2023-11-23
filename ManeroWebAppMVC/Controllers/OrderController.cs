@@ -44,17 +44,16 @@ namespace ManeroWebAppMVC.Controllers
 
 
                 order.Items = cartList;
-                order  = _orderService.CalculateTotalAmountOfNewOrder(order);
+                order = _orderService.CalculateTotalAmountOfNewOrder(order);
 
 
                 var viewModel = new OrderViewModel
                 {
                     Order = order,
+                    SubTotal = order.TotalAmount,
+                    OrderDataJson = JsonConvert.SerializeObject(order)
                 };
 
-
-
-                viewModel.SubTotal = order.TotalAmount;
                 return View(viewModel);
 
             }
@@ -112,6 +111,7 @@ namespace ManeroWebAppMVC.Controllers
             var viewModel = new OrderViewModel
             {
                 Order = order,
+                OrderDataJson = JsonConvert.SerializeObject(order)
             };
 
 
@@ -120,7 +120,7 @@ namespace ManeroWebAppMVC.Controllers
         }
 
 
-            [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> ShippingDetails(int? cid)
         {
             var vm = new ShippingDetailsViewModel();
@@ -200,11 +200,14 @@ namespace ManeroWebAppMVC.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Checkout(OrderSchema schema)
+        [HttpPost]
+        public async Task<IActionResult> Checkout(string orderDataJson)
         {
+
+            var order = JsonConvert.DeserializeObject<OrderSchema>(orderDataJson);
+
             var viewModel = new CheckoutViewModel();
-            viewModel.Order = schema;
+            viewModel.Order = order;
             viewModel.DeliveryFee = "";
             return View(viewModel);
         }
