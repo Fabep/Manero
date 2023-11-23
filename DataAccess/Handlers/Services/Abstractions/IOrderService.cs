@@ -21,9 +21,9 @@ namespace DataAccess.Handlers.Services.Abstractions
         public Task SaveOrderItemEntityToDataBase(OrderItemsEntity orderItemEntity);
         public Task<Order> GetOrderFromCustomerIdAsync(int customerId);
 
-        Task<Order> GetOneOrderFromOrderIdAsync(int id);
+      //  Task<Order> GetOneOrderFromOrderIdAsync(int id);
 
-        Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id);
+      //  Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id);
 
         OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order);
     }

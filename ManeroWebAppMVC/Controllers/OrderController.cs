@@ -144,8 +144,10 @@ namespace ManeroWebAppMVC.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> SubmitCheckout(OrderSchema order)
+        public async Task<IActionResult> SubmitCheckout(string orderAsJsonObject)
         {
+            var order = JsonConvert.DeserializeObject<OrderSchema>(orderAsJsonObject);
+
             var orderSucceeded = false;
             if (order is not null && ModelState.IsValid)
             {
@@ -159,15 +161,46 @@ namespace ManeroWebAppMVC.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> Checkout(string orderDataJson)
+        [HttpPost]
+        public async Task<IActionResult> Checkout(string orderDataJson, AddressSchema? addressSchema)
         {
-
             var order = JsonConvert.DeserializeObject<OrderSchema>(orderDataJson);
 
             var viewModel = new CheckoutViewModel();
             viewModel.Order = order;
-            viewModel.DeliveryFee = "";
+            viewModel.DeliveryFee = "";      
+            if(addressSchema.StreetAddress != null) 
+            {
+                viewModel.Order.DeliveryAddressSchema = addressSchema;
+                viewModel.Order.BillingAddressSchema = addressSchema;
+            }
+            else
+            {
+                addressSchema = new AddressSchema
+                {
+                    StreetAddress = "Långholmsvägen",
+                    Streetnumber = "1",
+                    City = "Stockholm",
+                    Country = "Sweden",
+                    PostalCode = "70171",
+                    Region = "1",
+                };
+
+                viewModel.Order.DeliveryAddressSchema = addressSchema;
+                viewModel.Order.BillingAddressSchema = addressSchema;
+            }
+            if(viewModel.Order.PaymentMethod == null)
+            {
+                viewModel.Order.PaymentMethod = new PaymentMethodSchema
+                {
+                    CardNumber = 1432523,
+                };
+            }
+            if(viewModel.Order.CustomerId <= 0)
+            {
+                viewModel.Order.CustomerId = 1;
+            }
+            viewModel.OrderDataJson = JsonConvert.SerializeObject(order);
             return View(viewModel);
         }
     }

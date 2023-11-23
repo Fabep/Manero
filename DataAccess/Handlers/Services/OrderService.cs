@@ -55,6 +55,7 @@ namespace DataAccess.Handlers.Services
                 if (order.PaymentMethod != null && order.TotalAmount > 0 && order.BillingAddressSchema != null
                                && order.DeliveryAddressSchema != null && order.Items?.Count > 0)
                     return true;
+                else return false;
             }
             catch (Exception ex) { Debug.WriteLine(ex.Message); }
             return false;
@@ -74,6 +75,7 @@ namespace DataAccess.Handlers.Services
                 {
                     var orderItemEntity = new OrderItemsEntity();
                     orderItemEntity.OrderId = orderFromDataBase.OrderId;
+                    orderItemEntity.Order = orderEntity;
                     orderItemEntity.ProductId = item.ProductId;
                     orderItemEntity.ProductName = item.ProductName;
                     orderItemEntity.Quantity = item.Quantity;

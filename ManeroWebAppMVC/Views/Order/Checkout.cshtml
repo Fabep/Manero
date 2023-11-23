@@ -12,14 +12,14 @@
 
     <div>
         <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Delivery"
-        asp-route-viewModel="@Model.Order.DeliveryAddressSchema" >
+        asp-route-cid="@Model.Order.CustomerId" >
             Deliveryaddress:   @Model.Order.DeliveryAddressSchema
         </a>
     </div>
 
     <div>
         <a asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Billing"
-        asp-route-viewModel="@Model.Order.BillingAddressSchema">
+        asp-route-cid="@Model.Order.CustomerId">
             Billingaddress:   @Model.Order.BillingAddressSchema
         </a>
     </div>
@@ -30,7 +30,7 @@
     <div>Comment</div>
 
     <div>
-        <a asp-controller="Order" asp-action="SubmitCheckout" asp-route-order="@Model.Order">
+        <a asp-controller="Order" asp-action="SubmitCheckout" asp-route-orderAsJsonObject="@Model.OrderDataJson">
             Confirm Order
         </a>
     </div>
