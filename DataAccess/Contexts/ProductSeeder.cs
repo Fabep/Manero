@@ -117,5 +117,34 @@ internal class ProductSeeder
         return productInventory;
     }
 
+    internal static IEnumerable<PromotionCodeEntity> SeedPromotionCodes()
+    {
+        var promotionCodes = new List<PromotionCodeEntity>();
+
+        promotionCodes.Add(new PromotionCodeEntity
+        {
+            Id = 1,
+            Name = "MANEROXMAS25",
+            DiscountRate = 0.25m,
+            Description = "Enjoy the holiday spirit with MANERO! Use the code MANEROXMAS25 at checkout to get a holly-jolly 25% discount on your festive purchases.Happy shopping and Merry Christmas!",
+            StartDate = new DateTime(DateTime.Now.Year, 11, 22), 
+            EndDate = new DateTime(DateTime.Now.Year, 12, 25),  
+
+        });
+
+        promotionCodes.Add(new PromotionCodeEntity
+        {
+            Id= 2,
+            Name = "MANERONEW",
+            DiscountRate = 0.15m,
+            Description = "Welcome to MANERO! As a new customer, use the code MANERONEW at checkout to enjoy a special 15% discount on your first purchase. We're thrilled to have you with us. Happy shopping!",
+            StartDate = DateTime.Now, 
+            EndDate = DateTime.Now.AddMonths(1), 
+        });
+
+
+
+        return promotionCodes;
+    }
 
 }
