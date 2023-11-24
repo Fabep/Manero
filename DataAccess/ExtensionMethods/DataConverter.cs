@@ -188,6 +188,12 @@ namespace DataAccess.ExtensionMethods
                     return null!;
                 }
 
+                orderEntity.PaymentMethod ??= new PaymentMethodEntity
+                    {
+                        CardNumber = 135643,
+                        PaymentId = 1
+                    };
+
                 var order = new Order()
                 {
                     OrderId = orderEntity.OrderId,
@@ -196,6 +202,7 @@ namespace DataAccess.ExtensionMethods
                     PaymentMethod = new PaymentMethodEntity()
                     {
                         CardNumber = orderEntity.PaymentMethod.CardNumber,
+                        PaymentId = orderEntity.PaymentMethod.PaymentId,
                     },
                     StatusId = orderEntity.StatusId,
                     Status = orderEntity.Status,

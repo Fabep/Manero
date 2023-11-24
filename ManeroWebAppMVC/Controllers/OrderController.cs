@@ -177,7 +177,7 @@ namespace ManeroWebAppMVC.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(string orderDataJson, AddressSchema? addressSchema)
+        public IActionResult Checkout(string orderDataJson, AddressSchema? addressSchema)
         {
             var order = JsonConvert.DeserializeObject<OrderSchema>(orderDataJson);
 

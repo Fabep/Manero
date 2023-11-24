@@ -110,10 +110,24 @@ namespace DataAccess.Handlers.Services
 
         public async Task<Order> GetOrderFromCustomerIdAsync(int customerId)
         {
-            var orderEntity = await _orderRepository.GetAsync(x => x.CustomerId == customerId); 
+            // hämtar inte status + payment, måste göra include nånstans
+            var orderEntity = await _orderRepository.GetAsync(x => x.CustomerId == customerId);
+       
+
+
+
             var order = DataConverter.ConvertOrderEntityToOrder(orderEntity);
             return order;
         }
 
     }
 }
+
+/*
+  var productList = _productRepository.GetAll(x => x.GetType() == typeof(ProductEntity));
+
+            var productsFromSubCategory = await productList.Include(x => x.SubCategory)
+                .Where(s => s.SubCategory.SubCategoryName == subProductCategory)
+                .Select(p => DataConverter.ConvertProductEntityToProduct(p))
+                .ToListAsync();
+ */
