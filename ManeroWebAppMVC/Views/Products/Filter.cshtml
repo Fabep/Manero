@@ -1,0 +1,132 @@
+﻿@model SearchViewModel
+
+<a class="back-link" href="@Url.Action("Index", "Home")">
+    <i class="fa-solid fa-backward"></i> Back
+</a>
+
+<div class="filtering">
+    <i class="fa-solid fa-filter"></i>
+
+    
+    <div class="color-options">
+        <input type="radio" name="color" id="red" value="Red" class="color-op" />
+        <label for="red" class="color-label red"></label>
+
+        <input type="radio" name="color" id="blue" value="Blue" class="color-op" />
+        <label for="blue" class="color-label blue"></label>
+
+        <input type="radio" name="color" id="green" value="Green" class="color-op" />
+        <label for="green" class="color-label green"></label>
+
+        <input type="radio" name="color" id="yellow" value="Yellow" class="color-op" />
+        <label for="yellow" class="color-label yellow"></label>
+
+        <input type="radio" name="color" id="white" value="White" class="color-op" />
+        <label for="white" class="color-label white"></label>
+
+        <input type="radio" name="color" id="black" value="Black" class="color-op" />
+        <label for="black" class="color-label black"></label>
+      
+
+
+    </div>
+   
+    <label for="priceRange">Price Range: $<span id="priceValues">0 - 1000</span></label>
+    <input type="range" id="priceSlider" min="0" max="1000" value="0" step="1">
+
+
+    <div class="category-boxes">
+        @foreach (var subCategory in new[] {
+        "T-Shirt", "Pants", "Dress", "Shoes", "Bag", "Suits"
+        })
+        {
+            <div class="category-box" onclick="filterBySubCategory('@subCategory')">
+                @subCategory
+            </div>
+        }
+    </div>
+
+
+
+  
+   
+</div>
+
+<section id="filteredResults" class="product-section">
+   
+      <div class="container product-container">
+    <div class="container product-container-items">
+      
+        @foreach (var product in Model.Results)
+        {
+            <partial name="_ProductTilePartial" model="product" />
+        }
+    </div>
+      </div>
+</section>
+
+@section scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sparade värden för färg, pris, primär kategori och subkategori
+            var selectedColor = null;
+            var selectedMinPrice = 0;
+            var selectedMaxPrice = 1000;
+            var selectedSubCategory = null;
+
+            // Färgfiltrering
+            var colorOps = document.querySelectorAll('.color-op');
+            colorOps.forEach(function (colorOp) {
+                colorOp.addEventListener('click', function () {
+                    selectedColor = this.value;
+                    filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
+                });
+            });
+
+            // Prisfiltrering med reglage
+            var priceSlider = document.getElementById('priceSlider');
+            var priceValues = document.getElementById('priceValues');
+            priceSlider.addEventListener('input', function () {
+                selectedMinPrice = this.value;
+                priceValues.textContent = selectedMinPrice + " - " + selectedMaxPrice;
+                filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
+            });
+
+            // Primär kategorifiltrering (Om du har lagt till detta)
+            // ... (Din befintliga kod för att hantera primär kategorifiltrering) ...
+
+            // Subkategorifiltrering
+            var categoryBoxes = document.querySelectorAll('.category-box');
+            categoryBoxes.forEach(function (categoryBox) {
+                categoryBox.addEventListener('click', function () {
+                    selectedSubCategory = categoryBox.textContent.trim();
+                    filterProducts(selectedColor, selectedMinPrice, selectedMaxPrice, selectedSubCategory);
+                });
+            });
+
+            // ... (Din befintliga kod för att hantera filterknappen och Refresh-knappen) ...
+
+            function filterProducts(color, minPrice, maxPrice, subCategory) {
+                var colorValue = color || null;
+                var minPriceValue = minPrice || 0;
+                var maxPriceValue = maxPrice || 1000;
+                var subCategoryValue = subCategory || null;
+
+                // Gör ett AJAX-anrop för att hämta de uppdaterade resultaten
+                $.ajax({
+                    url: '@Url.Action("Filter", "Products")',
+                    type: 'GET',
+                    data: { color: colorValue, minPrice: minPriceValue, maxPrice: maxPriceValue, subCategory: subCategoryValue },
+                    success: function (result) {
+                        // Uppdatera endast innehållet i product-container-items
+                        $('#filteredResults .product-container-items').html($(result).find('.product-container-items').html());
+                    },
+                    error: function () {
+                        console.error('Error in AJAX request');
+                    }
+                });
+            }
+        });
+
+    </script>
+}

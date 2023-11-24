@@ -12,5 +12,6 @@ namespace DataAccess.Models.ViewModels
         public OrderSchema Order { get; set; }
         public string DeliveryFee { get; set; } = "Free";
         public string? UserComment { get; set; }
+        public string? OrderDataJson { get; set; }
     }
 }

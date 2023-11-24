@@ -259,3 +259,26 @@ function updateTotal() {
     totalValue.innerHTML = '$' + total;
 }
 
+function applyColorFilter() {
+    var selectedColor = document.getElementById("color").value;
+    // Use AJAX to call the server-side method with the selected color
+    // You can use libraries like jQuery or fetch API for this purpose
+    // Example using jQuery:
+    $.ajax({
+        url: '/YourController/GetFilteredProducts',
+        type: 'GET',
+        data: { query: selectedColor },
+        success: function (data) {
+            // Update the page with the filtered products
+            // (This depends on how you want to display the products)
+            console.log(data);
+        },
+        error: function (error) {
+            console.error('Error applying color filter:', error);
+        }
+    });
+
+   
+
+   
+}

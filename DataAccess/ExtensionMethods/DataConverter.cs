@@ -206,5 +206,30 @@ namespace DataAccess.ExtensionMethods
             return orderEntity;
         }
 
+
+
+        public static PromotionCode ConvertPromotionCodeEntityToPromotionCode(this PromotionCodeEntity promotionCodeEntity)
+        {
+            if (promotionCodeEntity == null)
+            {
+                return null;
+            }
+
+            var promotionCode = new PromotionCode()
+            {
+                Name = promotionCodeEntity.Name,
+                Description = promotionCodeEntity.Description,
+                DiscountRate = promotionCodeEntity.DiscountRate,
+                StartDate = promotionCodeEntity.StartDate,
+                EndDate = promotionCodeEntity.EndDate,
+
+            };
+            return promotionCode;
+        }
+
+
+
+
+
     }
 }

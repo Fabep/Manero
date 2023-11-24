@@ -30,11 +30,12 @@ public class LocalContext : DbContext
 	public DbSet<OrderStatusEntity> OrderStatuses  { get; set; }
 	public DbSet<WishListEntity> WishLists { get; set; }
     public DbSet<WishListItemsEntity> WishListItems { get; set; }
+    public DbSet<PromotionCodeEntity> PromotionCodes { get; set; }
 
 
 
 
-	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
             optionsBuilder.UseSqlServer("Server=localhost;Database=ManeroDatabase;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true");
@@ -74,7 +75,9 @@ public class LocalContext : DbContext
             DiscountRate = 0.10m,
         });
 
-        
+
+        modelBuilder.Entity<PromotionCodeEntity>().HasData(ProductSeeder.SeedPromotionCodes());
+
         base.OnModelCreating(modelBuilder);
     }
 }

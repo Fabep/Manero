@@ -73,9 +73,12 @@ namespace ManeroWebAppMVC.Controllers
 				_productService.SetSizesAndColors(viewModel, selectedSize, selectedColor);
 			return View(viewModel);
 		}
+      
 
 
-		[HttpPost]
+
+
+        [HttpPost]
 		public async Task<IActionResult> AddProduct(int currentAmount, string productName, string selectedSize, string selectedColor, decimal? discountPrice)
 		{
 			try
@@ -92,7 +95,7 @@ namespace ManeroWebAppMVC.Controllers
                     Quantity = currentAmount,
                     ImageUrl = product.ImageUrl,
                     DiscountedPrice = discountPrice ?? 0
-            };
+                };
 
                 var productCookie = _cookieService.GetCookie(Request, "ProductsCookie");
 
@@ -139,6 +142,23 @@ namespace ManeroWebAppMVC.Controllers
             {
                 Query = query,
                 Results = searchResults
+            };
+
+            return View(viewModel);
+        }
+
+
+
+
+
+        public IActionResult Filter(string color, decimal? minPrice, decimal? maxPrice, string subCategory, string size)
+        {
+            var filterResults = _productService.GetFilteredProducts(color, minPrice, maxPrice, subCategory, size);
+
+            var viewModel = new SearchViewModel
+            {
+                Query = $"Color: {color}, SubCategory: {subCategory}, MinPrice: {minPrice}, MaxPrice: {maxPrice} Size: {size}",
+                Results = filterResults // Hämta resultatet från Task
             };
 
             return View(viewModel);
