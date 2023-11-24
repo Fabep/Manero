@@ -184,6 +184,7 @@ namespace ManeroWebAppMVC.Controllers
             var viewModel = new CheckoutViewModel();
             viewModel.Order = order;
             viewModel.DeliveryFee = "";      
+
             if(addressSchema.StreetAddress != null) 
             {
                 viewModel.Order.DeliveryAddressSchema = addressSchema;
@@ -195,15 +196,15 @@ namespace ManeroWebAppMVC.Controllers
                 viewModel.Order.DeliveryAddressSchema = addressSchema;
                 viewModel.Order.BillingAddressSchema = addressSchema;
             }
+
             if(viewModel.Order.PaymentMethod == null)
-            {
                 viewModel.Order.PaymentMethod = _orderService.CreatePaymentSchema();
-            }
+
             if(viewModel.Order.CustomerId <= 0)
-            {
                 viewModel.Order.CustomerId = 1;
-            }
+
             viewModel.OrderDataJson = JsonConvert.SerializeObject(order);
+
             return View(viewModel);
         }
     }
