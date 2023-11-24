@@ -19,9 +19,12 @@
         Delivery fee: @Model.DeliveryFee$
     </div>
 
+
+  
+
     <div class="ch-adress-section">
         <div class="ch-address-section">
-            <div class="ch-address-title">Deliveryaddress: </div>
+            <div class="ch-address-title"> Deliveryaddress: </div>
             <a class="ch-address-link" asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Delivery"
                asp-route-cid="@Model.Order.CustomerId">
                 <div class="ch-address-field">
@@ -37,9 +40,11 @@
         </div>
 
         <div class="ch-address-section">
-            <div class="ch-address-title">Billingaddress: </div>
+            <div class="ch-address-title"> Billingaddress: </div>
+
             <a class="ch-address-link" asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Billing"
                asp-route-cid="@Model.Order.CustomerId">
+
                 <div class="ch-address-field">
                     @Model.Order.BillingAddressSchema!.StreetAddress
                     @Model.Order.BillingAddressSchema!.Streetnumber,
@@ -53,12 +58,12 @@
     </div>
 
     <div class="ch-payment-section">
-        <div class="ch-payment-title">Paymentmethod:</div>
+        <div class="ch-payment-title"> Paymentmethod:</div>
         <div class="ch-payment-method"> Card number: @Model.Order.PaymentMethod!.CardNumber</div>
     </div>
 
     <div class="ch-comment-section">
-        <div class="ch-comment-title">Comment:</div>
+        <div class="ch-comment-title"> Comment:</div>
         <div class="ch-comment"></div>
     </div>
 
@@ -69,3 +74,15 @@
     </div>
 
 </section>
+
+
+
+
+@* 
+<div>
+    <form method="post">
+        <label>Choose address</label>
+        <input asp-for="Order.DeliveryAddressSchema" name="address" />
+
+    </form>
+</div> *@
