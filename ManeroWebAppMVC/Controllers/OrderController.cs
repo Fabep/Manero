@@ -191,25 +191,13 @@ namespace ManeroWebAppMVC.Controllers
             }
             else
             {
-                addressSchema = new AddressSchema
-                {
-                    StreetAddress = "Långholmsvägen",
-                    Streetnumber = "1",
-                    City = "Stockholm",
-                    Country = "Sweden",
-                    PostalCode = "70171",
-                    Region = "County of Stockholm",
-                };
-
+                addressSchema = _orderService.CreateAddressSchema();
                 viewModel.Order.DeliveryAddressSchema = addressSchema;
                 viewModel.Order.BillingAddressSchema = addressSchema;
             }
             if(viewModel.Order.PaymentMethod == null)
             {
-                viewModel.Order.PaymentMethod = new PaymentMethodSchema
-                {
-                    CardNumber = 1432523,
-                };
+                viewModel.Order.PaymentMethod = _orderService.CreatePaymentSchema();
             }
             if(viewModel.Order.CustomerId <= 0)
             {

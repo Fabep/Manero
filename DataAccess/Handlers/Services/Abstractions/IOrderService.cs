@@ -6,7 +6,6 @@ namespace DataAccess.Handlers.Services.Abstractions
 {
     public interface IOrderService
     {
-      //  public List<OrderItem> GetOrderItemsFromOrderIdAsync(int id);
         public Task<Order> GetOneOrderFromOrderIdAsync(int id);
         public bool VerifyOrder(OrderSchema order);
         public Task<bool> CreateOrder(OrderSchema order);
@@ -14,5 +13,7 @@ namespace DataAccess.Handlers.Services.Abstractions
         public Task SaveOrderItemEntityToDataBase(OrderItemsEntity orderItemEntity);
         public Order GetOrderFromCustomerIdAsync(int customerId);
         OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order);
+        AddressSchema CreateAddressSchema();
+        PaymentMethodSchema CreatePaymentSchema();
     }
 }

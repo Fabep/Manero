@@ -75,18 +75,18 @@ namespace DataAccess.Handlers.Services
                     orderItemEntity.ProductId = item.ProductId;
                     orderItemEntity.ProductName = item.ProductName;
                     orderItemEntity.Quantity = item.Quantity;
-                    orderItemEntity.DiscountPrice = item.DiscountedPrice; 
-                    orderItemEntity.TotalAmount = item.Quantity * item.Price; 
+                    orderItemEntity.DiscountPrice = item.DiscountedPrice;
+                    orderItemEntity.TotalAmount = item.Quantity * item.Price;
 
                     await SaveOrderItemEntityToDataBase(orderItemEntity);
                 }
                 return true;
             }
-            catch (Exception ex) { Debug.WriteLine(ex.Message);  }
+            catch (Exception ex) { Debug.WriteLine(ex.Message); }
             return false;
         }
 
-        
+
         public OrderSchema CalculateTotalAmountOfNewOrder(OrderSchema order)
         {
 
@@ -122,5 +122,25 @@ namespace DataAccess.Handlers.Services
             return order;
         }
 
+        public AddressSchema CreateAddressSchema()
+        {
+            return new AddressSchema
+            {
+                StreetAddress = "Långholmsvägen",
+                Streetnumber = "1",
+                City = "Stockholm",
+                Country = "Sweden",
+                PostalCode = "70171",
+                Region = "County of Stockholm",
+            };
+        }
+
+        public PaymentMethodSchema CreatePaymentSchema()
+        {
+            return new PaymentMethodSchema
+            {
+                CardNumber = 1432523,
+            };
+        }
     }
 }
