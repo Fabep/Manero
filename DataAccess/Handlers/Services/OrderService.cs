@@ -5,6 +5,7 @@ using DataAccess.Models;
 using DataAccess.Models.Schemas;
 using DataAccess.Models.Entities;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Handlers.Services
 {
@@ -13,6 +14,7 @@ namespace DataAccess.Handlers.Services
 
         private readonly OrderRepository _orderRepository;
         private readonly OrderItemRepository _orderItemRepository;
+        //private readonly PaymentMethodRepository _paymentMethodRepository;
 
         public OrderService(OrderRepository orderRepository, OrderItemRepository orderItemRepository)
         {
@@ -111,12 +113,17 @@ namespace DataAccess.Handlers.Services
         public async Task<Order> GetOrderFromCustomerIdAsync(int customerId)
         {
             // hämtar inte status + payment, måste göra include nånstans
-            var orderEntity = await _orderRepository.GetAsync(x => x.CustomerId == customerId);
-       
+            //   var orderEntity = await _orderRepository.GetAsync(x => x.CustomerId == customerId);
 
+            var orderEntity = _orderRepository.GetAll(x => x.CustomerId == customerId)
+                .Include(x => x.PaymentMethod)
+                .Include(x => x.Status)
+                .FirstOrDefault();
 
+          //  orderEntity.PaymentMethod = await GetPaymentMethodFromIdAsync(orderEntity.PaymentMethod.PaymentId);       
 
             var order = DataConverter.ConvertOrderEntityToOrder(orderEntity);
+
             return order;
         }
 
