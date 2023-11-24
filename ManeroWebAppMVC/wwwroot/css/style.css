@@ -921,7 +921,7 @@ body {
   font-size: 10px;
 }
 
-.order-status {
+.order-confirmation {
   text-align: center;
   border-radius: 12px;
   padding: 2rem;
@@ -931,36 +931,36 @@ body {
   max-width: 600px;
   box-sizing: border-box;
 }
-.order-status i {
+.order-confirmation i {
   font-size: 100px;
 }
-.order-status.success {
+.order-confirmation.success {
   color: #22C55E;
 }
-.order-status.success i {
+.order-confirmation.success i {
   color: #22C55E;
 }
-.order-status.failed {
+.order-confirmation.failed {
   color: #EF4444;
 }
-.order-status.failed i {
+.order-confirmation.failed i {
   color: #EF4444;
 }
-.order-status h1 {
+.order-confirmation h1 {
   color: #1F2937;
   margin: 0.5em 0;
 }
-.order-status p {
+.order-confirmation p {
   color: #1F2937;
   margin-bottom: 1.5em;
 }
-.order-status .button-container {
+.order-confirmation .button-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 1rem;
 }
-.order-status button {
+.order-confirmation button {
   background-color: #111827;
   color: white;
   border: none;
@@ -971,6 +971,6 @@ body {
   margin: 0.5em 0;
   width: auto;
 }
-.order-status button:hover {
+.order-confirmation button:hover {
   opacity: 0.8;
 }
