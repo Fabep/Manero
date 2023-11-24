@@ -12,7 +12,7 @@ namespace DataAccess.Models.ViewModels
 
         public decimal SubTotal { get; set; }
 
-        public string OrderDataJson { get; set; }
+        public string? OrderDataJson { get; set; }
 
         public List<PromotionCode>? ActivePromotions { get; set; }
 

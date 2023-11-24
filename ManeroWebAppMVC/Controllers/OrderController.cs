@@ -1,16 +1,9 @@
 ﻿using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;
-using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models.Schemas;
-using DataAccess.Models.ViewModels;
-using DataAccess.Handlers.Services;
-using DataAccess.Models;
-using DataAccess.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using DataAccess.Models.Entities;
-using DataAccess.ExtensionMethods;
 using System.Diagnostics;
 
 namespace ManeroWebAppMVC.Controllers

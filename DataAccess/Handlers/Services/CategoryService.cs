@@ -2,13 +2,6 @@
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Handlers.Services

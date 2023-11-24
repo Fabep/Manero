@@ -185,7 +185,7 @@ namespace DataAccess.ExtensionMethods
             {
                 if (orderEntity == null)
                 {
-                    return null;
+                    return null!;
                 }
 
                 var order = new Order()
