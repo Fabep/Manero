@@ -14,7 +14,6 @@ namespace DataAccess.Handlers.Services
 
         private readonly OrderRepository _orderRepository;
         private readonly OrderItemRepository _orderItemRepository;
-        //private readonly PaymentMethodRepository _paymentMethodRepository;
 
         public OrderService(OrderRepository orderRepository, OrderItemRepository orderItemRepository)
         {
@@ -30,20 +29,21 @@ namespace DataAccess.Handlers.Services
 
             return order;
         }
-        public async Task<List<OrderItem>> GetOrderItemsFromOrderIdAsync(int id) // ta bort async eftersom det itne är en async metod?
-        {
-            var orderItems = new List<OrderItem>();
-            var orderItemEntityQueryableList = _orderItemRepository.GetAll(x => x.OrderId == id);
-            var orderItemEntityList = orderItemEntityQueryableList.ToList();
 
-            foreach (var itemEntity in orderItemEntityList)
-            {
-                var item = DataConverter.ConvertOrderItemEntityToOrderItem(itemEntity);
-                orderItems.Add(item);
-            }
+        //public List<OrderItem> GetOrderItemsFromOrderIdAsync(int id) // ta bort async
+        //{
+        //    var orderItems = new List<OrderItem>();
+        //    var orderItemEntityQueryableList = _orderItemRepository.GetAll(x => x.OrderId == id);
+        //    var orderItemEntityList = orderItemEntityQueryableList.ToList();
 
-            return orderItems;
-        }
+        //    foreach (var itemEntity in orderItemEntityList)
+        //    {
+        //        var item = DataConverter.ConvertOrderItemEntityToOrderItem(itemEntity);
+        //        orderItems.Add(item);
+        //    }
+        //    return orderItems;
+        //}
+
         public bool VerifyOrder(OrderSchema order)
         {
             try
@@ -65,7 +65,7 @@ namespace DataAccess.Handlers.Services
                 orderEntity.Status = new OrderStatusEntity() { Status = "C" };
 
                 await SaveOrderEntityToDatabase(orderEntity);
-                var orderFromDataBase = await GetOrderFromCustomerIdAsync(order.CustomerId);
+                var orderFromDataBase = GetOrderFromCustomerIdAsync(order.CustomerId);
 
                 foreach (var item in order.Items)
                 {
@@ -110,17 +110,12 @@ namespace DataAccess.Handlers.Services
             await _orderItemRepository.CreateAsync(orderItemEntity);
         }
 
-        public async Task<Order> GetOrderFromCustomerIdAsync(int customerId)
+        public Order GetOrderFromCustomerIdAsync(int customerId)
         {
-            // hämtar inte status + payment, måste göra include nånstans
-            //   var orderEntity = await _orderRepository.GetAsync(x => x.CustomerId == customerId);
-
             var orderEntity = _orderRepository.GetAll(x => x.CustomerId == customerId)
                 .Include(x => x.PaymentMethod)
                 .Include(x => x.Status)
                 .FirstOrDefault();
-
-          //  orderEntity.PaymentMethod = await GetPaymentMethodFromIdAsync(orderEntity.PaymentMethod.PaymentId);       
 
             var order = DataConverter.ConvertOrderEntityToOrder(orderEntity);
 
@@ -129,12 +124,3 @@ namespace DataAccess.Handlers.Services
 
     }
 }
-
-/*
-  var productList = _productRepository.GetAll(x => x.GetType() == typeof(ProductEntity));
-
-            var productsFromSubCategory = await productList.Include(x => x.SubCategory)
-                .Where(s => s.SubCategory.SubCategoryName == subProductCategory)
-                .Select(p => DataConverter.ConvertProductEntityToProduct(p))
-                .ToListAsync();
- */
