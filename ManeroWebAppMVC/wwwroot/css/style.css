@@ -1122,15 +1122,15 @@ body {
 .order-section .order-subtotal {
   padding-top: 10px;
 }
+.order-section .order-subtotal .promocode p {
+  padding: 5px;
+  text-align: left;
+  margin-bottom: 0 !important;
+}
 .order-section .order-subtotal .promocode form {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.order-section .order-subtotal .promocode form p {
-  padding: 5px;
-  text-align: left;
-  margin-bottom: 0 !important;
 }
 .order-section .order-subtotal .promocode form input {
   padding: 5px;

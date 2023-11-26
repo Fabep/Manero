@@ -161,6 +161,11 @@
 
         .promocode {
 
+            p {
+                padding: 5px;
+                text-align: left;
+                margin-bottom: 0 !important;
+            }
 
             form {
                 display: flex;
@@ -168,11 +173,7 @@
                 justify-content: space-between;
 
 
-                p {
-                    padding: 5px;
-                    text-align: left;
-                    margin-bottom: 0 !important;
-                }
+
 
                 input {
                     padding: 5px;
