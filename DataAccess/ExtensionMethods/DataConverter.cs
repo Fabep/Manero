@@ -110,7 +110,7 @@ namespace DataAccess.ExtensionMethods
                 var subCategory = new SubCategory()
                 {
                     SubCategoryId = entity.SubCategoryId,
-                    SubCategoryName = entity.SubCategoryName
+                    SubCategoryName = entity.SubCategoryName,
                 };
 
                 return subCategory;
