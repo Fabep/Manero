@@ -64,7 +64,6 @@ namespace DataAccess.Tests.Handlers.Services
 
 
             // Assert
-            // Assert
             Assert.Equal(result, expectedResult);
 
         }
