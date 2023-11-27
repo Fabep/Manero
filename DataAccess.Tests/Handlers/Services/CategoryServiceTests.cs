@@ -25,7 +25,6 @@ namespace DataAccess.Tests.Handlers.Services
 
         }
 
-
         [Fact]
         public async Task GetAllPrimaryCategories_ReturnsListOfPrimaryCategories()
         {
@@ -42,7 +41,6 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.Contains(result, p => p.PrimaryCategoryName.Contains("Unisex"));
 
         }
-
 
         [Fact]
         public async Task GetSubCategoriesByPrimaryCategoryIdMen_ReturnsListOfSubCategories_AssociatedWithPrimaryCategoryId()
