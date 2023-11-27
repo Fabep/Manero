@@ -1,0 +1,28 @@
+﻿@model bool
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+
+<body>
+    <div id="confirmation-container">
+        <div class="order-confirmation @(Model ? "success" : "failed")">
+            <i class="fas fa-@(Model ? "check-circle" : "times-circle")"></i>
+            <h1>@(Model ? "Tack för din order!" : "Tyvärr, din order kunde inte genomföras")</h1>
+            <p>@(Model ? "Din order kommer att levereras i tid." : "Något gick fel. Vänligen försök igen.")</p>
+            <div class="button-container">
+                @if (Model)
+                {
+                    <button type="button" onclick="window.location.href='/orders'">Visa order</button>
+                    <button type="button" onclick="window.location.href='/'">Fortsätt handla</button>
+                }
+                else
+                {
+                    <button type="button" onclick="window.location.href='/retry-order'">Försök igen</button>
+                    <button type="button" onclick="window.location.href='/profile'">Gå till min profil</button>
+                }
+            </div>
+        </div>
+    </div>
+</body>
