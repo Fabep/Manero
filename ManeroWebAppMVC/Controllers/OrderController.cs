@@ -225,5 +225,10 @@ namespace ManeroWebAppMVC.Controllers
             viewModel.OrderDataJson = JsonConvert.SerializeObject(order);
             return View(viewModel);
         }
+
+        public ActionResult OrderConfirmationPage(bool orderSucceeded)
+        {
+            return View(orderSucceeded); 
+        }
     }
 }

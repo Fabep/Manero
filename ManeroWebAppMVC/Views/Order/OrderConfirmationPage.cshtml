@@ -1,46 +1,28 @@
-﻿
+﻿@model bool
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Status</title>
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
+
 <body>
-
-    <div class="order-confirmation success" id="successMessage" style="display:none;">
-        <i class="fas fa-check-circle"></i>
-        <h1>Thank you for your order!</h1>
-        <p>Your order will be delivered on time.</p>
-        <div class="button-container">
-            <button type="button" onclick="window.location.href='/orders'">View orders</button>
-            <button type="button" onclick="window.location.href='/'">Continue shopping</button>
+    <div id="confirmation-container">
+        <div class="order-confirmation @(Model ? "success" : "failed")">
+            <i class="fas fa-@(Model ? "check-circle" : "times-circle")"></i>
+            <h1>@(Model ? "Tack för din order!" : "Tyvärr, din order kunde inte genomföras")</h1>
+            <p>@(Model ? "Din order kommer att levereras i tid." : "Något gick fel. Vänligen försök igen.")</p>
+            <div class="button-container">
+                @if (Model)
+                {
+                    <button type="button" onclick="window.location.href='/orders'">Visa order</button>
+                    <button type="button" onclick="window.location.href='/'">Fortsätt handla</button>
+                }
+                else
+                {
+                    <button type="button" onclick="window.location.href='/retry-order'">Försök igen</button>
+                    <button type="button" onclick="window.location.href='/profile'">Gå till min profil</button>
+                }
+            </div>
         </div>
     </div>
-
-    <div class="order-confirmation failed" id="failureMessage" style="display:none;">
-        <i class="fas fa-times-circle"></i>
-        <h1>Sorry, your order has failed!</h1>
-        <p>Something went wrong. Please try again</p>
-        <div class="button-container">
-            <button type="button" onclick="window.location.href='/retry-order'">Try again</button>
-            <button type="button" onclick="window.location.href='/profile'">Go to My Profile</button>
-        </div>
-    </div>
-
-    <script>
-        function displayOrderStatus() {
-            var isSuccess = Math.random() >= 0.5;
-            if (isSuccess) {
-                document.getElementById('successMessage').style.display = 'block';
-                document.getElementById('failureMessage').style.display = 'none';
-            } else {
-                document.getElementById('failureMessage').style.display = 'block';
-                document.getElementById('successMessage').style.display = 'none';
-            }
-        }
-
-        window.onload = displayOrderStatus;
-    </script>
-
 </body>
