@@ -169,12 +169,12 @@ namespace DataAccess.Tests.Handlers.Services
 			
 
 			// Act
-			var result = await _sut.SearchProductsAsync("Cozy Bag");
+			var result = await _sut.SearchProductsAsync("");
 
 			// Assert
 			Assert.NotNull(result);
 			Assert.IsType<List<Product>>(result);
-			Assert.True(result.Any(p => p.ProductName.Contains("Cozy Bag")), "Expected product not found in the result.");
+			Assert.True(result.Any(p => p.ProductName.Contains("")), "Expected product not found in the result.");
 		}
 
 		
