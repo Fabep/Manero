@@ -9,18 +9,18 @@
     <div id="confirmation-container">
         <div class="order-confirmation @(Model ? "success" : "failed")">
             <i class="fas fa-@(Model ? "check-circle" : "times-circle")"></i>
-            <h1>@(Model ? "Tack för din order!" : "Tyvärr, din order kunde inte genomföras")</h1>
-            <p>@(Model ? "Din order kommer att levereras i tid." : "Något gick fel. Vänligen försök igen.")</p>
+            <h1>@(Model ? "Thank you for your order!" : "Sorry! Your order failed")</h1>
+            <p>@(Model ? "Your order will be delivered in time." : "Something went wrong. Please try again.")</p>
             <div class="button-container">
                 @if (Model)
                 {
-                    <button type="button" onclick="window.location.href='/orders'">Visa order</button>
-                    <button type="button" onclick="window.location.href='/'">Fortsätt handla</button>
+                    <button type="button" onclick="window.location.href='/orders'">Show order</button>
+                    <button type="button" onclick="window.location.href='/'">Keep shopping</button>
                 }
                 else
                 {
-                    <button type="button" onclick="window.location.href='/retry-order'">Försök igen</button>
-                    <button type="button" onclick="window.location.href='/profile'">Gå till min profil</button>
+                    <button type="button" onclick="window.location.href='/retry-order'">Try again</button>
+                    <button type="button" onclick="window.location.href='/profile'">View my profile</button>
                 }
             </div>
         </div>
