@@ -156,9 +156,9 @@ namespace ManeroWebAppMVC.Controllers
             {
                 if (_orderService.VerifyOrder(order))
                     orderSucceeded = await _orderService.CreateOrder(order);
-                return RedirectToAction("OrderConfirmationPage", orderSucceeded);
+                return RedirectToAction("OrderConfirmationPage", new { orderSucceeded = orderSucceeded });
             }
-            return RedirectToAction("OrderConfirmationPage", orderSucceeded);
+            return RedirectToAction("OrderConfirmationPage", new { orderSucceeded = orderSucceeded });
         }
 
         [HttpPost]
@@ -170,7 +170,7 @@ namespace ManeroWebAppMVC.Controllers
             viewModel.DeliveryFee = "";
 
             if (order == null)
-                return RedirectToAction("OrderConfirmationPage", false);
+                return RedirectToAction("OrderConfirmationPage", new { orderSucceeded = false });
                 
             viewModel.Order = order;
             
@@ -190,7 +190,8 @@ namespace ManeroWebAppMVC.Controllers
             return View(viewModel);
         }
 
-        public ActionResult OrderConfirmationPage(bool orderSucceeded)
+
+        public IActionResult OrderConfirmationPage(bool orderSucceeded)
         {
             return View(orderSucceeded); 
         }
