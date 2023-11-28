@@ -14,13 +14,13 @@
             <div class="button-container">
                 @if (Model)
                 {
-                    <button type="button" onclick="window.location.href='/orders'">Show order</button>
-                    <button type="button" onclick="window.location.href='/'">Keep shopping</button>
+                    <button type="button" onclick="location.href='@Url.Action("OrderHistoryPage", "Profile")'">Show order</button>
+                    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'">Keep shopping</button>
                 }
                 else
                 {
-                    <button type="button" onclick="window.location.href='/retry-order'">Try again</button>
-                    <button type="button" onclick="window.location.href='/profile'">View my profile</button>
+                    <button type="button" onclick="window.history.back()">Try again</button>
+                    <button type="button" onclick="location.href='@Url.Action("MyProfilePage", "Profile")'">View my profile</button>
                 }
             </div>
         </div>
