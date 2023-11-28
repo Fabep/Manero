@@ -8,13 +8,20 @@
 
     @foreach (var item in @Model.Order.Items)
     {
-        <div class="ch-product">@item.ProductName, quantity: @item.Quantity, unit price: @item.Price$</div>
+        if (item.DiscountedPrice > 0)
+        {
+            <div class="ch-product">@item.ProductName, quantity: @item.Quantity, unit price: @item.DiscountedPrice.ToString("0.00")$</div>
+        }
+        else
+        {
+            <div class="ch-product">@item.ProductName, quantity: @item.Quantity, unit price: @item.Price.ToString("0.00")$</div>
+        }
     }
 
-    <div class="ch-discount-section">
+@*     <div class="ch-discount-section">
         Discount: @Model.Order.PromotionDiscount$
     </div>
-
+ *@
     <div class="ch-deliveryFee-section">
         Delivery fee: @Model.DeliveryFee$
     </div>
@@ -61,12 +68,12 @@
         <div class="ch-payment-title"> Paymentmethod:</div>
         <div class="ch-payment-method"> Card number: @Model.Order.PaymentMethod!.CardNumber</div>
     </div>
-
+@* 
     <div class="ch-comment-section">
         <div class="ch-comment-title"> Comment:</div>
         <div class="ch-comment"></div>
     </div>
-
+ *@
     <div class="ch-submit-section">
         <a class="ch-submit-button large-btn" asp-controller="Order" asp-action="SubmitCheckout" asp-route-orderAsJsonObject="@Model.OrderDataJson">
             Confirm Order
