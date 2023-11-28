@@ -167,7 +167,7 @@ namespace ManeroWebAppMVC.Controllers
             var order = JsonConvert.DeserializeObject<OrderSchema>(orderDataJson);
 
             var viewModel = new CheckoutViewModel();
-            viewModel.DeliveryFee = "";
+            viewModel.DeliveryFee = "0";
 
             if (order == null)
                 return RedirectToAction("OrderConfirmationPage", new { orderSucceeded = false });
