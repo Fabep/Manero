@@ -28,6 +28,29 @@ namespace DataAccess.Tests.Handlers.Services
             _sut = new ProductService(_productRepository);
         }
 
+        private LocalContext LocalContext()
+        {
+            var options = new DbContextOptionsBuilder<LocalContext>()
+      .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+      .Options;
+
+            return new LocalContext(options);
+        }
+
+        [Fact]
+        public async void GetBestSellersAsync_DoesNotReturn_Null2()
+        {
+            //Arrange
+
+            //Act
+            var result = await _sut.GetBestSellersAsync();
+
+            //Assert
+            Assert.NotEmpty(result);
+        }
+
+
+
 
         [Fact]
         public async void GetBestSellersAsync_DoesNotReturn_Null()
@@ -162,24 +185,24 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.Equal(expected, result);
         }
 
-		[Fact]
-		public async Task SearchProductsAsync_ReturnsListOfProducts()
-		{
-			// Arrange
-			
+        [Fact]
+        public async Task SearchProductsAsync_ReturnsListOfProducts()
+        {
+            // Arrange
 
-			// Act
-			var result = await _sut.SearchProductsAsync("");
 
-			// Assert
-			Assert.NotNull(result);
-			Assert.IsType<List<Product>>(result);
-			Assert.True(result.Any(p => p.ProductName.Contains("")), "Expected product not found in the result.");
-		}
+            // Act
+            var result = await _sut.SearchProductsAsync("");
 
-		
+            // Assert
+            Assert.NotNull(result);
+            Assert.IsType<List<Product>>(result);
+            Assert.True(result.Any(p => p.ProductName.Contains("")), "Expected product not found in the result.");
+        }
 
 
 
-	}
+
+
+    }
 }
