@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Models.Schemas;
 using DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Tests.Handlers.Services
 {
@@ -20,10 +21,19 @@ namespace DataAccess.Tests.Handlers.Services
 
         public PromotionServiceTests()
         {
-            _localContext = new LocalContext();
+            _localContext = LocalContext();
             _promotionCodeRepository = new PromotionCodeRepository(_localContext);
             _sut = new PromotionService(_promotionCodeRepository);
 
+        }
+
+        private LocalContext LocalContext()
+        {
+            var options = new DbContextOptionsBuilder<LocalContext>()
+                  .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                  .Options;
+
+            return new LocalContext(options);
         }
 
         [Fact]
