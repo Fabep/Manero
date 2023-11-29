@@ -1,7 +1,4 @@
-﻿using DataAccess.ExtensionMethods;
-using DataAccess.Handlers.Repositories;
-using DataAccess.Handlers.Services;
-using DataAccess.Enums;
+﻿using DataAccess.Enums;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.ViewModels;

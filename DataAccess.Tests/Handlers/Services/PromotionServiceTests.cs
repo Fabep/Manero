@@ -2,13 +2,6 @@
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Handlers.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess.Models.Schemas;
-using DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Tests.Handlers.Services
