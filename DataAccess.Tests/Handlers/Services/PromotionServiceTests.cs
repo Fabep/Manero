@@ -39,6 +39,8 @@ namespace DataAccess.Tests.Handlers.Services
             // Assert
             Assert.Equal(result.Name, expectedResult);
 
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -51,6 +53,8 @@ namespace DataAccess.Tests.Handlers.Services
             // Assert
             Assert.Null(result);
 
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
 
@@ -69,6 +73,8 @@ namespace DataAccess.Tests.Handlers.Services
             // Assert
             Assert.Equal(result, expectedResult);
 
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
 

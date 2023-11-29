@@ -112,14 +112,20 @@ namespace DataAccess.Handlers.Services
 
         public Order GetOrderFromCustomerIdAsync(int customerId)
         {
-            var orderEntity = _orderRepository.GetAll(x => x.CustomerId == customerId)
+            try
+            {
+                var orderEntity = _orderRepository.GetAll(x => x.CustomerId == customerId)
                 .Include(x => x.PaymentMethod)
                 .Include(x => x.Status)
                 .FirstOrDefault();
 
-            var order = DataConverter.ConvertOrderEntityToOrder(orderEntity);
-
-            return order;
+                var order = DataConverter.ConvertOrderEntityToOrder(orderEntity);
+                if(order != null)
+                    return order;
+                return null!;
+            }
+            catch (Exception) { }
+            return null!;
         }
 
         public AddressSchema CreateAddressSchema()

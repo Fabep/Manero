@@ -14,6 +14,33 @@ namespace DataAccess.Tests.Handlers.Services
         private OrderRepository _orderRepository;
         private OrderItemRepository _orderItemRepository;
         private LocalContext _localContext;
+        private readonly OrderSchema _orderSchema = new OrderSchema
+        {
+            CustomerId = 1,
+            BillingAddressSchema = new AddressSchema
+            {
+                City = "Waterloo",
+                StreetAddress = "Avenue Messidor",
+                Streetnumber = "19",
+                Country = "Belgium",
+                PostalCode = "56897",
+                Region = "Walloon Region"
+            },
+            DeliveryAddressSchema = new AddressSchema
+            {
+                City = "Waterloo",
+                StreetAddress = "Avenue Messidor",
+                Streetnumber = "19",
+                Country = "Belgium",
+                PostalCode = "56897",
+                Region = "Walloon Region"
+            },
+            PromotionDiscount = 0,
+            TotalAmount = 500,
+            PaymentMethod = new PaymentMethodSchema { CardNumber = 1 },
+            Items = new List<ProductCartObject> { new ProductCartObject { ProductName = "T-shirt", Size = "M", Color = "blue", Quantity = 4, ImageUrl = "imageurl" } }
+        };
+
 
         public OrderServiceTests()
         {
@@ -54,7 +81,10 @@ namespace DataAccess.Tests.Handlers.Services
 
             // Assert
             Assert.Equal(result.TotalAmount, expectedResult);
-            
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
+
         }
 
         [Fact]
@@ -78,8 +108,59 @@ namespace DataAccess.Tests.Handlers.Services
             // Assert
             Assert.Equal(result.TotalAmount, expectedResult);
 
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
+
         }
 
+
+        [Fact]
+        public void VerifyOrder_ReturnsTrue_IfOrderIsVerified()
+        {
+            //Arrange
+      
+            //Act
+            var result = _sut.VerifyOrder(_orderSchema);
+
+            //Assert
+            Assert.IsType<bool>(result);
+            Assert.True(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
+        }
+
+        [Fact]
+        public void GetOrderFromCustomerIdAsync_ReturnsOrder_IfOrderIsCreated()
+        {
+            //Arrange
+            _sut.CreateOrder(_orderSchema);
+
+            //Act
+            var result = _sut.GetOrderFromCustomerIdAsync(_orderSchema.CustomerId);
+
+            //Assert
+            Assert.IsType<Order>(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
+        }
+
+        [Fact]
+        public void CreateOrder_ReturnsTrue_IfOrderIsCreated()
+        {
+            //Arrange
+
+            //Act
+            var result = _sut.CreateOrder(_orderSchema);
+
+            //Assert
+            Assert.IsType<Task<bool>>(result);
+            Assert.True(result.Result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
+        }
 
     }
 }

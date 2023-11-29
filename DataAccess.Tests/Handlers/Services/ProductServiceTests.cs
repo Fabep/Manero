@@ -30,20 +30,6 @@ namespace DataAccess.Tests.Handlers.Services
             return new LocalContext(options);
         }
 
-        [Fact]
-        public async void GetBestSellersAsync_DoesNotReturn_Null2()
-        {
-            //Arrange
-
-            //Act
-            var result = await _sut.GetBestSellersAsync();
-
-            //Assert
-            Assert.NotEmpty(result);
-        }
-
-
-
 
         [Fact]
         public async void GetBestSellersAsync_DoesNotReturn_Null()
@@ -55,6 +41,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.NotEmpty(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -67,6 +56,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.IsType<List<Product>>(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -79,6 +71,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.NotEmpty(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -91,6 +86,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.IsType<List<Product>>(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -104,6 +102,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             // Assert
             Assert.True(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
         [Fact]
         public void ShouldHavePromotion_ProductPrice499OrMore_ReturnsFalse()
@@ -116,6 +117,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             // Assert
             Assert.False(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -130,6 +134,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.NotEmpty(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -144,6 +151,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.IsType<List<Product>>(result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -160,6 +170,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.NotEqual(expected, result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -176,6 +189,9 @@ namespace DataAccess.Tests.Handlers.Services
 
             //Assert
             Assert.Equal(expected, result);
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -191,11 +207,10 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.NotNull(result);
             Assert.IsType<List<Product>>(result);
             Assert.True(result.Any(p => p.ProductName.Contains("")), "Expected product not found in the result.");
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
-
-
-
-
 
     }
 }

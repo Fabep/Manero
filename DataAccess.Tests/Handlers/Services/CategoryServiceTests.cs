@@ -45,6 +45,8 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.Contains(result, p => p.PrimaryCategoryName.Contains("Women"));
             Assert.Contains(result, p => p.PrimaryCategoryName.Contains("Unisex"));
 
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
         [Fact]
@@ -63,7 +65,8 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.Contains(result, p => p.SubCategoryName.Contains("Men"));
             Assert.Contains(result, p => p.SubCategoryName.Contains("Suits"));
 
-
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
 
@@ -83,7 +86,8 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.Contains(result, p => p.SubCategoryName.Contains("Women"));
             Assert.Contains(result, p => p.SubCategoryName.Contains("Dresses"));
 
-
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
 
@@ -102,6 +106,9 @@ namespace DataAccess.Tests.Handlers.Services
             Assert.NotNull(result);
             Assert.IsType<List<SubCategory>>(result);
             Assert.Contains(result, p => p.SubCategoryName.Contains("Unisex"));
+
+            _localContext.Database.EnsureDeleted();
+            _localContext.Dispose();
         }
 
     }
