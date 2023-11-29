@@ -9,6 +9,6 @@ public class ProductSchema
     public string ProductDescription { get; set; } = null!;
     [Required]
     [Range(0, int.MaxValue)]
-    public double ProductPrice { get; set; }
+    public decimal ProductPrice { get; set; }
     public int? Quantity { get; set; }
 }

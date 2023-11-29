@@ -1,0 +1,95 @@
+﻿@model OrderViewModel
+
+
+
+<section class="order-section">
+    <div class="container">
+        <div class="header-box">
+            <h1>Your Order</h1>
+        </div>
+        @foreach (var product in Model.Order.Items)
+        {
+            <partial name="_OrderTilePartial" model="product" />
+        }
+        <div class="order-subtotal">
+            <div class="promocode">
+                <form asp-controller="Order" asp-action="ApplyPromocode" method="post">
+                    <p>Promocode:</p>
+                    <input name="promoCodeQuery" id="promocodeInput" />
+                    <input type="hidden" name="discount" value="@Model.Discount" />
+                    <input type="hidden" name="currentTotal" value="@Model.Order.TotalAmount" />
+
+                    @for (int i = 0; i < Model.ActivePromotions?.Count; i++)
+                    {
+                        <input type="hidden" name="activePromotions[@i].Name" value="@Model.ActivePromotions[i].Name" />
+                        <input type="hidden" name="activePromotions[@i].DiscountRate" value="@Model.ActivePromotions[i].DiscountRate" />
+                        <input type="hidden" name="activePromotions[@i].Description" value="@Model.ActivePromotions[i].Description" />
+                        <input type="hidden" name="activePromotions[@i].StartDate" value="@Model.ActivePromotions[i].StartDate" />
+                        <input type="hidden" name="activePromotions[@i].EndDate" value="@Model.ActivePromotions[i].EndDate" />
+                        <input type="hidden" name="activePromotions[@i].IsActive" value="@Model.ActivePromotions[i].IsActive" />
+                    }
+                    <button type="submit" style="display: none;"></button>
+                </form>
+                @if(Model.ActivePromotions != null)
+                {
+                    @foreach (var promo in Model.ActivePromotions)
+                    {
+                        <p>@promo.Name @((@promo.DiscountRate * 100).ToString("0") + "%")</p>
+                    }
+
+                }
+
+            </div>
+            <div class="sub-fees">
+                <table>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td id="subtotal" class="sub-values">$@Model.SubTotal.ToString("0.00")</td>
+                    </tr>
+                    @if (Model.Discount != 0)
+                    {
+                        <tr>
+                            <td>Discount:</td>
+                            <td id="discount" class="sub-values">-@Model.Discount.ToString("0.00")</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>Delivery:</td>
+                        <td id="delivery" class="sub-values">Free</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="order-total">
+            <table>
+                <tr>
+                    <td id="total-header">Total:</td>
+                    <td id="" class="sum">$@Model.Order.TotalAmount.ToString("0.00")</td>
+                </tr>
+            </table>
+        </div>
+
+
+
+        <form class="to-checkout" asp-controller="Order" asp-action="Checkout" method="post" asp-route-orderDataJson="@Model.OrderDataJson">
+            <button class="large-btn">PROCEED TO CHECKOUT</button>
+        </form>
+
+
+
+    </div>
+</section>
+
+
+
+<script>
+    // Submit the form when Enter is pressed in the input field
+    document.getElementById('promocodeInput').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            document.querySelector('form').submit();
+        }
+    });
+
+</script>

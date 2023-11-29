@@ -24,7 +24,7 @@ namespace DataAccess.Handlers.Repositories
         {
             try
             {
-                _context.Set<TEntity>().Add(entity);
+                await _context.Set<TEntity>().AddAsync(entity);
                 await _context.SaveChangesAsync();
                 return StatusMessage.Success;
             }
@@ -56,7 +56,7 @@ namespace DataAccess.Handlers.Repositories
                 return entity;
             }
         }
-        public async Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression)
+        public IQueryable<TEntity> GetAll(Expression<Func<TEntity, bool>> expression)
         {
             IQueryable<TEntity> entity;
 

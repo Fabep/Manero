@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <script src="https://kit.fontawesome.com/7541a05141.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/ManeroWebAppMVC.styles.css" asp-append-version="true" />
+    
+
+
 
 </head>
 <body>
@@ -19,26 +22,49 @@
                     <button class="openbtn" onclick="openNav()"><span class="navbar-toggler-icon"></span></button>
                 </div>
                 <div class="nav-box logo">
-                   @Html.ActionLink("MANERO", "Index", "Home")
+                    @Html.ActionLink("MANERO", "Index", "Home")
                 </div>
                 <div class="nav-box shop-cart">
-                    <a href="checkout.html" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping"></i><span class="cart-badge">1</span></a>
+                    <a onclick="openCart()" target="_blank"><i class="shop-icon fa-solid fa-basket-shopping" id="cart-icon" name="cart"></i><span class="cart-badge" id="cart-count">0</span></a>
                 </div>
+
             </div>
         </nav>
+
+
+        <div Id="cart" class="cart">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">×</a>
+            <div class="cart-title">Cart Items</div>
+            <div class="cart-content"></div>
+
+
+            <div class="total">
+                <div class="total-title">Total:</div>
+                <div class="total-price"></div>
+            </div>
+
+            <div class="btn-box">
+                <form method="get" asp-controller="Order" asp-action="Index">
+                    <button type="submit" class="btn-buy">Place Order</button>
+                </form>
+            </div>
+
+
+        </div>
+
         <div id="navSidebar" class="sidebar">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Men</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Categories", new {primaryCategoryId = 1})">Men</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Women</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Categories", new {primaryCategoryId = 2})">Women</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Unisex</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Categories", new {primaryCategoryId = 3})">Unisex</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link">Contact</a>
@@ -57,7 +83,7 @@
 
     <footer class="border-top footer">
         <div class="mobile-footer">
-            <button class="nav-item">
+            <button class="nav-item" onclick="location.href='@Url.Action("Index", "Home")'">
                 <i class="fas fa-home"></i>
             </button>
 
@@ -73,7 +99,7 @@
                 <i class="fas fa-heart"></i>
             </button>
 
-            <button class="nav-item">
+            <button class="nav-item" onclick="location.href='@Url.Action("MyProfilePage", "Profile")'">
                 <i class="fas fa-user"></i>
             </button>
         </div>

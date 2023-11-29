@@ -15,15 +15,16 @@ public class Product
 
 	[Required]
 	[Range(0, int.MaxValue)]
-	public double ProductPrice { get; set; }
+	public decimal ProductPrice { get; set; }
 
 	public int? Rating { get; set; }
 	public int? Quantity { get; set; }
+	public string ImageUrl { get; set; } = null!;
 
 	// Navigations-egenskap till PromotionEntity (nullable)
 	public int? PromotionId { get; set; }
 	[ForeignKey("PromotionId")]
 	public Promotion? Promotion { get; set; }
-	public double? DiscountedPrice { get; set; }
+	public decimal DiscountedPrice { get; set; } = 0;
 
 }

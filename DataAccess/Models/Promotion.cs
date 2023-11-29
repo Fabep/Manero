@@ -21,7 +21,7 @@ namespace DataAccess.Models
 
 		[Required]
 		[RegularExpression(@"^\d+\.\d{0,2}$")]
-		public double DiscountRate { get; set; }
+		public decimal DiscountRate { get; set; }
 
 		[Required]
 		[DataType(DataType.Date)]

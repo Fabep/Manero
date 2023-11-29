@@ -32,11 +32,14 @@ internal class ProductSeeder
     internal static IEnumerable<ProductEntity> SeedProducts()
     {
         var baseProducts = new List<ProductEntity>();
-        for (int i = 0; i <= 1; i++)
+        for (int i = 0; i <= 10; i++)
         {
             var clothingName = ClothingNames[random.Next(0, 6)];
             var description = Descriptions[random.Next(0, 15)];
             var subCategoryId = CategorySeeder.GetSubCategoryId(clothingName);
+            bool isBestSeller = i%2 == 0;
+            bool isFeaturedProducts = i% 3 == 0;
+            var productPrice = random.Next(50, 1000);
 
             for (int colorId = 1; colorId < 7; colorId++)
             {
@@ -48,12 +51,14 @@ internal class ProductSeeder
                         ProductName = $"{description} {clothingName}",
                         ProductDescription =
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, libero non rhoncus cursus, dolor libero accumsan ex, vel blandit elit neque quis ante. Morbi magna ex, fringilla id vehicula at, molestie id turpis. Duis bibendum ultrices sem, nec gravida enim tempor at. Praesent ac nulla tellus. Sed sed massa. ",
-                        ProductPrice = random.Next(50, 1000),
+                        ProductPrice = productPrice,
                         Rating = random.Next(0, 5),
                         SubCategoryId = subCategoryId,
                         ColorId = colorId,
                         SizeId = sizeId,
-                        PromotionId = 1
+                        PromotionId = 1,
+                        IsBestSeller = isBestSeller,
+                        IsFeaturedProduct = isFeaturedProducts,
                     };
 
                     ProductIds.Add(entity.ProductId);
@@ -112,5 +117,34 @@ internal class ProductSeeder
         return productInventory;
     }
 
+    internal static IEnumerable<PromotionCodeEntity> SeedPromotionCodes()
+    {
+        var promotionCodes = new List<PromotionCodeEntity>();
+
+        promotionCodes.Add(new PromotionCodeEntity
+        {
+            Id = 1,
+            Name = "MANEROXMAS25",
+            DiscountRate = 0.25m,
+            Description = "Enjoy the holiday spirit with MANERO! Use the code MANEROXMAS25 at checkout to get a holly-jolly 25% discount on your festive purchases.Happy shopping and Merry Christmas!",
+            StartDate = new DateTime(DateTime.Now.Year, 11, 22), 
+            EndDate = new DateTime(DateTime.Now.Year, 12, 25),  
+
+        });
+
+        promotionCodes.Add(new PromotionCodeEntity
+        {
+            Id= 2,
+            Name = "MANERONEW",
+            DiscountRate = 0.15m,
+            Description = "Welcome to MANERO! As a new customer, use the code MANERONEW at checkout to enjoy a special 15% discount on your first purchase. We're thrilled to have you with us. Happy shopping!",
+            StartDate = DateTime.Now, 
+            EndDate = DateTime.Now.AddMonths(1), 
+        });
+
+
+
+        return promotionCodes;
+    }
 
 }

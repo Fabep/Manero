@@ -1,0 +1,52 @@
+﻿.color-label {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.red {
+    background-color: Red;
+}
+
+.blue {
+    background-color: Blue;
+}
+
+.green {
+    background-color: Green;
+}
+
+.yellow {
+    background-color: Yellow;
+}
+
+.white {
+    background-color: White;
+}
+
+.black {
+    background-color: Black;
+}
+
+.sort-button-h {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+.category-box {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.category-box:hover {
+    background-color: #f0f0f0;
+}
+

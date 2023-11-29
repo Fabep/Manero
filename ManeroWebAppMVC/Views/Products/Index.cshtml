@@ -8,27 +8,43 @@
 		<h1>@Model.PageTitle</h1>
 	</div>
 
-
     <div class="sort-filter">
 
-        <div class="filtering">
-            <i class="fa-solid fa-filter"></i>
-            Add filter
-        </div>
+       <div class="filtering">
+    <i class="fa-solid fa-filter"></i>
+    <button onclick="location.href='@Url.Action("Filter", "Products")'" class="sort-button-h">Filter</button>
+</div>
+
 
         <div class="sorting">
-            <i class="fa-solid fa-sort"></i>
-            Sort products
+            <form method="post" class="sort-form">
+                <select asp-for="SortOrder" class="sort-box">
+                    <option value=""> ... </option>
+                    <option value="ProductNameAsc">Product name A-Z</option>
+                    <option value="ProductNameDesc">Product name Z-A</option>
+                    <option value="ProductPriceDesc">Highest price</option>
+                    <option value="ProductPriceAsc">Lowest price</option>                   
+                    <option value="DiscountedPriceDesc">Most discount</option>
+                    <option value="DiscountedPriceAsc">Least discount</option>
+                    <option value="RatingDesc">Highest rating</option>
+                    <option value="RatingAsc">Lowest rating</option>
+                </select>
+                <input type="submit" value="Sort products" class="sort-button" />
+            </form>
         </div>
 
     </div>
 
 
 	<div class="product-box">
-		@foreach (var product in Model.ProductList)
+		@foreach (var product in Model.ProductList  )
 		{
 			<partial name="_ProductTilePartial" model="product" />
 		}
 	</div>
+
+    <hr />
+
+    <partial name="_BackButtonPartial" />
 
 </div>

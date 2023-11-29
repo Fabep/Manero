@@ -1,37 +1,80 @@
 ﻿@model CategoriesViewModel
 @{
 }
+
 <section class="categories">
+
+    <!-- Primary Categories -->
     <div class="container">
         <div class="main-categories-nav" id="mc-btns">
-            <div class="main-categories-nav-box">
-                <button class="main-categories-nav-box-btn active">MEN</button>
-            </div>
-            <div class="main-categories-nav-box">
-                <button class="main-categories-nav-box-btn">WOMEN</button>
-            </div>
-            <div class="main-categories-nav-box">
-                <button class="main-categories-nav-box-btn">UNISEX</button>
-            </div>
+            @foreach (var primaryCategory in Model.PrimaryCategories)
+            {
+                <div class="main-categories-nav-box">
+                    @if (primaryCategory.PrimaryCategoryId == Model.SelectedPrimaryCategory)
+                    {
+                        <button id="@primaryCategory.PrimaryCategoryId" class="main-categories-nav-box-btn active">@primaryCategory.PrimaryCategoryName</button>
+                    }
+                    else
+                    {
+                        <button id="@primaryCategory.PrimaryCategoryId" class="main-categories-nav-box-btn">@primaryCategory.PrimaryCategoryName</button>
+                    }
+                </div>
+            }
         </div>
     </div>
 
     <!-- Grid Section -->
     <div class="grid-container">
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Dresses</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Pants</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Accessories</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">Shoes</div>
-        </a>
-        <a href="@Url.Action("Index", "Products")" class="grid-item">
-            <div class="text-wrapper">T-Shirts</div>
-        </a>
+
+        <partial name="_CategoriesPartial" model="@Model.SubCategories"/>
+
     </div>
 </section>
+
+
+@section Scripts
+    {
+    <script>
+
+        // Add active class to the current selected Main Category button (highlight it)
+        var header = document.getElementById("mc-btns");
+        var btns = header.getElementsByClassName("main-categories-nav-box-btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+        
+        
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            var buttons = document.querySelectorAll(".main-categories-nav-box-btn");
+
+            buttons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var primaryCategoryId = button.id;
+
+                    // Create an AJAX request
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            if (xhr.status === 200) {
+                                // Update the grid container with the new content
+                                var gridContainer = document.querySelector(".grid-container")
+                                console.log(xhr.responseText)
+
+                                gridContainer.innerHTML = xhr.responseText;
+                            }
+                        }
+                    };
+                    xhr.open("GET", `/Categories/RefreshIndex?primaryCategoryId=${primaryCategoryId}`, true);
+                    xhr.send();
+                });
+            });
+        });
+    
+    </script>
+}

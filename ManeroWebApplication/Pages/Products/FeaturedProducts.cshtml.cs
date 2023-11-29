@@ -22,7 +22,7 @@ namespace ManeroWebApplication.Pages.Products
 
 
 
-			var featuredProductList = await _productRepository.GetAllAsync(x => x.ProductPrice < 1000);
+			var featuredProductList = _productRepository.GetAll(x => x.ProductPrice < 1000);
 
 			FeaturedProducts = featuredProductList
 				.Select(p => new DataAccess.Models.Product

@@ -6,7 +6,7 @@
 <section class="product-page-container">
     @* Images *@
     <div class="product-image">
-        <img src="~/Images/t-shirt.png" />
+        <img src="@Model.Product.ImageUrl" alt="@Model.Product.ProductName" />
     </div>
     <div class="image-slide-buttons"></div>
 
@@ -33,55 +33,75 @@
     @* Price *@
    
     <div class="product-price">
-	    @if (Model.Product.Promotion != null)
+	    @if (Model.Product.DiscountedPrice != 0)
 	    {
-		    var discountPrice = Model.Product.ProductPrice * (1 - Model.Product.Promotion.DiscountRate);
-		    var formattedDiscountPrice = discountPrice.ToString("0.0");
 
 		    <h4 class="product-price-old m-0"><s>$@Model.Product.ProductPrice.ToString("0.00")</s></h4>
-		    <h4 class="product-price-sales">$@formattedDiscountPrice</h4>
+		    <h4 class="product-price-sales">$@Model.Product.DiscountedPrice.ToString("0.00")</h4>
 	    }
 	    else
 	    {
-		    <h4 class="product-price-sales m-0">$@Model.Product.ProductPrice.ToString("0.00")</h4>
+		    <h4 class="product-price-old m-0">$@Model.Product.ProductPrice.ToString("0.00")</h4>
 	    }
 	    <div class="product-amount">
-		    <button class="amount-button" onclick="remove()">-</button>
-		    <div id="current-amount">@Model.CurrentAmount</div>
-		    <button class="amount-button" onclick="add()">+</button>
+		    <button class="amount-button" onclick="decreaseAmount()">-</button>
+            <div id="current-amount">@Model.CurrentAmount</div>
+            <button class="amount-button" onclick="increaseAmount()">+</button>
 	    </div>
     </div>
 
-
-
-
-    @* SizeEntity *@
+    @* Sizes *@
+    @* <partial name="_SizeButtonsPartial" model="Model.Sizes"/> *@
     <div class="product-buttons">
         <h5 class="product-text-part">Size</h5>
-        <div class="horizontal-button-container">
-            <button class="size-button">S</button>
-            <button class="size-button">M</button>
+        <div class="horizontal-button-container" id="size-buttons">
+            @foreach (var size in Model.Sizes)
+            {
+                <a id="size-@size.SizeType" class="size-button" onclick="selectThisSize('@size.SizeType')">@size.SizeType</a>
+            }
         </div>
     </div>
 
     @* Colors *@
+    @* <partial name="_ColorButtonsPartial" model="Model.Colors"/> *@
     <div class="product-buttons">
         <h5 class="product-text-part">Color</h5>
-        <div class="horizontal-button-container">
-            <button class="color-button"></button>
+        <div class="horizontal-button-container" id="color-buttons">
+            @foreach (var color in Model.Colors)
+            {
+                if (color.HexColor is null)
+                {
+                    <i id="color-@color.ColorName" class="color-button" onclick="selectThisColor('@color.ColorName')" style="background-color:@color.ColorName"></i>
+                }
+                else
+                {
+                    <i id="color-@color.ColorName" class="color-button" onclick="selectThisColor('@color.ColorName')" style="background-color:@color.HexColor"></i>
+                }
+            }
         </div>
     </div>
+
 
     @* Description *@
     <div class="product-description">
         <h5 class="product-text-part">Description</h5>
         <p>@Model.Product.ProductDescription</p>
     </div>
-
+    
     @* Add to cart *@
-    <button class="add-to-cart-button">
-        Add To Cart
-    </button>
+    <form method="post" action="AddProduct">
+        <input type="hidden" name="currentAmount" id="current-amount-input" value="@Model.CurrentAmount"/>
+        <input type="hidden" name="productName" value="@Model.Product.ProductName"/>
+        <input type="hidden" id="selected-size" name="selectedSize" value=""/>
+        <input type="hidden" id="selected-color" name="selectedColor" value=""/>
+        @if (Model.Product.Promotion is not null)
+        {
+            <input type="hidden" id="discount-price" value="@Model.Product.DiscountedPrice" name="discountPrice"/>
+        }
+        <button type="submit" class="add-to-cart-button">
+            Add To Cart
+        </button>
+    </form>
 
     @* Reviews *@
     <div class="product-reviews">

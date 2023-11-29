@@ -12,7 +12,7 @@ public class ProductEntity
     public string ProductDescription { get; set; } = null!;
     [Required]
     [Range(0, int.MaxValue)]
-    public double ProductPrice { get; set; }
+    public decimal ProductPrice { get; set; }
     public int? Rating { get; set; }
     public int? Quantity { get; set; }
 
@@ -24,6 +24,7 @@ public class ProductEntity
     public ColorEntity? Color { get; set; }
 
     public int? SizeId { get; set; }
+
     public SizeEntity? Size { get; set; }
 
     public ProductInventoryEntity? ProductInventory { get; set; }
@@ -32,4 +33,8 @@ public class ProductEntity
 	public int? PromotionId { get; set; }
 	[ForeignKey("PromotionId")]
 	public PromotionEntity? Promotion { get; set; }
+    public bool? IsBestSeller { get; set; }
+    public bool? IsFeaturedProduct { get; set; }
+
+   
 }
