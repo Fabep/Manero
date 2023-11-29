@@ -3,6 +3,7 @@ using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,19 @@ namespace DataAccess.Tests.Handlers.Services
 
         public CategoryServiceTests()
         {
-            _localContext = new LocalContext();
+            _localContext = LocalContext();
             _subCategoryRepository = new SubCategoryRepository(_localContext);
             _sut = new CategoryService(_subCategoryRepository);
 
+        }
+
+        private LocalContext LocalContext()
+        {
+            var options = new DbContextOptionsBuilder<LocalContext>()
+                  .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                  .Options;
+
+            return new LocalContext(options);
         }
 
         [Fact]

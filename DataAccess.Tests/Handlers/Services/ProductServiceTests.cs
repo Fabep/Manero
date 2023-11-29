@@ -23,7 +23,7 @@ namespace DataAccess.Tests.Handlers.Services
 
         public ProductServiceTests()
         {
-            _localContext = new LocalContext();
+            _localContext = LocalContext();
             _productRepository = new ProductRepository(_localContext);
             _sut = new ProductService(_productRepository);
         }
@@ -31,8 +31,8 @@ namespace DataAccess.Tests.Handlers.Services
         private LocalContext LocalContext()
         {
             var options = new DbContextOptionsBuilder<LocalContext>()
-      .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-      .Options;
+                  .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                  .Options;
 
             return new LocalContext(options);
         }
