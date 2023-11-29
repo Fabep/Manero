@@ -30,19 +30,6 @@ namespace DataAccess.Handlers.Services
             return order;
         }
 
-        //public List<OrderItem> GetOrderItemsFromOrderIdAsync(int id) // ta bort async
-        //{
-        //    var orderItems = new List<OrderItem>();
-        //    var orderItemEntityQueryableList = _orderItemRepository.GetAll(x => x.OrderId == id);
-        //    var orderItemEntityList = orderItemEntityQueryableList.ToList();
-
-        //    foreach (var itemEntity in orderItemEntityList)
-        //    {
-        //        var item = DataConverter.ConvertOrderItemEntityToOrderItem(itemEntity);
-        //        orderItems.Add(item);
-        //    }
-        //    return orderItems;
-        //}
 
         public bool VerifyOrder(OrderSchema order)
         {
