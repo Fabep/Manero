@@ -6,16 +6,19 @@ using DataAccess.Models.Schemas;
 using DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace DataAccess.Tests.Handlers.Services
 {
     public class OrderServiceTests
     {
+        
         private IOrderService _sut;
         private OrderRepository _orderRepository;
         private OrderItemRepository _orderItemRepository;
         private LocalContext _localContext;
         private readonly OrderSchema _orderSchema = new OrderSchema
-        {
+
+        { 
             CustomerId = 1,
             BillingAddressSchema = new AddressSchema
             {
@@ -41,16 +44,16 @@ namespace DataAccess.Tests.Handlers.Services
             Items = new List<ProductCartObject> { new ProductCartObject { ProductName = "T-shirt", Size = "M", Color = "blue", Quantity = 4, ImageUrl = "imageurl" } }
         };
 
-
+        
         public OrderServiceTests()
         {
             _localContext = LocalContext();
             _orderRepository = new OrderRepository(_localContext);
             _orderItemRepository = new OrderItemRepository(_localContext);
             _sut = new OrderService(_orderRepository, _orderItemRepository);
-
         }
 
+    
         private LocalContext LocalContext()
         {
             var options = new DbContextOptionsBuilder<LocalContext>()
@@ -118,7 +121,7 @@ namespace DataAccess.Tests.Handlers.Services
         public void VerifyOrder_ReturnsTrue_IfOrderIsVerified()
         {
             //Arrange
-      
+
             //Act
             var result = _sut.VerifyOrder(_orderSchema);
 
