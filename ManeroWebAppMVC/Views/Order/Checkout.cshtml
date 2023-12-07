@@ -30,6 +30,38 @@
   
 
     <div class="ch-adress-section">
+
+        <div class="ch-address-section">
+            <div class="ch-address-title"> Deliveryaddress: </div>
+            <div class="ch-address-link">
+                <div class="ch-address-field">
+                    @Model.Order.DeliveryAddressSchema!.StreetAddress
+                    @Model.Order.DeliveryAddressSchema!.Streetnumber,
+                    @Model.Order.DeliveryAddressSchema!.PostalCode
+                    @Model.Order.DeliveryAddressSchema!.City,
+                    @Model.Order.DeliveryAddressSchema!.Region,
+                    @Model.Order.DeliveryAddressSchema!.Country
+                </div>
+            </div>
+        </div>
+
+        <div class="ch-address-section">
+            <div class="ch-address-title"> Billingaddress: </div>
+            <div class="ch-address-link">
+                <div class="ch-address-field">
+                    @Model.Order.BillingAddressSchema!.StreetAddress
+                    @Model.Order.BillingAddressSchema!.Streetnumber,
+                    @Model.Order.BillingAddressSchema!.PostalCode
+                    @Model.Order.BillingAddressSchema!.City,
+                    @Model.Order.BillingAddressSchema!.Region,
+                    @Model.Order.BillingAddressSchema!.Country
+                </div>
+            </div>
+        </div>
+
+
+
+@* 
         <div class="ch-address-section">
             <div class="ch-address-title"> Deliveryaddress: </div>
             <a class="ch-address-link" asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Delivery"
@@ -42,16 +74,13 @@
                     @Model.Order.DeliveryAddressSchema!.Region,
                     @Model.Order.DeliveryAddressSchema!.Country
                 </div>
-
             </a>
         </div>
 
         <div class="ch-address-section">
             <div class="ch-address-title"> Billingaddress: </div>
-
             <a class="ch-address-link" asp-controller="Order" asp-action="ShippingDetails" asp-route-addressType="Billing"
                asp-route-cid="@Model.Order.CustomerId">
-
                 <div class="ch-address-field">
                     @Model.Order.BillingAddressSchema!.StreetAddress
                     @Model.Order.BillingAddressSchema!.Streetnumber,
@@ -62,6 +91,7 @@
                 </div>
             </a>
         </div>
+ *@
     </div>
 
     <div class="ch-payment-section">

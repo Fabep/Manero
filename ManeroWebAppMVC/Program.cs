@@ -17,6 +17,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
 builder.Services.AddDbContext<LocalContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddScoped<DataInitializer>();
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<PromotionCodeRepository>();
 builder.Services.AddScoped<ICookieService, CookieService>();
@@ -43,10 +44,35 @@ builder.Services.AddCookiePolicy(x =>
 });
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+	.AddRoles<IdentityRole>()
+	.AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+
+
+using (var scope = app.Services.CreateScope())
+{
+	scope.ServiceProvider.GetService<DataInitializer>()!.SeedData();
+}
+
+
+
+//using (var scope = app.Services.CreateScope())
+//{
+//	var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+//	// Check if the role doesn't exist, then create it
+//	var roleExists = await roleManager.RoleExistsAsync("Customer");
+//	if (!roleExists)
+//	{
+//		await roleManager.CreateAsync(new IdentityRole("Customer"));
+//	}
+
+
+//}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
