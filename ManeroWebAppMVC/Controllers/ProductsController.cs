@@ -81,6 +81,7 @@ namespace ManeroWebAppMVC.Controllers
 			try
 			{
 				Product product = await _productService.FindProduct(productName, selectedSize, selectedColor);
+                if (product == null) return RedirectToAction("Article", new { n = productName });
 
                 var cartObject = new ProductCartObject
                 {

@@ -11,16 +11,19 @@ namespace DataAccess.ExtensionMethods
         {
             try
             {
-                var product = new Product()
+                if(p != null)
                 {
-                    ProductId = p.ProductId,
-                    ProductName = p.ProductName,
-                    ProductDescription = p.ProductDescription,
-                    ProductPrice = p.ProductPrice,
-                    Rating = p.Rating ?? 0,
-                    ImageUrl = GetProductImage(p.SubCategoryId)
-                };
-                return product;
+                    var product = new Product()
+                    {
+                        ProductId = p.ProductId,
+                        ProductName = p.ProductName,
+                        ProductDescription = p.ProductDescription,
+                        ProductPrice = p.ProductPrice,
+                        Rating = p.Rating ?? 0,
+                        ImageUrl = GetProductImage(p.SubCategoryId)
+                    };
+                    return product;
+                }                
             }
             catch (Exception ex) { Debug.WriteLine(ex.Message); }
             return null!;

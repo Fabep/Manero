@@ -135,7 +135,7 @@ namespace ManeroWebAppMVC.Controllers
             {
                 foreach (var customerAddress in await _customerService.GetAllCustomerAddressesFromCustomerId((int)cid!))
                     vm.CustomerAddresses.Add(customerAddress);
-            }
+            }          
             return View(vm);
         }
 
@@ -145,6 +145,7 @@ namespace ManeroWebAppMVC.Controllers
             if (schema is not null && ModelState.IsValid)
                 return RedirectToAction("Checkout", schema); // return LocalRedirect(""); // 
             return View();
+           // return RedirectToAction("Checkout");
         }
 
         //      [HttpGet] // behöver bara post
