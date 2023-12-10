@@ -181,7 +181,7 @@ function removeItem() {
             var encodedProductsList = encodeURIComponent(JSON.stringify(productsList));
             document.cookie = "ProductsCookie=" + encodedProductsList + "; path=" + cookieOptions.Path + "; SameSite=" + cookieOptions.Samesite + "; Secure=" + cookieOptions.Secure+ "; IsEssential=" + cookieOptions.IsEssential;
 
-            saveSidebarState();
+            //saveSidebarState();
             location.reload();
         }
     }
@@ -213,7 +213,7 @@ function addToCart() {
         var encodedProductsList = encodeURIComponent(JSON.stringify(productsList));
         document.cookie = "ProductsCookie=" + encodedProductsList + "; path=" + cookieOptions.Path + "; SameSite=" + cookieOptions.Samesite + "; Secure=" + cookieOptions.Secure + "; IsEssential=" + cookieOptions.IsEssential;
 
-        saveSidebarState();
+        //saveSidebarState();
         location.reload();
     }
 }
@@ -221,24 +221,24 @@ function addToCart() {
 
 
 //Cart sidebar stays open after update
-function saveSidebarState() {
-    let sidebar = document.querySelector('.cart');
-    let isSidebarOpen = sidebar.classList.contains('open');
-    sessionStorage.setItem('isSidebarOpen', isSidebarOpen);
-}
+//function saveSidebarState() {
+//    let sidebar = document.querySelector('.cart');
+//    let isSidebarOpen = sidebar.classList.contains('open');
+//    sessionStorage.setItem('isSidebarOpen', isSidebarOpen);
+//}
 
-window.addEventListener('beforeunload', saveSidebarState);
+/*window.addEventListener('beforeunload', saveSidebarState);*/
 
-document.addEventListener('DOMContentLoaded', function () {
-    let isSidebarOpen = sessionStorage.getItem('isSidebarOpen');
-    let sidebar = document.querySelector('.cart');
+//document.addEventListener('DOMContentLoaded', function () {
+//    let isSidebarOpen = sessionStorage.getItem('isSidebarOpen');
+//    let sidebar = document.querySelector('.cart');
 
-    if (isSidebarOpen === 'true') {
-        sidebar.classList.add('open');
-    } else {
-        sidebar.classList.remove('open');
-    }
-});
+//    if (isSidebarOpen === 'true') {
+//        sidebar.classList.add('open');
+//    } else {
+//        sidebar.classList.remove('open');
+//    }
+//});
 
 //Update total value of items
 function updateTotal() {
