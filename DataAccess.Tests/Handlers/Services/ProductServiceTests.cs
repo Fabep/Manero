@@ -1,10 +1,12 @@
-﻿using DataAccess.Contexts;
+﻿using Bogus;
+using DataAccess.Contexts;
 using DataAccess.Handlers.Repositories;
 using DataAccess.Handlers.Services;
 using DataAccess.Handlers.Services.Abstractions;
 using DataAccess.Models;
 using DataAccess.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 
 namespace DataAccess.Tests.Handlers.Services
 {
@@ -14,11 +16,14 @@ namespace DataAccess.Tests.Handlers.Services
         private ProductRepository _productRepository;
         private LocalContext _localContext;
 
+        private Mock<IProductService> _productMock;
+
         public ProductServiceTests()
         {
             _localContext = LocalContext();
             _productRepository = new ProductRepository(_localContext);
             _sut = new ProductService(_productRepository);
+            _productMock = new Mock<IProductService>();
         }
 
         private LocalContext LocalContext()
@@ -212,5 +217,96 @@ namespace DataAccess.Tests.Handlers.Services
             _localContext.Dispose();
         }
 
+        [Fact]
+        public async Task GetProductColorAndSizes_ReturnsListOfColorSizeCombinations()
+        {
+            // Arrange
+            var productName = "Amazing Pants";
+            List<SizeColorCombination> list = new()
+            {
+                new SizeColorCombination
+                {
+                    Color = new Color()
+                    {
+                        ColorName = "Orange"
+                    },
+                    Size = new Size()
+                    {
+                        SizeType = Enums.SizeEnum.S
+                    }
+                },
+                new SizeColorCombination
+                {
+                    Color = new Color()
+                    {
+                        ColorName = "Orange"
+                    },
+                    Size = new Size()
+                    {
+                        SizeType = Enums.SizeEnum.M
+                    }
+                },
+                new SizeColorCombination
+                {
+                    Color = new Color()
+                    {
+                        ColorName = "Black"
+                    },
+                    Size = new Size()
+                    {
+                        SizeType = Enums.SizeEnum.S
+                    }
+                },
+                new SizeColorCombination
+                {
+                    Color = new Color()
+                    {
+                        ColorName = "Black"
+                    },
+                    Size = new Size()
+                    {
+                        SizeType = Enums.SizeEnum.L
+                    }
+                },
+            };
+            // Act
+            _productMock.Setup(s => s.GetProductColorsAndSizesAsync(productName)).ReturnsAsync(list);
+
+            var res = await _productMock.Object.GetProductColorsAndSizesAsync(productName);
+            // Assert
+            Assert.True(res.Any());
+            Assert.True(res.TrueForAll(x => x.GetType() == typeof(SizeColorCombination)));
+            Assert.True(res.TrueForAll(x => x.Color is not null && x.Size is not null));
+        }
+        [Fact]
+        public async Task FindProduct_ReturnsProduct()
+        {
+            // Arrange
+            var color = "Orange";
+            var size = "XL";
+            var productName = "Amazing Pants";
+
+            // Act
+            _productMock.Setup(s => s.FindProduct(productName, size, color)).ReturnsAsync(new Product
+            {
+                ProductId = Guid.NewGuid(),
+                ImageUrl = "link",
+                ProductDescription = "description",
+                DiscountedPrice = 100,
+                ProductName = productName,
+                ProductPrice = 100,
+                Promotion = null,
+                PromotionId = 0,
+                Quantity = 0,
+                Rating = 0,
+            });
+
+            var res = await _productMock.Object.FindProduct(productName, size, color);
+
+            // Assert
+
+            Assert.IsType<Product>(res);
+            Assert.Equal(productName, res.ProductName);
+        }
     }
 }
