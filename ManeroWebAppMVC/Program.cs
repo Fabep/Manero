@@ -5,6 +5,7 @@ using DataAccess.Handlers.Services;
 using ManeroWebAppMVC.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,12 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<OrderRepository>();
 builder.Services.AddScoped<OrderItemRepository>();
+
+builder.Services.AddTransient<IEmailService>(provider =>
+    new EmailSender(
+        builder.Configuration["SendGrid:SendGridAPIKey"]
+    )
+);
 
 
 builder.Services.AddCookiePolicy(x =>
