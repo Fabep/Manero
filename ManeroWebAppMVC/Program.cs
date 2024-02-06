@@ -33,7 +33,7 @@ builder.Services.AddScoped<OrderRepository>();
 builder.Services.AddScoped<OrderItemRepository>();
 
 builder.Services.AddTransient<IEmailService>(provider =>
-    new EmailSender(
+    new EmailService(
         builder.Configuration["SendGrid:SendGridAPIKey"]
     )
 );

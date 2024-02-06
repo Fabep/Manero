@@ -12,17 +12,16 @@ using SendGrid.Helpers.Mail;
 
 namespace DataAccess.Handlers.Services
 {
-    public class EmailSender : IEmailService
+    public class EmailService : IEmailService
     {
         private readonly string _apiKey;
         private readonly IConfiguration _config;
-        public EmailSender(string apiKey) 
+        public EmailService(string apiKey) 
         {
             _apiKey = apiKey;
         }    
         public async Task<StatusMessage> SendEmailAsync(string email, string subject, string htmlMessage)
         {
-
             var client = new SendGridClient(_apiKey);
             var from = new EmailAddress("lawe.zangena@edu.huddinge.se", "Lawe Zangena");
             var to = new EmailAddress(email, "Example User");
