@@ -5,10 +5,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using DataAccess.Handlers.Services;
+using DataAccess.Handlers.Services.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ManeroWebAppMVC.Areas.Identity.Pages.Account.Manage
 {
@@ -17,8 +20,10 @@ namespace ManeroWebAppMVC.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
+        private readonly IUserService _service;
 
         public ChangePasswordModel(
+            IUserService userService,
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<ChangePasswordModel> logger)
@@ -26,6 +31,7 @@ namespace ManeroWebAppMVC.Areas.Identity.Pages.Account.Manage
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _service = userService;
         }
 
         /// <summary>
@@ -101,19 +107,26 @@ namespace ManeroWebAppMVC.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var user = await _userManager.GetUserAsync(User);
+            var user = await _service.GetUserAsync(User.Identity.Name);
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            var changePasswordResult = await _userManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
-            if (!changePasswordResult.Succeeded)
+            //var changePasswordResult = await _userManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
+            //if (!changePasswordResult.Succeeded)
+            //{
+            //    foreach (var error in changePasswordResult.Errors)
+            //    {
+            //        ModelState.AddModelError(string.Empty, error.Description);
+            //    }
+            //    return Page();
+            //}
+            var changePasswordResult = await _service.UpdatePasswordAsync(Input.NewPassword, user.UserName);
+
+            if(changePasswordResult != DataAccess.Enums.StatusMessage.Success)
             {
-                foreach (var error in changePasswordResult.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                ModelState.AddModelError(string.Empty, "Error while updating password");
                 return Page();
             }
 
